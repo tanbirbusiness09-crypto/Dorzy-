@@ -2,5 +2,7 @@
   "name": "KHAYYAT | خيّاط - Saudi Men's Tailoring Platform",
   "description": "A premium digital marketplace connecting customers, tailoring atelier owners, and master tailors across Saudi Arabia.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
