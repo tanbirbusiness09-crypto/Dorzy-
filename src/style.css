@@ -2814,11 +2814,11 @@ main {
   gap: 24px;
   width: 100%;
   margin-top: 24px;
+  align-items: stretch;
 }
 
 .condition-card {
   position: relative;
-  height: clamp(380px, 46vh, 480px);
   border-radius: 20px;
   overflow: hidden;
   background: rgba(14, 18, 16, 0.9);
@@ -2831,6 +2831,20 @@ main {
   justify-content: space-between;
 }
 
+/* Tall Hero Card on the Left (Japanese Toyobo - Spanning 2 Rows) */
+.condition-card--hero {
+  grid-column: span 5;
+  grid-row: span 2;
+  height: 100%;
+  min-height: 640px;
+}
+
+/* Side Horizontal Banners on the Right (Korean & Chinese Editions) */
+.condition-card--side {
+  grid-column: span 7;
+  height: clamp(320px, 38vh, 390px);
+}
+
 .condition-card--span5 {
   grid-column: span 5;
 }
@@ -2840,10 +2854,29 @@ main {
 }
 
 @media (max-width: 980px) {
+  .condition-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .condition-card--hero,
+  .condition-card--side,
   .condition-card--span5,
   .condition-card--span7 {
     grid-column: span 12;
-    height: 380px;
+    grid-row: auto;
+  }
+
+  .condition-card--hero {
+    height: auto;
+    aspect-ratio: 3 / 4;
+    max-height: 600px;
+  }
+
+  .condition-card--side {
+    height: auto;
+    aspect-ratio: 16 / 9;
+    min-height: 240px;
   }
 }
 
