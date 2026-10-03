@@ -2805,7 +2805,14 @@ main {
    ============================================================ */
 .section--gallery {
   position: relative;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
   padding-bottom: 70px;
+}
+
+.section--gallery .section__head {
+  margin-bottom: 20px;
 }
 
 .condition-grid {
