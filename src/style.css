@@ -2877,8 +2877,23 @@ main {
 .condition-card__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(8, 11, 9, 0.15) 0%, rgba(8, 11, 9, 0.35) 45%, rgba(6, 9, 7, 0.95) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(6, 9, 7, 0.04) 0%,
+    rgba(6, 9, 7, 0.12) 65%,
+    rgba(6, 9, 7, 0.45) 100%
+  );
   pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.condition-card:hover .condition-card__overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(6, 9, 7, 0.0) 0%,
+    rgba(6, 9, 7, 0.08) 65%,
+    rgba(6, 9, 7, 0.35) 100%
+  );
 }
 
 .condition-card__pill-top {
@@ -2918,6 +2933,20 @@ html[dir="rtl"] .condition-card__pill-top {
   justify-content: space-between;
   gap: 14px;
   z-index: 2;
+}
+
+.condition-card__bottom--corner-only {
+  justify-content: flex-end;
+  pointer-events: none;
+  padding: 18px 20px;
+}
+
+.condition-card__bottom--corner-only .condition-card__btn {
+  pointer-events: auto;
+}
+
+html[dir="rtl"] .condition-card__bottom--corner-only {
+  justify-content: flex-start;
 }
 
 .condition-card__info {
