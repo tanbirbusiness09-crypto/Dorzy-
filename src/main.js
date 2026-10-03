@@ -174,6 +174,7 @@ const i18n = {
     "brand.sub": "Royal Jubba Atelier",
     "nav.services": "Services",
     "nav.process": "Process",
+    "nav.gallery": "Lookbook",
     "nav.atelier": "Atelier",
     "nav.book": "Book",
     "nav.desk": "Desk",
@@ -258,6 +259,21 @@ const i18n = {
     "pr.3.p": "Seven to thirteen days in the atelier, depending on cloth.",
     "pr.4.t": "We deliver",
     "pr.4.p": "Home delivery. Try on. Pay cash on delivery if it sits as promised.",
+    "gallery.eyebrow": "Signature Bespoke Editions",
+    "gallery.h2": "Crafted for the Royal Occasion",
+    "gallery.lede": "Explore our celebrated bespoke silhouettes for weddings, diplomatic summits, and ceremonial gatherings.",
+    "gallery.c1.tag": "Couture 01 • Royal Majlis",
+    "gallery.c1.t": "The Royal Occasion",
+    "gallery.c1.d": "Impeccable silhouette tailored for weddings, Eid celebrations, and royal receptions.",
+    "gallery.c2.tag": "Couture 02 • Master Cutter",
+    "gallery.c2.t": "Handcrafted Gold Thread",
+    "gallery.c2.d": "Fifteen measurement points, hand-finished plackets, and discreet collar embroidery.",
+    "gallery.c3.tag": "Couture 03 • Imperial Fabrics",
+    "gallery.c3.t": "Toyobo & Italian Wool",
+    "gallery.c3.d": "Certified Japanese cotton and Italian silk-wool bolts inspected before cut.",
+    "gallery.c4.tag": "Couture 04 • VIP Concierge",
+    "gallery.c4.t": "Doorstep Cutter & Delivery",
+    "gallery.c4.d": "Steamed, boxed, and hand-delivered directly to your villa across Riyadh and KSA.",
     "at.eyebrow": "Cloth & silhouette",
     "at.h2": "Choose the house cut.",
     "at.lede":
@@ -396,6 +412,7 @@ const i18n = {
     "brand.sub": "الدرزي — أتيليه الجبة الملكية",
     "nav.services": "الخدمات",
     "nav.process": "الخطوات",
+    "nav.gallery": "المعرض الملكي",
     "nav.atelier": "الأتيليه",
     "nav.book": "الحجز",
     "nav.desk": "المكتب",
@@ -480,6 +497,21 @@ const i18n = {
     "pr.3.p": "سبعة إلى ثلاثة عشر يوماً في الأتيليه حسب القماش.",
     "pr.4.t": "نوصل",
     "pr.4.p": "توصيل منزلي. جرّب. ادفع عند الاستلام إن جلست كما وعدنا.",
+    "gallery.eyebrow": "تشكيلة المناسبات الملكية",
+    "gallery.h2": "إبداعات الدار للمناسبات الكبرى",
+    "gallery.lede": "استكشف أرقى قصات الجبة الملكية للمجالس الكبرى، الأعراس، واللقاءات الرسمية الرفيعة.",
+    "gallery.c1.tag": "إصدار ٠١ • المجلس الملكي",
+    "gallery.c1.t": "أناقة المناسبات الكبرى",
+    "gallery.c1.d": "قصة استثنائية مصممة للأعراس، الأعياد، والاستقبالات الملكية الفاخرة.",
+    "gallery.c2.tag": "إصدار ٠٢ • خياط الدار الأول",
+    "gallery.c2.t": "تطريز الذهب اليدوي",
+    "gallery.c2.d": "خمسة عشر نقطة قياس، قبة يدوية متقنة، وخيط ذهبي ناعم عند الياقة.",
+    "gallery.c3.tag": "إصدار ٠٣ • أقمشة الأتيليه",
+    "gallery.c3.t": "أقطان تويوبو وصوف إيطالي",
+    "gallery.c3.d": "أفخر طاقات القطن الياباني ومزيج الصوف الإيطالي تُعاين قبل القص.",
+    "gallery.c4.tag": "إصدار ٠٤ • كونسيرج الباب",
+    "gallery.c4.t": "قياس وتوصيل لباب بيتك",
+    "gallery.c4.d": "مكوية ومعلبة تصل مباشرة إلى قصرك أو فيلتك في كافة مدن المملكة.",
     "at.eyebrow": "القماش والقصّة",
     "at.h2": "اختر قصّة الدار.",
     "at.lede":
@@ -1427,10 +1459,33 @@ els.form.addEventListener("submit", (e) => {
   resetWizard();
 });
 
+function initGalleryCards() {
+  const cards = document.querySelectorAll(".condition-card");
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const svc = card.dataset.service || "home";
+      const clothId = card.dataset.cloth;
+      if (clothId) {
+        state.cloth = clothId;
+        persistState();
+        renderSwatches();
+      }
+      openApptModal();
+      const radio = document.querySelector(`.appt-card input[value="${svc}"]`);
+      if (radio) {
+        radio.checked = true;
+        updateApptServiceCards();
+      }
+      updateApptSummary();
+    });
+  });
+}
+
 initKineticGrid(document.getElementById("bg"));
 initStudio();
 initSaasTicker();
 initApptModal();
+initGalleryCards();
 applyTheme();
 applyLang();
 bindTilt(document.querySelectorAll("[data-tilt]"));
