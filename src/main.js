@@ -278,6 +278,15 @@ const i18n = {
     "at.h2": "Choose the house cut.",
     "at.lede":
       "Four house cuts, one silhouette. Pick a cloth and the live quote updates instantly.",
+    "at.tab.all": "All Fabrics",
+    "at.tab.jp": "Japanese",
+    "at.tab.kr": "Korean",
+    "at.tab.cn": "Chinese",
+    "at.tab.th": "Thai",
+    "at.select": "Select Cloth",
+    "at.bookCutter": "Book Free Visit",
+    "at.save": "SAVE",
+    "at.bespokeCut": "Bespoke Cut",
     "at.list": "Choose another cloth",
     "at.lead": "Lead time",
     "at.price": "Price",
@@ -570,6 +579,15 @@ const i18n = {
     "at.h2": "اختر قصّة الدار.",
     "at.lede":
       "أربعة أقمشة للبيت وقصّة واحدة. اختر القماش ويتحدث السعر المباشر فوراً.",
+    "at.tab.all": "جميع الأقمشة",
+    "at.tab.jp": "ياباني",
+    "at.tab.kr": "كوري",
+    "at.tab.cn": "صيني",
+    "at.tab.th": "تايلاندي",
+    "at.select": "اختيار القماش",
+    "at.bookCutter": "حجز زيارة الخياط",
+    "at.save": "وفر",
+    "at.bespokeCut": "تفصيل خاص",
     "at.list": "اختر قماشاً آخر",
     "at.lead": "مدة التنفيذ",
     "at.price": "السعر",
@@ -768,6 +786,7 @@ const els = {
   dateInput: document.getElementById("date"),
   city: document.getElementById("city"),
   atelierGrid: document.getElementById("atelierGrid"),
+  atelierFilterBar: document.getElementById("atelierFilterBar"),
   qtyVal: document.getElementById("qtyVal"),
   qtyMinus: document.getElementById("qtyMinus"),
   qtyPlus: document.getElementById("qtyPlus"),
@@ -1059,59 +1078,99 @@ function renderCloths() {
   }
 
   if (els.atelierGrid) {
-    const rows = CLOTHS.map((c) => {
-      const on = c.id === state.cloth ? " is-on" : "";
-      const current = c.id === state.cloth ? ' aria-current="true"' : "";
+    const filteredCloths = atelierFilter === "all"
+      ? CLOTHS
+      : CLOTHS.filter((c) => c.brand === atelierFilter);
+
+    const cardsHtml = filteredCloths.map((c) => {
+      const on = c.id === state.cloth;
       const brand = FABRIC_BRANDS.find((b) => b.id === c.brand);
       const flag = brand ? brand.flag : "";
-      return `<button class="cloth-row${on}" data-cloth="${c.id}" type="button"${current}>
-        <span class="cloth-row__swatch ${c.colorClass}">
-          <img class="cloth-row__img" src="${c.img}" alt="${clothName(c.id)}" loading="lazy" />
-        </span>
-        <span class="cloth-row__meta">
-          <strong>${flag} ${clothName(c.id)}</strong>
-          <small>${lang === "ar" ? c.weaveAr : c.weaveEn} • ${c.weight}</small>
-        </span>
-        <span class="cloth-row__price">${money(c.price)}</span>
-        <span class="cloth-row__check"></span>
-      </button>`;
+      const unitPrice = getDiscountedPrice(c);
+      const hasDiscount = Boolean(c.discount);
+      const saveAmount = hasDiscount ? c.price - unitPrice : 0;
+      const daysText = `${c.days[0]}–${c.days[1]} ${lang === "ar" ? "أيام" : "days"}`;
+
+      return `
+        <article class="atelier-card${on ? " is-selected" : ""}" data-cloth="${c.id}" data-brand="${c.brand}">
+          <!-- Top Badges Row -->
+          <div class="atelier-card__badge-row">
+            ${hasDiscount ? `
+              <span class="atelier-badge atelier-badge--discount">
+                <i class="fa-solid fa-bolt" aria-hidden="true"></i> ${c.discount}% OFF
+              </span>
+            ` : `
+              <span class="atelier-badge atelier-badge--brand">
+                ${flag} ${brand ? (lang === "ar" ? brand.millAr : brand.millEn) : ""}
+              </span>
+            `}
+            ${on ? `
+              <span class="atelier-badge atelier-badge--active">
+                <i class="fa-solid fa-check" aria-hidden="true"></i> ${t("at.selected")}
+              </span>
+            ` : `
+              <span class="atelier-badge atelier-badge--spec">${c.weight}</span>
+            `}
+          </div>
+
+          <!-- Product Image Media -->
+          <div class="atelier-card__media ${c.colorClass}">
+            <img class="atelier-card__img" src="${c.img}" alt="${clothName(c.id)}" loading="lazy" />
+            <div class="atelier-card__sheen" aria-hidden="true"></div>
+            <div class="atelier-card__overlay">
+              <span class="atelier-card__view-btn">
+                <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                <span>${lang === "ar" ? "معاينة القماش" : "Inspect Weave"}</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Product Body -->
+          <div class="atelier-card__body">
+            <div class="atelier-card__meta-top">
+              <span class="atelier-card__origin">${flag} ${lang === "ar" ? (brand ? brand.nameAr : "") : (brand ? brand.nameEn : "")}</span>
+              <span class="atelier-card__lead"><i class="fa-regular fa-clock" aria-hidden="true"></i> ${daysText}</span>
+            </div>
+
+            <h3 class="atelier-card__title">${clothName(c.id)}</h3>
+            <p class="atelier-card__weave">${lang === "ar" ? c.weaveAr : c.weaveEn} • ${c.weight}</p>
+
+            <!-- Pricing Deck -->
+            <div class="atelier-card__price-deck">
+              ${hasDiscount ? `
+                <div class="atelier-card__price-wrap">
+                  <strong class="atelier-card__price-curr">${money(unitPrice)}</strong>
+                  <span class="atelier-card__price-old">${money(c.price)}</span>
+                </div>
+                <span class="atelier-card__save-tag">${t("at.save")} ${money(saveAmount)}</span>
+              ` : `
+                <div class="atelier-card__price-wrap">
+                  <strong class="atelier-card__price-curr">${money(c.price)}</strong>
+                </div>
+                <span class="atelier-card__cut-tag">${t("at.bespokeCut")}</span>
+              `}
+            </div>
+
+            <!-- E-Commerce Action Buttons -->
+            <div class="atelier-card__actions">
+              <button type="button" class="btn btn--block ${on ? "btn--gold is-on" : "btn--outline-gold"}" data-action="select" data-cloth="${c.id}">
+                <span class="btn__shine"></span>
+                <span>${on ? (lang === "ar" ? "✓ تم الاختيار" : "✓ Selected") : t("at.select")}</span>
+              </button>
+              <button type="button" class="atelier-card__book-btn" data-action="book" data-cloth="${c.id}" title="${t("at.bookCutter")}" aria-label="${t("at.bookCutter")}">
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      `;
     }).join("");
 
-    let activeIndex = CLOTHS.findIndex((c) => c.id === state.cloth);
-    if (activeIndex < 0) activeIndex = 0;
-    const active = CLOTHS[activeIndex];
-    const q = quoteOf();
-    const days = lang === "ar" ? `${q.days} أيام` : `${q.days} days`;
-
-    const preview = `
-      <div class="cloth-preview">
-        <div class="cloth-preview__plate ${active.colorClass}">
-          <img class="cloth-preview__img" src="${active.img}" alt="${clothName(active.id)}" />
-          <span class="cloth-preview__index">${String(activeIndex + 1).padStart(2, "0")}</span>
-          <span class="cloth-preview__badge">${t("at.selected")}</span>
-          <span class="cloth-preview__sheen"></span>
-        </div>
-        <div class="cloth-preview__body">
-          <h3>${clothName(active.id)}</h3>
-          <p class="cloth-preview__sub">${lang === "ar" ? active.weaveAr : active.weaveEn} • ${active.weight}</p>
-          <div class="cloth-preview__specs">
-            <span><em>${t("at.lead")}</em><strong>${days}</strong></span>
-            <span><em>${t("at.price")}</em><strong>${money(active.price)}</strong></span>
-          </div>
-          <a class="btn btn--gold btn--lg btn--block" href="#book">
-            <span class="btn__shine"></span>
-            <span>${t("saas.book")}</span>
-          </a>
-        </div>
-      </div>`;
-
-    els.atelierGrid.innerHTML = `${preview}
-      <div class="atelier__list">
-        <p class="atelier__list-label">${t("at.list")}</p>
-        ${rows}
-      </div>`;
+    els.atelierGrid.innerHTML = cardsHtml;
   }
 }
+
+let atelierFilter = "all";
 
 function setBrand(id) {
   state.brand = id;
@@ -1376,9 +1435,43 @@ els.drawer.querySelectorAll("a").forEach((a) =>
 );
 
 els.atelierGrid.addEventListener("click", (e) => {
-  const btn = e.target.closest("[data-cloth]");
-  if (btn) setCloth(btn.dataset.cloth);
+  const bookBtn = e.target.closest('[data-action="book"]');
+  const selectBtn = e.target.closest('[data-action="select"]');
+  const card = e.target.closest(".atelier-card");
+
+  if (bookBtn) {
+    e.stopPropagation();
+    const clothId = bookBtn.dataset.cloth;
+    if (clothId) setCloth(clothId);
+    openApptModal();
+    return;
+  }
+
+  if (selectBtn) {
+    e.stopPropagation();
+    const clothId = selectBtn.dataset.cloth;
+    if (clothId) setCloth(clothId);
+    return;
+  }
+
+  if (card && card.dataset.cloth) {
+    setCloth(card.dataset.cloth);
+  }
 });
+
+if (els.atelierFilterBar) {
+  els.atelierFilterBar.addEventListener("click", (e) => {
+    const tab = e.target.closest(".atelier-tab");
+    if (!tab) return;
+    atelierFilter = tab.dataset.filter || "all";
+    els.atelierFilterBar.querySelectorAll(".atelier-tab").forEach((t) => {
+      const active = t === tab;
+      t.classList.toggle("is-active", active);
+      t.setAttribute("aria-selected", active ? "true" : "false");
+    });
+    renderCloths();
+  });
+}
 
 els.city.addEventListener("change", () => setCity(els.city.value));
 els.qtyMinus.addEventListener("click", () => setQty(state.qty - 1));

@@ -712,7 +712,8 @@
         </div>
       </section>
 
-      <section class="section" id="atelier">
+      <!-- 🧵 ATELIER / E-COMMERCE BESPOKE FABRIC CATALOG -->
+      <section class="section section--atelier" id="atelier">
         <header class="section__head">
           <p class="eyebrow">
             <span class="eyebrow__dot"></span>
@@ -723,7 +724,37 @@
             Four house cuts, one silhouette. Pick a cloth and the live quote updates instantly.
           </p>
         </header>
-        <div class="atelier" id="atelierGrid"></div>
+
+        <!-- Category Filter Tabs -->
+        <div class="atelier-filter-bar" id="atelierFilterBar" role="tablist" aria-label="Filter fabrics by origin">
+          <button type="button" class="atelier-tab is-active" data-filter="all" role="tab" aria-selected="true">
+            <span class="atelier-tab__icon">✦</span>
+            <span data-i18n="at.tab.all">All Fabrics</span>
+            <span class="atelier-tab__count">8</span>
+          </button>
+          <button type="button" class="atelier-tab" data-filter="jp" role="tab" aria-selected="false">
+            <span class="atelier-tab__flag">🇯🇵</span>
+            <span data-i18n="at.tab.jp">Japanese</span>
+            <span class="atelier-tab__count">2</span>
+          </button>
+          <button type="button" class="atelier-tab" data-filter="kr" role="tab" aria-selected="false">
+            <span class="atelier-tab__flag">🇰🇷</span>
+            <span data-i18n="at.tab.kr">Korean</span>
+            <span class="atelier-tab__count">2</span>
+          </button>
+          <button type="button" class="atelier-tab" data-filter="cn" role="tab" aria-selected="false">
+            <span class="atelier-tab__flag">🇨🇳</span>
+            <span data-i18n="at.tab.cn">Chinese</span>
+            <span class="atelier-tab__count">2</span>
+          </button>
+          <button type="button" class="atelier-tab" data-filter="th" role="tab" aria-selected="false">
+            <span class="atelier-tab__flag">🇹🇭</span>
+            <span data-i18n="at.tab.th">Thai</span>
+            <span class="atelier-tab__count">2</span>
+          </button>
+        </div>
+
+        <div class="atelier-products-grid" id="atelierGrid" role="region" aria-label="Bespoke Fabric Catalog"></div>
       </section>
 
       <section class="section section--book" id="book">
