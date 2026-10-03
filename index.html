@@ -1,21 +1,1222 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KHAYYAT | خيّاط - Saudi Men's Tailoring Platform</title>
-    <meta name="description" content="A premium digital marketplace connecting customers, tailoring atelier owners, and master tailors across Saudi Arabia." />
-    <meta property="og:title" content="KHAYYAT | خيّاط - Saudi Men's Tailoring Platform" />
-    <meta property="og:description" content="A premium digital marketplace connecting customers, tailoring atelier owners, and master tailors across Saudi Arabia." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  </head>
-  <body class="bg-[#FAF9F6] text-[#121316] antialiased selection:bg-[#C5A880]/20 selection:text-[#121316]">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AL-DORZY — Royal Jubba Atelier | Saudi Arabia</title>
+  <meta name="description"
+    content="Premium Jubba booking in Saudi Arabia. Home measurement, home delivery, cash on delivery, WhatsApp booking." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer" />
+  <script>
+    document.documentElement.dataset.theme =
+      localStorage.getItem("qasr-theme") === "light" ? "light" : "dark";
+  </script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/jubba/Image/qasr-royal-logo.png" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+
+<body>
+  <div class="world" id="world">
+    <div class="bg" id="bg" aria-hidden="true">
+      <div class="bg__vignette"></div>
+      <div class="bg__grain"></div>
+    </div>
+
+    <header class="nav">
+      <a class="nav__brand" href="#top" aria-label="AL-DORZY Royal Jubba Atelier">
+        <img class="nav__logo-img" src="/jubba/Image/qasr-royal-logo.png" alt="AL-DORZY Royal Jubba Atelier Logo"
+          width="26" height="58" />
+        <span class="nav__word">
+          <strong>AL-DORZY</strong>
+          <small data-i18n="brand.sub">Royal Jubba Atelier</small>
+        </span>
+      </a>
+      <nav class="nav__links">
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#atelier" data-i18n="nav.atelier">Atelier</a>
+        <a href="#book" data-i18n="nav.book">Book</a>
+        <a href="#desk" data-i18n="nav.desk">Desk</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="theme" id="themeToggle" type="button" aria-label="Toggle theme" data-i18n-aria="nav.theme"
+          aria-pressed="false">
+          <svg class="theme__icon theme__sun" viewBox="0 0 24 24" width="18" height="18" fill="none"
+            stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path
+              d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4">
+            </path>
+          </svg>
+          <svg class="theme__icon theme__moon" viewBox="0 0 24 24" width="18" height="18" fill="none"
+            stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+          </svg>
+        </button>
+        <button class="lang" id="langToggle" type="button" aria-label="Language">
+          <span id="langLabel">AR</span>
+        </button>
+        <button class="btn btn--ghost" id="navBookVisit" type="button" data-i18n="nav.appoint">Book Visit</button>
+        <a class="btn btn--gold" id="navWa" href="#" target="_blank" rel="noopener">
+          <span class="btn__shine"></span>
+          <span data-i18n="nav.wa">WhatsApp</span>
+        </a>
+      </div>
+      <button class="nav__burger" id="burger" type="button" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <div class="drawer" id="drawer">
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#atelier" data-i18n="nav.atelier">Atelier</a>
+      <a href="#book" data-i18n="nav.book">Book</a>
+      <a href="#desk" data-i18n="nav.desk">Desk</a>
+      <button class="btn btn--gold drawer__book-btn" id="drawerBookVisit" type="button" data-i18n="nav.appoint">Book Visit</button>
+    </div>
+
+    <div class="saas-bar" id="saasBar">
+      <div class="saas-ticker" id="saasTicker" aria-live="polite">
+        <!-- Slide 1: Free Delivery Animation -->
+        <div class="saas-slide is-active" data-slide="delivery">
+          <span class="saas-badge saas-badge--delivery">
+            <svg class="saas-icon saas-icon--van" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+              <path d="M15 18H9" />
+              <path d="M19 18h2a1 1 0 0 0 1-1v-5.5a1.5 1.5 0 0 0-.44-1.06L18.5 7.38A1.5 1.5 0 0 0 17.44 7H14v11" />
+              <circle cx="7" cy="18" r="2" />
+              <circle cx="17" cy="18" r="2" />
+            </svg>
+            <span data-i18n="saas.deliveryBadge">Free Delivery</span>
+          </span>
+          <span class="saas-text" data-i18n="saas.deliveryText">Complimentary VIP Doorstep Delivery Across Saudi
+            Arabia</span>
+        </div>
+
+        <!-- Slide 2: Flash Sale & Live Countdown -->
+        <div class="saas-slide" data-slide="flash">
+          <span class="saas-badge saas-badge--flash">
+            <svg class="saas-icon saas-icon--bolt" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M13 2L3 14h8l-2 8 10-12h-8l2-8z" />
+            </svg>
+            <span data-i18n="saas.flashBadge">Flash Privilege</span>
+          </span>
+          <span class="saas-text">
+            <span data-i18n="saas.flashText">Limited Atelier Slots Today • Offer Ends in</span>
+            <strong class="saas-timer" id="saasTimer">03:45:18</strong>
+          </span>
+        </div>
+
+        <!-- Slide 3: Live Custom Quote -->
+        <div class="saas-slide" data-slide="quote">
+          <span class="saas-badge saas-badge--live">
+            <span class="saas-bar__pulse" aria-hidden="true"></span>
+            <span data-i18n="saas.live">Live quote</span>
+          </span>
+          <span class="saas-quote-info">
+            <strong id="barCloth">Toyobo Imperial Ivory</strong>
+            <span class="saas-bar__dot"></span>
+            <strong id="barCity">Riyadh</strong>
+            <span class="saas-bar__dot"></span>
+            <strong id="barQty">×1</strong>
+          </span>
+        </div>
+      </div>
+
+      <!-- Persistent Right CTA Deck -->
+      <div class="saas-bar__deck">
+        <em id="barTotal">SAR 1,290</em>
+        <a class="btn btn--gold btn--xs" href="#book" data-i18n="saas.book">Lock order</a>
+      </div>
+    </div>
+
+    <main id="top">
+      <section class="hero" id="hero">
+        <div class="hero__side">
+          <div class="studio__head" hidden aria-hidden="true">
+            <span class="studio__style" id="studioStyle" hidden>Saudi</span>
+          </div>
+
+          <div class="stylepanel" id="stylePanel">
+            <span class="stylepanel__title" data-i18n="studio.select">Select style</span>
+            <div class="studio__strip" id="styleStrip">
+              <button type="button" class="style-chip is-on" data-style="Saudi">
+                <span class="style-chip__thumb"><img src="/jubba/Image/saudi.png" alt="Saudi"></span>
+                <span class="style-chip__foot"><b>Saudi</b></span>
+              </button>
+              <button type="button" class="style-chip" data-style="Kowaity">
+                <span class="style-chip__thumb"><img src="/jubba/Image/kowaity.png" alt="Kowaity"></span>
+                <span class="style-chip__foot"><b>Kowaity</b></span>
+              </button>
+              <button type="button" class="style-chip" data-style="Qutari">
+                <span class="style-chip__thumb"><img src="/jubba/Image/qutari.png" alt="Qutari"></span>
+                <span class="style-chip__foot"><b>Qutari</b></span>
+              </button>
+              <button type="button" class="style-chip" data-style="Emaraty">
+                <span class="style-chip__thumb"><img src="/jubba/Image/emaraty.png" alt="Emaraty"></span>
+                <span class="style-chip__foot"><b>Emaraty</b></span>
+              </button>
+              <button type="button" class="style-chip" data-style="Noom">
+                <span class="style-chip__thumb"><img src="/jubba/Image/noom.png" alt="Noom"></span>
+                <span class="style-chip__foot"><b>Noom</b></span>
+              </button>
+              <button type="button" class="style-chip" data-style="Saideria">
+                <span class="style-chip__thumb"><img src="/jubba/Image/saideria.png" alt="Saideria"></span>
+                <span class="style-chip__foot"><b>Saideria</b></span>
+              </button>
+              <button type="button" class="style-chip" data-style="Dagla">
+                <span class="style-chip__thumb"><img src="/jubba/Image/dagla.png" alt="Dagla"></span>
+                <span class="style-chip__foot"><b>Dagla</b></span>
+              </button>
+              <button type="button" class="style-chip" data-style="Code">
+                <span class="style-chip__thumb"><img src="/jubba/Image/code.png" alt="Code"></span>
+                <span class="style-chip__foot"><b>Code</b></span>
+              </button>
+            </div>
+          </div>
+
+          <section class="studio" id="studio" aria-label="Jubba studio" data-i18n-aria="studio.aria">
+            <div class="studio__rail" id="catRail">
+              <button type="button" class="cat-tile" data-folder="Colar" aria-haspopup="dialog" aria-expanded="false">
+                <span class="cat-tile__thumb"><img src="/jubba/Colar/Gallab/s_n2.png" alt=""></span>
+                <span class="cat-tile__name" data-i18n="cat.Colar">Collar</span>
+                <span class="cat-tile__count" hidden>1</span>
+              </button>
+              <button type="button" class="cat-tile" data-folder="POCKET" aria-haspopup="dialog" aria-expanded="false">
+                <span class="cat-tile__thumb"><img src="/jubba/POCKET/s_2.png" alt=""></span>
+                <span class="cat-tile__name" data-i18n="cat.POCKET">Pocket</span>
+                <span class="cat-tile__count" hidden>1</span>
+              </button>
+              <button type="button" class="cat-tile" data-folder="YAT" aria-haspopup="dialog" aria-expanded="false">
+                <span class="cat-tile__thumb"><img src="/jubba/YAT/s_10.png" alt=""></span>
+                <span class="cat-tile__name" data-i18n="cat.YAT">Sleeve</span>
+                <span class="cat-tile__count" hidden>1</span>
+              </button>
+              <button type="button" class="cat-tile" data-folder="ZIPER" aria-haspopup="dialog" aria-expanded="false">
+                <span class="cat-tile__thumb"><img src="/jubba/ZIPER/s_1.png" alt=""></span>
+                <span class="cat-tile__name" data-i18n="cat.ZIPER">Zipper</span>
+                <span class="cat-tile__count" hidden>1</span>
+              </button>
+            </div>
+
+            <div class="studio__stage" id="studioStage">
+              <span class="studio__ghost" id="studioGhost" aria-hidden="true">Saudi</span>
+              <div class="studio__garment" id="garmentBox">
+                <img id="garmentImg" src="/jubba/Image/saudi.png" alt="Selected jubba style">
+              </div>
+            </div>
+
+            <div class="picker" id="picker" hidden>
+              <div class="picker__scrim" data-picker-close></div>
+              <div class="picker__panel" role="dialog" aria-modal="true" aria-labelledby="pickerTitle">
+                <div class="picker__head">
+                  <span id="pickerTitle"></span>
+                  <button type="button" data-picker-close data-i18n-aria="studio.close"
+                    aria-label="Close">&times;</button>
+                </div>
+                <div class="picker__body" id="pickerBody"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="hero__quick" id="quick">
+          <div class="quick">
+            <!-- 1. Origin Filter Tabs -->
+            <div class="quick__origin">
+              <div class="brand-tabs" id="brandTabs"></div>
+            </div>
+
+            <!-- 2. E-Commerce Product Cards Grid (4 cols x 2 rows) -->
+            <div class="quick__tags">
+              <div class="quick__row swatch-grid swatch-grid--ecom" id="quickTags"></div>
+            </div>
+
+            <!-- 3. Full-Width Atelier Banner Strip -->
+            <div class="quick__banner">
+              <div class="quick__banner-left">
+                <span class="quick__banner-pill">ROYAL ATELIER</span>
+                <span class="quick__banner-note">Steamed, boxed and hand-delivered at your doorstep. Core cities
+                  included.</span>
+              </div>
+              <div class="quick__banner-right">
+                <span class="quick__banner-due" data-i18n="cfg.due">Due on delivery</span>
+                <em class="quick__banner-total" id="qkBannerTotal">SAR 850</em>
+              </div>
+            </div>
+
+            <!-- 4. Bottom Form and Action Deck -->
+            <div class="quick__bottom">
+              <form class="quick__form" id="quickForm" novalidate>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="qkName" data-i18n="f.name">Full name</label>
+                    <input id="qkName" name="name" type="text" required autocomplete="name"
+                      aria-describedby="err-qk-name" />
+                    <small class="field__err" id="err-qk-name" data-i18n="f.err.req">This field is required.</small>
+                  </div>
+                  <div class="field">
+                    <label for="qkPhone" data-i18n="f.phone">Mobile (KSA)</label>
+                    <input id="qkPhone" name="phone" type="tel" required placeholder="05xxxxxxxx" autocomplete="tel"
+                      inputmode="tel" aria-describedby="err-qk-phone" />
+                    <small class="field__err" id="err-qk-phone" data-i18n="f.err.phone">Enter a valid KSA mobile —
+                      05xxxxxxxx.</small>
+                  </div>
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="qkCity" data-i18n="f.city">City</label>
+                    <select id="qkCity" name="city" required aria-describedby="err-qk-city"></select>
+                    <small class="field__err" id="err-qk-city" data-i18n="f.err.req">This field is required.</small>
+                  </div>
+                  <div class="field">
+                    <label for="qkAddress" data-i18n="f.addr">District / address</label>
+                    <input id="qkAddress" name="address" type="text" required aria-describedby="err-qk-addr" />
+                    <small class="field__err" id="err-qk-addr" data-i18n="f.err.req">This field is required.</small>
+                  </div>
+                </div>
+              </form>
+
+              <aside class="quick__cta-deck" aria-label="Price summary" data-i18n-aria="qk.sumAria">
+                <div class="quick__cta-meta">
+                  <div class="qty qty--mini">
+                    <button type="button" id="qkQtyMinus" aria-label="Decrease">−</button>
+                    <strong id="qkQtyVal">1</strong>
+                    <button type="button" id="qkQtyPlus" aria-label="Increase">+</button>
+                  </div>
+                  <div class="quick__cta-calc">
+                    <span id="qkClothLine">Cloth × 1</span>
+                    <strong id="qkTotalVal">SAR 850</strong>
+                  </div>
+                </div>
+                <button class="btn btn--gold btn--lg btn--block" type="submit" form="quickForm">
+                  <span class="btn__shine"></span>
+                  <span data-i18n="qk.cta">Book via WhatsApp</span>
+                </button>
+                <p class="qsum__fine" data-i18n="qk.fine">No card required — pay when it arrives.</p>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Royal Promotional Banner Slider Section -->
+      <section class="promo-slider" id="promoSlider" aria-label="Royal Privileges and Delivery Offers">
+        <div class="promo-slider__container">
+          <!-- Slider Track -->
+          <div class="promo-slider__track" id="promoTrack">
+
+            <!-- Slide 1: Royal Doorstep Delivery & Free Cutter Visit -->
+            <article class="promo-slide is-active" data-index="0" aria-label="Slide 1 of 3">
+              <div class="promo-ribbon">
+                <span class="promo-ribbon__icon"><i class="fa-solid fa-crown" aria-hidden="true"></i></span>
+                <span class="promo-ribbon__text" data-i18n="banner.ribbon1">AL-DORZY CONCIERGE • 100% FREE HOME
+                  MEASUREMENT & DOORSTEP DELIVERY ACROSS KSA</span>
+                <a class="promo-ribbon__link" href="#quickForm">
+                  <span data-i18n="banner.ribbon.cta1">BOOK NOW</span>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div class="promo-card promo-card--delivery">
+                <div class="promo-card__content">
+                  <div class="promo-pill promo-pill--gold">
+                    <span class="promo-pill__sparkle">✦</span>
+                    <span data-i18n="banner.b1.badge">COMPLIMENTARY VIP SERVICE</span>
+                  </div>
+                  <h2 class="promo-card__title" data-i18n="banner.b1.title">Free Doorstep Delivery & Home Measurement
+                  </h2>
+                  <p class="promo-card__sub" data-i18n="banner.b1.sub">No minimum order • Senior cutter visits your home
+                    with luxury fabric rolls.</p>
+
+                  <div class="promo-highlights">
+                    <span class="promo-tag promo-tag--green">
+                      <i class="fa-solid fa-truck-fast" aria-hidden="true"></i>
+                      <span data-i18n="banner.b1.tag">0 SAR Delivery Fee • 100% Cash on Delivery</span>
+                    </span>
+                    <span class="promo-tag promo-tag--gold">
+                      <i class="fa-solid fa-tape" aria-hidden="true"></i>
+                      <span>Free Home Visit Included</span>
+                    </span>
+                  </div>
+
+                  <div class="promo-card__actions">
+                    <a class="btn btn--gold btn--md promo-btn" href="#quickForm">
+                      <span class="btn__shine"></span>
+                      <span data-i18n="banner.b1.cta">Book Cutter Visit</span>
+                      <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <span class="promo-card__guarantee">
+                      <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                      <span>No card needed • Pay at your door</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="promo-card__media">
+                  <div class="promo-media__img-wrap">
+                    <img src="/jubba/Image/banner-delivery-van.jpg" alt="AL-DORZY Luxury Doorstep Delivery Van"
+                      class="promo-media__img promo-media__img--van" loading="lazy" />
+                    <div class="promo-media__glow"></div>
+                  </div>
+                  <div class="promo-split-panel">
+                    <div class="promo-split__head">
+                      <span class="promo-split__dot"></span>
+                      <strong data-i18n="banner.b1.feat1">Fast 48h Cutter Dispatch</strong>
+                    </div>
+                    <div class="promo-split__tags">
+                      <span class="promo-chip">Riyadh</span>
+                      <span class="promo-chip">Jeddah</span>
+                      <span class="promo-chip">Dammam</span>
+                      <span class="promo-chip">Khobar</span>
+                      <span class="promo-chip">Makkah</span>
+                      <span class="promo-chip">All KSA</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 2: Royal Atelier Privilege & Promo Code -->
+            <article class="promo-slide" data-index="1" aria-label="Slide 2 of 3">
+              <div class="promo-ribbon">
+                <span class="promo-ribbon__icon"><i class="fa-solid fa-gem" aria-hidden="true"></i></span>
+                <span class="promo-ribbon__text" data-i18n="banner.ribbon2">EXCLUSIVE ATELIER PRIVILEGE • 15% OFF ON 2+
+                  BESPOKE JUBBAS • LIMITED SLOTS TODAY</span>
+                <a class="promo-ribbon__link" href="#quickForm">
+                  <span data-i18n="banner.ribbon.cta2">CLAIM NOW</span>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div class="promo-card promo-card--privilege">
+                <div class="promo-card__content">
+                  <div class="promo-pill promo-pill--gold">
+                    <span class="promo-pill__sparkle">✦</span>
+                    <span data-i18n="banner.b2.badge">PRIVILEGE PRIVÉ</span>
+                  </div>
+                  <h2 class="promo-card__title" data-i18n="banner.b2.title">15% Royal Privilege On Bespoke Orders</h2>
+                  <p class="promo-card__sub" data-i18n="banner.b2.sub">Toyobo Japanese Cotton & Italian Silk Wool Blends
+                    • Code: ROYAL15</p>
+
+                  <div class="promo-coupon-bar">
+                    <div class="promo-coupon-box">
+                      <div class="promo-coupon__label">COUPON CODE</div>
+                      <strong class="promo-coupon__code" id="promoCodeDisplay">ROYAL15</strong>
+                    </div>
+                    <button type="button" class="btn btn--gold-outline promo-copy-btn" id="promoCopyBtn"
+                      data-code="ROYAL15" aria-label="Copy coupon code ROYAL15">
+                      <i class="fa-solid fa-copy" id="promoCopyIcon" aria-hidden="true"></i>
+                      <span id="promoCopyText" data-i18n="banner.b2.copy">Copy Code</span>
+                    </button>
+                    <span class="promo-coupon__hint">15% Off 2+ Jubbas</span>
+                  </div>
+
+                  <div class="promo-card__actions">
+                    <a class="btn btn--gold btn--md promo-btn" href="#atelier">
+                      <span class="btn__shine"></span>
+                      <span data-i18n="banner.b2.cta">Claim Privilege Code</span>
+                      <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <span class="promo-card__guarantee">
+                      <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                      <span>Instant checkout discount applied</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="promo-card__media">
+                  <div class="promo-media__img-wrap">
+                    <img src="/jubba/Image/banner-privilege-card.jpg" alt="AL-DORZY Atelier Privilege Certificate"
+                      class="promo-media__img promo-media__img--privilege" loading="lazy" />
+                    <div class="promo-media__glow"></div>
+                  </div>
+                  <div class="promo-split-panel">
+                    <div class="promo-split__head">
+                      <span class="promo-split__dot"></span>
+                      <strong data-i18n="banner.b2.feat1">Bespoke House Perks</strong>
+                    </div>
+                    <div class="promo-split__tags">
+                      <span class="promo-chip">15-Point Fitting</span>
+                      <span class="promo-chip">Toyobo 80s</span>
+                      <span class="promo-chip">Gold Collar Thread</span>
+                      <span class="promo-chip">Cash on Delivery</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 3: Dress for Royal Occasions (Majlis & Eid Collection) -->
+            <article class="promo-slide" data-index="2" aria-label="Slide 3 of 3">
+              <div class="promo-ribbon">
+                <span class="promo-ribbon__icon"><i class="fa-solid fa-award" aria-hidden="true"></i></span>
+                <span class="promo-ribbon__text" data-i18n="banner.ribbon3">HAUTE COUTURE JUBBA COLLECTION • TAILORED
+                  FOR MAJLIS, WEDDINGS & ROYAL OCCASIONS</span>
+                <a class="promo-ribbon__link" href="#atelier">
+                  <span data-i18n="banner.ribbon.cta3">EXPLORE</span>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div class="promo-card promo-card--occasion">
+                <div class="promo-card__content">
+                  <div class="promo-pill promo-pill--gold">
+                    <span class="promo-pill__sparkle">✦</span>
+                    <span data-i18n="banner.b3.badge">ROYAL OCCASIONS</span>
+                  </div>
+                  <h2 class="promo-card__title" data-i18n="banner.b3.title">Dress for the Royal Occasion</h2>
+                  <p class="promo-card__sub" data-i18n="banner.b3.sub">Impeccable House Cut Silhouette • Handcrafted
+                    Gold Thread Details</p>
+
+                  <div class="promo-highlights">
+                    <span class="promo-tag promo-tag--gold">
+                      <i class="fa-solid fa-vest" aria-hidden="true"></i>
+                      <span data-i18n="banner.b3.tag">Try on first, pay courier only if it sits as promised</span>
+                    </span>
+                  </div>
+
+                  <div class="promo-card__actions">
+                    <a class="btn btn--gold btn--md promo-btn" href="#atelier">
+                      <span class="btn__shine"></span>
+                      <span data-i18n="banner.b3.cta">Explore House Cuts</span>
+                      <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <span class="promo-card__guarantee">
+                      <i class="fa-solid fa-box-open" aria-hidden="true"></i>
+                      <span>Steamed & boxed luxury delivery</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="promo-card__media">
+                  <div class="promo-media__img-wrap">
+                    <img src="/jubba/Image/banner-royal-model.jpg" alt="Saudi Royal Bespoke Jubba Model"
+                      class="promo-media__img promo-media__img--model" loading="lazy" />
+                    <div class="promo-media__glow"></div>
+                  </div>
+                  <div class="promo-split-panel">
+                    <div class="promo-split__head">
+                      <span class="promo-split__dot"></span>
+                      <strong data-i18n="banner.b3.feat1">Signature Fabrics</strong>
+                    </div>
+                    <div class="promo-split__tags">
+                      <a href="#atelier" class="promo-chip promo-chip--link">Majlis Ivory</a>
+                      <a href="#atelier" class="promo-chip promo-chip--link">Najd Sand</a>
+                      <a href="#atelier" class="promo-chip promo-chip--link">Diriyah Olive</a>
+                      <a href="#atelier" class="promo-chip promo-chip--link">Hijaz Night</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Slider Controls -->
+          <div class="promo-slider__controls">
+            <button type="button" class="promo-slider__arrow promo-slider__arrow--prev" id="promoPrev"
+              aria-label="Previous Offer">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+            <div class="promo-slider__dots" id="promoDots" role="tablist" aria-label="Banner slides">
+              <button type="button" class="promo-slider__dot is-active" data-index="0" role="tab" aria-selected="true"
+                aria-label="Slide 1"></button>
+              <button type="button" class="promo-slider__dot" data-index="1" role="tab" aria-selected="false"
+                aria-label="Slide 2"></button>
+              <button type="button" class="promo-slider__dot" data-index="2" role="tab" aria-selected="false"
+                aria-label="Slide 3"></button>
+            </div>
+            <button type="button" class="promo-slider__arrow promo-slider__arrow--next" id="promoNext"
+              aria-label="Next Offer">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="kpis" id="kpis">
+        <article class="kpi" data-tilt>
+          <div class="kpi__num" data-count="2400">0</div>
+          <div class="kpi__label" data-i18n="kpi.fits">Bespoke fittings</div>
+        </article>
+        <article class="kpi" data-tilt>
+          <div class="kpi__num" data-count="12">0</div>
+          <div class="kpi__label" data-i18n="kpi.cities">Cities covered</div>
+        </article>
+        <article class="kpi" data-tilt>
+          <div class="kpi__num" data-count="98">0</div>
+          <div class="kpi__label" data-i18n="kpi.sat">Satisfaction %</div>
+        </article>
+        <article class="kpi" data-tilt>
+          <div class="kpi__num" data-count="24">0</div>
+          <div class="kpi__label" data-i18n="kpi.wa">WhatsApp reply hrs</div>
+        </article>
+      </section>
+
+      <section class="section" id="services">
+        <header class="section__head">
+          <p class="eyebrow">
+            <span class="eyebrow__dot"></span>
+            <span data-i18n="svc.eyebrow">The AL-DORZY Ritual</span>
+          </p>
+          <h2 data-i18n="svc.h2">Everything comes to you.</h2>
+        </header>
+        <div class="cards-4">
+          <article class="svc" data-tilt>
+            <div class="svc__icon"><i class="fa-solid fa-ruler-combined" aria-hidden="true"></i></div>
+            <h3 data-i18n="svc.m.t">Home Measurement</h3>
+            <p data-i18n="svc.m.p">
+              A senior cutter visits your home or office. Fifteen points, one sitting,
+              zero shop queues.
+            </p>
+          </article>
+          <article class="svc" data-tilt>
+            <div class="svc__icon"><i class="fa-solid fa-scissors" aria-hidden="true"></i></div>
+            <h3 data-i18n="svc.c.t">Atelier Cut</h3>
+            <p data-i18n="svc.c.p">
+              Japanese and Italian cottons, hand-finished plackets, discreet gold
+              thread at the collar.
+            </p>
+          </article>
+          <article class="svc" data-tilt>
+            <div class="svc__icon"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></div>
+            <h3 data-i18n="svc.d.t">Home Delivery</h3>
+            <p data-i18n="svc.d.p">
+              Steamed, boxed, and handed to you. Free within Riyadh, Jeddah, Dammam,
+              Makkah & Madinah.
+            </p>
+          </article>
+          <article class="svc" data-tilt>
+            <div class="svc__icon"><i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i></div>
+            <h3 data-i18n="svc.p.t">Cash on Delivery</h3>
+            <p data-i18n="svc.p.p">
+              Pay in cash when the jubba arrives. Or settle on WhatsApp before we
+              dispatch.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--process" id="process">
+        <header class="section__head">
+          <p class="eyebrow">
+            <span class="eyebrow__dot"></span>
+            <span data-i18n="pr.eyebrow">Four quiet steps</span>
+          </p>
+          <h2 data-i18n="pr.h2">From WhatsApp to wardrobe.</h2>
+        </header>
+        <ol class="steps">
+          <li class="step" data-tilt>
+            <span class="step__n">01</span>
+            <h3 data-i18n="pr.1.t">Book online</h3>
+            <p data-i18n="pr.1.p">Pick city, date, and a two-hour window. Confirm on WhatsApp in seconds.</p>
+          </li>
+          <li class="step" data-tilt>
+            <span class="step__n">02</span>
+            <h3 data-i18n="pr.2.t">We visit</h3>
+            <p data-i18n="pr.2.p">Tailor arrives with fabric swatches. You choose drape, collar, and cuff.</p>
+          </li>
+          <li class="step" data-tilt>
+            <span class="step__n">03</span>
+            <h3 data-i18n="pr.3.t">We cut</h3>
+            <p data-i18n="pr.3.p">Seven to ten days in the atelier. Progress photos on request.</p>
+          </li>
+          <li class="step" data-tilt>
+            <span class="step__n">04</span>
+            <h3 data-i18n="pr.4.t">We deliver</h3>
+            <p data-i18n="pr.4.p">Home delivery. Try on. Pay cash on delivery if it sits as promised.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section" id="atelier">
+        <header class="section__head">
+          <p class="eyebrow">
+            <span class="eyebrow__dot"></span>
+            <span data-i18n="at.eyebrow">Cloth & silhouette</span>
+          </p>
+          <h2 data-i18n="at.h2">Choose the house cut.</h2>
+          <p class="lede section__lede" data-i18n="at.lede">
+            Four house cuts, one silhouette. Pick a cloth and the live quote updates instantly.
+          </p>
+        </header>
+        <div class="atelier" id="atelierGrid"></div>
+      </section>
+
+      <section class="section section--book" id="book">
+        <div class="book">
+          <div class="book__intro">
+            <p class="eyebrow">
+              <span class="eyebrow__dot"></span>
+              <span data-i18n="bk.eyebrow">Appointment desk</span>
+            </p>
+            <h2 data-i18n="bk.h2">Send the cutter to your home.</h2>
+            <p class="lede" data-i18n="bk.lede">
+              Choose a city and a window. We confirm on WhatsApp, visit for
+              measurement, then deliver the finished jubba — cash on delivery.
+            </p>
+            <ol class="book__steps">
+              <li>
+                <b>1</b>
+                <div>
+                  <strong data-i18n="bk.s1t">Confirm on WhatsApp</strong>
+                  <span data-i18n="bk.s1d">Send your order — we reply within 2 hours.</span>
+                </div>
+              </li>
+              <li>
+                <b>2</b>
+                <div>
+                  <strong data-i18n="bk.s2t">Free home measurement</strong>
+                  <span data-i18n="bk.s2d">Our cutter visits your address in your chosen window.</span>
+                </div>
+              </li>
+              <li>
+                <b>3</b>
+                <div>
+                  <strong data-i18n="bk.s3t">Delivered · cash on arrival</strong>
+                  <span data-i18n="bk.s3d">Try the jubba first — pay the courier only if you love it.</span>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <form class="sheet" id="bookForm" novalidate>
+            <div class="sheet__glow"></div>
+
+            <div class="sheet__head">
+              <span class="sheet__tag" data-i18n="bk.card">Appointment card</span>
+              <span class="sheet__counter">
+                <span data-i18n="bk.step">Step</span>
+                <b id="stepNum">1</b> / 3
+              </span>
+            </div>
+
+            <div class="wizard__head">
+              <ol class="wizard__steps" id="wizardSteps">
+                <li class="is-on"><b>1</b><span data-i18n="st.1">Your details</span></li>
+                <li><b>2</b><span data-i18n="st.2">Visit details</span></li>
+                <li><b>3</b><span data-i18n="st.3">Confirm</span></li>
+              </ol>
+              <div class="wizard__track"><i id="wizardBar"></i></div>
+            </div>
+
+            <div class="order-chip" id="orderChip"></div>
+
+            <div class="wizard__panel is-on" data-step="1">
+              <div class="field">
+                <label for="name" data-i18n="f.name">Full name</label>
+                <input id="name" name="name" type="text" required autocomplete="name" aria-describedby="err-name" />
+                <small class="field__err" id="err-name" data-i18n="f.err.req">This field is required.</small>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="phone" data-i18n="f.phone">Mobile (KSA)</label>
+                  <input id="phone" name="phone" type="tel" required placeholder="05xxxxxxxx" autocomplete="tel"
+                    inputmode="tel" aria-describedby="err-phone" />
+                  <small class="field__err" id="err-phone" data-i18n="f.err.phone">Enter a valid KSA mobile —
+                    05xxxxxxxx.</small>
+                </div>
+                <div class="field">
+                  <span class="field__label" data-i18n="cfg.qty">Quantity</span>
+                  <div class="qty">
+                    <button type="button" id="qtyMinus" aria-label="Decrease">−</button>
+                    <strong id="qtyVal">1</strong>
+                    <button type="button" id="qtyPlus" aria-label="Increase">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="wizard__nav">
+                <span></span>
+                <button class="btn btn--gold" type="button" data-next>
+                  <span data-i18n="f.next">Continue</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="wizard__panel" data-step="2" hidden>
+              <div class="field-row">
+                <div class="field">
+                  <label for="city" data-i18n="f.city">City</label>
+                  <select id="city" name="city" required aria-describedby="err-city"></select>
+                  <small class="field__err" id="err-city" data-i18n="f.err.req">This field is required.</small>
+                </div>
+                <div class="field">
+                  <label for="date" data-i18n="f.date">Visit date</label>
+                  <input id="date" name="date" type="date" required aria-describedby="err-date" />
+                  <small class="field__err" id="err-date" data-i18n="f.err.req">This field is required.</small>
+                </div>
+              </div>
+              <div class="field">
+                <label for="slot" data-i18n="f.slot">Window</label>
+                <select id="slot" name="slot" required>
+                  <option value="09:00–11:00">09:00 – 11:00</option>
+                  <option value="11:00–13:00">11:00 – 13:00</option>
+                  <option value="16:00–18:00">16:00 – 18:00</option>
+                  <option value="18:00–20:00">18:00 – 20:00</option>
+                  <option value="20:00–22:00">20:00 – 22:00</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="address" data-i18n="f.addr">District / address</label>
+                <input id="address" name="address" type="text" required aria-describedby="err-address" />
+                <small class="field__err" id="err-address" data-i18n="f.err.req">This field is required.</small>
+              </div>
+              <div class="loc-row">
+                <button class="btn btn--ghost" type="button" id="geoBtn">
+                  <span data-i18n="f.geo">Use my location</span>
+                </button>
+                <small id="geoStatus"></small>
+              </div>
+              <input type="hidden" id="lat" name="lat" />
+              <input type="hidden" id="lng" name="lng" />
+              <div class="wizard__nav">
+                <button class="btn btn--ghost" type="button" data-back>
+                  <span data-i18n="f.back">Back</span>
+                </button>
+                <button class="btn btn--gold" type="button" data-next>
+                  <span data-i18n="f.next">Continue</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="wizard__panel" data-step="3" hidden>
+              <div class="field">
+                <label for="note" data-i18n="f.note">Notes</label>
+                <textarea id="note" name="note" rows="2"></textarea>
+              </div>
+              <fieldset class="pay">
+                <legend data-i18n="f.pay">On delivery</legend>
+                <label class="radio">
+                  <input type="radio" name="pay" value="COD" checked />
+                  <span data-i18n="f.cod">Cash on Delivery</span>
+                </label>
+                <label class="radio">
+                  <input type="radio" name="pay" value="WhatsApp" />
+                  <span data-i18n="f.wapay">Confirm on WhatsApp</span>
+                </label>
+              </fieldset>
+              <div class="summary">
+                <div class="summary__row">
+                  <span data-i18n="cfg.cloth">Cloth</span>
+                  <strong id="sCloth">—</strong>
+                </div>
+                <div class="summary__row">
+                  <span data-i18n="cfg.city">City</span>
+                  <strong id="sCity">—</strong>
+                </div>
+                <div class="summary__row">
+                  <span data-i18n="cfg.qty">Quantity</span>
+                  <strong id="sQty">× 1</strong>
+                </div>
+                <div class="summary__row">
+                  <span data-i18n="cfg.visit">Home visit</span>
+                  <strong id="sVisit">—</strong>
+                </div>
+                <div class="summary__row">
+                  <span data-i18n="cfg.del">Delivery</span>
+                  <strong id="sDel">—</strong>
+                </div>
+                <div class="summary__row">
+                  <span data-i18n="f.when">Visit window</span>
+                  <strong id="sWhen">—</strong>
+                </div>
+                <div class="summary__total">
+                  <span data-i18n="cfg.due">Due on delivery</span>
+                  <strong id="formTotal">SAR 0</strong>
+                </div>
+              </div>
+              <div class="wizard__nav">
+                <button class="btn btn--ghost" type="button" data-back>
+                  <span data-i18n="f.back">Back</span>
+                </button>
+                <span></span>
+              </div>
+              <button class="btn btn--gold btn--lg btn--block" type="submit">
+                <span class="btn__shine"></span>
+                <span data-i18n="f.submit">Confirm on WhatsApp</span>
+              </button>
+              <p class="sheet__fine" data-i18n="f.fine">
+                Saves the order on this desk and opens WhatsApp. No card required.
+              </p>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="section" id="desk">
+        <header class="section__head section__head--row">
+          <div>
+            <p class="eyebrow">
+              <span class="eyebrow__dot"></span>
+              <span data-i18n="desk.eyebrow">Operations desk</span>
+            </p>
+            <h2 data-i18n="desk.h2">Orders & visits</h2>
+          </div>
+          <div class="desk-stats" id="deskStats"></div>
+        </header>
+        <div class="desk-filters" id="deskFilters">
+          <button type="button" data-filter="all" class="is-on" data-i18n="desk.all">All</button>
+          <button type="button" data-filter="pending" data-i18n="desk.pending">Pending</button>
+          <button type="button" data-filter="confirmed" data-i18n="desk.confirmed">Confirmed</button>
+          <button type="button" data-filter="measuring" data-i18n="desk.measuring">Measuring</button>
+          <button type="button" data-filter="delivered" data-i18n="desk.delivered">Delivered</button>
+        </div>
+        <div class="desk" id="deskList"></div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="foot__brand">
+        <div class="foot__brand-row">
+          <img class="foot__logo-img" src="/jubba/Image/qasr-royal-logo.png" alt="AL-DORZY Logo" width="22"
+            height="48" />
+          <div class="foot__brand-text">
+            <strong>AL-DORZY</strong>
+            <span data-i18n="foot.tag">Royal Jubba Atelier · المملكة العربية السعودية</span>
+          </div>
+        </div>
+      </div>
+      <p data-i18n="foot.copy">Home measurement · Home delivery · Cash on delivery · WhatsApp</p>
+    </footer>
+
+    <a class="wa-fab" id="waFab" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <span class="wa-fab__ring"></span>
+      <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+        <path fill="currentColor"
+          d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.22 8.22 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.17-3.12.82.83-3.04-.2-.32a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24zM8.89 7.35c-.17 0-.43.06-.66.31-.22.25-.87.85-.87 2.07 0 1.22.89 2.39 1.01 2.56.12.17 1.75 2.67 4.23 3.74 2.05.88 2.47.71 2.92.66.45-.05 1.45-.59 1.65-1.16.2-.57.2-1.05.14-1.16-.06-.1-.22-.17-.46-.3-.24-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.13-.17.25-.64.79-.78.95-.14.17-.29.19-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.25-.01-.38.11-.5.11-.11.24-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42z" />
+      </svg>
+    </a>
+
+    <div class="toast" id="toast" role="status"></div>
+
+    <!-- Luxury Appointment Booking Modal -->
+    <!-- Luxury Appointment Booking Modal (High-End Royal Atelier & Minimalist Dynamic Architecture) -->
+    <div class="appt-modal" id="apptModal" role="dialog" aria-modal="true" aria-labelledby="apptModalTitle" hidden>
+      <div class="appt-modal__backdrop" id="apptBackdrop"></div>
+      
+      <div class="appt-modal__dialog">
+        <!-- Close Button with Font Awesome Icon -->
+        <button class="appt-modal__close" id="apptCloseBtn" type="button" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Booking Form Container (Spacious, Well-Organized 2-Panel Minimalist Architecture) -->
+        <form class="appt-form" id="apptForm" novalidate>
+          <div class="appt-grid">
+            
+            <!-- LEFT PANEL: Atelier Identity, Discounted Fabrics & Order Summary -->
+            <div class="appt-panel appt-panel--service">
+              <div class="appt-hero">
+                <div class="appt-hero__brand">
+                  <img class="appt-hero__logo" src="/jubba/Image/qasr-royal-logo.png" alt="AL-DORZY Logo" width="24" height="50" />
+                  <div class="appt-hero__badges">
+                    <span class="appt-hero__tag">
+                      <i class="fa-solid fa-crown appt-gold-icon"></i>
+                      <span data-i18n="appt.tag">VIP ATELIER APPOINTMENT</span>
+                    </span>
+                    <span class="appt-hero__free-badge">
+                      <i class="fa-solid fa-truck-fast"></i>
+                      <span data-i18n="appt.freeDelivery">100% Free Doorstep Visit & Delivery</span>
+                    </span>
+                  </div>
+                </div>
+                <h2 id="apptModalTitle" class="appt-hero__title" data-i18n="appt.title">Book a Master Cutter Visit</h2>
+              </div>
+
+              <!-- 🏷️ Featured Discounted Fabrics Showcase ("Discount Ola Kapor Gulo") -->
+              <div class="appt-promo-section">
+                <div class="appt-section-header">
+                  <span class="appt-section-title">
+                    <i class="fa-solid fa-tags appt-gold-icon"></i>
+                    <span data-i18n="appt.promoFabrics">Privilege Discount Fabrics</span>
+                  </span>
+                  <span class="appt-promo-flag-tag"><i class="fa-solid fa-fire"></i> <span data-i18n="appt.activePrivilege">Special Privileges</span></span>
+                </div>
+                <div class="appt-promo-grid" id="apptPromoFabrics">
+                  <!-- Populated dynamically with discounted fabric swatches -->
+                </div>
+              </div>
+
+              <!-- Spacious Service Selection Cards -->
+              <div class="appt-services-group">
+                <div class="appt-services-label">
+                  <span data-i18n="appt.serviceLabel">Select Appointment Service</span>
+                </div>
+                
+                <div class="appt-service-stack" id="apptServiceCards">
+                  <label class="appt-card is-selected">
+                    <input type="radio" name="apptService" value="home" checked />
+                    <span class="appt-card__icon"><i class="fa-solid fa-crown"></i></span>
+                    <div class="appt-card__content">
+                      <div class="appt-card__head">
+                        <strong data-i18n="appt.svc.home.t">Master Cutter Home Visit</strong>
+                        <span class="appt-card__tag">0 SAR (FREE)</span>
+                      </div>
+                    </div>
+                    <span class="appt-card__check"><i class="fa-solid fa-circle-check"></i></span>
+                  </label>
+
+                  <label class="appt-card">
+                    <input type="radio" name="apptService" value="lounge" />
+                    <span class="appt-card__icon"><i class="fa-solid fa-landmark"></i></span>
+                    <div class="appt-card__content">
+                      <div class="appt-card__head">
+                        <strong data-i18n="appt.svc.lounge.t">VIP Atelier Private Lounge</strong>
+                        <span class="appt-card__tag">0 SAR (FREE)</span>
+                      </div>
+                    </div>
+                    <span class="appt-card__check"><i class="fa-solid fa-circle-check"></i></span>
+                  </label>
+
+                  <label class="appt-card">
+                    <input type="radio" name="apptService" value="wedding" />
+                    <span class="appt-card__icon"><i class="fa-solid fa-gem"></i></span>
+                    <div class="appt-card__content">
+                      <div class="appt-card__head">
+                        <strong data-i18n="appt.svc.wedding.t">Wedding & Majlis Bespoke</strong>
+                        <span class="appt-card__tag">0 SAR (FREE)</span>
+                      </div>
+                    </div>
+                    <span class="appt-card__check"><i class="fa-solid fa-circle-check"></i></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- 💰 Live Order & Amount Summary Card ("Amount Dekha Jacche & Delivery Free") -->
+              <div class="appt-summary-card" id="apptSummaryCard">
+                <div class="appt-summary-head">
+                  <span><i class="fa-solid fa-receipt appt-gold-icon"></i> <strong data-i18n="appt.orderSummary">Order & Amount Summary</strong></span>
+                  <span class="appt-delivery-free-badge"><i class="fa-solid fa-truck"></i> Free Delivery</span>
+                </div>
+                <div class="appt-summary-body">
+                  <div class="appt-summary-row">
+                    <span class="appt-summary-label" id="apptSummaryFabricName">Toyobo Imperial Ivory × 1</span>
+                    <span class="appt-summary-val">
+                      <del class="appt-summary-del" id="apptSummaryOriginalPrice">SAR 1,290</del>
+                      <strong class="appt-summary-price" id="apptSummaryFabricPrice">SAR 1,096</strong>
+                      <span class="appt-savings-pill" id="apptSummarySavings">Save SAR 194 (15% OFF)</span>
+                    </span>
+                  </div>
+                  <div class="appt-summary-row">
+                    <span class="appt-summary-label"><i class="fa-solid fa-scissors"></i> Senior Cutter Villa Visit</span>
+                    <span class="appt-free-highlight">0 SAR (FREE)</span>
+                  </div>
+                  <div class="appt-summary-row">
+                    <span class="appt-summary-label"><i class="fa-solid fa-truck-fast"></i> Doorstep Thobe Delivery</span>
+                    <span class="appt-free-highlight"><i class="fa-solid fa-check"></i> 0 SAR (FREE DELIVERY)</span>
+                  </div>
+                  <div class="appt-summary-divider"></div>
+                  <div class="appt-summary-row appt-summary-row--total">
+                    <span class="appt-summary-total-label">
+                      <span data-i18n="appt.totalDue">TOTAL AMOUNT (PAY ON ARRIVAL)</span>
+                      <small data-i18n="appt.codNote">Cash or Card on Delivery • No Advance</small>
+                    </span>
+                    <strong class="appt-summary-total-val" id="apptSummaryTotal">SAR 1,096</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Reassurance Trust Badges -->
+              <div class="appt-guarantee-strip">
+                <span><i class="fa-solid fa-shield-halved appt-guard-icon"></i> <em data-i18n="appt.g1.short">0 SAR Free Visit</em></span>
+                <span><i class="fa-solid fa-truck-ramp-box appt-guard-icon"></i> <em>Free Delivery</em></span>
+                <span><i class="fa-solid fa-handshake-angle appt-guard-icon"></i> <em data-i18n="appt.g3.short">Pay on Arrival</em></span>
+              </div>
+            </div>
+
+            <!-- RIGHT PANEL: Client & Reservation Scheduling -->
+            <div class="appt-panel appt-panel--schedule">
+              <div class="appt-panel__head">
+                <span class="appt-panel__eyebrow">
+                  <i class="fa-regular fa-calendar-check"></i>
+                  <span data-i18n="appt.secTitle">Reservation Schedule & Details</span>
+                </span>
+              </div>
+
+              <!-- Name & Mobile Row -->
+              <div class="appt-row">
+                <div class="appt-field">
+                  <label for="apptName">
+                    <span data-i18n="f.name">Full Name</span>
+                  </label>
+                  <div class="appt-input-wrap">
+                    <i class="fa-solid fa-user appt-input-prefix"></i>
+                    <input type="text" id="apptName" name="apptName" required placeholder="Mohammed Al-Saud" autocomplete="name" />
+                  </div>
+                  <small class="field__err" id="err-apptName" data-i18n="f.err.req">Required</small>
+                </div>
+                <div class="appt-field">
+                  <label for="apptPhone">
+                    <span data-i18n="f.phone">Mobile (KSA)</span>
+                  </label>
+                  <div class="appt-input-wrap">
+                    <i class="fa-solid fa-mobile-screen-button appt-input-prefix"></i>
+                    <input type="tel" id="apptPhone" name="apptPhone" required placeholder="05xxxxxxxx" autocomplete="tel" inputmode="tel" />
+                  </div>
+                  <small class="field__err" id="err-apptPhone" data-i18n="f.err.phone">05xxxxxxxx</small>
+                </div>
+              </div>
+
+              <!-- Date & Window Row -->
+              <div class="appt-row">
+                <div class="appt-field">
+                  <label for="apptDate">
+                    <span data-i18n="f.date">Visit Date</span>
+                  </label>
+                  <div class="appt-input-wrap">
+                    <i class="fa-regular fa-calendar appt-input-prefix"></i>
+                    <input type="date" id="apptDate" name="apptDate" required />
+                  </div>
+                  <small class="field__err" id="err-apptDate" data-i18n="f.err.req">Required</small>
+                </div>
+                <div class="appt-field">
+                  <label for="apptSlot">
+                    <span data-i18n="f.slot">Window</span>
+                  </label>
+                  <div class="appt-input-wrap">
+                    <i class="fa-regular fa-clock appt-input-prefix"></i>
+                    <select id="apptSlot" name="apptSlot" required>
+                      <option value="10:00 – 13:00">10:00 AM – 1:00 PM (Morning)</option>
+                      <option value="14:00 – 18:00" selected>2:00 PM – 6:00 PM (Afternoon)</option>
+                      <option value="19:00 – 22:00">7:00 PM – 10:00 PM (Evening VIP)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Fabric & Quantity Row -->
+              <div class="appt-row appt-row--fabric">
+                <div class="appt-field appt-field--flex">
+                  <label for="apptClothPref">
+                    <span data-i18n="appt.clothPref">Fabric Interest</span>
+                  </label>
+                  <div class="appt-input-wrap">
+                    <i class="fa-solid fa-shirt appt-input-prefix"></i>
+                    <select id="apptClothPref" name="apptClothPref">
+                      <option value="current">Current Selected Atelier Fabric</option>
+                      <option value="all-japanese">Japanese Toyobo & Shikibo Collection</option>
+                      <option value="all-korean">Korean Silk-Crepe & Opal Collection</option>
+                      <option value="all-swatches">Bring Full Swatch Case (40+ Fabrics)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="appt-field appt-field--qty">
+                  <label>
+                    <span data-i18n="cfg.qty">Quantity</span>
+                  </label>
+                  <div class="qty appt-qty">
+                    <button type="button" id="apptQtyMinus" aria-label="Decrease">−</button>
+                    <strong id="apptQtyVal">1</strong>
+                    <button type="button" id="apptQtyPlus" aria-label="Increase">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- City & Address with Dynamic Auto-Generate System -->
+              <div class="appt-field">
+                <div class="appt-header-sub">
+                  <label>
+                    <span data-i18n="f.addr">Location & Address</span>
+                  </label>
+                  <!-- ⚡ Auto-Generate Address Button with Magic Wand Icon -->
+                  <button type="button" class="appt-auto-btn" id="apptAutoAddrBtn" title="Auto-detect or generate prestigious address">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span data-i18n="appt.autoBtn">Auto-Fill Address</span>
+                  </button>
+                </div>
+                <div class="appt-row appt-row--city-addr">
+                  <div class="appt-input-wrap appt-city-wrap">
+                    <i class="fa-solid fa-city appt-input-prefix"></i>
+                    <select id="apptCity" name="apptCity" required></select>
+                  </div>
+                  <div class="appt-input-wrap appt-addr-wrap">
+                    <i class="fa-solid fa-map-pin appt-input-prefix"></i>
+                    <input type="text" id="apptAddress" name="apptAddress" required placeholder="District, Villa / Street" />
+                  </div>
+                </div>
+                <small class="field__err" id="err-apptAddress" data-i18n="f.err.req">Required</small>
+                <!-- Dynamic Quick District Chips for Selected City -->
+                <div class="appt-quick-chips" id="apptDistrictChips">
+                  <span class="appt-quick-label" data-i18n="appt.quickDist">Popular:</span>
+                  <!-- Populated by JS with Font Awesome pin icons -->
+                </div>
+              </div>
+
+              <!-- Special Requests (Optional) -->
+              <div class="appt-field">
+                <label for="apptNotes">
+                  <span data-i18n="f.note">Special Requests (Optional)</span>
+                </label>
+                <div class="appt-input-wrap">
+                  <i class="fa-regular fa-comment-dots appt-input-prefix"></i>
+                  <input type="text" id="apptNotes" name="apptNotes" placeholder="Collar preference, monogram embroidery, wedding timeline..." />
+                </div>
+              </div>
+
+              <!-- Submit Action Button & Disclaimer -->
+              <div class="appt-form__bottom">
+                <button class="btn btn--gold btn--block appt-submit-btn" type="submit" id="apptSubmitBtn">
+                  <span class="btn__shine"></span>
+                  <i class="fa-solid fa-calendar-check appt-btn-icon"></i>
+                  <span id="apptSubmitBtnText" data-i18n="appt.submit">Confirm & Book Appointment</span>
+                </button>
+                <p class="appt-modal__disclaimer" data-i18n="appt.disclaimer">
+                  No credit card required. Our concierge will confirm your slot via WhatsApp within 2 hours.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </form>
+
+        <!-- Success Confirmation View (Fits completely without scrolling) -->
+        <div class="appt-success" id="apptSuccess" hidden>
+          <div class="appt-success__emblem">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <span class="appt-success__badge" data-i18n="appt.success.badge">APPOINTMENT RESERVED</span>
+          <h3 data-i18n="appt.success.title">Your Master Cutter Visit is Confirmed</h3>
+          <p class="appt-success__desc" data-i18n="appt.success.desc">
+            Your private appointment request has been registered in the AL-DORZY Atelier system.
+          </p>
+
+          <div class="appt-ticket">
+            <div class="appt-ticket__header">
+              <span data-i18n="appt.refCode">Reference Code</span>
+              <code id="apptSuccessRef">ALD-APT-1082</code>
+            </div>
+            <div class="appt-ticket__details" id="apptSuccessDetails">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <div class="appt-success__actions">
+            <a class="btn btn--gold btn--block" id="apptSuccessWa" href="#" target="_blank" rel="noopener">
+              <span class="btn__shine"></span>
+              <i class="fa-brands fa-whatsapp appt-btn-icon"></i>
+              <span data-i18n="appt.success.wa">Open WhatsApp Concierge</span>
+            </a>
+            <button class="btn btn--ghost btn--block" type="button" id="apptSuccessDone" data-i18n="appt.success.done">
+              <i class="fa-solid fa-arrow-left appt-btn-icon"></i> Done & Return to Atelier
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

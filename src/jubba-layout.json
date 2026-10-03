@@ -1,0 +1,2731 @@
+{
+  "version": 2,
+  "styles": {
+    "Saudi": {
+      "id": 0,
+      "name": "Saudi",
+      "inputs": {
+        "Shoulder": {
+          "x": 42.1,
+          "y": 19.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 8
+        },
+        "Sleeve": {
+          "x": 87.7,
+          "y": 33,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "Bottom width": {
+          "x": 74.4,
+          "y": 89.4,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 8.1
+        },
+        "Chest up": {
+          "x": 73.8,
+          "y": 25.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 5.6
+        },
+        "Chest down": {
+          "x": 42.3,
+          "y": 23.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.9
+        },
+        "Collar size": {
+          "x": 74.4,
+          "y": 12,
+          "scale": 1,
+          "rotation": 0
+        },
+        "Takhalis": {
+          "x": 43.7,
+          "y": 98.4,
+          "scale": 1,
+          "rotation": 0
+        },
+        "front length": {
+          "x": 90.9,
+          "y": 59.8,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.4
+        },
+        "Back Length": {
+          "x": 57.3,
+          "y": 53.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.1
+        },
+        "Shoulder slope": {
+          "x": 34.7,
+          "y": 15.4,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "sleeve top": {
+          "x": 51.8,
+          "y": 26.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.3
+        },
+        "sleeve middle": {
+          "x": 63,
+          "y": 30.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.8
+        },
+        "wriest": {
+          "x": 84,
+          "y": 45.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "middle width": {
+          "x": 74.2,
+          "y": 46.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.2
+        },
+        "haunch width": {
+          "x": 74.4,
+          "y": 54.3,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.8
+        },
+        "button height": {
+          "x": 66.5,
+          "y": 83.2,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.7
+        },
+        "Side pocket": {
+          "x": 23.4,
+          "y": 98.7,
+          "scale": 1,
+          "rotation": 0
+        },
+        "collar height": {
+          "x": 17.9,
+          "y": 18.1,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 3.2
+        },
+        "Plain Cuff Length": {
+          "x": 13.1,
+          "y": 37.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.3
+        },
+        "Cuff Length": {
+          "x": 15.7,
+          "y": 40.2,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.4
+        },
+        "Tatriz no": {
+          "x": 64.4,
+          "y": 98.4,
+          "scale": 1,
+          "rotation": 0
+        },
+        "Button no": {
+          "x": 85.3,
+          "y": 98.8,
+          "scale": 1,
+          "rotation": 0
+        },
+        "pocket width": {
+          "x": 12,
+          "y": 52.3,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1
+        },
+        "Pocket Height": {
+          "x": 16.7,
+          "y": 59.7,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 3.6
+        },
+        "zipper height": {
+          "x": 14.4,
+          "y": 80.5,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 3.1
+        },
+        "Zipper width": {
+          "x": 12.7,
+          "y": 72.8,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.3
+        },
+        "Collar  width": {
+          "x": 13.9,
+          "y": 12.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 5
+        },
+        "Shoulder to chest pocket": {
+          "x": 77.9,
+          "y": 20.9,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.9
+        },
+        "Cuff Type": {
+          "x": 13.5,
+          "y": 34,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 4.5
+        }
+      },
+      "categories": {
+        "Colar": {
+          "global": {
+            "x": 74.2,
+            "y": 14.4,
+            "width": 9.3,
+            "height": 12,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {
+            "Colar/s_10.png": {
+              "scaleX": 1.09,
+              "scaleY": 1.07,
+              "offsetX": -0.3,
+              "offsetY": -0.4
+            },
+            "Colar/s_12.png": {
+              "scaleX": 1.26,
+              "scaleY": 1.15,
+              "offsetX": 0,
+              "offsetY": -0.8
+            },
+            "Colar/s_14.png": {
+              "offsetX": -0.1,
+              "offsetY": -1
+            },
+            "Colar/s_15.png": {
+              "scaleX": 1.1,
+              "scaleY": 1.23,
+              "offsetX": 0,
+              "offsetY": -0.7
+            },
+            "Colar/s_4.png": {
+              "offsetX": 0,
+              "offsetY": -0.6
+            },
+            "Colar/s_5.png": {
+              "offsetX": 0.1,
+              "offsetY": -0.7
+            },
+            "Colar/s_7.png": {
+              "offsetX": 0,
+              "offsetY": -1,
+              "scaleX": 1.02,
+              "scaleY": 1.09
+            },
+            "Colar/s_8.png": {
+              "offsetX": 0,
+              "offsetY": -0.9
+            },
+            "Colar/s_9.png": {
+              "offsetX": 0.1,
+              "offsetY": -1.2
+            },
+            "Colar/_/custom_0": {
+              "offsetX": -0.1,
+              "offsetY": -0.5,
+              "scaleX": 1.02,
+              "scaleY": 1.06
+            },
+            "Colar/_/custom_1": {
+              "offsetX": 0.1,
+              "offsetY": -0.5
+            },
+            "Colar/s_11.png": {
+              "offsetX": 0,
+              "offsetY": -0.7
+            },
+            "Colar/s_n5.png": {
+              "scaleX": 0.96,
+              "scaleY": 0.89,
+              "offsetX": 0,
+              "offsetY": 0.1
+            },
+            "Colar/s_n4.png": {
+              "scaleX": 0.95,
+              "scaleY": 0.84,
+              "offsetX": 0.2,
+              "offsetY": 0.1
+            },
+            "Colar/s_n2.png": {
+              "scaleX": 0.95,
+              "scaleY": 0.92,
+              "offsetX": 0.1,
+              "offsetY": -0.5
+            }
+          }
+        },
+        "POCKET": {
+          "global": {
+            "x": 77.4,
+            "y": 27.3,
+            "width": 5.3,
+            "height": 7.2,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "YAT": {
+          "global": {
+            "x": 68.1,
+            "y": 36.8,
+            "width": 7.1,
+            "height": 10,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {
+            "YAT/s_11.png": {
+              "offsetX": 0,
+              "offsetY": -0.1
+            },
+            "YAT/s_6.png": {
+              "offsetX": 0.8,
+              "offsetY": 0.1,
+              "scaleX": 0.95,
+              "scaleY": 0.91
+            },
+            "YAT/s_5.png": {
+              "scaleX": 0.93,
+              "scaleY": 0.91,
+              "offsetX": 0.8,
+              "offsetY": 0
+            },
+            "YAT/s_4.png": {
+              "scaleX": 0.97,
+              "scaleY": 0.97,
+              "offsetX": 0.4,
+              "offsetY": 0
+            },
+            "YAT/s_22.png": {
+              "offsetX": 0.2,
+              "offsetY": 0,
+              "scaleX": 1.06,
+              "scaleY": 1.08
+            },
+            "YAT/s_19.png": {
+              "offsetX": 0,
+              "offsetY": -0.1,
+              "scaleX": 1.05,
+              "scaleY": 1.08
+            },
+            "YAT/s_10.png": {
+              "offsetX": 0,
+              "offsetY": 0.2,
+              "scaleX": 0.96,
+              "scaleY": 1.02
+            },
+            "YAT/s_12.png": {
+              "offsetX": -0.1,
+              "offsetY": 0
+            },
+            "YAT/s_13.png": {
+              "offsetX": 0,
+              "offsetY": 0.1,
+              "scaleX": 0.94,
+              "scaleY": 0.91
+            },
+            "YAT/s_16.png": {
+              "offsetX": 0.1,
+              "offsetY": 0,
+              "scaleX": 1.06,
+              "scaleY": 1.09
+            },
+            "YAT/s_17.png": {
+              "scaleX": 1.05,
+              "scaleY": 1.08,
+              "offsetX": -0.1,
+              "offsetY": -0.1
+            },
+            "YAT/s_7.png": {
+              "offsetX": 1.1,
+              "offsetY": -0.1
+            }
+          }
+        },
+        "ZIPER": {
+          "global": {
+            "x": 74.3,
+            "y": 25.3,
+            "width": 13.1,
+            "height": 22.6,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {
+            "ZIPER/s_3.png": {
+              "offsetX": 0,
+              "offsetY": -0.3
+            }
+          }
+        },
+        "SIDE POCKET": {
+          "global": {
+            "x": 11.8,
+            "y": 98,
+            "width": 7.3,
+            "height": 9.4,
+            "zIndex": 20,
+            "rotate": 0
+          }
+        }
+      },
+      "guides": {
+        "Length": {
+          "x": 90.7,
+          "height": 71,
+          "top": 17.4,
+          "enabled": true
+        },
+        "Sleeve": {
+          "x": 87,
+          "height": 30.2,
+          "top": 17.8,
+          "enabled": true
+        },
+        "Back": {
+          "x": 57.4,
+          "height": 66.9,
+          "top": 19.3,
+          "enabled": true
+        }
+      },
+      "garments": {
+        "front": {
+          "x": 76.6,
+          "y": 55.9,
+          "width": 45,
+          "height": 100
+        },
+        "back": {
+          "x": 43.5,
+          "y": 57.2,
+          "width": 45,
+          "height": 100
+        }
+      },
+      "summaryGroup": {
+        "x": 12,
+        "y": 48.9,
+        "width": 9.4,
+        "height": 83.5
+      }
+    },
+    "Kowaity": {
+      "id": 5,
+      "name": "Kowaity",
+      "inputs": {
+        "Shoulder": {
+          "x": 42.1,
+          "y": 19.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 8
+        },
+        "Sleeve": {
+          "x": 87.7,
+          "y": 33,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "Bottom width": {
+          "x": 74.4,
+          "y": 89.4,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 8.1
+        },
+        "Chest up": {
+          "x": 73.8,
+          "y": 25.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 5.6
+        },
+        "Chest down": {
+          "x": 42.3,
+          "y": 23.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.9
+        },
+        "Collar size": {
+          "x": 74.4,
+          "y": 12,
+          "scale": 1,
+          "rotation": 0
+        },
+        "Takhalis": {
+          "x": 42.9,
+          "y": 98.9,
+          "scale": 1,
+          "rotation": 0
+        },
+        "front length": {
+          "x": 90.9,
+          "y": 59.8,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.4
+        },
+        "Back Length": {
+          "x": 57.3,
+          "y": 53.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.1
+        },
+        "Shoulder slope": {
+          "x": 34.7,
+          "y": 15.4,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "sleeve top": {
+          "x": 51.8,
+          "y": 26.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.3
+        },
+        "sleeve middle": {
+          "x": 63,
+          "y": 30.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.8
+        },
+        "wriest": {
+          "x": 84,
+          "y": 45.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "middle width": {
+          "x": 74.2,
+          "y": 46.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.2
+        },
+        "haunch width": {
+          "x": 74.4,
+          "y": 54.3,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.8
+        },
+        "button height": {
+          "x": 66.5,
+          "y": 83.2,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.7
+        },
+        "Side pocket": {
+          "x": 26.3,
+          "y": 98.8,
+          "scale": 1,
+          "rotation": 0
+        },
+        "collar height": {
+          "x": 17.9,
+          "y": 18.1,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 3.2
+        },
+        "Plain Cuff Length": {
+          "x": 13.1,
+          "y": 37.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.3
+        },
+        "Cuff Length": {
+          "x": 15.7,
+          "y": 40.2,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.4
+        },
+        "Tatriz no": {
+          "x": 68.1,
+          "y": 98.7,
+          "scale": 1,
+          "rotation": 0
+        },
+        "Button no": {
+          "x": 85.3,
+          "y": 98.8,
+          "scale": 1,
+          "rotation": 0
+        },
+        "pocket width": {
+          "x": 12,
+          "y": 52.3,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1
+        },
+        "Pocket Height": {
+          "x": 16.7,
+          "y": 59.7,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 3.6
+        },
+        "zipper height": {
+          "x": 14.4,
+          "y": 80.5,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 3.1
+        },
+        "Zipper width": {
+          "x": 12.7,
+          "y": 72.8,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.3
+        },
+        "Collar  width": {
+          "x": 13.9,
+          "y": 12.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 5
+        },
+        "Shoulder to chest pocket": {
+          "x": 77.9,
+          "y": 20.9,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.9
+        },
+        "Cuff Type": {
+          "x": 13.5,
+          "y": 34,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 4.5
+        }
+      },
+      "categories": {
+        "Colar": {
+          "global": {
+            "x": 74.2,
+            "y": 14.4,
+            "width": 9.3,
+            "height": 12,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {
+            "Colar/s_10.png": {
+              "scaleX": 1.17,
+              "scaleY": 1.21,
+              "offsetX": -0.1,
+              "offsetY": -0.9
+            },
+            "Colar/s_12.png": {
+              "scaleX": 1.36,
+              "scaleY": 1.25,
+              "offsetX": -0.1,
+              "offsetY": -0.8
+            }
+          }
+        },
+        "POCKET": {
+          "global": {
+            "x": 77.4,
+            "y": 27.3,
+            "width": 5.3,
+            "height": 7.2,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "YAT": {
+          "global": {
+            "x": 69.2,
+            "y": 36.9,
+            "width": 7.3,
+            "height": 9.9,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "ZIPER": {
+          "global": {
+            "x": 74.2,
+            "y": 24.7,
+            "width": 13.1,
+            "height": 22.6,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "SIDE POCKET": {
+          "global": {
+            "x": 11.8,
+            "y": 98,
+            "width": 7.3,
+            "height": 9.4,
+            "zIndex": 20,
+            "rotate": 0
+          }
+        }
+      },
+      "guides": {
+        "Length": {
+          "x": 90.7,
+          "height": 71,
+          "top": 17.4,
+          "enabled": true
+        },
+        "Sleeve": {
+          "x": 87,
+          "height": 30.2,
+          "top": 17.8,
+          "enabled": true
+        },
+        "Back": {
+          "x": 57.4,
+          "height": 66.9,
+          "top": 19.3,
+          "enabled": true
+        }
+      },
+      "garments": {
+        "front": {
+          "x": 76.6,
+          "y": 55.9,
+          "width": 45,
+          "height": 100
+        },
+        "back": {
+          "x": 43.5,
+          "y": 57.2,
+          "width": 45,
+          "height": 100
+        }
+      },
+      "summaryGroup": {
+        "x": 12,
+        "y": 48.9,
+        "width": 9.4,
+        "height": 83.5
+      }
+    },
+    "Qutari": {
+      "id": 8,
+      "name": "Qutari",
+      "inputs": {
+        "Shoulder": {
+          "x": 42.1,
+          "y": 19.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 8
+        },
+        "Sleeve": {
+          "x": 87.7,
+          "y": 33,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "Bottom width": {
+          "x": 74.4,
+          "y": 89.4,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 8.1
+        },
+        "Chest up": {
+          "x": 73.8,
+          "y": 25.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 5.6
+        },
+        "Chest down": {
+          "x": 42.3,
+          "y": 23.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.9
+        },
+        "Collar size": {
+          "x": 74.4,
+          "y": 12,
+          "scale": 1,
+          "rotation": 0
+        },
+        "Takhalis": {
+          "x": 42.9,
+          "y": 98.9,
+          "scale": 1,
+          "rotation": 0
+        },
+        "front length": {
+          "x": 90.9,
+          "y": 59.8,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.4
+        },
+        "Back Length": {
+          "x": 57.3,
+          "y": 53.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.1
+        },
+        "Shoulder slope": {
+          "x": 34.7,
+          "y": 15.4,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "sleeve top": {
+          "x": 51.8,
+          "y": 26.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.3
+        },
+        "sleeve middle": {
+          "x": 63,
+          "y": 30.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.8
+        },
+        "wriest": {
+          "x": 84,
+          "y": 45.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "middle width": {
+          "x": 74.2,
+          "y": 46.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.2
+        },
+        "haunch width": {
+          "x": 74.4,
+          "y": 54.3,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.8
+        },
+        "button height": {
+          "x": 66.5,
+          "y": 83.2,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.7
+        },
+        "Side pocket": {
+          "x": 26.3,
+          "y": 98.8,
+          "scale": 1,
+          "rotation": 0
+        },
+        "collar height": {
+          "x": 17.9,
+          "y": 18.1,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 3.2
+        },
+        "Plain Cuff Length": {
+          "x": 13.1,
+          "y": 37.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.3
+        },
+        "Cuff Length": {
+          "x": 15.7,
+          "y": 40.2,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.4
+        },
+        "Tatriz no": {
+          "x": 68.1,
+          "y": 98.7,
+          "scale": 1,
+          "rotation": 0
+        },
+        "Button no": {
+          "x": 85.3,
+          "y": 98.8,
+          "scale": 1,
+          "rotation": 0
+        },
+        "pocket width": {
+          "x": 12,
+          "y": 52.3,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1
+        },
+        "Pocket Height": {
+          "x": 16.7,
+          "y": 59.7,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 3.6
+        },
+        "zipper height": {
+          "x": 14.4,
+          "y": 80.5,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 3.1
+        },
+        "Zipper width": {
+          "x": 12.7,
+          "y": 72.8,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.3
+        },
+        "Collar  width": {
+          "x": 13.9,
+          "y": 12.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 5
+        },
+        "Shoulder to chest pocket": {
+          "x": 77.9,
+          "y": 20.9,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.9
+        },
+        "Cuff Type": {
+          "x": 13.5,
+          "y": 34,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 4.5
+        }
+      },
+      "categories": {
+        "Colar": {
+          "global": {
+            "x": 74.2,
+            "y": 14.4,
+            "width": 9.3,
+            "height": 12,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {
+            "Colar/s_10.png": {
+              "scaleX": 1.17,
+              "scaleY": 1.21,
+              "offsetX": -0.1,
+              "offsetY": -0.9
+            },
+            "Colar/s_12.png": {
+              "scaleX": 1.36,
+              "scaleY": 1.25,
+              "offsetX": -0.1,
+              "offsetY": -0.8
+            }
+          }
+        },
+        "POCKET": {
+          "global": {
+            "x": 77.4,
+            "y": 27.3,
+            "width": 5.3,
+            "height": 7.2,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "YAT": {
+          "global": {
+            "x": 69.2,
+            "y": 36.9,
+            "width": 7.3,
+            "height": 9.9,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "ZIPER": {
+          "global": {
+            "x": 74.2,
+            "y": 24.7,
+            "width": 13.1,
+            "height": 22.6,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "SIDE POCKET": {
+          "global": {
+            "x": 11.8,
+            "y": 98,
+            "width": 7.3,
+            "height": 9.4,
+            "zIndex": 20,
+            "rotate": 0
+          }
+        }
+      },
+      "guides": {
+        "Length": {
+          "x": 90.7,
+          "height": 71,
+          "top": 17.4,
+          "enabled": true
+        },
+        "Sleeve": {
+          "x": 87,
+          "height": 30.2,
+          "top": 17.8,
+          "enabled": true
+        },
+        "Back": {
+          "x": 57.4,
+          "height": 66.9,
+          "top": 19.3,
+          "enabled": true
+        }
+      },
+      "garments": {
+        "front": {
+          "x": 76.6,
+          "y": 55.9,
+          "width": 45,
+          "height": 100
+        },
+        "back": {
+          "x": 43.5,
+          "y": 57.2,
+          "width": 45,
+          "height": 100
+        }
+      },
+      "summaryGroup": {
+        "x": 12,
+        "y": 48.9,
+        "width": 9.4,
+        "height": 83.5
+      }
+    },
+    "Emaraty": {
+      "id": 4,
+      "name": "Emaraty",
+      "inputs": {
+        "Shoulder": {
+          "x": 42.1,
+          "y": 19.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 8
+        },
+        "Sleeve": {
+          "x": 87.7,
+          "y": 33,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "Bottom width": {
+          "x": 74.4,
+          "y": 89.4,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 8.1
+        },
+        "Chest up": {
+          "x": 73.8,
+          "y": 25.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 5.6
+        },
+        "Chest down": {
+          "x": 42.3,
+          "y": 23.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.9
+        },
+        "Collar size": {
+          "x": 74.4,
+          "y": 12,
+          "scale": 1,
+          "rotation": 0
+        },
+        "Takhalis": {
+          "x": 42.9,
+          "y": 98.9,
+          "scale": 1,
+          "rotation": 0
+        },
+        "front length": {
+          "x": 90.9,
+          "y": 59.8,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.4
+        },
+        "Back Length": {
+          "x": 57.3,
+          "y": 53.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.1
+        },
+        "Shoulder slope": {
+          "x": 34.7,
+          "y": 15.4,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "sleeve top": {
+          "x": 51.8,
+          "y": 26.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.3
+        },
+        "sleeve middle": {
+          "x": 63,
+          "y": 30.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.8
+        },
+        "wriest": {
+          "x": 84,
+          "y": 45.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "middle width": {
+          "x": 74.2,
+          "y": 46.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.2
+        },
+        "haunch width": {
+          "x": 74.4,
+          "y": 54.3,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.8
+        },
+        "button height": {
+          "x": 66.5,
+          "y": 83.2,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.7
+        },
+        "Side pocket": {
+          "x": 26.3,
+          "y": 98.8,
+          "scale": 1,
+          "rotation": 0
+        },
+        "collar height": {
+          "x": 17.9,
+          "y": 18.1,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 3.2
+        },
+        "Plain Cuff Length": {
+          "x": 13.1,
+          "y": 37.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.3
+        },
+        "Cuff Length": {
+          "x": 15.7,
+          "y": 40.2,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.4
+        },
+        "Tatriz no": {
+          "x": 68.1,
+          "y": 98.7,
+          "scale": 1,
+          "rotation": 0
+        },
+        "Button no": {
+          "x": 85.3,
+          "y": 98.8,
+          "scale": 1,
+          "rotation": 0
+        },
+        "pocket width": {
+          "x": 12,
+          "y": 52.3,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1
+        },
+        "Pocket Height": {
+          "x": 16.7,
+          "y": 59.7,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 3.6
+        },
+        "zipper height": {
+          "x": 14.4,
+          "y": 80.5,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 3.1
+        },
+        "Zipper width": {
+          "x": 12.7,
+          "y": 72.8,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.3
+        },
+        "Collar  width": {
+          "x": 13.9,
+          "y": 12.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 5
+        },
+        "Shoulder to chest pocket": {
+          "x": 77.9,
+          "y": 20.9,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.9
+        },
+        "Cuff Type": {
+          "x": 13.5,
+          "y": 34,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 4.5
+        }
+      },
+      "categories": {
+        "Colar": {
+          "global": {
+            "x": 74.2,
+            "y": 14.4,
+            "width": 9.3,
+            "height": 12,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {
+            "Colar/s_10.png": {
+              "scaleX": 1.17,
+              "scaleY": 1.21,
+              "offsetX": -0.1,
+              "offsetY": -0.9
+            },
+            "Colar/s_12.png": {
+              "scaleX": 1.36,
+              "scaleY": 1.25,
+              "offsetX": -0.1,
+              "offsetY": -0.8
+            }
+          }
+        },
+        "POCKET": {
+          "global": {
+            "x": 77.4,
+            "y": 27.3,
+            "width": 5.3,
+            "height": 7.2,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "YAT": {
+          "global": {
+            "x": 69.2,
+            "y": 36.9,
+            "width": 7.3,
+            "height": 9.9,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "ZIPER": {
+          "global": {
+            "x": 74.2,
+            "y": 24.7,
+            "width": 13.1,
+            "height": 22.6,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "SIDE POCKET": {
+          "global": {
+            "x": 11.8,
+            "y": 98,
+            "width": 7.3,
+            "height": 9.4,
+            "zIndex": 20,
+            "rotate": 0
+          }
+        }
+      },
+      "guides": {
+        "Length": {
+          "x": 90.7,
+          "height": 71,
+          "top": 17.4,
+          "enabled": true
+        },
+        "Sleeve": {
+          "x": 87,
+          "height": 30.2,
+          "top": 17.8,
+          "enabled": true
+        },
+        "Back": {
+          "x": 57.4,
+          "height": 66.9,
+          "top": 19.3,
+          "enabled": true
+        }
+      },
+      "garments": {
+        "front": {
+          "x": 76.6,
+          "y": 55.9,
+          "width": 45,
+          "height": 100
+        },
+        "back": {
+          "x": 43.5,
+          "y": 57.2,
+          "width": 45,
+          "height": 100
+        }
+      },
+      "summaryGroup": {
+        "x": 12,
+        "y": 48.9,
+        "width": 9.4,
+        "height": 83.5
+      }
+    },
+    "Noom": {
+      "id": 6,
+      "name": "Noom",
+      "inputs": {
+        "Shoulder": {
+          "x": 42.1,
+          "y": 19.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 8
+        },
+        "Sleeve": {
+          "x": 87.7,
+          "y": 33,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "Bottom width": {
+          "x": 74.4,
+          "y": 89.4,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 8.1
+        },
+        "Chest up": {
+          "x": 73.8,
+          "y": 25.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 5.6
+        },
+        "Chest down": {
+          "x": 42.3,
+          "y": 23.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.9
+        },
+        "Collar size": {
+          "x": 74.4,
+          "y": 12,
+          "scale": 1,
+          "rotation": 0
+        },
+        "Takhalis": {
+          "x": 42.9,
+          "y": 98.9,
+          "scale": 1,
+          "rotation": 0
+        },
+        "front length": {
+          "x": 90.9,
+          "y": 59.8,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.4
+        },
+        "Back Length": {
+          "x": 57.3,
+          "y": 53.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.1
+        },
+        "Shoulder slope": {
+          "x": 34.7,
+          "y": 15.4,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "sleeve top": {
+          "x": 51.8,
+          "y": 26.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.3
+        },
+        "sleeve middle": {
+          "x": 63,
+          "y": 30.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.8
+        },
+        "wriest": {
+          "x": 84,
+          "y": 45.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "middle width": {
+          "x": 74.2,
+          "y": 46.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.2
+        },
+        "haunch width": {
+          "x": 74.4,
+          "y": 54.3,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.8
+        },
+        "button height": {
+          "x": 66.5,
+          "y": 83.2,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.7
+        },
+        "Side pocket": {
+          "x": 26.3,
+          "y": 98.8,
+          "scale": 1,
+          "rotation": 0
+        },
+        "collar height": {
+          "x": 17.9,
+          "y": 18.1,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 3.2
+        },
+        "Plain Cuff Length": {
+          "x": 13.1,
+          "y": 37.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.3
+        },
+        "Cuff Length": {
+          "x": 15.7,
+          "y": 40.2,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.4
+        },
+        "Tatriz no": {
+          "x": 68.1,
+          "y": 98.7,
+          "scale": 1,
+          "rotation": 0
+        },
+        "Button no": {
+          "x": 85.3,
+          "y": 98.8,
+          "scale": 1,
+          "rotation": 0
+        },
+        "pocket width": {
+          "x": 12,
+          "y": 52.3,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1
+        },
+        "Pocket Height": {
+          "x": 16.7,
+          "y": 59.7,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 3.6
+        },
+        "zipper height": {
+          "x": 14.4,
+          "y": 80.5,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 3.1
+        },
+        "Zipper width": {
+          "x": 12.7,
+          "y": 72.8,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.3
+        },
+        "Collar  width": {
+          "x": 13.9,
+          "y": 12.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 5
+        },
+        "Shoulder to chest pocket": {
+          "x": 77.9,
+          "y": 20.9,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.9
+        },
+        "Cuff Type": {
+          "x": 13.5,
+          "y": 34,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 4.5
+        }
+      },
+      "categories": {
+        "Colar": {
+          "global": {
+            "x": 74.2,
+            "y": 14.4,
+            "width": 9.3,
+            "height": 12,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {
+            "Colar/s_10.png": {
+              "scaleX": 1.17,
+              "scaleY": 1.21,
+              "offsetX": -0.1,
+              "offsetY": -0.9
+            },
+            "Colar/s_12.png": {
+              "scaleX": 1.36,
+              "scaleY": 1.25,
+              "offsetX": -0.1,
+              "offsetY": -0.8
+            }
+          }
+        },
+        "POCKET": {
+          "global": {
+            "x": 77.4,
+            "y": 27.3,
+            "width": 5.3,
+            "height": 7.2,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "YAT": {
+          "global": {
+            "x": 69.2,
+            "y": 36.9,
+            "width": 7.3,
+            "height": 9.9,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "ZIPER": {
+          "global": {
+            "x": 74.2,
+            "y": 24.7,
+            "width": 13.1,
+            "height": 22.6,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "SIDE POCKET": {
+          "global": {
+            "x": 11.8,
+            "y": 98,
+            "width": 7.3,
+            "height": 9.4,
+            "zIndex": 20,
+            "rotate": 0
+          }
+        }
+      },
+      "guides": {
+        "Length": {
+          "x": 90.7,
+          "height": 71,
+          "top": 17.4,
+          "enabled": true
+        },
+        "Sleeve": {
+          "x": 87,
+          "height": 30.2,
+          "top": 17.8,
+          "enabled": true
+        },
+        "Back": {
+          "x": 57.4,
+          "height": 66.9,
+          "top": 19.3,
+          "enabled": true
+        }
+      },
+      "garments": {
+        "front": {
+          "x": 76.6,
+          "y": 55.9,
+          "width": 45,
+          "height": 100
+        },
+        "back": {
+          "x": 43.5,
+          "y": 57.2,
+          "width": 45,
+          "height": 100
+        }
+      },
+      "summaryGroup": {
+        "x": 12,
+        "y": 48.9,
+        "width": 9.4,
+        "height": 83.5
+      }
+    },
+    "Saideria": {
+      "id": 3,
+      "name": "Saideria",
+      "inputs": {
+        "Shoulder": {
+          "x": 38.2,
+          "y": 39.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 9.4
+        },
+        "Sleeve": {
+          "x": 87.7,
+          "y": 33,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "Bottom width": {
+          "x": 74.4,
+          "y": 89.4,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 8.1
+        },
+        "Chest up": {
+          "x": 66.9,
+          "y": 40.3,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 9.1
+        },
+        "Chest down": {
+          "x": 67.1,
+          "y": 46.9,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 9
+        },
+        "Collar size": {
+          "x": 74.4,
+          "y": 12,
+          "scale": 1,
+          "rotation": 0
+        },
+        "Takhalis": {
+          "x": 42.9,
+          "y": 98.9,
+          "scale": 1,
+          "rotation": 0
+        },
+        "front length": {
+          "x": 86.7,
+          "y": 56.4,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.4
+        },
+        "Back Length": {
+          "x": 57.3,
+          "y": 53.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.1
+        },
+        "Shoulder slope": {
+          "x": 29.2,
+          "y": 31.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "sleeve top": {
+          "x": 51.8,
+          "y": 26.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.3
+        },
+        "sleeve middle": {
+          "x": 63,
+          "y": 30.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.8
+        },
+        "wriest": {
+          "x": 84,
+          "y": 45.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "middle width": {
+          "x": 74.2,
+          "y": 46.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.2
+        },
+        "haunch width": {
+          "x": 74.4,
+          "y": 54.3,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.8
+        },
+        "button height": {
+          "x": 66.5,
+          "y": 83.2,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.7
+        },
+        "Side pocket": {
+          "x": 26.3,
+          "y": 98.8,
+          "scale": 1,
+          "rotation": 0
+        },
+        "collar height": {
+          "x": 17.9,
+          "y": 18.1,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 3.2
+        },
+        "Plain Cuff Length": {
+          "x": 13.1,
+          "y": 37.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.3
+        },
+        "Cuff Length": {
+          "x": 15.7,
+          "y": 40.2,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.4
+        },
+        "Tatriz no": {
+          "x": 68.1,
+          "y": 98.7,
+          "scale": 1,
+          "rotation": 0
+        },
+        "Button no": {
+          "x": 85.3,
+          "y": 98.8,
+          "scale": 1,
+          "rotation": 0
+        },
+        "pocket width": {
+          "x": 12,
+          "y": 52.3,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1
+        },
+        "Pocket Height": {
+          "x": 16.7,
+          "y": 59.7,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 3.6
+        },
+        "zipper height": {
+          "x": 14.4,
+          "y": 80.5,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 3.1
+        },
+        "Zipper width": {
+          "x": 12.7,
+          "y": 72.8,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.3
+        },
+        "Collar  width": {
+          "x": 13.9,
+          "y": 12.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 5
+        },
+        "Shoulder to chest pocket": {
+          "x": 77.9,
+          "y": 20.9,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.9
+        },
+        "Cuff Type": {
+          "x": 13.5,
+          "y": 34,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 4.5
+        },
+        "Wasa": {
+          "x": 66.9,
+          "y": 56.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 8.1
+        },
+        "Hip": {
+          "x": 66.4,
+          "y": 65,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 8.4
+        }
+      },
+      "categories": {
+        "Colar": {
+          "global": {
+            "x": 74.2,
+            "y": 14.4,
+            "width": 9.3,
+            "height": 12,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {
+            "Colar/s_10.png": {
+              "scaleX": 1.17,
+              "scaleY": 1.21,
+              "offsetX": -0.1,
+              "offsetY": -0.9
+            },
+            "Colar/s_12.png": {
+              "scaleX": 1.36,
+              "scaleY": 1.25,
+              "offsetX": -0.1,
+              "offsetY": -0.8
+            }
+          }
+        },
+        "POCKET": {
+          "global": {
+            "x": 77.4,
+            "y": 27.3,
+            "width": 5.3,
+            "height": 7.2,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "YAT": {
+          "global": {
+            "x": 69.2,
+            "y": 36.9,
+            "width": 7.3,
+            "height": 9.9,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "ZIPER": {
+          "global": {
+            "x": 74.2,
+            "y": 24.7,
+            "width": 13.1,
+            "height": 22.6,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "SIDE POCKET": {
+          "global": {
+            "x": 11.8,
+            "y": 98,
+            "width": 7.3,
+            "height": 9.4,
+            "zIndex": 20,
+            "rotate": 0
+          }
+        }
+      },
+      "guides": {
+        "Length": {
+          "x": 86.3,
+          "height": 44.6,
+          "top": 31.9,
+          "enabled": true
+        },
+        "Sleeve": {
+          "x": 87,
+          "height": 30.2,
+          "top": 17.8,
+          "enabled": false
+        },
+        "Back": {
+          "x": 57.4,
+          "height": 66.9,
+          "top": 19.3,
+          "enabled": false
+        }
+      },
+      "garments": {
+        "front": {
+          "x": 66.3,
+          "y": 54.5,
+          "width": 45,
+          "height": 100
+        },
+        "back": {
+          "x": 37.4,
+          "y": 54.9,
+          "width": 45,
+          "height": 100
+        }
+      },
+      "summaryGroup": {
+        "x": 12,
+        "y": 48.9,
+        "width": 9.4,
+        "height": 83.5
+      }
+    },
+    "Dagla": {
+      "id": 2,
+      "name": "Dagla",
+      "inputs": {
+        "Shoulder": {
+          "x": 44.4,
+          "y": 23.5,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 7.3
+        },
+        "Sleeve": {
+          "x": 87.7,
+          "y": 33,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "Bottom width": {
+          "x": 77.5,
+          "y": 90.9,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 8.6
+        },
+        "Chest up": {
+          "x": 76.3,
+          "y": 34,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.7
+        },
+        "Chest down": {
+          "x": 44.9,
+          "y": 28.5,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 7.2
+        },
+        "Collar size": {
+          "x": 78.7,
+          "y": 15.2,
+          "scale": 1,
+          "rotation": 0
+        },
+        "Takhalis": {
+          "x": 42.9,
+          "y": 98.9,
+          "scale": 1,
+          "rotation": 0
+        },
+        "front length": {
+          "x": 95.2,
+          "y": 60.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.4
+        },
+        "Back Length": {
+          "x": 57.3,
+          "y": 53.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.1
+        },
+        "Shoulder slope": {
+          "x": 38,
+          "y": 18.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "sleeve top": {
+          "x": 54.3,
+          "y": 31.7,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.3
+        },
+        "sleeve middle": {
+          "x": 68.3,
+          "y": 39.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.8
+        },
+        "wriest": {
+          "x": 89.9,
+          "y": 55.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "middle width": {
+          "x": 77.2,
+          "y": 48.1,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 7.2
+        },
+        "haunch width": {
+          "x": 77.2,
+          "y": 56.5,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 7.9
+        },
+        "button height": {
+          "x": 66.9,
+          "y": 86.4,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.7
+        },
+        "Side pocket": {
+          "x": 26.3,
+          "y": 98.8,
+          "scale": 1,
+          "rotation": 0
+        },
+        "collar height": {
+          "x": 17.9,
+          "y": 18.1,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 3.2
+        },
+        "Plain Cuff Length": {
+          "x": 13.1,
+          "y": 37.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.3
+        },
+        "Cuff Length": {
+          "x": 15.7,
+          "y": 40.2,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.4
+        },
+        "Tatriz no": {
+          "x": 68.1,
+          "y": 98.7,
+          "scale": 1,
+          "rotation": 0
+        },
+        "Button no": {
+          "x": 85.3,
+          "y": 98.8,
+          "scale": 1,
+          "rotation": 0
+        },
+        "pocket width": {
+          "x": 12,
+          "y": 52.3,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1
+        },
+        "Pocket Height": {
+          "x": 16.7,
+          "y": 59.7,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 3.6
+        },
+        "zipper height": {
+          "x": 14.4,
+          "y": 80.5,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 3.1
+        },
+        "Zipper width": {
+          "x": 12.7,
+          "y": 72.8,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.3
+        },
+        "Collar  width": {
+          "x": 13.9,
+          "y": 12.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 5
+        },
+        "Shoulder to chest pocket": {
+          "x": 80.9,
+          "y": 25.8,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.9
+        },
+        "Cuff Type": {
+          "x": 13.5,
+          "y": 34,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 4.5
+        }
+      },
+      "categories": {
+        "Colar": {
+          "global": {
+            "x": 74.2,
+            "y": 14.4,
+            "width": 9.3,
+            "height": 12,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {
+            "Colar/s_10.png": {
+              "scaleX": 1.17,
+              "scaleY": 1.21,
+              "offsetX": -0.1,
+              "offsetY": -0.9
+            },
+            "Colar/s_12.png": {
+              "scaleX": 1.36,
+              "scaleY": 1.25,
+              "offsetX": -0.1,
+              "offsetY": -0.8
+            }
+          }
+        },
+        "POCKET": {
+          "global": {
+            "x": 77.4,
+            "y": 27.3,
+            "width": 5.3,
+            "height": 7.2,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "YAT": {
+          "global": {
+            "x": 69.2,
+            "y": 36.9,
+            "width": 7.3,
+            "height": 9.9,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "ZIPER": {
+          "global": {
+            "x": 74.2,
+            "y": 24.7,
+            "width": 13.1,
+            "height": 22.6,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "SIDE POCKET": {
+          "global": {
+            "x": 11.8,
+            "y": 98,
+            "width": 7.3,
+            "height": 9.4,
+            "zIndex": 20,
+            "rotate": 0
+          }
+        }
+      },
+      "guides": {
+        "Length": {
+          "x": 93.9,
+          "height": 71,
+          "top": 17.4,
+          "enabled": true
+        },
+        "Sleeve": {
+          "x": 90.8,
+          "height": 39.8,
+          "top": 17.8,
+          "enabled": true
+        },
+        "Back": {
+          "x": 59.2,
+          "height": 72.1,
+          "top": 19.3,
+          "enabled": true
+        }
+      },
+      "garments": {
+        "front": {
+          "x": 77.3,
+          "y": 56.9,
+          "width": 60.5,
+          "height": 100
+        },
+        "back": {
+          "x": 44.5,
+          "y": 56.6,
+          "width": 58.9,
+          "height": 100
+        }
+      },
+      "summaryGroup": {
+        "x": 12,
+        "y": 48.9,
+        "width": 9.4,
+        "height": 83.5
+      }
+    },
+    "Code": {
+      "id": 1,
+      "name": "Code",
+      "inputs": {
+        "Shoulder": {
+          "x": 36.2,
+          "y": 37.9,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 8
+        },
+        "Sleeve": {
+          "x": 83.3,
+          "y": 47.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "Bottom width": {
+          "x": 74.4,
+          "y": 89.4,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 8.1
+        },
+        "Chest up": {
+          "x": 67.2,
+          "y": 38.3,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 7.3
+        },
+        "Chest down": {
+          "x": 67.3,
+          "y": 42.4,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.9
+        },
+        "Collar size": {
+          "x": 74.4,
+          "y": 12,
+          "scale": 1,
+          "rotation": 0
+        },
+        "Takhalis": {
+          "x": 42.9,
+          "y": 98.9,
+          "scale": 1,
+          "rotation": 0
+        },
+        "front length": {
+          "x": 88.7,
+          "y": 52.8,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.4
+        },
+        "Back Length": {
+          "x": 57.3,
+          "y": 53.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.1
+        },
+        "Shoulder slope": {
+          "x": 30.7,
+          "y": 32,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "sleeve top": {
+          "x": 45.1,
+          "y": 44.4,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 2.3
+        },
+        "sleeve middle": {
+          "x": 58.7,
+          "y": 47.8,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.8
+        },
+        "wriest": {
+          "x": 77.2,
+          "y": 63.8,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.7
+        },
+        "middle width": {
+          "x": 74.2,
+          "y": 46.2,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.2
+        },
+        "haunch width": {
+          "x": 74.4,
+          "y": 54.3,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6.8
+        },
+        "button height": {
+          "x": 66.5,
+          "y": 83.2,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.7
+        },
+        "Side pocket": {
+          "x": 26.3,
+          "y": 98.8,
+          "scale": 1,
+          "rotation": 0
+        },
+        "collar height": {
+          "x": 17.9,
+          "y": 18.1,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 3.2
+        },
+        "Plain Cuff Length": {
+          "x": 13.4,
+          "y": 35.3,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.3
+        },
+        "Cuff Length": {
+          "x": 15.9,
+          "y": 40,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.4
+        },
+        "Tatriz no": {
+          "x": 68.1,
+          "y": 98.7,
+          "scale": 1,
+          "rotation": 0
+        },
+        "Button no": {
+          "x": 85.3,
+          "y": 98.8,
+          "scale": 1,
+          "rotation": 0
+        },
+        "pocket width": {
+          "x": 12,
+          "y": 52.3,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1
+        },
+        "Pocket Height": {
+          "x": 16.7,
+          "y": 59.7,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 3.6
+        },
+        "zipper height": {
+          "x": 14.4,
+          "y": 80.5,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 3.1
+        },
+        "Zipper width": {
+          "x": 12.7,
+          "y": 72.8,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 1.3
+        },
+        "Collar  width": {
+          "x": 13.9,
+          "y": 12.6,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 5
+        },
+        "Shoulder to chest pocket": {
+          "x": 77.9,
+          "y": 20.9,
+          "scale": 1,
+          "rotation": 90,
+          "lineWidth": 1.9
+        },
+        "Cuff Type": {
+          "x": 13.5,
+          "y": 34,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 4.5
+        },
+        "Hip": {
+          "x": 67.6,
+          "y": 60.8,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 7
+        },
+        "Wasa": {
+          "x": 67.5,
+          "y": 51.5,
+          "scale": 1,
+          "rotation": 0,
+          "lineWidth": 6
+        }
+      },
+      "categories": {
+        "Colar": {
+          "global": {
+            "x": 74.2,
+            "y": 14.4,
+            "width": 9.3,
+            "height": 12,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {
+            "Colar/s_10.png": {
+              "scaleX": 1.17,
+              "scaleY": 1.21,
+              "offsetX": -0.1,
+              "offsetY": -0.9
+            },
+            "Colar/s_12.png": {
+              "scaleX": 1.36,
+              "scaleY": 1.25,
+              "offsetX": -0.1,
+              "offsetY": -0.8
+            }
+          }
+        },
+        "POCKET": {
+          "global": {
+            "x": 77.4,
+            "y": 27.3,
+            "width": 5.3,
+            "height": 7.2,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "YAT": {
+          "global": {
+            "x": 69.2,
+            "y": 36.9,
+            "width": 7.3,
+            "height": 9.9,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "ZIPER": {
+          "global": {
+            "x": 74.2,
+            "y": 24.7,
+            "width": 13.1,
+            "height": 22.6,
+            "zIndex": 20,
+            "rotate": 0
+          },
+          "items": {}
+        },
+        "SIDE POCKET": {
+          "global": {
+            "x": 11.8,
+            "y": 98,
+            "width": 7.3,
+            "height": 9.4,
+            "zIndex": 20,
+            "rotate": 0
+          }
+        }
+      },
+      "guides": {
+        "Length": {
+          "x": 88.8,
+          "height": 39.8,
+          "top": 29,
+          "enabled": true
+        },
+        "Sleeve": {
+          "x": 82.8,
+          "height": 25.5,
+          "top": 34.2,
+          "enabled": true
+        },
+        "Back": {
+          "x": 54.5,
+          "height": 66.9,
+          "top": 19.3,
+          "enabled": false
+        }
+      },
+      "garments": {
+        "front": {
+          "x": 67.4,
+          "y": 50.7,
+          "width": 45,
+          "height": 100
+        },
+        "back": {
+          "x": 36.2,
+          "y": 51,
+          "width": 45,
+          "height": 100
+        }
+      },
+      "summaryGroup": {
+        "x": 12,
+        "y": 48.9,
+        "width": 9.4,
+        "height": 83.5
+      }
+    }
+  },
+  "currentStyle": "Saudi",
+  "customStyles": [],
+  "customImages": {
+    "SIDE POCKET": {
+      "_": [
+        "data:image/jpeg;base64,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",
+        "data:image/png;base64,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"
+      ]
+    },
+    "Colar": {
+      "_": [
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAJnKAACZygHjkaQiAAATvWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAxNy0xMi0wM1QyMTo0ODoyMiswMzowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAxNy0xMi0wM1QyMTo0ODoyMiswMzowMCIgeG1wOk1vZGlmeURhdGU9IjIwMTctMTItMDNUMjE6NDg6MjIrMDM6MDAiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NWNkOWU1NDgtNTYyOS04YzQ0LThhMDUtYWMyMTY0ZmNiZjRkIiB4bXBNTTpEb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6YjFhNmUyYjctYTUwZC1jODQ4LTgzOTEtZWMxOWFlNDg5ZmYwIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6Mjc1ZjkzMzQtMWE5NS0xYjQ1LTgxYmQtZGM2N2RmZGJlYWRlIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIj4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY3JlYXRlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDoyNzVmOTMzNC0xYTk1LTFiNDUtODFiZC1kYzY3ZGZkYmVhZGUiIHN0RXZ0OndoZW49IjIwMTctMTItMDNUMjE6NDg6MjIrMDM6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAoV2luZG93cykiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjVjZDllNTQ4LTU2MjktOGM0NC04YTA1LWFjMjE2NGZjYmY0ZCIgc3RFdnQ6d2hlbj0iMjAxNy0xMi0wM1QyMTo0ODoyMiswMzowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPHBob3Rvc2hvcDpEb2N1bWVudEFuY2VzdG9ycz4gPHJkZjpCYWc+IDxyZGY6bGk+MjJGNTA1RTMwOUMyMTFCNUE1OUFCRUVFQjNDQzM2Mjk8L3JkZjpsaT4gPHJkZjpsaT4zMTM2MzVDMkE0MzRDQzU4RUU3MkZCNUVCNTAzNUFGRTwvcmRmOmxpPiA8cmRmOmxpPjRBNEYwMDE1MTNEQkZEQ0RBNjRFRDMzMzkzMEM0QzA4PC9yZGY6bGk+IDxyZGY6bGk+NjY4QTFGMTJEQkU1NEJBQTlFRTBBRUVDNzA4M0U2OEM8L3JkZjpsaT4gPHJkZjpsaT45MTlGMzI1NEE2M0JCOEZBQzMzRkQwMjA5NzFFRUI1MTwvcmRmOmxpPiA8cmRmOmxpPkJFQjM4MkFERkRCRDc1RjQ3OTQxRDU1NkUwNERFNzQ5PC9yZGY6bGk+IDxyZGY6bGk+QkY3MDUwNDc4NERBOEQ2NjUzM0JGMDhFM0JEN0I4N0U8L3JkZjpsaT4gPHJkZjpsaT5EOUFCODJFM0JEOUEyQTBERUMxNDIwNjU0REU1RUFCQzwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDowMGNjOTFmZS1hNTQxLTliNDctOTBiYS1mMWRhNjVjZDNkZDE8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6MDI2MzlmMjItZDI5Yy03MTQ1LThhNjAtNmU1ZDkyYTFlNzVmPC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjEyOTc5NWY4LTRlZDQtZDM0OC04Y2VlLThiNGE2NWIxMjJjODwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDoxNDg4NzU3Yi1jNGExLTY4NDAtYmNlNS1mNzRlMWY0MmMzNjY8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6MTRkODIzZjAtNGEzOC00NzQwLTk0ODAtZmU4YTdkZDg0MDZkPC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjE3N2M5OWJlLTM4NmQtZWY0YS04MjQyLTg4NDE0OGEyNWUxZTwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDoxN2QwYjNhMC01OTA2LWI0NDgtOGE2NC02NDhiNGU4YjRlNTc8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6MWNkZjM4NDQtZDczMy0xMWU3LTljYTYtYmI1ZjNlNGM1ODcwPC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjFkMGZjZWZlLTI1MjUtMjI0My1hNDE2LWRmMzAyYzYwN2ZkZTwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDoyOWVjN2QzOC1kNThjLWE5NDgtYjhmNi0zMzM1MzJmMWMzYzM8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6MzUyZjhiN2EtMzExZi1jMTQ3LTlkOWUtODZmYWY5YTFmZjVhPC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjQ0MGQwZWEyLTY4ZmQtZTc0Yi04Njg0LWMwMTk2NmI1MjljNDwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDo0NzllMTAzOS0wY2YyLTMwNGItOTNkZS0yNmQ1NDU4Mjg0Njg8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6NGE4OTE4YzUtYzk0Mi1kODQ5LTk2ZDMtNDQ2Y2Y3MjRhMjc5PC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjRlYTc4MDM1LTU3MjYtNDk0OS04N2FjLWQ4ODljZWVmMzMxNzwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDo1MjIxOWJlOC0zNmM4LTlkNGEtYTRiYi1kY2M4OGIwYTEyZjM8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6Njc4YTVhYTAtODBjNS1hNzQ5LWI3MTYtMGE2ODEzYTcwNzM1PC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjZjZjcwOWI3LTk5YWItMTA0Mi04YTdkLWY5YmU5ZWFiM2YxNTwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDo2ZDYzYjJkYS0xM2JhLTBlNDItOGM4ZS1kNjY2OWZjMGFlZWI8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6NmYwOGIxYTAtNjk0Yy0zYjQ3LTg2NzctM2JmY2E1MzM5ODRkPC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjk1MjU4ZjliLTk4NTUtNTI0Mi1hZjMzLTg2MWNjZTZlMWIxYzwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDo5NTkwNjk1Ni1jYWYwLWQzNDItYTk2OC1jMWY1NGVmNmQwNzg8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6OTk2YzU1ZTUtYjQyMC1kYjQ1LWIzNjAtNGViOTRjMzRkYjM0PC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmE4NDkzOWUwLWQzYTEtMTFlNy05Y2E2LWJiNWYzZTRjNTg3MDwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDphYjcyMTA0ZC1jZDY5LTA2NDctOWU5NS1iMWIyY2Y1MjIyYTY8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6YWM5YjM4YWEtODg0ZS03MTQyLWE0ODktY2UyMTkxZGEyYTExPC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmI5MTJlZWRkLTg1MjItNzA0Mi1iYjcyLThhOWUzMDkxMTdiYTwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDpiOTM0ZWNjZC03NzA4LTFlNDktOTc0Ni1mNzJjODY5ZjkxMDQ8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6YzdjY2FhYWItMjM5ZS05MjRmLTg4MzQtNjVkYjc2MWMwOWZlPC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmM4YzcwZGUwLTI4YjctOGY0Mi05Y2FiLTBmNjllYjI3ZjEwMDwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDpjYjE3OGUzYy0wMzVkLWViNGEtYmQ2OS01MzliYzM4MTkwYTM8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6ZDJhYmI1ZGQtNjkwYS1hYTQwLWE3MzYtZDQ1YjY5ZjZhNmIzPC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmQ1MTI4MmM1LTdlNzktZTg0YS04ZTAwLTQ2ZmFhZjJiYTEwODwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDpkNmIxNDNk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",
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAJnKAACZygHjkaQiAAATvWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAxNy0xMi0wM1QyMTo0ODoyMiswMzowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAxNy0xMi0wM1QyMTo0ODoyMiswMzowMCIgeG1wOk1vZGlmeURhdGU9IjIwMTctMTItMDNUMjE6NDg6MjIrMDM6MDAiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NWNkOWU1NDgtNTYyOS04YzQ0LThhMDUtYWMyMTY0ZmNiZjRkIiB4bXBNTTpEb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6YjFhNmUyYjctYTUwZC1jODQ4LTgzOTEtZWMxOWFlNDg5ZmYwIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6Mjc1ZjkzMzQtMWE5NS0xYjQ1LTgxYmQtZGM2N2RmZGJlYWRlIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIj4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY3JlYXRlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDoyNzVmOTMzNC0xYTk1LTFiNDUtODFiZC1kYzY3ZGZkYmVhZGUiIHN0RXZ0OndoZW49IjIwMTctMTItMDNUMjE6NDg6MjIrMDM6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAoV2luZG93cykiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjVjZDllNTQ4LTU2MjktOGM0NC04YTA1LWFjMjE2NGZjYmY0ZCIgc3RFdnQ6d2hlbj0iMjAxNy0xMi0wM1QyMTo0ODoyMiswMzowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPHBob3Rvc2hvcDpEb2N1bWVudEFuY2VzdG9ycz4gPHJkZjpCYWc+IDxyZGY6bGk+MjJGNTA1RTMwOUMyMTFCNUE1OUFCRUVFQjNDQzM2Mjk8L3JkZjpsaT4gPHJkZjpsaT4zMTM2MzVDMkE0MzRDQzU4RUU3MkZCNUVCNTAzNUFGRTwvcmRmOmxpPiA8cmRmOmxpPjRBNEYwMDE1MTNEQkZEQ0RBNjRFRDMzMzkzMEM0QzA4PC9yZGY6bGk+IDxyZGY6bGk+NjY4QTFGMTJEQkU1NEJBQTlFRTBBRUVDNzA4M0U2OEM8L3JkZjpsaT4gPHJkZjpsaT45MTlGMzI1NEE2M0JCOEZBQzMzRkQwMjA5NzFFRUI1MTwvcmRmOmxpPiA8cmRmOmxpPkJFQjM4MkFERkRCRDc1RjQ3OTQxRDU1NkUwNERFNzQ5PC9yZGY6bGk+IDxyZGY6bGk+QkY3MDUwNDc4NERBOEQ2NjUzM0JGMDhFM0JEN0I4N0U8L3JkZjpsaT4gPHJkZjpsaT5EOUFCODJFM0JEOUEyQTBERUMxNDIwNjU0REU1RUFCQzwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDowMGNjOTFmZS1hNTQxLTliNDctOTBiYS1mMWRhNjVjZDNkZDE8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6MDI2MzlmMjItZDI5Yy03MTQ1LThhNjAtNmU1ZDkyYTFlNzVmPC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjEyOTc5NWY4LTRlZDQtZDM0OC04Y2VlLThiNGE2NWIxMjJjODwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDoxNDg4NzU3Yi1jNGExLTY4NDAtYmNlNS1mNzRlMWY0MmMzNjY8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6MTRkODIzZjAtNGEzOC00NzQwLTk0ODAtZmU4YTdkZDg0MDZkPC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjE3N2M5OWJlLTM4NmQtZWY0YS04MjQyLTg4NDE0OGEyNWUxZTwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDoxN2QwYjNhMC01OTA2LWI0NDgtOGE2NC02NDhiNGU4YjRlNTc8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6MWNkZjM4NDQtZDczMy0xMWU3LTljYTYtYmI1ZjNlNGM1ODcwPC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjFkMGZjZWZlLTI1MjUtMjI0My1hNDE2LWRmMzAyYzYwN2ZkZTwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDoyOWVjN2QzOC1kNThjLWE5NDgtYjhmNi0zMzM1MzJmMWMzYzM8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6MzUyZjhiN2EtMzExZi1jMTQ3LTlkOWUtODZmYWY5YTFmZjVhPC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjQ0MGQwZWEyLTY4ZmQtZTc0Yi04Njg0LWMwMTk2NmI1MjljNDwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDo0NzllMTAzOS0wY2YyLTMwNGItOTNkZS0yNmQ1NDU4Mjg0Njg8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6NGE4OTE4YzUtYzk0Mi1kODQ5LTk2ZDMtNDQ2Y2Y3MjRhMjc5PC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjRlYTc4MDM1LTU3MjYtNDk0OS04N2FjLWQ4ODljZWVmMzMxNzwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDo1MjIxOWJlOC0zNmM4LTlkNGEtYTRiYi1kY2M4OGIwYTEyZjM8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6Njc4YTVhYTAtODBjNS1hNzQ5LWI3MTYtMGE2ODEzYTcwNzM1PC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjZjZjcwOWI3LTk5YWItMTA0Mi04YTdkLWY5YmU5ZWFiM2YxNTwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDo2ZDYzYjJkYS0xM2JhLTBlNDItOGM4ZS1kNjY2OWZjMGFlZWI8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6NmYwOGIxYTAtNjk0Yy0zYjQ3LTg2NzctM2JmY2E1MzM5ODRkPC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjk1MjU4ZjliLTk4NTUtNTI0Mi1hZjMzLTg2MWNjZTZlMWIxYzwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDo5NTkwNjk1Ni1jYWYwLWQzNDItYTk2OC1jMWY1NGVmNmQwNzg8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6OTk2YzU1ZTUtYjQyMC1kYjQ1LWIzNjAtNGViOTRjMzRkYjM0PC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmE4NDkzOWUwLWQzYTEtMTFlNy05Y2E2LWJiNWYzZTRjNTg3MDwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDphYjcyMTA0ZC1jZDY5LTA2NDctOWU5NS1iMWIyY2Y1MjIyYTY8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6YWM5YjM4YWEtODg0ZS03MTQyLWE0ODktY2UyMTkxZGEyYTExPC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmI5MTJlZWRkLTg1MjItNzA0Mi1iYjcyLThhOWUzMDkxMTdiYTwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDpiOTM0ZWNjZC03NzA4LTFlNDktOTc0Ni1mNzJjODY5ZjkxMDQ8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6YzdjY2FhYWItMjM5ZS05MjRmLTg4MzQtNjVkYjc2MWMwOWZlPC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmM4YzcwZGUwLTI4YjctOGY0Mi05Y2FiLTBmNjllYjI3ZjEwMDwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDpjYjE3OGUzYy0wMzVkLWViNGEtYmQ2OS01MzliYzM4MTkwYTM8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6ZDJhYmI1ZGQtNjkwYS1hYTQwLWE3MzYtZDQ1YjY5ZjZhNmIzPC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmQ1MTI4MmM1LTdlNzktZTg0YS04ZTAwLTQ2ZmFhZjJiYTEwODwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDpkNmIxNDNk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"
+      ]
+    }
+  },
+  "fields": [
+    "front length",
+    "Back Length",
+    "Shoulder",
+    "Sleeve",
+    "sleeve top",
+    "sleeve middle",
+    "wriest",
+    "Plain Cuff Length",
+    "Cuff Length",
+    "Cuff Type",
+    "middle width",
+    "haunch width",
+    "button height",
+    "Bottom width",
+    "Chest up",
+    "Chest down",
+    "Shoulder slope",
+    "Collar size",
+    "Collar  width",
+    "collar height",
+    "Takhalis",
+    "Side pocket",
+    "zipper height",
+    "Zipper width",
+    "Pocket Height",
+    "pocket width",
+    "Shoulder to chest pocket",
+    "Button no",
+    "Tatriz no",
+    "Wasa",
+    "Hip"
+  ],
+  "imageNames": {
+    "Colar/s_n2.png": "Gallab",
+    "Colar/s_n4.png": "Franchi",
+    "YAT/s_7.png": "SADA",
+    "YAT/s_6.png": "Maliki",
+    "ZIPER/s_5.png": "Bain",
+    "ZIPER/s_7 (2).png": "Sahab",
+    "ZIPER/s_3.png": "makfi"
+  }
+}
