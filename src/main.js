@@ -393,6 +393,60 @@ const i18n = {
     "appt.orderSummary": "Order & Amount Summary",
     "appt.totalDue": "TOTAL AMOUNT (PAY ON ARRIVAL)",
     "appt.codNote": "Cash or Card on Delivery • No Advance",
+    "journey.aria": "The AL-DORZY Bespoke Tailoring Journey",
+    "journey.badge": "THE AL-DORZY BESPOKE JOURNEY",
+    "journey.pause": "Pause",
+    "journey.play": "Play",
+    "journey.tag1": "Instant Online Booking • No Advance Payment",
+    "journey.waName": "AL-DORZY Atelier Concierge",
+    "journey.waMsg": "وعليكم السلام، تم تأكيد موعد الخياط برقم #AD-2048",
+    "journey.tag4": "Handcrafted by Master Tailors • Super 120s & Italian Wool",
+    "journey.sealTitle": "AL-DORZY Royal Seal",
+    "journey.sealSub": "Hand-inspected, steamed & boxed",
+    "journey.tag6": "100% Free Doorstep Delivery Across Saudi Arabia",
+    "journey.c1.badge": "01 · ONLINE ORDER",
+    "journey.c1.title": "Choose Your Fabric Online",
+    "journey.c1.desc": "Explore Japanese Toyobo cottons, luxury crepe & bespoke collar styles from the comfort of your majlis.",
+    "journey.c1.p1": "0 SAR Advance",
+    "journey.c1.p2": "Pay on Delivery",
+    "journey.c2.badge": "02 · CONFIRMATION",
+    "journey.c2.title": "Concierge WhatsApp Confirmation",
+    "journey.c2.desc": "Our master atelier concierge instantly confirms your appointment and prepares fabric sample bolts.",
+    "journey.c2.p1": "Within 2 Hours",
+    "journey.c2.p2": "Direct Concierge Chat",
+    "journey.c3.badge": "03 · HOME MEASUREMENT",
+    "journey.c3.title": "Senior Cutter at Your Majlis",
+    "journey.c3.desc": "A master tailor arrives at your villa or office with 40+ fabric rolls for a meticulous 15-point fitting.",
+    "journey.c3.p1": "100% Free Visit",
+    "journey.c3.p2": "Touch Fabrics at Home",
+    "journey.c4.badge": "04 · ATELIER CRAFT",
+    "journey.c4.title": "Hand-Cut in Our Riyadh Atelier",
+    "journey.c4.desc": "Artisan cutters sculpt your jubba using centuries of sartorial tradition, bespoke shears, and gold thread.",
+    "journey.c4.p1": "Hand-Cut Patterns",
+    "journey.c4.p2": "Single-Needle Stitch",
+    "journey.c5.badge": "05 · ROYAL FINISHING",
+    "journey.c5.title": "Pressed, Boxed & Royal Sealed",
+    "journey.c5.desc": "Steamed to absolute perfection and packaged in our signature obsidian-gold presentation gift box.",
+    "journey.c5.p1": "7-10 Days Tailoring",
+    "journey.c5.p2": "Authenticity Certificate",
+    "journey.c6.badge": "06 · VIP DELIVERY",
+    "journey.c6.title": "Free Doorstep Delivery Across KSA",
+    "journey.c6.desc": "Delivered directly to your villa gate in our luxury fleet. Try on first, pay courier only when satisfied.",
+    "journey.c6.p1": "0 SAR Delivery",
+    "journey.c6.p2": "Cash or Card on Arrival",
+    "journey.ctaBadge": "COMPLIMENTARY VIP SERVICE",
+    "journey.ctaTitle": "Your Royal Jubba, Delivered to Your Door",
+    "journey.ctaDesc": "Book a senior master cutter visit to your villa with 40+ luxury fabric rolls, or chat directly with our atelier concierge.",
+    "journey.bookBtn": "Book Free Cutter Visit",
+    "journey.waBtn": "WhatsApp Concierge",
+    "journey.promoHint": "Use Privilege Code:",
+    "journey.copied": "Copied!",
+    "journey.step1": "Order",
+    "journey.step2": "Confirm",
+    "journey.step3": "Measure",
+    "journey.step4": "Tailor",
+    "journey.step5": "Finish",
+    "journey.step6": "Delivered",
     city: {
       Riyadh: "Riyadh",
       Jeddah: "Jeddah",
@@ -629,6 +683,60 @@ const i18n = {
     "appt.orderSummary": "ملخص الطلب والمبلغ الإجمالي",
     "appt.totalDue": "المبلغ الإجمالي (الدفع عند الاستلام)",
     "appt.codNote": "نقداً أو بالبطاقة عند الاستلام • بدون دفع مسبق",
+    "journey.aria": "رحلة تفصيل الجبة الملكية في دار الدرزي",
+    "journey.badge": "رحلة الدرزي الملكية للتفصيل الفاخر",
+    "journey.pause": "إيقاف",
+    "journey.play": "تشغيل",
+    "journey.tag1": "حجز إلكتروني فوري • بدون دفع مسبق",
+    "journey.waName": "كونسيرج أتيليه الدرزي",
+    "journey.waMsg": "وعليكم السلام، تم تأكيد موعد الخياط برقم #AD-2048",
+    "journey.tag4": "قص يدوي بأيدي خياطين كبار • قطن ياباني وصوف إيطالي",
+    "journey.sealTitle": "ختم الدرزي الملكي",
+    "journey.sealSub": "فحص يدوي، كوي بالبخار وتغليف فاخر",
+    "journey.tag6": "توصيل مجاني ١٠٠٪ لباب بيتك بكافة مدن المملكة",
+    "journey.c1.badge": "٠١ · الطلب أونلاين",
+    "journey.c1.title": "اختر قماشك وتصميمك أونلاين",
+    "journey.c1.desc": "استكشف أرقى أقمشة التويوبو اليابانية والحرير الملكي وتفاصيل الياقة من راحة مجلسك.",
+    "journey.c1.p1": "٠ ر.س عربون مسبق",
+    "journey.c1.p2": "الدفع عند الاستلام",
+    "journey.c2.badge": "٠٢ · التأكيد",
+    "journey.c2.title": "تأكيد فوري عبر واتساب الأتيليه",
+    "journey.c2.desc": "يتواصل معك كونسيرج الدار لتأكيد موعد الزيارة وتجهيز حقيبة عينات الأقمشة المطلوبة.",
+    "journey.c2.p1": "خلال ساعتين",
+    "journey.c2.p2": "محادثة كونسيرج مباشرة",
+    "journey.c3.badge": "٠٣ · أخذ المقاسات",
+    "journey.c3.title": "الخياط الأول في مجلسك",
+    "journey.c3.desc": "يصلك خياط أول ذو خبرة إلى قصرك أو مكتبك مع أكثر من ٤٠ طاقة قماش لقياس ١٥ نقطة بدقة تامة.",
+    "journey.c3.p1": "زيارة مجانية ١٠٠٪",
+    "journey.c3.p2": "معاينة ولمس الأقمشة",
+    "journey.c4.badge": "٠٤ · القص الحرفي",
+    "journey.c4.title": "قص يدوي متقن في أتيليه الرياض",
+    "journey.c4.desc": "قص يدوي مفصل وفق أدق معايير الخياطة الراقية لضمان الهيبة والانسيابية الملكية.",
+    "journey.c4.p1": "باترون خاص لكل عميل",
+    "journey.c4.p2": "خياطة دقيقة بغرز ذهبية",
+    "journey.c5.badge": "٠٥ · التجهيز والختم",
+    "journey.c5.title": "كوي بالبخار وتغليف في الصندوق الملكي",
+    "journey.c5.desc": "كوي احترافي وفحص أدق التفاصيل وتغليف في صندوق الدرزي الأسود والذهبي مع شهادة الأصالة.",
+    "journey.c5.p1": "جاهزة خلال ٧-١٠ أيام",
+    "journey.c5.p2": "شهادة أصالة معتمدة",
+    "journey.c6.badge": "٠٦ · التوصيل الملكي",
+    "journey.c6.title": "توصيل مجاني لباب بيتك بكافة مدن المملكة",
+    "journey.c6.desc": "تصلك الجبة لباب فيلتك عبر أسطول سياراتنا الفاخرة. عاين والبس أولاً، وادفع عند تمام الرضا.",
+    "journey.c6.p1": "توصيل مجاني ٠ ر.س",
+    "journey.c6.p2": "دفع كاش أو شبكة عند الباب",
+    "journey.ctaBadge": "خدمة كبار الشخصيات المجانية",
+    "journey.ctaTitle": "جبتك الملكية… تصلك لباب بيتك",
+    "journey.ctaDesc": "احجز الآن زيارة الخياط الأول لمجلسك مع ٤٠+ طاقة قماش، أو تواصل فوراً عبر واتساب الأتيليه.",
+    "journey.bookBtn": "احجز زيارة الخياط مجاناً",
+    "journey.waBtn": "واتساب كونسيرج الدار",
+    "journey.promoHint": "كود الخصم الحصري:",
+    "journey.copied": "تم النسخ!",
+    "journey.step1": "الطلب",
+    "journey.step2": "التأكيد",
+    "journey.step3": "القياس",
+    "journey.step4": "التفصيل",
+    "journey.step5": "التجهيز",
+    "journey.step6": "التوصيل",
     city: {
       Riyadh: "الرياض",
       Jeddah: "جدة",
@@ -816,6 +924,7 @@ function applyLang() {
   renderApptPromoFabrics();
   updateApptSummary();
   renderApptDistrictChips();
+  if (typeof updateJourneyStoryUI === "function") updateJourneyStoryUI();
 }
 
 function fillCities() {
@@ -1756,6 +1865,7 @@ function openApptModal() {
   renderApptPromoFabrics();
   updateApptSummary();
   renderApptDistrictChips();
+  if (typeof updateJourneyStoryUI === "function") updateJourneyStoryUI();
 
   els.apptModal.querySelectorAll(".appt-field").forEach((f) => f.classList.remove("is-error"));
 }
@@ -1935,6 +2045,7 @@ function initApptModal() {
   if (els.apptCity) {
     els.apptCity.addEventListener("change", () => {
       renderApptDistrictChips();
+  if (typeof updateJourneyStoryUI === "function") updateJourneyStoryUI();
     });
   }
 
@@ -2089,110 +2200,269 @@ const kpiIo = new IntersectionObserver(
 );
 kpiIo.observe(document.getElementById("kpis"));
 
-// Promotional Banner Slider Logic
-function initPromoSlider() {
-  const sliderEl = document.getElementById("promoSlider");
-  if (!sliderEl) return;
+// ==========================================================================
+// AL-DORZY Bespoke Story Journey Video-Style Animation Controller
+// ==========================================================================
+let updateJourneyStoryUI = () => {};
 
-  const slides = Array.from(sliderEl.querySelectorAll(".promo-slide"));
-  const dots = Array.from(sliderEl.querySelectorAll(".promo-slider__dot"));
-  const prevBtn = document.getElementById("promoPrev");
-  const nextBtn = document.getElementById("promoNext");
-  const copyBtn = document.getElementById("promoCopyBtn");
+function initJourneyStory() {
+  const container = document.getElementById("dorzyJourney");
+  if (!container) return;
 
-  if (!slides.length) return;
+  const scenes = Array.from(container.querySelectorAll(".journey-scene"));
+  const steps = Array.from(container.querySelectorAll(".journey-step"));
+  const playPauseBtn = document.getElementById("journeyPlayPause");
+  const playPauseIcon = document.getElementById("journeyPlayPauseIcon");
+  const playPauseText = document.getElementById("journeyPlayPauseText");
+  const captionCard = document.getElementById("journeyCaptionCard");
+  const ctaOverlay = document.getElementById("journeyCtaOverlay");
+  const copyBtn = document.getElementById("journeyCopyCode");
+  const copyToast = document.getElementById("journeyCopiedToast");
+  const bookBtn = document.getElementById("journeyBookBtn");
+
+  if (!scenes.length || !steps.length) return;
+
+  const SCENE_COUNT = scenes.length;
+  const STEP_DURATION_MS = 3800;
+  const TICK_INTERVAL_MS = 40;
 
   let currentIdx = 0;
-  let autoTimer = null;
-  const slideCount = slides.length;
-  const AUTOPLAY_DELAY = 5800;
+  let isPlaying = true;
+  let progressMs = 0;
+  let tickerTimer = null;
 
-  function updateSlider(idx) {
-    currentIdx = (idx + slideCount) % slideCount;
+  const scenesData = [
+    {
+      badgeKey: "journey.c1.badge",
+      titleKey: "journey.c1.title",
+      descKey: "journey.c1.desc",
+      p1Key: "journey.c1.p1",
+      p2Key: "journey.c1.p2",
+    },
+    {
+      badgeKey: "journey.c2.badge",
+      titleKey: "journey.c2.title",
+      descKey: "journey.c2.desc",
+      p1Key: "journey.c2.p1",
+      p2Key: "journey.c2.p2",
+    },
+    {
+      badgeKey: "journey.c3.badge",
+      titleKey: "journey.c3.title",
+      descKey: "journey.c3.desc",
+      p1Key: "journey.c3.p1",
+      p2Key: "journey.c3.p2",
+    },
+    {
+      badgeKey: "journey.c4.badge",
+      titleKey: "journey.c4.title",
+      descKey: "journey.c4.desc",
+      p1Key: "journey.c4.p1",
+      p2Key: "journey.c4.p2",
+    },
+    {
+      badgeKey: "journey.c5.badge",
+      titleKey: "journey.c5.title",
+      descKey: "journey.c5.desc",
+      p1Key: "journey.c5.p1",
+      p2Key: "journey.c5.p2",
+    },
+    {
+      badgeKey: "journey.c6.badge",
+      titleKey: "journey.c6.title",
+      descKey: "journey.c6.desc",
+      p1Key: "journey.c6.p1",
+      p2Key: "journey.c6.p2",
+    },
+  ];
 
-    slides.forEach((slide, i) => {
-      const isActive = i === currentIdx;
-      slide.classList.toggle("is-active", isActive);
-      slide.setAttribute("aria-hidden", !isActive);
+  function setScene(idx, resetProgress = true) {
+    currentIdx = (idx + SCENE_COUNT) % SCENE_COUNT;
+    if (resetProgress) progressMs = 0;
+
+    // Toggle scenes
+    scenes.forEach((scene, i) => {
+      const active = i === currentIdx;
+      scene.classList.toggle("is-active", active);
     });
 
-    dots.forEach((dot, i) => {
-      const isActive = i === currentIdx;
-      dot.classList.toggle("is-active", isActive);
-      dot.setAttribute("aria-selected", isActive);
+    // Update timeline steps & fill
+    steps.forEach((step, i) => {
+      const fillEl = step.querySelector(".journey-step__fill");
+      if (i < currentIdx) {
+        step.classList.remove("is-active");
+        step.classList.add("is-passed");
+        if (fillEl) fillEl.style.width = "100%";
+      } else if (i === currentIdx) {
+        step.classList.add("is-active");
+        step.classList.remove("is-passed");
+        if (fillEl) fillEl.style.width = `${(progressMs / STEP_DURATION_MS) * 100}%`;
+      } else {
+        step.classList.remove("is-active", "is-passed");
+        if (fillEl) fillEl.style.width = "0%";
+      }
     });
-  }
 
-  function nextSlide() {
-    updateSlider(currentIdx + 1);
-  }
+    // Update Caption text
+    updateCaptionCard();
 
-  function prevSlide() {
-    updateSlider(currentIdx - 1);
-  }
-
-  function startAutoplay() {
-    stopAutoplay();
-    autoTimer = setInterval(nextSlide, AUTOPLAY_DELAY);
-  }
-
-  function stopAutoplay() {
-    if (autoTimer) {
-      clearInterval(autoTimer);
-      autoTimer = null;
+    // CTA overlay shows on last scene or smoothly adapts
+    if (ctaOverlay) {
+      if (currentIdx === SCENE_COUNT - 1) {
+        ctaOverlay.classList.add("is-visible");
+      } else {
+        ctaOverlay.classList.remove("is-visible");
+      }
     }
   }
 
-  if (prevBtn) {
-    prevBtn.addEventListener("click", () => {
-      prevSlide();
-      startAutoplay();
-    });
+  function updateCaptionCard() {
+    const data = scenesData[currentIdx];
+    if (!data) return;
+
+    const counterEl = document.getElementById("journeyCounter");
+    const stepEl = document.getElementById("journeyStepName");
+    const titleEl = document.getElementById("journeyTitle");
+    const descEl = document.getElementById("journeyDesc");
+    const p1El = document.getElementById("journeyPill1");
+    const p2El = document.getElementById("journeyPill2");
+
+    const padIdx = String(currentIdx + 1).padStart(2, "0");
+    const padTotal = String(SCENE_COUNT).padStart(2, "0");
+
+    if (counterEl) counterEl.textContent = `${padIdx} / ${padTotal}`;
+    if (stepEl) stepEl.textContent = i18n[lang]?.[data.badgeKey] || "";
+    if (titleEl) titleEl.textContent = i18n[lang]?.[data.titleKey] || "";
+    if (descEl) descEl.textContent = i18n[lang]?.[data.descKey] || "";
+
+    if (p1El) {
+      const span = p1El.querySelector("span");
+      if (span) span.textContent = i18n[lang]?.[data.p1Key] || "";
+    }
+    if (p2El) {
+      const span = p2El.querySelector("span");
+      if (span) span.textContent = i18n[lang]?.[data.p2Key] || "";
+    }
   }
 
-  if (nextBtn) {
-    nextBtn.addEventListener("click", () => {
-      nextSlide();
-      startAutoplay();
-    });
+  updateJourneyStoryUI = () => {
+    updateCaptionCard();
+    if (playPauseText) {
+      playPauseText.textContent = isPlaying 
+        ? (i18n[lang]?.["journey.pause"] || "Pause") 
+        : (i18n[lang]?.["journey.play"] || "Play");
+    }
+  };
+
+  function tick() {
+    if (!isPlaying) return;
+    progressMs += TICK_INTERVAL_MS;
+
+    const activeStep = steps[currentIdx];
+    if (activeStep) {
+      const fillEl = activeStep.querySelector(".journey-step__fill");
+      if (fillEl) {
+        fillEl.style.width = `${Math.min(100, (progressMs / STEP_DURATION_MS) * 100)}%`;
+      }
+    }
+
+    if (progressMs >= STEP_DURATION_MS) {
+      setScene(currentIdx + 1, true);
+    }
   }
 
-  dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => {
-      updateSlider(i);
-      startAutoplay();
+  function play() {
+    if (isPlaying) return;
+    isPlaying = true;
+    if (playPauseIcon) playPauseIcon.className = "fa-solid fa-pause";
+    if (playPauseText) playPauseText.textContent = i18n[lang]?.["journey.pause"] || "Pause";
+    if (tickerTimer) clearInterval(tickerTimer);
+    tickerTimer = setInterval(tick, TICK_INTERVAL_MS);
+  }
+
+  function pause() {
+    isPlaying = false;
+    if (playPauseIcon) playPauseIcon.className = "fa-solid fa-play";
+    if (playPauseText) playPauseText.textContent = i18n[lang]?.["journey.play"] || "Play";
+    if (tickerTimer) {
+      clearInterval(tickerTimer);
+      tickerTimer = null;
+    }
+  }
+
+  function togglePlayPause() {
+    if (isPlaying) pause();
+    else play();
+  }
+
+  if (playPauseBtn) {
+    playPauseBtn.addEventListener("click", togglePlayPause);
+  }
+
+  // Steps click
+  steps.forEach((step, idx) => {
+    step.addEventListener("click", () => {
+      setScene(idx, true);
+      play();
     });
   });
 
-  sliderEl.addEventListener("mouseenter", stopAutoplay);
-  sliderEl.addEventListener("mouseleave", startAutoplay);
-
-  // Touch / Mobile Swipe detection
+  // Touch Swipe for Mobile
   let touchStartX = 0;
   let touchEndX = 0;
-
-  sliderEl.addEventListener("touchstart", (e) => {
+  container.addEventListener("touchstart", (e) => {
     touchStartX = e.changedTouches[0].screenX;
-    stopAutoplay();
   }, { passive: true });
 
-  sliderEl.addEventListener("touchend", (e) => {
+  container.addEventListener("touchend", (e) => {
     touchEndX = e.changedTouches[0].screenX;
     const diff = touchEndX - touchStartX;
     const isRtl = document.documentElement.dir === "rtl";
-    const threshold = 40;
+    const threshold = 45;
 
     if (Math.abs(diff) > threshold) {
       if ((diff < 0 && !isRtl) || (diff > 0 && isRtl)) {
-        nextSlide();
+        setScene(currentIdx + 1, true);
       } else {
-        prevSlide();
+        setScene(currentIdx - 1, true);
       }
+      play();
     }
-    startAutoplay();
   }, { passive: true });
 
-  // Coupon Code Copy Handler
+  // Keyboard navigation
+  container.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") {
+      const isRtl = document.documentElement.dir === "rtl";
+      setScene(isRtl ? currentIdx - 1 : currentIdx + 1, true);
+      play();
+    } else if (e.key === "ArrowLeft") {
+      const isRtl = document.documentElement.dir === "rtl";
+      setScene(isRtl ? currentIdx + 1 : currentIdx - 1, true);
+      play();
+    } else if (e.key === " " || e.key === "Spacebar") {
+      e.preventDefault();
+      togglePlayPause();
+    }
+  });
+
+  // Hook Book Button in Story to open the VIP Atelier Appointment modal
+  if (bookBtn) {
+    bookBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (typeof openApptModal === "function") {
+        openApptModal();
+      } else {
+        const modal = document.getElementById("apptModal");
+        if (modal) {
+          modal.hidden = false;
+          modal.classList.add("is-open");
+        }
+      }
+    });
+  }
+
+  // Hook ROYAL15 coupon chip
   if (copyBtn) {
     copyBtn.addEventListener("click", async () => {
       const code = copyBtn.dataset.code || "ROYAL15";
@@ -2207,25 +2477,35 @@ function initPromoSlider() {
         document.body.removeChild(inp);
       }
 
-      const copyText = document.getElementById("promoCopyText");
-      const copyIcon = document.getElementById("promoCopyIcon");
-      if (copyText) copyText.textContent = lang === "ar" ? "تم النسخ!" : "Copied!";
-      if (copyIcon) copyIcon.className = "fa-solid fa-check";
-      copyBtn.classList.add("is-copied");
-
+      if (copyToast) {
+        copyToast.style.display = "inline-block";
+        setTimeout(() => {
+          copyToast.style.display = "none";
+        }, 2500);
+      }
       showToast("banner.copied");
-
-      setTimeout(() => {
-        if (copyText) copyText.textContent = t("banner.b2.copy");
-        if (copyIcon) copyIcon.className = "fa-solid fa-copy";
-        copyBtn.classList.remove("is-copied");
-      }, 2600);
     });
   }
 
-  updateSlider(0);
-  startAutoplay();
+  // IntersectionObserver: Pause when out of screen to save performance
+  if ("IntersectionObserver" in window) {
+    const journeyIo = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting && isPlaying) {
+          pause();
+        } else if (entry.isIntersecting && !isPlaying) {
+          play();
+        }
+      });
+    }, { threshold: 0.25 });
+    journeyIo.observe(container);
+  }
+
+  // Initialize
+  setScene(0, true);
+  tickerTimer = setInterval(tick, TICK_INTERVAL_MS);
 }
 
-initPromoSlider();
+initJourneyStory();
+
 
