@@ -4368,20 +4368,134 @@ html[dir="rtl"] .journey-header__ar {
   will-change: transform;
 }
 
-@keyframes kenBurnsCinema {
+/* Cinematic Scene-Specific Camera Animations */
+@keyframes kenBurnsOrder {
+  0% { transform: scale(1) translate(0%, 0%); }
+  50% { transform: scale(1.07) translate(1.2%, -0.6%); }
+  100% { transform: scale(1.13) translate(1.8%, -1.1%); }
+}
+
+@keyframes kenBurnsConfirm {
+  0% { transform: scale(1.02) translate(0%, 0%); }
+  50% { transform: scale(1.08) translate(-1.1%, 0.6%); }
+  100% { transform: scale(1.14) translate(-2%, 0.9%); }
+}
+
+@keyframes kenBurnsMeasure {
+  0% { transform: scale(1) translate(0%, 0%); }
+  50% { transform: scale(1.09) translate(0%, -1%); }
+  100% { transform: scale(1.15) translate(-0.7%, -1.8%); }
+}
+
+@keyframes kenBurnsTailor {
+  0% { transform: scale(1.03) translate(-0.8%, 0%); }
+  50% { transform: scale(1.10) translate(1.1%, -0.7%); }
+  100% { transform: scale(1.16) translate(2%, -1.3%); }
+}
+
+@keyframes kenBurnsFinish {
+  0% { transform: scale(1) translate(0%, 0%); }
+  50% { transform: scale(1.08) translate(-0.7%, -0.5%); }
+  100% { transform: scale(1.14) translate(0.4%, -1.4%); }
+}
+
+@keyframes kenBurnsDeliver {
+  0% { transform: scale(1.02) translate(0.8%, 0%); }
+  50% { transform: scale(1.09) translate(-1.3%, 0.7%); }
+  100% { transform: scale(1.15) translate(-2.2%, 1.1%); }
+}
+
+#scene-0.is-active .journey-scene__bg {
+  animation: kenBurnsOrder 11s ease-in-out infinite alternate;
+}
+
+#scene-1.is-active .journey-scene__bg {
+  animation: kenBurnsConfirm 11s ease-in-out infinite alternate;
+}
+
+#scene-2.is-active .journey-scene__bg {
+  animation: kenBurnsMeasure 11s ease-in-out infinite alternate;
+}
+
+#scene-3.is-active .journey-scene__bg {
+  animation: kenBurnsTailor 11s ease-in-out infinite alternate;
+}
+
+#scene-4.is-active .journey-scene__bg {
+  animation: kenBurnsFinish 11s ease-in-out infinite alternate;
+}
+
+#scene-5.is-active .journey-scene__bg {
+  animation: kenBurnsDeliver 11s ease-in-out infinite alternate;
+}
+
+/* Fallback / General Active Animation */
+.journey-scene.is-active .journey-scene__bg {
+  animation: kenBurnsOrder 11s ease-in-out infinite alternate;
+}
+
+/* Overlay Micro-Animations */
+@keyframes journeyPop {
   0% {
-    transform: scale(1) translate(0%, 0%);
+    opacity: 0;
+    transform: translateY(12px) scale(0.92);
   }
-  50% {
-    transform: scale(1.08) translate(-1.2%, -0.6%);
+  65% {
+    transform: translateY(-2px) scale(1.02);
   }
   100% {
-    transform: scale(1.14) translate(1%, 0.8%);
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
-.journey-scene.is-active .journey-scene__bg {
-  animation: kenBurnsCinema 12s ease-in-out infinite alternate;
+@keyframes journeySlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes journeySlideInRtl {
+  0% {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes journeyFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.journey-scene.is-active .animate-pop {
+  animation: journeyPop 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.25s backwards;
+}
+
+.journey-scene.is-active .animate-slide {
+  animation: journeySlideIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
+}
+
+html[dir="rtl"] .journey-scene.is-active .animate-slide {
+  animation: journeySlideInRtl 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
+}
+
+.journey-scene.is-active .animate-fade {
+  animation: journeyFadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
 }
 
 /* Overlays per scene */

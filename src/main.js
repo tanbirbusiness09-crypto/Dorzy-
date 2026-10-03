@@ -804,6 +804,94 @@ let lang = localStorage.getItem("qasr-lang") || "en";
 let theme = document.documentElement.dataset.theme === "light" ? "light" : "dark";
 let deskFilter = "all";
 let state = loadState();
+let apptQty = 1;
+let updateJourneyStoryUI = () => {};
+
+const CITY_DISTRICTS = {
+  Riyadh: {
+    districts: ["Al-Hada", "Al-Malqa", "Al-Olaya", "Al-Nakheel"],
+    districtsAr: ["حي الهدا", "حي الملقا", "حي العليا", "حي النخيل"],
+    samples: [
+      "Al-Hada District, Royal Palm Villa 14",
+      "Al-Malqa District, King Fahd Rd, Villa 22",
+      "Al-Olaya District, Prince Sultan St, Villa 8",
+      "Al-Nakheel District, Royal Court Way, Villa 17"
+    ],
+    samplesAr: [
+      "حي الهدا، فيلا الواحة الملكية ١٤",
+      "حي الملقا، طريق الملك فهد، فيلا ٢٢",
+      "حي العليا، شارع الأمير سلطان، فيلا ٨",
+      "حي النخيل، طريق الديوان الملكي، فيلا ١٧"
+    ]
+  },
+  Jeddah: {
+    districts: ["Al-Shati", "Al-Rawdah", "Al-Hamra", "Al-Andalus"],
+    districtsAr: ["حي الشاطئ", "حي الروضة", "حي الحمراء", "حي الأندلس"],
+    samples: [
+      "Al-Shati District, Corniche Promenade Villa 7",
+      "Al-Rawdah District, Prince Saud Al-Faisal, Villa 19",
+      "Al-Hamra District, Palestine St, Villa 11",
+      "Al-Andalus District, Tahlia St, Villa 5"
+    ],
+    samplesAr: [
+      "حي الشاطئ، كورنيش الواجهة، فيلا ٧",
+      "حي الروضة، شارع الأمير سعود الفيصل، فيلا ١٩",
+      "حي الحمراء، شارع فلسطين، فيلا ١١",
+      "حي الأندلس، طريق التحلية، فيلا ٥"
+    ]
+  },
+  Dammam: {
+    districts: ["Al-Faisaliyah", "Al-Mazruiyah", "Al-Shati"],
+    districtsAr: ["حي الفيصلية", "حي المزروعية", "حي الشاطئ"],
+    samples: [
+      "Al-Faisaliyah District, Palm Avenue Villa 12",
+      "Al-Mazruiyah District, Corniche Rd, Villa 6",
+      "Al-Shati District, Marina Gulf Villa 15"
+    ],
+    samplesAr: [
+      "حي الفيصلية، شارع النخيل، فيلا ١٢",
+      "حي المزروعية، طريق الكورنيش، فيلا ٦",
+      "حي الشاطئ، الخليج البحري، فيلا ١٥"
+    ]
+  },
+  Khobar: {
+    districts: ["Al-Hizam", "Al-Rakah", "Al-Yarmouk"],
+    districtsAr: ["حي الحزام الذهبي", "حي الراكة", "حي اليرموك"],
+    samples: [
+      "Al-Hizam Al-Thahabi, Prince Sultan St, Villa 24",
+      "Al-Rakah District, King Faisal Rd, Villa 10"
+    ],
+    samplesAr: [
+      "حي الحزام الذهبي، شارع الأمير سلطان، فيلا ٢٤",
+      "حي الراكة، طريق الملك فيصل، فيلا ١٠"
+    ]
+  },
+  Makkah: {
+    districts: ["Al-Awali", "Al-Shawqiyyah", "Al-Naseem"],
+    districtsAr: ["حي العوالي", "حي الشوقية", "حي النسيم"],
+    samples: [
+      "Al-Awali District, Ibrahim Al-Khalil St, Villa 5",
+      "Al-Shawqiyyah District, Abdullah Khayyat St, Villa 12"
+    ],
+    samplesAr: [
+      "حي العوالي، شارع إبراهيم الخليل، فيلا ٥",
+      "حي الشوقية، شارع عبدالله خياط، فيلا ١٢"
+    ]
+  },
+  Madinah: {
+    districts: ["Al-Qiblatayn", "Al-Haram", "Al-Azhari"],
+    districtsAr: ["حي القبلتين", "حي الحرم", "حي الأزهري"],
+    samples: [
+      "Al-Qiblatayn District, Sultanah Rd, Villa 9",
+      "Al-Azhari District, King Abdullah Rd, Villa 14"
+    ],
+    samplesAr: [
+      "حي القبلتين، طريق سلطانة، فيلا ٩",
+      "حي الأزهري، طريق الملك عبدالله، فيلا ١٤"
+    ]
+  }
+};
+
 
 function loadState() {
   try {
@@ -1590,102 +1678,6 @@ function initGalleryCards() {
   });
 }
 
-initKineticGrid(document.getElementById("bg"));
-initStudio();
-initSaasTicker();
-initApptModal();
-initGalleryCards();
-applyTheme();
-applyLang();
-bindTilt(document.querySelectorAll("[data-tilt]"));
-reveal();
-
-let apptQty = 1;
-
-const CITY_DISTRICTS = {
-  Riyadh: {
-    districts: ["Al-Hada", "Al-Malqa", "Al-Olaya", "Al-Nakheel"],
-    districtsAr: ["حي الهدا", "حي الملقا", "حي العليا", "حي النخيل"],
-    samples: [
-      "Al-Hada District, Royal Palm Villa 14",
-      "Al-Malqa District, King Fahd Rd, Villa 22",
-      "Al-Olaya District, Prince Sultan St, Villa 8",
-      "Al-Nakheel District, Royal Court Way, Villa 17"
-    ],
-    samplesAr: [
-      "حي الهدا، فيلا الواحة الملكية ١٤",
-      "حي الملقا، طريق الملك فهد، فيلا ٢٢",
-      "حي العليا، شارع الأمير سلطان، فيلا ٨",
-      "حي النخيل، طريق الديوان الملكي، فيلا ١٧"
-    ]
-  },
-  Jeddah: {
-    districts: ["Al-Shati", "Al-Rawdah", "Al-Hamra", "Al-Andalus"],
-    districtsAr: ["حي الشاطئ", "حي الروضة", "حي الحمراء", "حي الأندلس"],
-    samples: [
-      "Al-Shati District, Corniche Promenade Villa 7",
-      "Al-Rawdah District, Prince Saud Al-Faisal, Villa 19",
-      "Al-Hamra District, Palestine St, Villa 11",
-      "Al-Andalus District, Tahlia St, Villa 5"
-    ],
-    samplesAr: [
-      "حي الشاطئ، كورنيش الواجهة، فيلا ٧",
-      "حي الروضة، شارع الأمير سعود الفيصل، فيلا ١٩",
-      "حي الحمراء، شارع فلسطين، فيلا ١١",
-      "حي الأندلس، طريق التحلية، فيلا ٥"
-    ]
-  },
-  Dammam: {
-    districts: ["Al-Faisaliyah", "Al-Mazruiyah", "Al-Shati"],
-    districtsAr: ["حي الفيصلية", "حي المزروعية", "حي الشاطئ"],
-    samples: [
-      "Al-Faisaliyah District, Palm Avenue Villa 12",
-      "Al-Mazruiyah District, Corniche Rd, Villa 6",
-      "Al-Shati District, Marina Gulf Villa 15"
-    ],
-    samplesAr: [
-      "حي الفيصلية، شارع النخيل، فيلا ١٢",
-      "حي المزروعية، طريق الكورنيش، فيلا ٦",
-      "حي الشاطئ، الخليج البحري، فيلا ١٥"
-    ]
-  },
-  Khobar: {
-    districts: ["Al-Hizam", "Al-Rakah", "Al-Yarmouk"],
-    districtsAr: ["حي الحزام الذهبي", "حي الراكة", "حي اليرموك"],
-    samples: [
-      "Al-Hizam Al-Thahabi, Prince Sultan St, Villa 24",
-      "Al-Rakah District, King Faisal Rd, Villa 10"
-    ],
-    samplesAr: [
-      "حي الحزام الذهبي، شارع الأمير سلطان، فيلا ٢٤",
-      "حي الراكة، طريق الملك فيصل، فيلا ١٠"
-    ]
-  },
-  Makkah: {
-    districts: ["Al-Awali", "Al-Shawqiyyah", "Al-Naseem"],
-    districtsAr: ["حي العوالي", "حي الشوقية", "حي النسيم"],
-    samples: [
-      "Al-Awali District, Ibrahim Al-Khalil St, Villa 5",
-      "Al-Shawqiyyah District, Abdullah Khayyat St, Villa 12"
-    ],
-    samplesAr: [
-      "حي العوالي، شارع إبراهيم الخليل، فيلا ٥",
-      "حي الشوقية، شارع عبدالله خياط، فيلا ١٢"
-    ]
-  },
-  Madinah: {
-    districts: ["Al-Qiblatayn", "Al-Haram", "Al-Azhari"],
-    districtsAr: ["حي القبلتين", "حي الحرم", "حي الأزهري"],
-    samples: [
-      "Al-Qiblatayn District, Sultanah Rd, Villa 9",
-      "Al-Azhari District, King Abdullah Rd, Villa 14"
-    ],
-    samplesAr: [
-      "حي القبلتين، طريق سلطانة، فيلا ٩",
-      "حي الأزهري، طريق الملك عبدالله، فيلا ١٤"
-    ]
-  }
-};
 
 function renderApptDistrictChips() {
   if (!els.apptDistrictChips || !els.apptCity) return;
@@ -2203,7 +2195,7 @@ kpiIo.observe(document.getElementById("kpis"));
 // ==========================================================================
 // AL-DORZY Bespoke Story Journey Video-Style Animation Controller
 // ==========================================================================
-let updateJourneyStoryUI = () => {};
+
 
 function initJourneyStory() {
   const container = document.getElementById("dorzyJourney");
@@ -2511,10 +2503,23 @@ function initJourneyStory() {
   play();
 }
 
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initJourneyStory);
-} else {
+function initApp() {
+  initKineticGrid(document.getElementById("bg"));
+  initStudio();
+  initSaasTicker();
+  initApptModal();
+  initGalleryCards();
+  applyTheme();
+  applyLang();
+  bindTilt(document.querySelectorAll("[data-tilt]"));
+  reveal();
   initJourneyStory();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initApp);
+} else {
+  initApp();
 }
 
 
