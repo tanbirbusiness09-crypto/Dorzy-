@@ -2371,8 +2371,9 @@ function initJourneyStory() {
     }
   }
 
+  let userPaused = false;
+
   function play() {
-    if (isPlaying) return;
     isPlaying = true;
     if (playPauseIcon) playPauseIcon.className = "fa-solid fa-pause";
     if (playPauseText) playPauseText.textContent = i18n[lang]?.["journey.pause"] || "Pause";
@@ -2380,8 +2381,9 @@ function initJourneyStory() {
     tickerTimer = setInterval(tick, TICK_INTERVAL_MS);
   }
 
-  function pause() {
+  function pause(isManual = false) {
     isPlaying = false;
+    if (isManual) userPaused = true;
     if (playPauseIcon) playPauseIcon.className = "fa-solid fa-play";
     if (playPauseText) playPauseText.textContent = i18n[lang]?.["journey.play"] || "Play";
     if (tickerTimer) {
@@ -2391,8 +2393,12 @@ function initJourneyStory() {
   }
 
   function togglePlayPause() {
-    if (isPlaying) pause();
-    else play();
+    if (isPlaying) {
+      pause(true);
+    } else {
+      userPaused = false;
+      play();
+    }
   }
 
   if (playPauseBtn) {
@@ -2402,6 +2408,7 @@ function initJourneyStory() {
   // Steps click
   steps.forEach((step, idx) => {
     step.addEventListener("click", () => {
+      userPaused = false;
       setScene(idx, true);
       play();
     });
@@ -2421,6 +2428,7 @@ function initJourneyStory() {
     const threshold = 45;
 
     if (Math.abs(diff) > threshold) {
+      userPaused = false;
       if ((diff < 0 && !isRtl) || (diff > 0 && isRtl)) {
         setScene(currentIdx + 1, true);
       } else {
@@ -2434,10 +2442,12 @@ function initJourneyStory() {
   container.addEventListener("keydown", (e) => {
     if (e.key === "ArrowRight") {
       const isRtl = document.documentElement.dir === "rtl";
+      userPaused = false;
       setScene(isRtl ? currentIdx - 1 : currentIdx + 1, true);
       play();
     } else if (e.key === "ArrowLeft") {
       const isRtl = document.documentElement.dir === "rtl";
+      userPaused = false;
       setScene(isRtl ? currentIdx + 1 : currentIdx - 1, true);
       play();
     } else if (e.key === " " || e.key === "Spacebar") {
@@ -2487,25 +2497,24 @@ function initJourneyStory() {
     });
   }
 
-  // IntersectionObserver: Pause when out of screen to save performance
-  if ("IntersectionObserver" in window) {
-    const journeyIo = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting && isPlaying) {
-          pause();
-        } else if (entry.isIntersecting && !isPlaying) {
-          play();
-        }
-      });
-    }, { threshold: 0.25 });
-    journeyIo.observe(container);
-  }
+  // Page visibility API: Pause when browser tab is inactive, resume when active
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      if (isPlaying) pause(false);
+    } else {
+      if (!userPaused) play();
+    }
+  });
 
-  // Initialize
+  // Initialize and start immediately
   setScene(0, true);
-  tickerTimer = setInterval(tick, TICK_INTERVAL_MS);
+  play();
 }
 
-initJourneyStory();
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initJourneyStory);
+} else {
+  initJourneyStory();
+}
 
 
