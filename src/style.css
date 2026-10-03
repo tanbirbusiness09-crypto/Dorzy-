@@ -4272,7 +4272,8 @@ html[dir="rtl"] .wa-fab {
    AL-DORZY Bespoke Story Journey Section (Cinematic Visual Experience)
    ========================================================================== */
 .dorzy-journey {
-  width: min(1440px, calc(100% - 48px));
+  width: 100%;
+  max-width: 1080px;
   margin: 32px auto 48px;
   box-sizing: border-box;
 }
