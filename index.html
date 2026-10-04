@@ -635,41 +635,44 @@
             </div>
           </article>
 
-          <!-- Card 4: Privilege Live Countdown Timer Column (Right Column - Spans 2 Rows) -->
-          <article class="condition-card condition-card--timer condition-card--span3" id="galleryTimerCard" data-tilt>
+          <!-- Card 4: Privilege Live Countdown Timer Column (Right Column - Spans Rows 1 & 2) -->
+          <article class="condition-card condition-card--timer" id="galleryTimerCard" data-tilt>
             <div class="timer-card__glow" aria-hidden="true"></div>
+            
+            <span class="condition-card__pill-top">
+              <span data-i18n="gallery.timer.pill">👑 15% OFF • EXCLUSIVE PRIVILEGE</span>
+            </span>
+
             <div class="timer-card__inner">
               <div class="timer-card__top">
-                <span class="timer-card__crown">👑</span>
-                <span class="timer-card__tag">EXCLUSIVE PRIVILEGE</span>
+                <div class="timer-card__clock-anim">
+                  <i class="fa-solid fa-hourglass-half" aria-hidden="true"></i>
+                </div>
+                <div class="timer-card__titles">
+                  <h3 class="timer-card__heading" data-i18n="gallery.timer.h3">Limited Privilege Window</h3>
+                  <p class="timer-card__desc" data-i18n="gallery.timer.desc">Atelier discounts expire promptly across certified luxury fabric bolts.</p>
+                </div>
               </div>
-
-              <div class="timer-card__clock-anim">
-                <i class="fa-solid fa-hourglass-half" aria-hidden="true"></i>
-              </div>
-
-              <h3 class="timer-card__heading">Limited Privilege Window</h3>
-              <p class="timer-card__desc">Atelier discounts expire promptly across certified luxury fabric bolts.</p>
 
               <!-- Live Digits -->
               <div class="timer-card__counter">
                 <div class="timer-box">
-                  <span class="timer-num" id="timerDays">02</span>
+                  <span class="timer-num" id="timerDays">01</span>
                   <span class="timer-unit">Days</span>
                 </div>
                 <span class="timer-colon">:</span>
                 <div class="timer-box">
-                  <span class="timer-num" id="timerHours">14</span>
+                  <span class="timer-num" id="timerHours">23</span>
                   <span class="timer-unit">Hours</span>
                 </div>
                 <span class="timer-colon">:</span>
                 <div class="timer-box">
-                  <span class="timer-num" id="timerMins">38</span>
+                  <span class="timer-num" id="timerMins">48</span>
                   <span class="timer-unit">Mins</span>
                 </div>
                 <span class="timer-colon">:</span>
                 <div class="timer-box timer-box--secs">
-                  <span class="timer-num" id="timerSecs">45</span>
+                  <span class="timer-num" id="timerSecs">33</span>
                   <span class="timer-unit">Secs</span>
                 </div>
               </div>
@@ -689,6 +692,12 @@
                 <span class="btn__shine"></span>
                 <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
                 <span>Claim Offer with Tailor</span>
+              </button>
+            </div>
+
+            <div class="condition-card__bottom condition-card__bottom--corner-only">
+              <button type="button" class="condition-card__btn" aria-label="Book Atelier Privilege" title="Claim Privilege Offer">
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
               </button>
             </div>
           </article>
@@ -750,39 +759,70 @@
             </p>
             <h2 class="book__main-title" data-i18n="bk.h2">Send the Master Cutter to Your Majlis.</h2>
 
-            <!-- Bespoke Luxury Animated Emblem Widget -->
-            <div class="book-anim-widget" aria-hidden="true">
-              <div class="book-anim-widget__ambient"></div>
+            <!-- Haute Couture Master Cutter Showcase Card -->
+            <div class="book-vip-showcase">
+              <div class="book-vip-card" data-tilt>
+                <!-- Photo of Master Cutter Measuring in Royal Majlis -->
+                <div class="book-vip-card__media">
+                  <img src="/jubba/Image/journey/scene-3-measure.webp" alt="Master Cutter Visiting Majlis for Bespoke Measurements" loading="lazy" />
+                  <div class="book-vip-card__overlay"></div>
+                  <div class="book-vip-card__shimmer"></div>
+                </div>
 
-              <!-- Concentric Rotating Golden Measuring Rings -->
-              <div class="book-orbit book-orbit--outer"></div>
-              <div class="book-orbit book-orbit--inner"></div>
+                <!-- Top Privilege Badge -->
+                <div class="book-vip-card__top">
+                  <span class="book-vip-card__pill">
+                    <span class="pill-dot"></span>
+                    <span>0 SAR MAJLIS VISIT • RIYADH & ALL KSA</span>
+                  </span>
+                </div>
 
-              <!-- Central Gold Royal Tailor Emblem -->
-              <div class="book-emblem">
-                <div class="book-emblem__shield">
-                  <span class="book-emblem__crown">👑</span>
-                  <div class="book-emblem__scissors">
+                <!-- Bottom VIP Status Bar -->
+                <div class="book-vip-card__bottom">
+                  <div class="book-vip-card__brand">
+                    <span class="book-vip-card__crown">👑</span>
+                    <div class="book-vip-card__brand-text">
+                      <strong>AL-DORZY ROYAL ATELIER</strong>
+                      <small>Master Cutter Private Fitting</small>
+                    </div>
+                  </div>
+                  <div class="book-vip-card__seal" title="Master Bespoke Fitting">
                     <i class="fa-solid fa-scissors"></i>
                   </div>
-                  <span class="book-emblem__brand">AL-DORZY</span>
                 </div>
               </div>
 
-              <!-- Floating Privilege Micro-Badges -->
-              <div class="book-float-badge book-float-badge--1">
-                <i class="fa-solid fa-crown" aria-hidden="true"></i>
-                <span data-i18n="appt.g1.short">0 SAR Free Visit</span>
-              </div>
+              <!-- 3 Luxury Micro-Badges Below the Card -->
+              <div class="book-feature-pills">
+                <div class="book-feat-pill book-feat-pill--1">
+                  <div class="book-feat-pill__icon">
+                    <i class="fa-solid fa-house-chimney-user"></i>
+                  </div>
+                  <div class="book-feat-pill__text">
+                    <strong>Cutter at Majlis</strong>
+                    <span>Home or office visit</span>
+                  </div>
+                </div>
 
-              <div class="book-float-badge book-float-badge--2">
-                <i class="fa-solid fa-scroll" aria-hidden="true"></i>
-                <span data-i18n="appt.g2.short">Touch 40+ Fabrics</span>
-              </div>
+                <div class="book-feat-pill book-feat-pill--2">
+                  <div class="book-feat-pill__icon">
+                    <i class="fa-solid fa-scroll"></i>
+                  </div>
+                  <div class="book-feat-pill__text">
+                    <strong>40+ Fabric Bolts</strong>
+                    <span>Touch authentic cloth</span>
+                  </div>
+                </div>
 
-              <div class="book-float-badge book-float-badge--3">
-                <i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i>
-                <span data-i18n="appt.g3.short">Pay on Arrival</span>
+                <div class="book-feat-pill book-feat-pill--3">
+                  <div class="book-feat-pill__icon">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                  </div>
+                  <div class="book-feat-pill__text">
+                    <strong>Zero Upfront Risk</strong>
+                    <span>Pay on arrival</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -2836,21 +2836,22 @@ main {
 }
 
 /* Column Spans for 12-Column Grid (Hero: 4, Middle Banners: 5, Timer: 3) */
+.condition-card--hero,
 .condition-card--span4 {
-  grid-column: span 4;
-}
-
-.condition-card--span5 {
-  grid-column: span 5;
-}
-
-.condition-card--span3 {
-  grid-column: span 3;
-}
-
-.condition-card--hero {
-  grid-row: span 2;
+  grid-column: 1 / 5;
+  grid-row: 1 / 3;
   height: 100%;
+}
+
+.condition-card:nth-child(2),
+.condition-card--span5:first-of-type {
+  grid-column: 5 / 10;
+  grid-row: 1;
+}
+
+.condition-card:nth-child(3) {
+  grid-column: 5 / 10;
+  grid-row: 2;
 }
 
 .condition-card--side {
@@ -2859,16 +2860,17 @@ main {
 }
 
 /* ============================================================
-   ⏳ EXCLUSIVE PRIVILEGE COUNTDOWN TIMER CARD (Column 3)
+   ⏳ EXCLUSIVE PRIVILEGE COUNTDOWN TIMER CARD (Column 3 - Spans Rows 1 & 2)
    ============================================================ */
 .condition-card--timer {
-  grid-row: span 2;
+  grid-column: 10 / 13;
+  grid-row: 1 / 3;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 30px 24px;
-  background: linear-gradient(160deg, rgba(20, 26, 22, 0.96) 0%, rgba(11, 15, 13, 0.98) 100%);
+  justify-content: space-between;
+  padding: 44px 22px 20px;
+  background: radial-gradient(circle at 50% 12%, rgba(201, 162, 74, 0.22) 0%, transparent 60%), linear-gradient(165deg, rgba(20, 26, 22, 0.98) 0%, rgba(10, 14, 12, 0.99) 100%);
   border: 1px solid rgba(201, 162, 74, 0.45);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 0 35px rgba(201, 162, 74, 0.15);
   position: relative;
@@ -2878,7 +2880,7 @@ main {
 
 .condition-card--timer:hover {
   border-color: var(--gold);
-  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(201, 162, 74, 0.3);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.7), 0 0 45px rgba(201, 162, 74, 0.35);
   transform: translateY(-4px);
 }
 
@@ -2887,9 +2889,9 @@ main {
   top: -60px;
   left: 50%;
   transform: translateX(-50%);
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(circle, rgba(201, 162, 74, 0.22) 0%, transparent 70%);
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(201, 162, 74, 0.25) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -2899,37 +2901,32 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
-  height: 100%;
   justify-content: space-between;
+  gap: 16px;
+  height: 100%;
+  padding-top: 10px;
 }
 
 .timer-card__top {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 5px 14px;
-  border-radius: 999px;
-  background: rgba(201, 162, 74, 0.12);
-  border: 1px solid rgba(201, 162, 74, 0.35);
-  color: var(--gold-hi, #e6ca85);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  gap: 12px;
+  width: 100%;
 }
 
 .timer-card__clock-anim {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: rgba(201, 162, 74, 0.15);
-  border: 1px solid rgba(201, 162, 74, 0.4);
+  background: linear-gradient(135deg, rgba(201, 162, 74, 0.2) 0%, rgba(138, 106, 43, 0.25) 100%);
+  border: 1px solid rgba(201, 162, 74, 0.45);
   color: var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 22px;
-  box-shadow: 0 0 20px rgba(201, 162, 74, 0.25);
+  box-shadow: 0 0 22px rgba(201, 162, 74, 0.3);
   animation: timerHourglassPulse 3.5s ease-in-out infinite;
 }
 
@@ -2940,13 +2937,21 @@ main {
   95% { transform: scale(1) rotate(180deg); }
 }
 
+.timer-card__titles {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+
 .timer-card__heading {
   margin: 0;
-  font-family: "Cinzel", serif;
+  font-family: "Cinzel", "Cormorant Garamond", serif;
   font-size: 19px;
   font-weight: 700;
   color: #ffffff;
   line-height: 1.25;
+  letter-spacing: 0.03em;
 }
 
 .timer-card__desc {
@@ -2954,7 +2959,7 @@ main {
   font-size: 12px;
   line-height: 1.5;
   color: var(--paper-dim);
-  max-width: 260px;
+  max-width: 250px;
 }
 
 .timer-card__counter {
@@ -3066,21 +3071,33 @@ main {
     gap: 18px;
   }
 
-  .condition-card--span4,
-  .condition-card--span5,
-  .condition-card--span3 {
-    grid-column: span 1;
+  .condition-card--hero,
+  .condition-card--span4 {
+    grid-column: 1 / -1;
     grid-row: auto;
-  }
-
-  .condition-card--hero {
-    grid-column: span 2;
     aspect-ratio: 16 / 9;
     height: auto;
   }
 
+  .condition-card:nth-child(2) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .condition-card:nth-child(3) {
+    grid-column: 2;
+    grid-row: auto;
+  }
+
   .condition-card--timer {
-    grid-column: span 2;
+    grid-column: 1 / -1;
+    grid-row: auto;
+    height: auto;
+    padding: 34px 20px 24px;
+  }
+
+  .book-feature-pills {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -3090,11 +3107,11 @@ main {
   }
 
   .condition-card--hero,
-  .condition-card--span4,
-  .condition-card--span5,
-  .condition-card--span3,
+  .condition-card:nth-child(2),
+  .condition-card:nth-child(3),
   .condition-card--timer {
     grid-column: 1 / -1;
+    grid-row: auto;
   }
 }
 
@@ -3706,216 +3723,282 @@ html[dir="rtl"] .atelier-tab {
 }
 
 .book__main-title {
-  font-family: var(--font-title);
-  font-size: clamp(26px, 3vw, 38px);
+  font-family: "Cinzel", "Cormorant Garamond", serif;
+  font-size: clamp(26px, 3.2vw, 42px);
   font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.18;
   color: var(--paper);
-  margin: 14px 0 24px;
+  margin: 10px 0 20px;
 }
 
 html[dir="rtl"] .book__main-title {
-  font-family: var(--font-arabic);
+  font-family: var(--font-arabic, "IBM Plex Sans Arabic", serif);
+  text-transform: none;
+  letter-spacing: 0;
 }
 
-/* Luxury Animated Couture Emblem Widget */
-.book-anim-widget {
-  position: relative;
-  width: 100%;
-  max-width: 440px;
-  height: 380px;
-  margin: 10px auto 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 1000px;
-  overflow: visible;
-}
-
-/* Ambient Radial Glow Behind Widget */
-.book-anim-widget__ambient {
-  position: absolute;
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(201, 162, 74, 0.22) 0%, rgba(201, 162, 74, 0.05) 50%, transparent 75%);
-  filter: blur(28px);
-  animation: bookPulseGlow 4s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-@keyframes bookPulseGlow {
-  0% { transform: scale(0.9); opacity: 0.6; }
-  100% { transform: scale(1.15); opacity: 1; }
-}
-
-/* Concentric Rotating Measuring Orbits */
-.book-orbit {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.book-orbit--outer {
-  width: 320px;
-  height: 320px;
-  border: 1.5px dashed rgba(201, 162, 74, 0.35);
-  box-shadow: inset 0 0 20px rgba(201, 162, 74, 0.08), 0 0 20px rgba(201, 162, 74, 0.08);
-  animation: bookSpinClockwise 32s linear infinite;
-}
-
-.book-orbit--inner {
-  width: 230px;
-  height: 230px;
-  border: 1px dotted rgba(255, 235, 170, 0.3);
-  animation: bookSpinCounter 24s linear infinite;
-}
-
-@keyframes bookSpinClockwise {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes bookSpinCounter {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
-}
-
-/* Central Tailor Emblem Shield */
-.book-emblem {
-  position: relative;
-  z-index: 2;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, rgba(28, 34, 30, 0.95) 0%, rgba(14, 18, 16, 0.98) 100%);
-  border: 2px solid var(--gold);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(201, 162, 74, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: emblemHoverFloat 3.5s ease-in-out infinite alternate;
-}
-
-@keyframes emblemHoverFloat {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-8px); }
-}
-
-.book-emblem__shield {
+/* ============================================================
+   👑 ROYAL VIP ATELIER SHOWCASE (Master Cutter in Majlis)
+   ============================================================ */
+.book-vip-showcase {
   display: flex;
   flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 520px;
+  margin-top: 6px;
+}
+
+.book-vip-card {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(14, 18, 16, 0.95);
+  border: 1px solid rgba(201, 162, 74, 0.45);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.65), 0 0 30px rgba(201, 162, 74, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: perspective(900px) rotateY(-2deg) rotateX(1deg);
+}
+
+.book-vip-card:hover {
+  transform: perspective(900px) rotateY(0deg) rotateX(0deg) translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.75), 0 0 45px rgba(201, 162, 74, 0.3);
+}
+
+.book-vip-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.book-vip-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.book-vip-card:hover .book-vip-card__media img {
+  transform: scale(1.05);
+}
+
+.book-vip-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 14, 12, 0.25) 0%, rgba(10, 14, 12, 0.15) 50%, rgba(10, 14, 12, 0.92) 100%);
+  pointer-events: none;
+}
+
+/* Continuous Golden Holographic Shimmer Sweep */
+.book-vip-card__shimmer {
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(201, 162, 74, 0.25) 48%,
+    rgba(255, 240, 190, 0.4) 52%,
+    rgba(201, 162, 74, 0.25) 56%,
+    rgba(255, 255, 255, 0) 70%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  animation: royalShimmerSweep 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes royalShimmerSweep {
+  0% { left: -120%; }
+  35%, 100% { left: 160%; }
+}
+
+.book-vip-card__top {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 3;
+}
+
+html[dir="rtl"] .book-vip-card__top {
+  left: auto;
+  right: 14px;
+}
+
+.book-vip-card__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(14, 18, 16, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 162, 74, 0.45);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gold-hi, #e6ca85);
+}
+
+.book-vip-card__bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 20px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.book-vip-card__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.book-vip-card__crown {
+  font-size: 20px;
+  filter: drop-shadow(0 2px 8px rgba(201, 162, 74, 0.7));
+}
+
+.book-vip-card__brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.book-vip-card__brand-text strong {
+  font-family: "Cinzel", serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+}
+
+.book-vip-card__brand-text small {
+  font-size: 11px;
+  color: var(--gold-hi, #e6ca85);
+  opacity: 0.9;
+}
+
+.book-vip-card__seal {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold) 0%, rgba(145, 110, 40, 0.95) 100%);
+  color: #0b0f0d;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  font-size: 16px;
+  box-shadow: 0 4px 16px rgba(201, 162, 74, 0.45);
+  animation: sealScissorsPulse 2.4s ease-in-out infinite;
 }
 
-.book-emblem__crown {
-  font-size: 18px;
-  line-height: 1;
-  filter: drop-shadow(0 2px 6px rgba(201, 162, 74, 0.6));
+@keyframes sealScissorsPulse {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.15) rotate(-16deg); }
 }
 
-.book-emblem__scissors {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(201, 162, 74, 0.16);
-  border: 1px solid rgba(201, 162, 74, 0.4);
+/* 3 Luxury Micro-Badges */
+.book-feature-pills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.book-feat-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(14, 18, 16, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(201, 162, 74, 0.22);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s var(--ease);
+}
+
+.book-feat-pill:hover {
+  background: rgba(22, 28, 24, 0.9);
+  border-color: rgba(201, 162, 74, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5), 0 0 15px rgba(201, 162, 74, 0.2);
+}
+
+.book-feat-pill__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(201, 162, 74, 0.12);
+  border: 1px solid rgba(201, 162, 74, 0.3);
+  color: var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gold-hi, #e6ca85);
-  font-size: 18px;
-  animation: scissorsSnipRoyal 2s ease-in-out infinite;
-}
-
-@keyframes scissorsSnipRoyal {
-  0%, 100% { transform: scale(1) rotate(0deg); }
-  40% { transform: scale(1.15) rotate(-22deg); color: #fff; }
-  60% { transform: scale(1.1) rotate(12deg); }
-}
-
-.book-emblem__brand {
-  font-family: var(--font-title);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: var(--gold);
-}
-
-/* Floating Privilege Micro-Badges */
-.book-float-badge {
-  position: absolute;
-  z-index: 3;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(18, 24, 20, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(201, 162, 74, 0.35);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4), 0 0 12px rgba(201, 162, 74, 0.15);
-  font-size: 12px;
-  font-weight: 600;
-  color: #f7f5f0;
-  white-space: nowrap;
-}
-
-.book-float-badge i {
-  color: var(--gold);
   font-size: 13px;
+  flex-shrink: 0;
 }
 
-/* Badge 1: Top Right */
-.book-float-badge--1 {
-  top: 35px;
-  right: 15px;
-  animation: floatBadge1 4s ease-in-out infinite alternate;
+.book-feat-pill__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
 }
 
-@keyframes floatBadge1 {
-  0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(-10px) rotate(2deg); }
+.book-feat-pill__text strong {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Badge 2: Bottom Left */
-.book-float-badge--2 {
-  bottom: 45px;
-  left: 10px;
-  animation: floatBadge2 4.5s ease-in-out infinite alternate;
+.book-feat-pill__text span {
+  font-size: 10px;
+  color: var(--paper-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-@keyframes floatBadge2 {
-  0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(10px) rotate(-2deg); }
+/* Light Theme Overrides */
+:root[data-theme="light"] .book-vip-card {
+  background: #ffffff;
+  border-color: rgba(184, 134, 11, 0.4);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12), 0 0 25px rgba(201, 162, 74, 0.15);
 }
 
-/* Badge 3: Bottom Right */
-.book-float-badge--3 {
-  bottom: 25px;
-  right: 30px;
-  animation: floatBadge3 3.8s ease-in-out infinite alternate;
+:root[data-theme="light"] .book-vip-card__pill {
+  background: rgba(255, 255, 255, 0.95);
+  color: #171b18;
 }
 
-@keyframes floatBadge3 {
-  0% { transform: translateY(0) scale(1); }
-  100% { transform: translateY(-8px) scale(1.04); }
-}
-
-:root[data-theme="light"] .book-emblem {
-  background: linear-gradient(145deg, #ffffff 0%, #f6f3eb 100%);
-  border-color: var(--gold-2);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12), 0 0 20px rgba(201, 162, 74, 0.2);
-}
-
-:root[data-theme="light"] .book-float-badge {
-  background: rgba(255, 255, 255, 0.92);
-  border-color: rgba(184, 134, 11, 0.35);
+:root[data-theme="light"] .book-feat-pill {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(184, 134, 11, 0.25);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+:root[data-theme="light"] .book-feat-pill__text strong {
   color: #171b18;
 }
 
