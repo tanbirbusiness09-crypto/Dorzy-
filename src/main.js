@@ -367,41 +367,27 @@ const i18n = {
     "toast.phone": "Enter a valid KSA mobile.",
     "foot.tag": "Royal Jubba Atelier · Kingdom of Saudi Arabia",
     "foot.copy": "Home measurement · Home delivery · Cash on delivery · WhatsApp",
-    "appt.tag": "VIP ATELIER APPOINTMENT",
+    "appt.tag": "AL-DORZY ROYAL ATELIER",
     "appt.secTitle": "Reservation Schedule & Details",
-    "appt.title": "Book a Master Cutter Visit",
+    "appt.title": "Book Private Appointment",
     "appt.subtitle": "Senior cutter arrives at your doorstep with luxury fabric bolts & measurement set.",
-    "appt.serviceLabel": "1. Select Appointment Service",
-    "appt.svc.home.t": "Master Cutter Home Visit",
-    "appt.svc.home.d": "Senior cutter visits your villa or office with 40+ fabric swatches.",
-    "appt.svc.lounge.t": "VIP Atelier Private Lounge",
-    "appt.svc.lounge.d": "Private fitting session with master designer at our atelier.",
-    "appt.svc.wedding.t": "Wedding & Majlis Bespoke",
-    "appt.svc.wedding.d": "Ceremonial styling consultation for grooms and royal majlis groups.",
+    "appt.selectFabric": "1. Select Fabric",
+    "appt.serviceLabel": "2. Select Service Type",
+    "appt.svc.home.t": "Home Measurement",
+    "appt.svc.home.d": "Senior cutter visits your villa or majlis",
+    "appt.svc.atelier.t": "Atelier Lounge Visit",
+    "appt.svc.atelier.d": "Private fitting in our boutique lounge",
+    "appt.svc.consultancy.t": "Style Consultation",
+    "appt.svc.consultancy.d": "Exclusive drape, silhouette & cloth advice",
+    "appt.distLabel": "3. Travel & Location Radius",
     "appt.free": "0 SAR Free",
-    "appt.timeLabel": "2. Preferred Date & Window",
-    "appt.clientLabel": "3. Client & Residence Location",
     "appt.clothPref": "Fabric Interest",
-    "appt.g1": "100% Free VIP Doorstep Consultation",
-    "appt.g2": "Touch fabric before committing",
-    "appt.g3": "Cash on delivery when finished",
     "appt.submit": "Confirm & Book Appointment",
-    "appt.freeBadge": "100% Free Doorstep Visit",
-    "appt.svc.home.sub": "Cutter to Door",
-    "appt.svc.lounge.sub": "Private Fitting",
-    "appt.svc.wedding.sub": "Wedding/Majlis",
-    "appt.autoBtn": "Auto-Fill Address",
-    "appt.quickDist": "Popular:",
-    "appt.g1.short": "0 SAR Free Visit",
-    "appt.g2.short": "Touch Fabrics",
-    "appt.g3.short": "Pay on Arrival",
-    "appt.autoDone": "Address auto-generated!",
+    "appt.autoBtn": "Auto-Detect Address",
+    "appt.autoDone": "Address auto-detected!",
     "appt.refCode": "Reference Code",
     "appt.success.wa": "Open WhatsApp Concierge",
     "appt.success.done": "Done & Return to Atelier",
-    "appt.freeDelivery": "100% Free Doorstep Visit & Delivery",
-    "appt.promoFabrics": "Privilege Discount Fabrics",
-    "appt.activePrivilege": "Special Privileges",
     "appt.orderSummary": "Order & Amount Summary",
     "appt.totalDue": "TOTAL AMOUNT (PAY ON ARRIVAL)",
     "appt.codNote": "Cash or Card on Delivery • No Advance",
@@ -670,40 +656,27 @@ const i18n = {
     "toast.phone": "أدخل جوالاً سعودياً صالحاً.",
     "foot.tag": "الدرزي — أتيليه الجبة الملكية · المملكة العربية السعودية",
     "foot.copy": "مقاس منزلي · توصيل منزلي · الدفع عند الاستلام · واتساب",
-    "appt.tag": "موعد الأتيليه الملكي الخاص",
-    "appt.secTitle": "موعد الحجز وبيانات العميل",
-    "appt.title": "حجز زيارة الخياط الأول للمنزل",
+    "appt.tag": "أتيليه الدرزي الملكي",
+    "appt.secTitle": "تفاصيل وموعد الحجز",
+    "appt.title": "حجز موعد خاص",
     "appt.subtitle": "يصل الخياط الأول لباب منزلك مع طاقات الأقمشة الفاخرة وأدوات القياس الدقيقة.",
-    "appt.serviceLabel": "١. اختر نوع موعد الزيارة",
-    "appt.svc.home.t": "زيارة الخياط الأول للمنزل",
-    "appt.svc.home.d": "يصل خياط أول إلى قصرك، منزلك، أو مكتبك مع أكثر من ٤٠ عينة قماش فاخرة.",
-    "appt.svc.lounge.t": "جلسة خاصة بالأتيليه الملكي",
-    "appt.svc.lounge.d": "جلسة قياس وتصميم خاصة مع كبير المصممين في صالة كبار الشخصيات بالأتيليه.",
-    "appt.svc.wedding.t": "استشارة مناسبات ومجالس كبرى",
-    "appt.svc.wedding.d": "خدمة تفصيل متكاملة للعرسان ومجالس الأعياد والأطقم الرسمية.",
+    "appt.selectFabric": "١. اختيار القماش",
+    "appt.serviceLabel": "٢. نوع الخدمة المطلوبة",
+    "appt.svc.home.t": "زيارة قياس منزلية",
+    "appt.svc.home.d": "زيارة الخياط الأول للفيلا أو المجلس الخاص",
+    "appt.svc.atelier.t": "زيارة فرع الأتيليه",
+    "appt.svc.atelier.d": "جلسة قياس وتجربة خاصة في صالون الأتيليه",
+    "appt.svc.consultancy.t": "استشارة تصميم ومظهر",
+    "appt.svc.consultancy.d": "استشارة حصرية لاختيار القصّة والانسدال وتنسيق القماش",
+    "appt.distLabel": "٣. نطاق المسافة والموقع",
     "appt.free": "مجاناً ٠ ر.س",
-    "appt.timeLabel": "٢. موعد وتوقيت الزيارة المفضل",
-    "appt.clientLabel": "٣. بيانات العميل وموقع السكن",
     "appt.clothPref": "القماش المفضل",
-    "appt.g1": "زيارة واستشارة مجانية ١٠٠٪ لباب بيتك",
-    "appt.g2": "معاينة ولمس الأقمشة قبل البدء بالقص",
-    "appt.g3": "دفع نقداً عند استلام الجبة التامة",
-    "appt.freeBadge": "زيارة واستشارة مجانية ١٠٠٪",
-    "appt.svc.home.sub": "الخياط لباب بيتك",
-    "appt.svc.lounge.sub": "جلسة خاصة بالدار",
-    "appt.svc.wedding.sub": "مناسبات وعرسان",
-    "appt.autoBtn": "توليد العنوان تلقائياً",
-    "appt.quickDist": "الأحياء الشائعة:",
-    "appt.g1.short": "زيارة مجانية ٠ ر.س",
-    "appt.g2.short": "معاينة ولمس القماش",
-    "appt.g3.short": "الدفع عند الاستلام",
-    "appt.autoDone": "تم توليد العنوان تلقائياً!",
+    "appt.submit": "تأكيد وحجز الموعد",
+    "appt.autoBtn": "تحديد العنوان تلقائياً",
+    "appt.autoDone": "تم تحديد العنوان تلقائياً!",
     "appt.refCode": "رقم المرجع",
     "appt.success.wa": "مراسلة كونسيرج الأتيليه عبر واتساب",
     "appt.success.done": "تم والعودة للواجهة الرئيسية",
-    "appt.freeDelivery": "توصيل وزيارة منزلية مجانية ١٠٠٪",
-    "appt.promoFabrics": "أقمشة العروض والخصومات الخاصة",
-    "appt.activePrivilege": "خصومات حصرية",
     "appt.orderSummary": "ملخص الطلب والمبلغ الإجمالي",
     "appt.totalDue": "المبلغ الإجمالي (الدفع عند الاستلام)",
     "appt.codNote": "نقداً أو بالبطاقة عند الاستلام • بدون دفع مسبق",
@@ -830,6 +803,8 @@ let theme = document.documentElement.dataset.theme === "light" ? "light" : "dark
 let deskFilter = "all";
 let state = loadState();
 let apptQty = 1;
+let apptDistanceZone = "0-15";
+const DISTANCE_FEES = { "0-15": 0, "15-35": 25, "35-70": 50 };
 let updateJourneyStoryUI = () => {};
 
 const CITY_DISTRICTS = {
@@ -1794,7 +1769,7 @@ function renderApptPromoFabrics() {
       <div class="appt-promo-card${isSel}" data-cloth-id="${c.id}" role="button" tabindex="0">
         <span class="appt-promo-card__thumb">
           <img src="${c.img}" alt="${name}" loading="lazy" />
-          <span class="appt-promo-card__badge"><i class="fa-solid fa-fire"></i> ${tag}</span>
+          <span class="appt-promo-card__badge">${tag}</span>
         </span>
         <div class="appt-promo-card__meta">
           <span class="appt-promo-card__name">${flag} ${name}</span>
@@ -1830,16 +1805,17 @@ function updateApptSummary() {
   const cloth = CLOTHS.find((c) => c.id === state.cloth) || CLOTHS[0];
   const qty = apptQty || 1;
   const unitDiscounted = getDiscountedPrice(cloth);
-  const total = unitDiscounted * qty;
+  const fabricSubtotal = unitDiscounted * qty;
+  const distanceFee = DISTANCE_FEES[apptDistanceZone] !== undefined ? DISTANCE_FEES[apptDistanceZone] : 0;
+  const total = fabricSubtotal + distanceFee;
   const origTotal = cloth.price * qty;
-  const savings = origTotal - total;
   const name = clothName(cloth.id);
 
   const nameEl = document.getElementById("apptSummaryFabricName");
   if (nameEl) nameEl.textContent = `${name} × ${qty}`;
 
   const priceEl = document.getElementById("apptSummaryFabricPrice");
-  if (priceEl) priceEl.textContent = money(total);
+  if (priceEl) priceEl.textContent = money(fabricSubtotal);
 
   const origEl = document.getElementById("apptSummaryOriginalPrice");
   if (origEl) {
@@ -1847,14 +1823,46 @@ function updateApptSummary() {
     origEl.style.display = cloth.discount ? "inline" : "none";
   }
 
-  const savingsEl = document.getElementById("apptSummarySavings");
-  if (savingsEl) {
-    if (cloth.discount) {
-      savingsEl.style.display = "inline-flex";
-      const tag = lang === "ar" ? cloth.discountTagAr : cloth.discountTagEn;
-      savingsEl.textContent = lang === "ar" ? `وفر ${money(savings)} (${tag})` : `Save ${money(savings)} (${tag})`;
+  const serviceInput = document.querySelector('input[name="apptService"]:checked');
+  const serviceType = serviceInput ? serviceInput.value : "home";
+  const serviceTitles = {
+    home: lang === "ar" ? "زيارة قياس منزلية" : "Home Measurement Visit",
+    atelier: lang === "ar" ? "زيارة فرع الأتيليه" : "Atelier Lounge Visit",
+    consultancy: lang === "ar" ? "استشارة تصميم ومظهر" : "Style Consultation",
+    lounge: lang === "ar" ? "زيارة فرع الأتيليه" : "Atelier Lounge Visit",
+    wedding: lang === "ar" ? "استشارة تصميم ومظهر" : "Style Consultation",
+  };
+
+  const serviceNameEl = document.getElementById("apptSummaryServiceName");
+  if (serviceNameEl) {
+    serviceNameEl.textContent = serviceTitles[serviceType] || "Home Measurement Visit";
+  }
+
+  const distLabelEl = document.getElementById("apptSummaryDistanceLabel");
+  if (distLabelEl) {
+    const rangeText = apptDistanceZone === "0-15" ? "0 – 15 km" : (apptDistanceZone === "15-35" ? "15 – 35 km" : "35 – 70 km");
+    distLabelEl.textContent = lang === "ar" ? `نطاق المسافة (${rangeText})` : `Travel Radius (${rangeText})`;
+  }
+
+  const distFeeEl = document.getElementById("apptSummaryDistanceFee");
+  if (distFeeEl) {
+    if (distanceFee === 0) {
+      distFeeEl.textContent = lang === "ar" ? "0 ر.س (مشمول)" : "0 SAR (Included)";
+      distFeeEl.className = "appt-free-highlight";
     } else {
-      savingsEl.style.display = "none";
+      distFeeEl.textContent = `+${money(distanceFee)}`;
+      distFeeEl.className = "appt-summary-price";
+    }
+  }
+
+  const distBadgeEl = document.getElementById("apptDistanceBadge");
+  if (distBadgeEl) {
+    if (distanceFee === 0) {
+      distBadgeEl.textContent = lang === "ar" ? "زيارة 0 ر.س" : "0 SAR Visit";
+      distBadgeEl.className = "appt-delivery-free-badge";
+    } else {
+      distBadgeEl.textContent = lang === "ar" ? `رسوم مسافة +${money(distanceFee)}` : `Travel +${money(distanceFee)}`;
+      distBadgeEl.className = "appt-delivery-free-badge appt-delivery-fee-badge";
     }
   }
 
@@ -1908,10 +1916,17 @@ function openApptModal() {
   if (homeCard) {
     homeCard.checked = true;
   }
+  apptDistanceZone = "0-15";
+  const defaultDistRadio = document.querySelector('input[name="apptDistance"][value="0-15"]');
+  if (defaultDistRadio) defaultDistRadio.checked = true;
+  document.querySelectorAll(".appt-dist-pill").forEach((pill) => {
+    const r = pill.querySelector('input[type="radio"]');
+    pill.classList.toggle("is-selected", r && r.checked);
+  });
+
   updateApptServiceCards();
   renderApptPromoFabrics();
   updateApptSummary();
-  renderApptDistrictChips();
   if (typeof updateJourneyStoryUI === "function") updateJourneyStoryUI();
 
   els.apptModal.querySelectorAll(".appt-field").forEach((f) => f.classList.remove("is-error"));
@@ -1937,7 +1952,6 @@ function handleApptSubmit(e) {
   const citySelect = document.getElementById("apptCity");
   const slotSelect = document.getElementById("apptSlot");
   const clothPrefSelect = document.getElementById("apptClothPref");
-  const notesText = document.getElementById("apptNotes");
   const serviceInput = document.querySelector('input[name="apptService"]:checked');
 
   const checkField = (input, isPhone = false) => {
@@ -1965,16 +1979,26 @@ function handleApptSubmit(e) {
 
   const serviceType = serviceInput ? serviceInput.value : "home";
   const serviceTitles = {
-    home: lang === "ar" ? "زيارة الخياط الأول للمنزل" : "Master Cutter Home Visit",
-    lounge: lang === "ar" ? "جلسة خاصة بالأتيليه" : "VIP Atelier Private Lounge",
-    wedding: lang === "ar" ? "استشارة مناسبات ومجالس" : "Wedding & Majlis Bespoke",
+    home: lang === "ar" ? "زيارة قياس منزلية" : "Home Measurement Visit",
+    atelier: lang === "ar" ? "زيارة فرع الأتيليه" : "Atelier Lounge Visit",
+    consultancy: lang === "ar" ? "استشارة تصميم ومظهر" : "Style Consultation",
+    lounge: lang === "ar" ? "زيارة فرع الأتيليه" : "Atelier Lounge Visit",
+    wedding: lang === "ar" ? "استشارة تصميم ومظهر" : "Style Consultation",
   };
+
+  const distTitles = {
+    "0-15": "0 – 15 km (0 SAR)",
+    "15-35": "15 – 35 km (+25 SAR)",
+    "35-70": "35 – 70 km (+50 SAR)",
+  };
+  const distText = distTitles[apptDistanceZone] || "0 – 15 km (0 SAR)";
 
   const clothPrefValue = clothPrefSelect ? clothPrefSelect.value : "current";
   const clothSummary = clothPrefValue === "current" ? clothName(state.cloth) : clothPrefSelect.options[clothPrefSelect.selectedIndex].text;
   const clothObj = CLOTHS.find((c) => c.id === state.cloth) || CLOTHS[0];
   const unitPrice = getDiscountedPrice(clothObj);
-  const bookingTotal = unitPrice * apptQty;
+  const distanceFee = DISTANCE_FEES[apptDistanceZone] !== undefined ? DISTANCE_FEES[apptDistanceZone] : 0;
+  const bookingTotal = (unitPrice * apptQty) + distanceFee;
 
   const bookingId = Date.now();
   const ref = `ALD-APT-${String(bookingId).slice(-4)}`;
@@ -1989,12 +2013,13 @@ function handleApptSubmit(e) {
     date: dateInput.value,
     slot: slotSelect ? slotSelect.value : "14:00 – 18:00",
     service: serviceTitles[serviceType] || serviceType,
+    distanceZone: apptDistanceZone,
+    distanceFee: distanceFee,
     cloth: state.cloth,
     clothName: clothSummary,
     qty: apptQty,
     total: bookingTotal,
     pay: "COD",
-    note: notesText ? notesText.value.trim() : "",
     status: "pending",
   };
 
@@ -2004,8 +2029,8 @@ function handleApptSubmit(e) {
   renderDesk();
 
   const waMsg = lang === "ar"
-    ? `السلام عليكم، حجز موعد زيارة خياط من أتيليه الدرزي.\nالمرجع: ${ref}\nالاسم: ${booking.name}\nالجوال: ${booking.phone}\nنوع الخدمة: ${booking.service}\nالمدينة: ${cityName(booking.city)}\nالعنوان: ${booking.address}\nالتاريخ: ${booking.date} (${booking.slot})\nالقماش: ${clothSummary} (الكمية: ${apptQty})\nالمبلغ الإجمالي: ${money(bookingTotal)} (الدفع عند الاستلام)\nتوصيل مجاني 🚚\nملاحظات: ${booking.note || "-"}`
-    : `As-salamu alaykum, AL-DORZY Atelier Cutter Visit Appointment.\nRef: ${ref}\nName: ${booking.name}\nMobile: ${booking.phone}\nService: ${booking.service}\nCity: ${cityName(booking.city)}\nAddress: ${booking.address}\nDate: ${booking.date} (${booking.slot})\nFabric: ${clothSummary} (Qty: ${apptQty})\nTotal Amount: ${money(bookingTotal)} (Pay on Delivery)\nFree Delivery 🚚\nNotes: ${booking.note || "-"}`;
+    ? `السلام عليكم، حجز موعد من أتيليه الدرزي.\nالمرجع: ${ref}\nالاسم: ${booking.name}\nالجوال: ${booking.phone}\nنوع الخدمة: ${booking.service}\nنطاق المسافة: ${distText}\nالمدينة: ${cityName(booking.city)}\nالعنوان: ${booking.address}\nالتاريخ: ${booking.date} (${booking.slot})\nالقماش: ${clothSummary} (الكمية: ${apptQty})\nالمبلغ الإجمالي: ${money(bookingTotal)} (الدفع عند الاستلام)`
+    : `As-salamu alaykum, AL-DORZY Atelier Appointment.\nRef: ${ref}\nName: ${booking.name}\nMobile: ${booking.phone}\nService: ${booking.service}\nDistance Radius: ${distText}\nCity: ${cityName(booking.city)}\nAddress: ${booking.address}\nDate: ${booking.date} (${booking.slot})\nFabric: ${clothSummary} (Qty: ${apptQty})\nTotal Amount: ${money(bookingTotal)} (Pay on Delivery)`;
 
   const waUrl = waLink(waMsg);
 
@@ -2023,8 +2048,8 @@ function handleApptSubmit(e) {
           <strong>${escapeHtml(booking.name)}</strong>
         </div>
         <div class="appt-ticket__item">
-          <small>${lang === "ar" ? "نوع الخدمة" : "Service"}</small>
-          <strong>${escapeHtml(booking.service)}</strong>
+          <small>${lang === "ar" ? "نوع الخدمة والنطاق" : "Service & Radius"}</small>
+          <strong>${escapeHtml(booking.service)} • ${distText}</strong>
         </div>
         <div class="appt-ticket__item">
           <small>${lang === "ar" ? "التاريخ والوقت" : "Date & Window"}</small>
@@ -2036,7 +2061,7 @@ function handleApptSubmit(e) {
         </div>
         <div class="appt-ticket__item">
           <small>${lang === "ar" ? "المبلغ والدفع" : "Total & Payment"}</small>
-          <strong style="color: var(--gold);">${money(bookingTotal)} (${lang === "ar" ? "الدفع عند الاستلام • توصيل مجاني" : "Pay on Delivery • Free Delivery"})</strong>
+          <strong style="color: var(--gold);">${money(bookingTotal)} (${lang === "ar" ? "الدفع عند الاستلام" : "Pay on Delivery"})</strong>
         </div>
       `;
     }
@@ -2092,7 +2117,7 @@ function initApptModal() {
   if (els.apptCity) {
     els.apptCity.addEventListener("change", () => {
       renderApptDistrictChips();
-  if (typeof updateJourneyStoryUI === "function") updateJourneyStoryUI();
+      if (typeof updateJourneyStoryUI === "function") updateJourneyStoryUI();
     });
   }
 
@@ -2123,7 +2148,21 @@ function initApptModal() {
   }
 
   document.querySelectorAll('input[name="apptService"]').forEach((radio) => {
-    radio.addEventListener("change", updateApptServiceCards);
+    radio.addEventListener("change", () => {
+      updateApptServiceCards();
+      updateApptSummary();
+    });
+  });
+
+  document.querySelectorAll('input[name="apptDistance"]').forEach((radio) => {
+    radio.addEventListener("change", (e) => {
+      apptDistanceZone = e.target.value;
+      document.querySelectorAll(".appt-dist-pill").forEach((pill) => {
+        const r = pill.querySelector('input[type="radio"]');
+        pill.classList.toggle("is-selected", r && r.checked);
+      });
+      updateApptSummary();
+    });
   });
 
   if (els.apptQtyMinus) {

@@ -1051,106 +1051,118 @@
         <form class="appt-form" id="apptForm" novalidate>
           <div class="appt-grid">
             
-            <!-- LEFT PANEL: Atelier Identity, Discounted Fabrics & Order Summary -->
+            <!-- LEFT PANEL: Atelier Identity, Fabric Selection, 3 Services & Area Distance Cost Calculator -->
             <div class="appt-panel appt-panel--service">
               <div class="appt-hero">
                 <div class="appt-hero__brand">
                   <img class="appt-hero__logo" src="/jubba/Image/qasr-royal-logo.png" alt="AL-DORZY Logo" width="24" height="50" />
                   <div class="appt-hero__badges">
-                    <span class="appt-hero__tag">
-                      <i class="fa-solid fa-crown appt-gold-icon"></i>
-                      <span data-i18n="appt.tag">VIP ATELIER APPOINTMENT</span>
-                    </span>
-                    <span class="appt-hero__free-badge">
-                      <i class="fa-solid fa-truck-fast"></i>
-                      <span data-i18n="appt.freeDelivery">100% Free Doorstep Visit & Delivery</span>
-                    </span>
+                    <span class="appt-hero__tag" data-i18n="appt.tag">AL-DORZY ROYAL ATELIER</span>
                   </div>
                 </div>
-                <h2 id="apptModalTitle" class="appt-hero__title" data-i18n="appt.title">Book a Master Cutter Visit</h2>
+                <h2 id="apptModalTitle" class="appt-hero__title" data-i18n="appt.title">Book Private Appointment</h2>
               </div>
 
-              <!-- 🏷️ Featured Discounted Fabrics Showcase ("Discount Ola Kapor Gulo") -->
+              <!-- 1. Pure Fabric Selection -->
               <div class="appt-promo-section">
                 <div class="appt-section-header">
-                  <span class="appt-section-title">
-                    <i class="fa-solid fa-tags appt-gold-icon"></i>
-                    <span data-i18n="appt.promoFabrics">Privilege Discount Fabrics</span>
-                  </span>
-                  <span class="appt-promo-flag-tag"><i class="fa-solid fa-fire"></i> <span data-i18n="appt.activePrivilege">Special Privileges</span></span>
+                  <span class="appt-section-title" data-i18n="appt.selectFabric">1. Select Fabric</span>
                 </div>
                 <div class="appt-promo-grid" id="apptPromoFabrics">
-                  <!-- Populated dynamically with discounted fabric swatches -->
+                  <!-- Populated dynamically with clean fabric swatches -->
                 </div>
               </div>
 
-              <!-- Spacious Service Selection Cards -->
+              <!-- 2. Appointment Service Selection: Home Measurement / Atelier Lounge / Consultation -->
               <div class="appt-services-group">
-                <div class="appt-services-label">
-                  <span data-i18n="appt.serviceLabel">Select Appointment Service</span>
+                <div class="appt-services-label" data-i18n="appt.serviceLabel">
+                  2. Select Service Type
                 </div>
                 
                 <div class="appt-service-stack" id="apptServiceCards">
                   <label class="appt-card is-selected">
                     <input type="radio" name="apptService" value="home" checked />
-                    <span class="appt-card__icon"><i class="fa-solid fa-crown"></i></span>
                     <div class="appt-card__content">
                       <div class="appt-card__head">
-                        <strong data-i18n="appt.svc.home.t">Master Cutter Home Visit</strong>
-                        <span class="appt-card__tag">0 SAR (FREE)</span>
+                        <strong data-i18n="appt.svc.home.t">Home Measurement</strong>
+                        <span class="appt-card__tag">Included</span>
                       </div>
+                      <small class="appt-card__sub" data-i18n="appt.svc.home.d">Senior cutter visits your villa or majlis</small>
                     </div>
                     <span class="appt-card__check"><i class="fa-solid fa-circle-check"></i></span>
                   </label>
 
                   <label class="appt-card">
-                    <input type="radio" name="apptService" value="lounge" />
-                    <span class="appt-card__icon"><i class="fa-solid fa-landmark"></i></span>
+                    <input type="radio" name="apptService" value="atelier" />
                     <div class="appt-card__content">
                       <div class="appt-card__head">
-                        <strong data-i18n="appt.svc.lounge.t">VIP Atelier Private Lounge</strong>
-                        <span class="appt-card__tag">0 SAR (FREE)</span>
+                        <strong data-i18n="appt.svc.atelier.t">Atelier Lounge Visit</strong>
+                        <span class="appt-card__tag">Included</span>
                       </div>
+                      <small class="appt-card__sub" data-i18n="appt.svc.atelier.d">Private fitting in our boutique lounge</small>
                     </div>
                     <span class="appt-card__check"><i class="fa-solid fa-circle-check"></i></span>
                   </label>
 
                   <label class="appt-card">
-                    <input type="radio" name="apptService" value="wedding" />
-                    <span class="appt-card__icon"><i class="fa-solid fa-gem"></i></span>
+                    <input type="radio" name="apptService" value="consultancy" />
                     <div class="appt-card__content">
                       <div class="appt-card__head">
-                        <strong data-i18n="appt.svc.wedding.t">Wedding & Majlis Bespoke</strong>
-                        <span class="appt-card__tag">0 SAR (FREE)</span>
+                        <strong data-i18n="appt.svc.consultancy.t">Style Consultation</strong>
+                        <span class="appt-card__tag">Included</span>
                       </div>
+                      <small class="appt-card__sub" data-i18n="appt.svc.consultancy.d">Exclusive drape, silhouette & cloth advice</small>
                     </div>
                     <span class="appt-card__check"><i class="fa-solid fa-circle-check"></i></span>
                   </label>
                 </div>
               </div>
 
-              <!-- 💰 Live Order & Amount Summary Card ("Amount Dekha Jacche & Delivery Free") -->
+              <!-- 3. Distance & Area Cost Calculator (Kilometer-Based Travel Cost) -->
+              <div class="appt-distance-group">
+                <div class="appt-services-label" data-i18n="appt.distLabel">
+                  3. Travel & Location Radius
+                </div>
+                <div class="appt-distance-options" id="apptDistanceOptions">
+                  <label class="appt-dist-pill is-selected">
+                    <input type="radio" name="apptDistance" value="0-15" checked />
+                    <span class="appt-dist-pill__range">0 – 15 km</span>
+                    <span class="appt-dist-pill__cost">0 SAR</span>
+                  </label>
+                  <label class="appt-dist-pill">
+                    <input type="radio" name="apptDistance" value="15-35" />
+                    <span class="appt-dist-pill__range">15 – 35 km</span>
+                    <span class="appt-dist-pill__cost">+25 SAR</span>
+                  </label>
+                  <label class="appt-dist-pill">
+                    <input type="radio" name="apptDistance" value="35-70" />
+                    <span class="appt-dist-pill__range">35 – 70 km</span>
+                    <span class="appt-dist-pill__cost">+50 SAR</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- 4. Clean Order & Amount Summary -->
               <div class="appt-summary-card" id="apptSummaryCard">
                 <div class="appt-summary-head">
-                  <span><i class="fa-solid fa-receipt appt-gold-icon"></i> <strong data-i18n="appt.orderSummary">Order & Amount Summary</strong></span>
-                  <span class="appt-delivery-free-badge"><i class="fa-solid fa-truck"></i> Free Delivery</span>
+                  <strong data-i18n="appt.orderSummary">Order & Amount Summary</strong>
+                  <span class="appt-delivery-free-badge" id="apptDistanceBadge">0 SAR Visit</span>
                 </div>
                 <div class="appt-summary-body">
                   <div class="appt-summary-row">
                     <span class="appt-summary-label" id="apptSummaryFabricName">Toyobo Imperial Ivory × 1</span>
                     <span class="appt-summary-val">
                       <del class="appt-summary-del" id="apptSummaryOriginalPrice">SAR 1,290</del>
-                      <strong class="appt-summary-price" id="apptSummaryFabricPrice">SAR 1,096</strong>
-                      <span class="appt-savings-pill" id="apptSummarySavings">Save SAR 194 (15% OFF)</span>
+                      <strong class="appt-summary-price" id="apptSummaryFabricPrice">SAR 1,097</strong>
                     </span>
                   </div>
                   <div class="appt-summary-row">
-                    <span class="appt-summary-label"><i class="fa-solid fa-scissors"></i> Senior Cutter Villa Visit</span>
-                    <span class="appt-free-highlight">0 SAR (FREE)</span>
+                    <span class="appt-summary-label" id="apptSummaryServiceName">Master Cutter Home Measurement</span>
+                    <span class="appt-free-highlight">Included</span>
                   </div>
                   <div class="appt-summary-row">
-                    <span class="appt-summary-label"><i class="fa-solid fa-truck-fast"></i> Doorstep Thobe Delivery</span>
-                    <span class="appt-free-highlight"><i class="fa-solid fa-check"></i> 0 SAR (FREE DELIVERY)</span>
+                    <span class="appt-summary-label" id="apptSummaryDistanceLabel">Travel Radius (0 – 15 km)</span>
+                    <span class="appt-free-highlight" id="apptSummaryDistanceFee">0 SAR</span>
                   </div>
                   <div class="appt-summary-divider"></div>
                   <div class="appt-summary-row appt-summary-row--total">
@@ -1158,48 +1170,30 @@
                       <span data-i18n="appt.totalDue">TOTAL AMOUNT (PAY ON ARRIVAL)</span>
                       <small data-i18n="appt.codNote">Cash or Card on Delivery • No Advance</small>
                     </span>
-                    <strong class="appt-summary-total-val" id="apptSummaryTotal">SAR 1,096</strong>
+                    <strong class="appt-summary-total-val" id="apptSummaryTotal">SAR 1,097</strong>
                   </div>
                 </div>
               </div>
-
-              <!-- Reassurance Trust Badges -->
-              <div class="appt-guarantee-strip">
-                <span><i class="fa-solid fa-shield-halved appt-guard-icon"></i> <em data-i18n="appt.g1.short">0 SAR Free Visit</em></span>
-                <span><i class="fa-solid fa-truck-ramp-box appt-guard-icon"></i> <em>Free Delivery</em></span>
-                <span><i class="fa-solid fa-handshake-angle appt-guard-icon"></i> <em data-i18n="appt.g3.short">Pay on Arrival</em></span>
-              </div>
             </div>
 
-            <!-- RIGHT PANEL: Client & Reservation Scheduling -->
+            <!-- RIGHT PANEL: Client & Reservation Scheduling (Clean, Professional, No Internal Icons, No Notes) -->
             <div class="appt-panel appt-panel--schedule">
               <div class="appt-panel__head">
-                <span class="appt-panel__eyebrow">
-                  <i class="fa-regular fa-calendar-check"></i>
-                  <span data-i18n="appt.secTitle">Reservation Schedule & Details</span>
+                <span class="appt-panel__eyebrow" data-i18n="appt.secTitle">
+                  Reservation Schedule & Details
                 </span>
               </div>
 
               <!-- Name & Mobile Row -->
               <div class="appt-row">
                 <div class="appt-field">
-                  <label for="apptName">
-                    <span data-i18n="f.name">Full Name</span>
-                  </label>
-                  <div class="appt-input-wrap">
-                    <i class="fa-solid fa-user appt-input-prefix"></i>
-                    <input type="text" id="apptName" name="apptName" required placeholder="Mohammed Al-Saud" autocomplete="name" />
-                  </div>
+                  <label for="apptName" data-i18n="f.name">Full Name</label>
+                  <input type="text" id="apptName" name="apptName" required placeholder="Mohammed Al-Saud" autocomplete="name" />
                   <small class="field__err" id="err-apptName" data-i18n="f.err.req">Required</small>
                 </div>
                 <div class="appt-field">
-                  <label for="apptPhone">
-                    <span data-i18n="f.phone">Mobile (KSA)</span>
-                  </label>
-                  <div class="appt-input-wrap">
-                    <i class="fa-solid fa-mobile-screen-button appt-input-prefix"></i>
-                    <input type="tel" id="apptPhone" name="apptPhone" required placeholder="05xxxxxxxx" autocomplete="tel" inputmode="tel" />
-                  </div>
+                  <label for="apptPhone" data-i18n="f.phone">Mobile (KSA)</label>
+                  <input type="tel" id="apptPhone" name="apptPhone" required placeholder="05xxxxxxxx" autocomplete="tel" inputmode="tel" />
                   <small class="field__err" id="err-apptPhone" data-i18n="f.err.phone">05xxxxxxxx</small>
                 </div>
               </div>
@@ -1207,50 +1201,33 @@
               <!-- Date & Window Row -->
               <div class="appt-row">
                 <div class="appt-field">
-                  <label for="apptDate">
-                    <span data-i18n="f.date">Visit Date</span>
-                  </label>
-                  <div class="appt-input-wrap">
-                    <i class="fa-regular fa-calendar appt-input-prefix"></i>
-                    <input type="date" id="apptDate" name="apptDate" required />
-                  </div>
+                  <label for="apptDate" data-i18n="f.date">Visit Date</label>
+                  <input type="date" id="apptDate" name="apptDate" required />
                   <small class="field__err" id="err-apptDate" data-i18n="f.err.req">Required</small>
                 </div>
                 <div class="appt-field">
-                  <label for="apptSlot">
-                    <span data-i18n="f.slot">Window</span>
-                  </label>
-                  <div class="appt-input-wrap">
-                    <i class="fa-regular fa-clock appt-input-prefix"></i>
-                    <select id="apptSlot" name="apptSlot" required>
-                      <option value="10:00 – 13:00">10:00 AM – 1:00 PM (Morning)</option>
-                      <option value="14:00 – 18:00" selected>2:00 PM – 6:00 PM (Afternoon)</option>
-                      <option value="19:00 – 22:00">7:00 PM – 10:00 PM (Evening VIP)</option>
-                    </select>
-                  </div>
+                  <label for="apptSlot" data-i18n="f.slot">Window</label>
+                  <select id="apptSlot" name="apptSlot" required>
+                    <option value="10:00 – 13:00">10:00 AM – 1:00 PM (Morning)</option>
+                    <option value="14:00 – 18:00" selected>2:00 PM – 6:00 PM (Afternoon)</option>
+                    <option value="19:00 – 22:00">7:00 PM – 10:00 PM (Evening VIP)</option>
+                  </select>
                 </div>
               </div>
 
               <!-- Fabric & Quantity Row -->
               <div class="appt-row appt-row--fabric">
                 <div class="appt-field appt-field--flex">
-                  <label for="apptClothPref">
-                    <span data-i18n="appt.clothPref">Fabric Interest</span>
-                  </label>
-                  <div class="appt-input-wrap">
-                    <i class="fa-solid fa-shirt appt-input-prefix"></i>
-                    <select id="apptClothPref" name="apptClothPref">
-                      <option value="current">Current Selected Atelier Fabric</option>
-                      <option value="all-japanese">Japanese Toyobo & Shikibo Collection</option>
-                      <option value="all-korean">Korean Silk-Crepe & Opal Collection</option>
-                      <option value="all-swatches">Bring Full Swatch Case (40+ Fabrics)</option>
-                    </select>
-                  </div>
+                  <label for="apptClothPref" data-i18n="appt.clothPref">Fabric Interest</label>
+                  <select id="apptClothPref" name="apptClothPref">
+                    <option value="current">Current Selected Atelier Fabric</option>
+                    <option value="all-japanese">Japanese Toyobo & Shikibo Collection</option>
+                    <option value="all-korean">Korean Silk-Crepe & Opal Collection</option>
+                    <option value="all-swatches">Bring Full Swatch Case (40+ Fabrics)</option>
+                  </select>
                 </div>
                 <div class="appt-field appt-field--qty">
-                  <label>
-                    <span data-i18n="cfg.qty">Quantity</span>
-                  </label>
+                  <label data-i18n="cfg.qty">Quantity</label>
                   <div class="qty appt-qty">
                     <button type="button" id="apptQtyMinus" aria-label="Decrease">−</button>
                     <strong id="apptQtyVal">1</strong>
@@ -1259,45 +1236,24 @@
                 </div>
               </div>
 
-              <!-- City & Address with Dynamic Auto-Generate System -->
+              <!-- City & Address with Auto-Generate (No internal icons, No chips) -->
               <div class="appt-field">
                 <div class="appt-header-sub">
-                  <label>
-                    <span data-i18n="f.addr">Location & Address</span>
-                  </label>
-                  <!-- ⚡ Auto-Generate Address Button with Magic Wand Icon -->
-                  <button type="button" class="appt-auto-btn" id="apptAutoAddrBtn" title="Auto-detect or generate prestigious address">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    <span data-i18n="appt.autoBtn">Auto-Fill Address</span>
+                  <label data-i18n="f.addr">Location & Address</label>
+                  <button type="button" class="appt-auto-btn" id="apptAutoAddrBtn" title="Auto-detect location or auto-fill address">
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                    <span data-i18n="appt.autoBtn">Auto-Detect Address</span>
                   </button>
                 </div>
                 <div class="appt-row appt-row--city-addr">
-                  <div class="appt-input-wrap appt-city-wrap">
-                    <i class="fa-solid fa-city appt-input-prefix"></i>
+                  <div class="appt-city-wrap">
                     <select id="apptCity" name="apptCity" required></select>
                   </div>
-                  <div class="appt-input-wrap appt-addr-wrap">
-                    <i class="fa-solid fa-map-pin appt-input-prefix"></i>
+                  <div class="appt-addr-wrap">
                     <input type="text" id="apptAddress" name="apptAddress" required placeholder="District, Villa / Street" />
                   </div>
                 </div>
                 <small class="field__err" id="err-apptAddress" data-i18n="f.err.req">Required</small>
-                <!-- Dynamic Quick District Chips for Selected City -->
-                <div class="appt-quick-chips" id="apptDistrictChips">
-                  <span class="appt-quick-label" data-i18n="appt.quickDist">Popular:</span>
-                  <!-- Populated by JS with Font Awesome pin icons -->
-                </div>
-              </div>
-
-              <!-- Special Requests (Optional) -->
-              <div class="appt-field">
-                <label for="apptNotes">
-                  <span data-i18n="f.note">Special Requests (Optional)</span>
-                </label>
-                <div class="appt-input-wrap">
-                  <i class="fa-regular fa-comment-dots appt-input-prefix"></i>
-                  <input type="text" id="apptNotes" name="apptNotes" placeholder="Collar preference, monogram embroidery, wedding timeline..." />
-                </div>
               </div>
 
               <!-- Submit Action Button & Disclaimer -->

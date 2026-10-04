@@ -6014,15 +6014,23 @@ html[dir="rtl"] .appt-hero__title {
 .appt-card__content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1px;
+  align-items: flex-start;
+  text-align: left;
+  gap: 2px;
+  width: 100%;
+}
+
+html[dir="rtl"] .appt-card__content {
+  align-items: flex-end;
+  text-align: right;
 }
 
 .appt-card__head {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 1px;
+  justify-content: space-between;
+  width: 100%;
+  gap: 6px;
 }
 
 .appt-card__head strong {
@@ -6030,7 +6038,12 @@ html[dir="rtl"] .appt-hero__title {
   font-weight: 600;
   color: var(--paper);
   line-height: 1.25;
-  white-space: nowrap;
+}
+
+.appt-card__sub {
+  font-size: 9px;
+  color: var(--paper-dim);
+  line-height: 1.25;
 }
 
 .appt-card__tag {
@@ -6042,11 +6055,86 @@ html[dir="rtl"] .appt-hero__title {
   border-radius: 999px;
   padding: 1px 6px;
   white-space: nowrap;
-  margin-top: 1px;
 }
 
 .appt-card__check {
   display: none;
+}
+
+/* ============================================================
+   📍 AREA KILOMETER-BASED TRAVEL COST SELECTOR
+   ============================================================ */
+.appt-distance-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 3px 0;
+}
+
+.appt-distance-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.appt-dist-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 7px 6px;
+  border-radius: 10px;
+  background: rgba(14, 18, 16, 0.72);
+  border: 1px solid rgba(201, 162, 74, 0.22);
+  cursor: pointer;
+  transition: all 0.22s var(--ease);
+  text-align: center;
+}
+
+.appt-dist-pill input[type="radio"] {
+  display: none;
+}
+
+.appt-dist-pill:hover {
+  background: rgba(22, 28, 25, 0.9);
+  border-color: rgba(201, 162, 74, 0.45);
+}
+
+.appt-dist-pill.is-selected {
+  background: linear-gradient(135deg, rgba(201, 162, 74, 0.2) 0%, rgba(138, 106, 43, 0.25) 100%);
+  border-color: var(--gold);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.appt-dist-pill__range {
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.appt-dist-pill__cost {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--gold-hi, #e6ca85);
+}
+
+.appt-dist-pill.is-selected .appt-dist-pill__cost {
+  color: #ffd977;
+}
+
+[data-theme="light"] .appt-dist-pill {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(201, 162, 74, 0.3);
+}
+
+[data-theme="light"] .appt-dist-pill.is-selected {
+  background: linear-gradient(135deg, rgba(255, 250, 240, 0.95) 0%, rgba(245, 235, 215, 0.95) 100%);
+  border-color: var(--gold-2);
+}
+
+[data-theme="light"] .appt-dist-pill__range {
+  color: #171b18;
 }
 
 /* ============================================================
@@ -6087,6 +6175,12 @@ html[dir="rtl"] .appt-hero__title {
   display: inline-flex;
   align-items: center;
   gap: 4px;
+}
+
+.appt-delivery-fee-badge {
+  background: rgba(201, 162, 74, 0.18);
+  color: var(--gold-hi, #ffd977);
+  border: 1px solid rgba(201, 162, 74, 0.4);
 }
 
 .appt-summary-body {
@@ -6302,33 +6396,6 @@ html[dir="rtl"] .appt-field label {
   color: #38403b;
 }
 
-/* Font Awesome Input Prefix Wrapping Architecture with Premium Finish */
-.appt-input-wrap {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.appt-input-prefix {
-  position: absolute;
-  left: 13px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #dfbc68;
-  font-size: 13.5px;
-  pointer-events: none;
-  z-index: 2;
-  transition: color 0.22s var(--ease), transform 0.22s var(--ease), filter 0.22s var(--ease);
-  filter: drop-shadow(0 1px 3px rgba(201, 162, 74, 0.3));
-}
-
-.appt-input-wrap:focus-within .appt-input-prefix {
-  color: #ffd977;
-  transform: translateY(-50%) scale(1.12);
-  filter: drop-shadow(0 0 8px rgba(201, 162, 74, 0.75));
-}
-
 .appt-field input,
 .appt-field select {
   width: 100%;
@@ -6336,7 +6403,7 @@ html[dir="rtl"] .appt-field label {
   background: rgba(12, 16, 14, 0.78);
   border: 1px solid rgba(201, 162, 74, 0.24);
   border-radius: 10px;
-  padding: 6px 12px 6px 36px;
+  padding: 8px 14px;
   font-size: 13px;
   font-weight: 500;
   color: var(--paper);
@@ -6350,16 +6417,9 @@ html[dir="rtl"] .appt-field label {
   cursor: pointer;
 }
 
-/* RTL icon and padding alignment */
-html[dir="rtl"] .appt-input-prefix {
-  left: auto;
-  right: 13px;
-}
-
 html[dir="rtl"] .appt-field input,
 html[dir="rtl"] .appt-field select {
-  padding-left: 12px;
-  padding-right: 36px;
+  padding: 8px 14px;
 }
 
 .appt-field input:hover,
