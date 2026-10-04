@@ -2552,6 +2552,105 @@ function initJourneyStory() {
   play();
 }
 
+// ==========================================================================
+// Privilege Offer Live Countdown Timer Controller
+// ==========================================================================
+function initGalleryTimer() {
+  const card = document.getElementById("galleryTimerCard");
+  if (!card) return;
+
+  const daysEl = document.getElementById("timerDays");
+  const hoursEl = document.getElementById("timerHours");
+  const minsEl = document.getElementById("timerMins");
+  const secsEl = document.getElementById("timerSecs");
+  const copyBtn = document.getElementById("galleryCopyBtn");
+  const ctaBtn = document.getElementById("galleryTimerCta");
+
+  // Rolling 48-hour cycle anchored in localStorage
+  const STORAGE_KEY = "aldorzy_timer_target";
+  let targetTime = parseInt(localStorage.getItem(STORAGE_KEY), 10);
+  const now = Date.now();
+
+  if (!targetTime || targetTime < now) {
+    targetTime = now + (47 * 3600 + 48 * 60 + 35) * 1000;
+    try {
+      localStorage.setItem(STORAGE_KEY, targetTime.toString());
+    } catch (_) {}
+  }
+
+  function updateTimer() {
+    const diff = Math.max(0, targetTime - Date.now());
+    const totalSecs = Math.floor(diff / 1000);
+
+    const d = Math.floor(totalSecs / 86400);
+    const h = Math.floor((totalSecs % 86400) / 3600);
+    const m = Math.floor((totalSecs % 3600) / 60);
+    const s = totalSecs % 60;
+
+    if (daysEl) daysEl.textContent = String(d).padStart(2, "0");
+    if (hoursEl) hoursEl.textContent = String(h).padStart(2, "0");
+    if (minsEl) minsEl.textContent = String(m).padStart(2, "0");
+    if (secsEl) secsEl.textContent = String(s).padStart(2, "0");
+
+    if (diff <= 0) {
+      targetTime = Date.now() + 48 * 3600 * 1000;
+      try {
+        localStorage.setItem(STORAGE_KEY, targetTime.toString());
+      } catch (_) {}
+    }
+  }
+
+  updateTimer();
+  setInterval(updateTimer, 1000);
+
+  // Copy Promo Code on Click
+  if (copyBtn) {
+    copyBtn.addEventListener("click", async () => {
+      const code = copyBtn.dataset.code || "ROYAL15";
+      try {
+        await navigator.clipboard.writeText(code);
+      } catch (_) {
+        const inp = document.createElement("input");
+        inp.value = code;
+        document.body.appendChild(inp);
+        inp.select();
+        document.execCommand("copy");
+        document.body.removeChild(inp);
+      }
+
+      const originalHtml = copyBtn.innerHTML;
+      copyBtn.innerHTML = `<strong>COPIED!</strong> <i class="fa-solid fa-check" style="color: #4ade80;"></i>`;
+      copyBtn.style.borderColor = "var(--gold-hi, #e6ca85)";
+      copyBtn.style.background = "rgba(201, 162, 74, 0.28)";
+
+      setTimeout(() => {
+        copyBtn.innerHTML = originalHtml;
+        copyBtn.style.borderColor = "";
+        copyBtn.style.background = "";
+      }, 2200);
+
+      if (typeof showToast === "function") {
+        showToast("banner.copied");
+      }
+    });
+  }
+
+  // CTA Click opens Appointment modal or scrolls to #book
+  if (ctaBtn) {
+    ctaBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (typeof openApptModal === "function") {
+        openApptModal();
+      } else {
+        const bookSec = document.getElementById("book");
+        if (bookSec) {
+          bookSec.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    });
+  }
+}
+
 function initApp() {
   initKineticGrid(document.getElementById("bg"));
   initStudio();
@@ -2563,6 +2662,7 @@ function initApp() {
   bindTilt(document.querySelectorAll("[data-tilt]"));
   reveal();
   initJourneyStory();
+  initGalleryTimer();
 }
 
 if (document.readyState === "loading") {

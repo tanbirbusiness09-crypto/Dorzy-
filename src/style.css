@@ -2804,20 +2804,18 @@ main {
    ============================================================ */
 .section--gallery {
   position: relative;
-  max-width: 1080px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
   padding-bottom: 70px;
 }
 
 .section--gallery .section__head {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .condition-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 24px;
+  gap: 22px;
   width: 100%;
   margin-top: 24px;
   align-items: stretch;
@@ -2837,52 +2835,266 @@ main {
   justify-content: space-between;
 }
 
-/* Tall Hero Card on the Left (Japanese Toyobo - Spanning 2 Rows) */
-.condition-card--hero {
-  grid-column: span 5;
-  grid-row: span 2;
-  height: 100%;
-}
-
-/* Side Horizontal Banners on the Right (Korean & Chinese Editions) */
-.condition-card--side {
-  grid-column: span 7;
-  aspect-ratio: 16 / 9;
-  height: auto;
+/* Column Spans for 12-Column Grid (Hero: 4, Middle Banners: 5, Timer: 3) */
+.condition-card--span4 {
+  grid-column: span 4;
 }
 
 .condition-card--span5 {
   grid-column: span 5;
 }
 
-.condition-card--span7 {
-  grid-column: span 7;
+.condition-card--span3 {
+  grid-column: span 3;
 }
 
-@media (max-width: 980px) {
+.condition-card--hero {
+  grid-row: span 2;
+  height: 100%;
+}
+
+.condition-card--side {
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+
+/* ============================================================
+   ⏳ EXCLUSIVE PRIVILEGE COUNTDOWN TIMER CARD (Column 3)
+   ============================================================ */
+.condition-card--timer {
+  grid-row: span 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 24px;
+  background: linear-gradient(160deg, rgba(20, 26, 22, 0.96) 0%, rgba(11, 15, 13, 0.98) 100%);
+  border: 1px solid rgba(201, 162, 74, 0.45);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 0 35px rgba(201, 162, 74, 0.15);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.condition-card--timer:hover {
+  border-color: var(--gold);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(201, 162, 74, 0.3);
+  transform: translateY(-4px);
+}
+
+.timer-card__glow {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(201, 162, 74, 0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.timer-card__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.timer-card__top {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(201, 162, 74, 0.12);
+  border: 1px solid rgba(201, 162, 74, 0.35);
+  color: var(--gold-hi, #e6ca85);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.timer-card__clock-anim {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(201, 162, 74, 0.15);
+  border: 1px solid rgba(201, 162, 74, 0.4);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 0 20px rgba(201, 162, 74, 0.25);
+  animation: timerHourglassPulse 3.5s ease-in-out infinite;
+}
+
+@keyframes timerHourglassPulse {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  45% { transform: scale(1.1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(180deg); }
+  95% { transform: scale(1) rotate(180deg); }
+}
+
+.timer-card__heading {
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+}
+
+.timer-card__desc {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--paper-dim);
+  max-width: 260px;
+}
+
+.timer-card__counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 12px 10px;
+  background: rgba(8, 12, 10, 0.85);
+  border-radius: 14px;
+  border: 1px solid rgba(201, 162, 74, 0.25);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.timer-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 46px;
+}
+
+.timer-num {
+  font-family: "Cinzel", monospace, serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--gold-hi, #e6ca85);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-unit {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+.timer-colon {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gold);
+  opacity: 0.7;
+  transform: translateY(-4px);
+}
+
+.timer-box--secs .timer-num {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(201, 162, 74, 0.6);
+}
+
+.timer-card__coupon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.timer-card__coupon-label {
+  font-size: 11px;
+  color: var(--paper-dim);
+  letter-spacing: 0.05em;
+}
+
+.timer-card__code-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: 8px;
+  background: rgba(201, 162, 74, 0.16);
+  border: 1px dashed rgba(201, 162, 74, 0.5);
+  color: var(--gold-hi, #e6ca85);
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+}
+
+.timer-card__code-chip:hover {
+  background: rgba(201, 162, 74, 0.28);
+  border-color: var(--gold);
+  transform: scale(1.04);
+}
+
+.timer-card__code-badge {
+  font-size: 10px;
+  font-weight: 800;
+  background: var(--gold);
+  color: #0b0f0d;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.timer-card__cta {
+  height: 44px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  border-radius: 999px;
+  margin-top: 4px;
+}
+
+@media (max-width: 1100px) {
   .condition-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
   }
 
-  .condition-card--hero,
-  .condition-card--side,
+  .condition-card--span4,
   .condition-card--span5,
-  .condition-card--span7 {
-    grid-column: span 12;
+  .condition-card--span3 {
+    grid-column: span 1;
     grid-row: auto;
   }
 
   .condition-card--hero {
+    grid-column: span 2;
+    aspect-ratio: 16 / 9;
     height: auto;
-    aspect-ratio: 3 / 4;
-    max-height: 600px;
   }
 
-  .condition-card--side {
-    height: auto;
-    aspect-ratio: 16 / 9;
-    min-height: 240px;
+  .condition-card--timer {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .condition-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .condition-card--hero,
+  .condition-card--span4,
+  .condition-card--span5,
+  .condition-card--span3,
+  .condition-card--timer {
+    grid-column: 1 / -1;
   }
 }
 
@@ -3486,70 +3698,225 @@ html[dir="rtl"] .atelier-tab {
   align-items: start;
 }
 
-.book__steps {
-  display: grid;
-  padding: 0;
-  margin: 30px 0 0;
-  list-style: none;
-}
-
-.book__steps li {
-  position: relative;
+.book__intro {
   display: flex;
-  gap: 16px;
-  padding-bottom: 24px;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
 }
 
-.book__steps li:last-child {
-  padding-bottom: 0;
-}
-
-.book__steps li::before {
-  content: "";
-  position: absolute;
-  inset-inline-start: 17px;
-  top: 40px;
-  bottom: 6px;
-  width: 1px;
-  background: linear-gradient(180deg, var(--gold), rgba(201, 162, 74, 0.06));
-}
-
-.book__steps li:last-child::before {
-  display: none;
-}
-
-.book__steps b {
-  flex-shrink: 0;
-  width: 34px;
-  height: 34px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--gold);
-  background: rgba(201, 162, 74, 0.1);
-  color: var(--gold-2);
-  font-family: "Cinzel", "IBM Plex Sans Arabic", serif;
-  font-size: 14px;
+.book__main-title {
+  font-family: var(--font-title);
+  font-size: clamp(26px, 3vw, 38px);
   font-weight: 600;
-  box-shadow: 0 6px 18px rgba(201, 162, 74, 0.16);
-}
-
-.book__steps div {
-  display: grid;
-  gap: 4px;
-  padding-top: 3px;
-}
-
-.book__steps strong {
-  font-family: "Cinzel", "IBM Plex Sans Arabic", serif;
-  font-size: 15px;
-  letter-spacing: 0.06em;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   color: var(--paper);
+  margin: 14px 0 24px;
 }
 
-.book__steps span {
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--paper-dim);
+html[dir="rtl"] .book__main-title {
+  font-family: var(--font-arabic);
+}
+
+/* Luxury Animated Couture Emblem Widget */
+.book-anim-widget {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  height: 380px;
+  margin: 10px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  overflow: visible;
+}
+
+/* Ambient Radial Glow Behind Widget */
+.book-anim-widget__ambient {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 162, 74, 0.22) 0%, rgba(201, 162, 74, 0.05) 50%, transparent 75%);
+  filter: blur(28px);
+  animation: bookPulseGlow 4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes bookPulseGlow {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Concentric Rotating Measuring Orbits */
+.book-orbit {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.book-orbit--outer {
+  width: 320px;
+  height: 320px;
+  border: 1.5px dashed rgba(201, 162, 74, 0.35);
+  box-shadow: inset 0 0 20px rgba(201, 162, 74, 0.08), 0 0 20px rgba(201, 162, 74, 0.08);
+  animation: bookSpinClockwise 32s linear infinite;
+}
+
+.book-orbit--inner {
+  width: 230px;
+  height: 230px;
+  border: 1px dotted rgba(255, 235, 170, 0.3);
+  animation: bookSpinCounter 24s linear infinite;
+}
+
+@keyframes bookSpinClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bookSpinCounter {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+/* Central Tailor Emblem Shield */
+.book-emblem {
+  position: relative;
+  z-index: 2;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgba(28, 34, 30, 0.95) 0%, rgba(14, 18, 16, 0.98) 100%);
+  border: 2px solid var(--gold);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(201, 162, 74, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: emblemHoverFloat 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes emblemHoverFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+.book-emblem__shield {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.book-emblem__crown {
+  font-size: 18px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 6px rgba(201, 162, 74, 0.6));
+}
+
+.book-emblem__scissors {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(201, 162, 74, 0.16);
+  border: 1px solid rgba(201, 162, 74, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-hi, #e6ca85);
+  font-size: 18px;
+  animation: scissorsSnipRoyal 2s ease-in-out infinite;
+}
+
+@keyframes scissorsSnipRoyal {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  40% { transform: scale(1.15) rotate(-22deg); color: #fff; }
+  60% { transform: scale(1.1) rotate(12deg); }
+}
+
+.book-emblem__brand {
+  font-family: var(--font-title);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+}
+
+/* Floating Privilege Micro-Badges */
+.book-float-badge {
+  position: absolute;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(18, 24, 20, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 162, 74, 0.35);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4), 0 0 12px rgba(201, 162, 74, 0.15);
+  font-size: 12px;
+  font-weight: 600;
+  color: #f7f5f0;
+  white-space: nowrap;
+}
+
+.book-float-badge i {
+  color: var(--gold);
+  font-size: 13px;
+}
+
+/* Badge 1: Top Right */
+.book-float-badge--1 {
+  top: 35px;
+  right: 15px;
+  animation: floatBadge1 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatBadge1 {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-10px) rotate(2deg); }
+}
+
+/* Badge 2: Bottom Left */
+.book-float-badge--2 {
+  bottom: 45px;
+  left: 10px;
+  animation: floatBadge2 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes floatBadge2 {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(10px) rotate(-2deg); }
+}
+
+/* Badge 3: Bottom Right */
+.book-float-badge--3 {
+  bottom: 25px;
+  right: 30px;
+  animation: floatBadge3 3.8s ease-in-out infinite alternate;
+}
+
+@keyframes floatBadge3 {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-8px) scale(1.04); }
+}
+
+:root[data-theme="light"] .book-emblem {
+  background: linear-gradient(145deg, #ffffff 0%, #f6f3eb 100%);
+  border-color: var(--gold-2);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12), 0 0 20px rgba(201, 162, 74, 0.2);
+}
+
+:root[data-theme="light"] .book-float-badge {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(184, 134, 11, 0.35);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  color: #171b18;
 }
 
 .sheet {
@@ -4415,11 +4782,12 @@ html[dir="rtl"] .wa-fab {
 
 /* ==========================================================================
    AL-DORZY Bespoke Story Journey Section (Cinematic Visual Experience)
+   ===================================================/* ==========================================================================
+   AL-DORZY Bespoke Story Journey Section (Cinematic Visual Experience)
    ========================================================================== */
 .dorzy-journey {
   width: 100%;
-  max-width: 1080px;
-  margin: 32px auto 48px;
+  margin: 36px auto 60px;
   box-sizing: border-box;
 }
 
@@ -4516,11 +4884,31 @@ html[dir="rtl"] .journey-header__ar {
   transform: translateY(-1px);
 }
 
+/* ============================================================
+   🎬 SPLIT LAYOUT: Left Cinema Screen + Right Step Boxes
+   ============================================================ */
+.journey-split-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.95fr);
+  gap: 20px;
+  padding: 20px;
+  align-items: stretch;
+}
+
+@media (max-width: 980px) {
+  .journey-split-body {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+  }
+}
+
 /* Cinema screen viewport */
 .journey-screen {
   position: relative;
   width: 100%;
-  height: clamp(480px, 52vw, 620px);
+  min-height: 480px;
+  border-radius: 18px;
   overflow: hidden;
   background: #050706;
 }
@@ -4532,11 +4920,10 @@ html[dir="rtl"] .journey-header__ar {
   pointer-events: none;
   background: linear-gradient(
     to bottom,
-    rgba(6, 9, 7, 0.75) 0%,
-    rgba(6, 9, 7, 0.1) 18%,
-    rgba(6, 9, 7, 0.05) 50%,
-    rgba(6, 9, 7, 0.3) 78%,
-    rgba(6, 9, 7, 0.88) 100%
+    rgba(6, 9, 7, 0.4) 0%,
+    transparent 30%,
+    transparent 65%,
+    rgba(6, 9, 7, 0.85) 100%
   );
 }
 
@@ -4573,7 +4960,7 @@ html[dir="rtl"] .journey-header__ar {
   will-change: transform;
 }
 
-/* Cinematic Scene-Specific Camera Animations */
+/* Cinematic Scene Camera Animations */
 @keyframes kenBurnsOrder {
   0% { transform: scale(1) translate(0%, 0%); }
   50% { transform: scale(1.07) translate(1.2%, -0.6%); }
@@ -4610,495 +4997,89 @@ html[dir="rtl"] .journey-header__ar {
   100% { transform: scale(1.15) translate(-2.2%, 1.1%); }
 }
 
-#scene-0.is-active .journey-scene__bg {
-  animation: kenBurnsOrder 11s ease-in-out infinite alternate;
-}
+#scene-0.is-active .journey-scene__bg { animation: kenBurnsOrder 11s ease-in-out infinite alternate; }
+#scene-1.is-active .journey-scene__bg { animation: kenBurnsConfirm 11s ease-in-out infinite alternate; }
+#scene-2.is-active .journey-scene__bg { animation: kenBurnsMeasure 11s ease-in-out infinite alternate; }
+#scene-3.is-active .journey-scene__bg { animation: kenBurnsTailor 11s ease-in-out infinite alternate; }
+#scene-4.is-active .journey-scene__bg { animation: kenBurnsFinish 11s ease-in-out infinite alternate; }
+#scene-5.is-active .journey-scene__bg { animation: kenBurnsDeliver 11s ease-in-out infinite alternate; }
 
-#scene-1.is-active .journey-scene__bg {
-  animation: kenBurnsConfirm 11s ease-in-out infinite alternate;
-}
-
-#scene-2.is-active .journey-scene__bg {
-  animation: kenBurnsMeasure 11s ease-in-out infinite alternate;
-}
-
-#scene-3.is-active .journey-scene__bg {
-  animation: kenBurnsTailor 11s ease-in-out infinite alternate;
-}
-
-#scene-4.is-active .journey-scene__bg {
-  animation: kenBurnsFinish 11s ease-in-out infinite alternate;
-}
-
-#scene-5.is-active .journey-scene__bg {
-  animation: kenBurnsDeliver 11s ease-in-out infinite alternate;
-}
-
-/* Fallback / General Active Animation */
-.journey-scene.is-active .journey-scene__bg {
-  animation: kenBurnsOrder 11s ease-in-out infinite alternate;
-}
-
-/* Overlay Micro-Animations */
-@keyframes journeyPop {
-  0% {
-    opacity: 0;
-    transform: translateY(12px) scale(0.92);
-  }
-  65% {
-    transform: translateY(-2px) scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes journeySlideIn {
-  0% {
-    opacity: 0;
-    transform: translateX(24px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes journeySlideInRtl {
-  0% {
-    opacity: 0;
-    transform: translateX(-24px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes journeyFadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.journey-scene.is-active .animate-pop {
-  animation: journeyPop 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.25s backwards;
-}
-
-.journey-scene.is-active .animate-slide {
-  animation: journeySlideIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
-}
-
-html[dir="rtl"] .journey-scene.is-active .animate-slide {
-  animation: journeySlideInRtl 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
-}
-
-.journey-scene.is-active .animate-fade {
-  animation: journeyFadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
-}
-
-/* Overlays per scene */
-.journey-scene__overlay {
+/* Sleek Minimal Scene Indicator Pill */
+.journey-scene-pill {
   position: absolute;
-  top: 26px;
-  right: 28px;
-  z-index: 6;
-  pointer-events: none;
-}
-
-html[dir="rtl"] .journey-scene__overlay {
-  right: auto;
-  left: 28px;
-}
-
-.journey-tag {
+  bottom: 22px;
+  left: 22px;
+  z-index: 5;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 18px;
+  padding: 8px 18px;
   border-radius: 999px;
-  font-size: 13px;
-  font-weight: 600;
+  background: rgba(10, 14, 12, 0.85);
+  border: 1px solid rgba(201, 162, 74, 0.38);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
 }
 
-.journey-tag--gold {
-  background: rgba(18, 22, 19, 0.85);
-  border: 1px solid rgba(201, 162, 74, 0.45);
-  color: var(--gold-hi, #e6ca85);
-}
-
-.journey-tag--green {
-  background: rgba(14, 26, 20, 0.9);
-  border: 1px solid rgba(52, 199, 89, 0.4);
-  color: #4ade80;
-}
-
-.journey-tag--dark {
-  background: rgba(10, 12, 11, 0.88);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  color: #ffffff;
-}
-
-/* WhatsApp Message Bubble */
-.journey-wa-bubble {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 12px 20px;
-  border-radius: 16px;
-  background: rgba(12, 28, 20, 0.92);
-  border: 1px solid rgba(37, 211, 102, 0.35);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(37, 211, 102, 0.15);
-}
-
-.journey-wa-bubble__icon {
-  font-size: 26px;
-  color: #25d366;
-}
-
-.journey-wa-bubble__text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.journey-wa-bubble__text strong {
-  font-size: 13px;
-  color: #25d366;
-  font-weight: 700;
-}
-
-.journey-wa-bubble__text span {
-  font-size: 12px;
-  color: #ffffff;
-  font-family: var(--font-ar, "Amiri", serif);
-  direction: rtl;
-}
-
-/* Cities chips */
-.journey-cities-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  max-width: 320px;
-  justify-content: flex-end;
-}
-
-html[dir="rtl"] .journey-cities-chips {
-  justify-content: flex-start;
-}
-
-.journey-chip {
-  padding: 6px 13px;
-  border-radius: 999px;
-  background: rgba(12, 16, 14, 0.82);
-  border: 1px solid rgba(201, 162, 74, 0.3);
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: 600;
-  backdrop-filter: blur(10px);
-}
-
-.journey-chip i {
-  color: var(--gold-hi, #e6ca85);
-  margin-right: 4px;
-}
-
-/* Royal seal badge */
-.journey-seal-badge {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 18px;
-  border-radius: 14px;
-  background: rgba(16, 20, 18, 0.88);
-  border: 1px solid rgba(201, 162, 74, 0.4);
-  backdrop-filter: blur(14px);
-}
-
-.journey-seal-badge__icon {
-  font-size: 22px;
-}
-
-.journey-seal-badge__info {
-  display: flex;
-  flex-direction: column;
-}
-
-.journey-seal-badge__info strong {
-  font-size: 13px;
-  color: var(--gold-hi, #e6ca85);
-  letter-spacing: 0.05em;
-}
-
-.journey-seal-badge__info span {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-/* Floating Glassmorphic Caption Card */
-.journey-caption-card {
-  position: absolute;
-  bottom: 28px;
-  left: 28px;
-  z-index: 7;
-  max-width: 460px;
-  padding: 24px 28px;
-  border-radius: 20px;
-  background: rgba(12, 16, 14, 0.82);
-  border: 1px solid rgba(201, 162, 74, 0.35);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  transition: all 0.4s var(--ease);
-}
-
-html[dir="rtl"] .journey-caption-card {
+html[dir="rtl"] .journey-scene-pill {
   left: auto;
-  right: 28px;
-  text-align: right;
+  right: 22px;
 }
 
-.journey-caption__top {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
-}
-
-.journey-caption__counter {
+.journey-scene-pill__num {
   font-family: var(--font-mono, monospace);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--gold-hi, #e6ca85);
-  letter-spacing: 0.12em;
-}
-
-.journey-caption__step {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: rgba(201, 162, 74, 0.15);
-  border: 1px solid rgba(201, 162, 74, 0.3);
-  color: var(--gold-hi, #e6ca85);
-  text-transform: uppercase;
-}
-
-.journey-caption__title {
-  margin: 0 0 8px;
-  font-family: var(--font-serif, "Playfair Display", serif);
-  font-size: clamp(20px, 2.3vw, 25px);
-  font-weight: 700;
-  line-height: 1.25;
-  color: #ffffff;
-  letter-spacing: -0.01em;
-}
-
-.journey-caption__desc {
-  margin: 0 0 16px;
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.journey-caption__perks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.journey-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11.5px;
-  font-weight: 600;
-  padding: 5px 11px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.journey-pill i {
-  color: var(--gold-hi, #e6ca85);
-  font-size: 11px;
-}
-
-/* Climax CTA Card Overlay */
-.journey-cta-overlay {
-  position: absolute;
-  bottom: 28px;
-  right: 28px;
-  z-index: 7;
-  max-width: 440px;
-  opacity: 0;
-  transform: translateY(14px);
-  pointer-events: none;
-  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
-}
-
-html[dir="rtl"] .journey-cta-overlay {
-  right: auto;
-  left: 28px;
-  text-align: right;
-}
-
-.journey-cta-overlay.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.journey-cta-card {
-  padding: 24px 26px;
-  border-radius: 20px;
-  background: rgba(10, 14, 12, 0.88);
-  border: 1px solid rgba(201, 162, 74, 0.45);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(201, 162, 74, 0.15);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
-
-.journey-cta-card__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: var(--gold-hi, #e6ca85);
-  margin-bottom: 8px;
-  text-transform: uppercase;
-}
-
-.journey-cta-card__title {
-  margin: 0 0 8px;
-  font-family: var(--font-serif, "Playfair Display", serif);
-  font-size: 19px;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.3;
-}
-
-.journey-cta-card__desc {
-  margin: 0 0 16px;
-  font-size: 12.5px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.74);
-}
-
-.journey-cta-card__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 14px;
-}
-
-.journey-cta-btn {
-  flex: 1.2;
-  min-width: 180px;
-  padding: 10px 18px;
-  font-size: 13px;
-  font-weight: 700;
-  justify-content: center;
-}
-
-.journey-wa-btn {
-  flex: 1;
-  min-width: 140px;
-  padding: 10px 14px;
-  font-size: 13px;
-  justify-content: center;
-  border-color: rgba(37, 211, 102, 0.4);
-  color: #4ade80;
-}
-
-.journey-wa-btn:hover {
-  background: rgba(37, 211, 102, 0.15);
-  border-color: #25d366;
-  color: #ffffff;
-}
-
-.journey-coupon-inline {
-  display: flex;
-  align-items: center;
-  gap: 8px;
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.journey-code-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 6px;
-  background: rgba(201, 162, 74, 0.16);
-  border: 1px dashed rgba(201, 162, 74, 0.5);
+  font-weight: 700;
   color: var(--gold-hi, #e6ca85);
+  letter-spacing: 0.1em;
+}
+
+.journey-scene-pill__sep {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.journey-scene-pill__title {
+  font-family: "Cinzel", serif;
+  font-size: 13px;
   font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s var(--ease);
+  color: #ffffff;
+  letter-spacing: 0.04em;
 }
 
-.journey-code-chip:hover {
-  background: rgba(201, 162, 74, 0.28);
-  border-color: var(--gold-hi, #e6ca85);
-  transform: scale(1.03);
+html[dir="rtl"] .journey-scene-pill__title {
+  font-family: var(--font-arabic);
 }
 
-.journey-code-chip__tag {
-  font-size: 9.5px;
-  background: var(--gold-hi, #e6ca85);
-  color: #0b0f0d;
-  padding: 1px 4px;
-  border-radius: 3px;
-  font-weight: 800;
+/* ============================================================
+   📦 RIGHT COLUMN: Interactive Step Boxes & Animated Icons
+   ============================================================ */
+.journey-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.journey-coupon__saved {
-  font-size: 11px;
-  color: #4ade80;
-  font-weight: 700;
-}
-
-/* Chapter Timeline (Video-Player Style) */
-.journey-timeline {
-  background: rgba(10, 13, 11, 0.85);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 14px 24px;
-}
-
-.journey-timeline__bar {
+.journey-steps-list {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 12px;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 10px;
+  height: 100%;
 }
 
 .journey-step {
   display: flex;
   flex-direction: column;
-  background: transparent;
-  border: none;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: rgba(14, 18, 16, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   cursor: pointer;
-  padding: 6px 4px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: left;
-  position: relative;
-  transition: opacity 0.3s;
-  opacity: 0.6;
+  opacity: 0.72;
 }
 
 html[dir="rtl"] .journey-step {
@@ -5106,21 +5087,30 @@ html[dir="rtl"] .journey-step {
 }
 
 .journey-step:hover {
-  opacity: 0.9;
+  opacity: 0.95;
+  background: rgba(22, 28, 25, 0.85);
+  border-color: rgba(201, 162, 74, 0.45);
+  transform: translateX(4px);
+}
+
+html[dir="rtl"] .journey-step:hover {
+  transform: translateX(-4px);
 }
 
 .journey-step.is-active {
   opacity: 1;
+  background: linear-gradient(135deg, rgba(201, 162, 74, 0.22) 0%, rgba(138, 106, 43, 0.28) 100%);
+  border-color: var(--gold);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: scale(1.02);
 }
 
 .journey-step__progress {
   width: 100%;
   height: 3px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 999px;
   overflow: hidden;
-  margin-bottom: 8px;
-  position: relative;
 }
 
 .journey-step__fill {
@@ -5142,54 +5132,125 @@ html[dir="rtl"] .journey-step {
 .journey-step__content {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .journey-step__icon {
-  width: 28px;
-  height: 28px;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 12px;
+  border: 1px solid rgba(201, 162, 74, 0.25);
+  color: var(--gold);
+  font-size: 15px;
   transition: all 0.25s var(--ease);
 }
 
 .journey-step.is-active .journey-step__icon {
-  background: rgba(201, 162, 74, 0.2);
-  border-color: rgba(201, 162, 74, 0.5);
-  color: var(--gold-hi, #e6ca85);
-  transform: translateY(-2px);
+  background: var(--gold);
+  color: #0b0f0d;
+  border-color: var(--gold);
+  box-shadow: 0 0 14px rgba(201, 162, 74, 0.5);
 }
 
 .journey-step__labels {
   display: flex;
   flex-direction: column;
+  gap: 2px;
+  min-width: 0;
 }
 
 .journey-step__num {
   font-family: var(--font-mono, monospace);
   font-size: 10px;
+  font-weight: 700;
   color: var(--gold-hi, #e6ca85);
-  opacity: 0.7;
+  opacity: 0.85;
 }
 
 .journey-step__name {
-  font-size: 12.5px;
-  font-weight: 600;
+  font-size: 13.5px;
+  font-weight: 700;
   color: #ffffff;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .journey-step.is-active .journey-step__name {
   color: var(--gold-hi, #e6ca85);
 }
 
-/* Light Mode Overrides */
+/* ============================================================
+   ✨ ANIMATED ICONS MICRO-ANIMATIONS
+   ============================================================ */
+/* Icon 1: Order bag bounce & glow */
+.journey-icon-anim--order i {
+  animation: animBagBounce 2.4s ease-in-out infinite;
+}
+
+@keyframes animBagBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-3px) scale(1.15); filter: drop-shadow(0 0 6px var(--gold)); }
+}
+
+/* Icon 2: WhatsApp radar pulse ring */
+.journey-icon-anim--confirm i {
+  animation: animWaRing 2s ease-in-out infinite;
+}
+
+@keyframes animWaRing {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px #25d366); }
+  50% { transform: scale(1.22); filter: drop-shadow(0 0 10px #25d366); color: #4ade80; }
+}
+
+/* Icon 3: Ruler tilt & measure */
+.journey-icon-anim--measure i {
+  animation: animRulerTilt 3s ease-in-out infinite;
+}
+
+@keyframes animRulerTilt {
+  0%, 100% { transform: rotate(0deg); }
+  35% { transform: rotate(-16deg) scale(1.12); }
+  70% { transform: rotate(14deg) scale(1.12); }
+}
+
+/* Icon 4: Scissors snip motion */
+.journey-icon-anim--tailor i {
+  animation: animScissorsSnip 2.2s ease-in-out infinite;
+}
+
+@keyframes animScissorsSnip {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  45% { transform: scale(1.2) rotate(-28deg); color: #ffffff; }
+  60% { transform: scale(1.1) rotate(6deg); }
+}
+
+/* Icon 5: Royal crown gleam */
+.journey-icon-anim--finish i {
+  animation: animCrownSparkle 2.6s ease-in-out infinite;
+}
+
+@keyframes animCrownSparkle {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px var(--gold)); }
+  50% { transform: scale(1.25) translateY(-2px); filter: drop-shadow(0 0 12px #ffe580); color: #ffe580; }
+}
+
+/* Icon 6: Delivery van driving roll */
+.journey-icon-anim--deliver i {
+  animation: animVanGlide 2s ease-in-out infinite;
+}
+
+@keyframes animVanGlide {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px) scale(1.08); filter: drop-shadow(0 0 6px var(--gold)); }
+}
+
+/* Light Mode Overrides for Journey */
 :root[data-theme="light"] .dorzy-journey__container {
   background: linear-gradient(135deg, rgba(250, 248, 243, 0.98) 0%, rgba(243, 239, 230, 0.99) 100%);
   border-color: rgba(184, 134, 11, 0.35);
@@ -5211,41 +5272,46 @@ html[dir="rtl"] .journey-step {
   color: #8b6814;
 }
 
-:root[data-theme="light"] .journey-caption-card {
-  background: rgba(255, 255, 255, 0.85);
+:root[data-theme="light"] .journey-scene-pill {
+  background: rgba(255, 255, 255, 0.9);
   border-color: rgba(184, 134, 11, 0.35);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-:root[data-theme="light"] .journey-caption__title {
+:root[data-theme="light"] .journey-scene-pill__title {
+  color: #14181a;
+}
+
+:root[data-theme="light"] .journey-step {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(184, 134, 11, 0.2);
+}
+
+:root[data-theme="light"] .journey-step:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(184, 134, 11, 0.5);
+}
+
+:root[data-theme="light"] .journey-step.is-active {
+  background: linear-gradient(135deg, rgba(255, 250, 240, 0.95) 0%, rgba(245, 235, 215, 0.95) 100%);
+  border-color: var(--gold-2);
+}
+
+:root[data-theme="light"] .journey-step__name {
   color: #171b18;
 }
 
-:root[data-theme="light"] .journey-caption__desc {
-  color: #444b46;
+:root[data-theme="light"] .journey-step__icon {
+  background: #ffffff;
+  border-color: rgba(184, 134, 11, 0.3);
+  color: var(--gold-2);
 }
 
-:root[data-theme="light"] .journey-pill {
-  background: rgba(0, 0, 0, 0.04);
-  border-color: rgba(0, 0, 0, 0.08);
-  color: #2a312c;
-}
-
-:root[data-theme="light"] .journey-cta-card {
-  background: rgba(255, 255, 255, 0.92);
-  border-color: rgba(184, 134, 11, 0.4);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
-}
-
-:root[data-theme="light"] .journey-cta-card__title {
-  color: #171b18;
-}
-
-:root[data-theme="light"] .journey-cta-card__desc {
-  color: #444b46;
-}
-
-:root[data-theme="light"] .journey-coupon-inline {
+:root[data-theme="light"] .journey-step.is-active .journey-step__icon {
+  background: var(--gold-2);
+  color: #ffffff;
+  border-color: var(--gold-2);
+}-coupon-inline {
   color: #555e58;
 }
 

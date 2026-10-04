@@ -332,232 +332,157 @@
             </div>
           </div>
 
-          <!-- Cinema Screen Viewport -->
-          <div class="journey-screen" id="journeyScreen">
-            <!-- Ambient cinematic letterbox / vignette -->
-            <div class="journey-screen__vignette" aria-hidden="true"></div>
+          <!-- Split Layout: Left Cinema Player + Right Interactive Step Column -->
+          <div class="journey-split-body">
+            <!-- Left Column: Cinema Screen Viewport (Clean & Cinematic) -->
+            <div class="journey-screen" id="journeyScreen">
+              <div class="journey-screen__vignette" aria-hidden="true"></div>
 
-            <!-- Scene 1: Order Online in Villa Majlis -->
-            <div class="journey-scene is-active" data-scene="0" id="scene-0">
-              <picture>
-                <source srcset="/jubba/Image/journey/scene-1-order.webp" type="image/webp" />
-                <img src="/jubba/Image/journey/scene-1-order.jpg" alt="Client ordering bespoke jubba from AL-DORZY in Riyadh majlis" class="journey-scene__bg" loading="eager" />
-              </picture>
-              <div class="journey-scene__overlay">
-                <div class="journey-tag journey-tag--gold animate-pop">
-                  <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
-                  <span data-i18n="journey.tag1">Instant Online Booking • No Advance Payment</span>
-                </div>
+              <!-- Scene 1: Order Online in Villa Majlis -->
+              <div class="journey-scene is-active" data-scene="0" id="scene-0">
+                <picture>
+                  <source srcset="/jubba/Image/journey/scene-1-order.webp" type="image/webp" />
+                  <img src="/jubba/Image/journey/scene-1-order.jpg" alt="Client ordering bespoke jubba from AL-DORZY in Riyadh majlis" class="journey-scene__bg" loading="eager" />
+                </picture>
+              </div>
+
+              <!-- Scene 2: Atelier WhatsApp Confirmation -->
+              <div class="journey-scene" data-scene="1" id="scene-1">
+                <picture>
+                  <source srcset="/jubba/Image/journey/scene-2-confirm.webp" type="image/webp" />
+                  <img src="/jubba/Image/journey/scene-2-confirm.jpg" alt="AL-DORZY Atelier concierge desk and WhatsApp confirmation" class="journey-scene__bg" loading="eager" />
+                </picture>
+              </div>
+
+              <!-- Scene 3: Master Cutter VIP Home Measurement -->
+              <div class="journey-scene" data-scene="2" id="scene-2">
+                <picture>
+                  <source srcset="/jubba/Image/journey/scene-3-measure.webp" type="image/webp" />
+                  <img src="/jubba/Image/journey/scene-3-measure.jpg" alt="Senior master cutter measuring client at luxury villa" class="journey-scene__bg" loading="eager" />
+                </picture>
+              </div>
+
+              <!-- Scene 4: Hand-Cut Fabric in Atelier -->
+              <div class="journey-scene" data-scene="3" id="scene-3">
+                <picture>
+                  <source srcset="/jubba/Image/journey/scene-4-tailor.webp" type="image/webp" />
+                  <img src="/jubba/Image/journey/scene-4-tailor.jpg" alt="Artisan tailor cutting Japanese Toyobo fabric by hand" class="journey-scene__bg" loading="eager" />
+                </picture>
+              </div>
+
+              <!-- Scene 5: Pressed, Boxed & Sealed -->
+              <div class="journey-scene" data-scene="4" id="scene-4">
+                <picture>
+                  <source srcset="/jubba/Image/journey/scene-5-finish.webp" type="image/webp" />
+                  <img src="/jubba/Image/journey/scene-5-finish.jpg" alt="Finished bespoke jubba in luxury black-gold AL-DORZY presentation box" class="journey-scene__bg" loading="eager" />
+                </picture>
+              </div>
+
+              <!-- Scene 6: Doorstep Mercedes Delivery -->
+              <div class="journey-scene" data-scene="5" id="scene-5">
+                <picture>
+                  <source srcset="/jubba/Image/journey/scene-6-deliver.webp" type="image/webp" />
+                  <img src="/jubba/Image/journey/scene-6-deliver.jpg" alt="AL-DORZY luxury Mercedes van delivery at client villa doorstep" class="journey-scene__bg" loading="eager" />
+                </picture>
+              </div>
+
+              <!-- Sleek Cinema Indicator Pill (Clean & Minimal) -->
+              <div class="journey-scene-pill" id="journeyCaptionCard">
+                <span class="journey-scene-pill__num" id="journeyCounter">01 / 06</span>
+                <span class="journey-scene-pill__sep">·</span>
+                <strong class="journey-scene-pill__title" id="journeyTitle" data-i18n="journey.c1.title">Choose Your Fabric Online</strong>
               </div>
             </div>
 
-            <!-- Scene 2: Atelier WhatsApp Confirmation -->
-            <div class="journey-scene" data-scene="1" id="scene-1">
-              <picture>
-                <source srcset="/jubba/Image/journey/scene-2-confirm.webp" type="image/webp" />
-                <img src="/jubba/Image/journey/scene-2-confirm.jpg" alt="AL-DORZY Atelier concierge desk and WhatsApp confirmation" class="journey-scene__bg" loading="eager" />
-              </picture>
-              <div class="journey-scene__overlay">
-                <div class="journey-wa-bubble animate-slide">
-                  <i class="fa-brands fa-whatsapp journey-wa-bubble__icon" aria-hidden="true"></i>
-                  <div class="journey-wa-bubble__text">
-                    <strong data-i18n="journey.waName">AL-DORZY Atelier Concierge</strong>
-                    <span data-i18n="journey.waMsg">وعليكم السلام، تم تأكيد موعد الخياط برقم #AD-2048</span>
+            <!-- Right Column: Interactive 6-Stage Step Boxes with Animated Icons -->
+            <aside class="journey-sidebar" aria-label="Story chapter navigation">
+              <div class="journey-steps-list" id="journeyTimeline">
+                <!-- Step 0 -->
+                <button type="button" class="journey-step is-active" data-step="0" aria-label="Step 1: Choose Fabric Online">
+                  <div class="journey-step__progress"><div class="journey-step__fill"></div></div>
+                  <div class="journey-step__content">
+                    <span class="journey-step__icon journey-icon-anim--order">
+                      <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                    </span>
+                    <div class="journey-step__labels">
+                      <span class="journey-step__num">01 · <span data-i18n="journey.step1">Order</span></span>
+                      <strong class="journey-step__name" data-i18n="journey.c1.title">Choose Fabric</strong>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </div>
+                </button>
 
-            <!-- Scene 3: Master Cutter VIP Home Measurement -->
-            <div class="journey-scene" data-scene="2" id="scene-2">
-              <picture>
-                <source srcset="/jubba/Image/journey/scene-3-measure.webp" type="image/webp" />
-                <img src="/jubba/Image/journey/scene-3-measure.jpg" alt="Senior master cutter measuring client at luxury villa" class="journey-scene__bg" loading="eager" />
-              </picture>
-              <div class="journey-scene__overlay">
-                <div class="journey-cities-chips animate-fade">
-                  <span class="journey-chip"><i class="fa-solid fa-location-dot"></i> Riyadh</span>
-                  <span class="journey-chip">Jeddah</span>
-                  <span class="journey-chip">Dammam</span>
-                  <span class="journey-chip">Khobar</span>
-                  <span class="journey-chip">Makkah</span>
-                  <span class="journey-chip">Madinah</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Scene 4: Hand-Cut Fabric in Atelier -->
-            <div class="journey-scene" data-scene="3" id="scene-3">
-              <picture>
-                <source srcset="/jubba/Image/journey/scene-4-tailor.webp" type="image/webp" />
-                <img src="/jubba/Image/journey/scene-4-tailor.jpg" alt="Artisan tailor cutting Japanese Toyobo fabric by hand" class="journey-scene__bg" loading="eager" />
-              </picture>
-              <div class="journey-scene__overlay">
-                <div class="journey-tag journey-tag--dark animate-pop">
-                  <i class="fa-solid fa-scissors" aria-hidden="true"></i>
-                  <span data-i18n="journey.tag4">Handcrafted by Master Tailors • Super 120s & Italian Wool</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Scene 5: Pressed, Boxed & Sealed -->
-            <div class="journey-scene" data-scene="4" id="scene-4">
-              <picture>
-                <source srcset="/jubba/Image/journey/scene-5-finish.webp" type="image/webp" />
-                <img src="/jubba/Image/journey/scene-5-finish.jpg" alt="Finished bespoke jubba in luxury black-gold AL-DORZY presentation box" class="journey-scene__bg" loading="eager" />
-              </picture>
-              <div class="journey-scene__overlay">
-                <div class="journey-seal-badge animate-pop">
-                  <span class="journey-seal-badge__icon">👑</span>
-                  <div class="journey-seal-badge__info">
-                    <strong data-i18n="journey.sealTitle">AL-DORZY Royal Seal</strong>
-                    <span data-i18n="journey.sealSub">Hand-inspected, steamed & boxed</span>
+                <!-- Step 1 -->
+                <button type="button" class="journey-step" data-step="1" aria-label="Step 2: WhatsApp Confirmation">
+                  <div class="journey-step__progress"><div class="journey-step__fill"></div></div>
+                  <div class="journey-step__content">
+                    <span class="journey-step__icon journey-icon-anim--confirm">
+                      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                    </span>
+                    <div class="journey-step__labels">
+                      <span class="journey-step__num">02 · <span data-i18n="journey.step2">Confirm</span></span>
+                      <strong class="journey-step__name" data-i18n="journey.c2.title">WhatsApp Concierge</strong>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </div>
+                </button>
 
-            <!-- Scene 6: Doorstep Mercedes Delivery -->
-            <div class="journey-scene" data-scene="5" id="scene-5">
-              <picture>
-                <source srcset="/jubba/Image/journey/scene-6-deliver.webp" type="image/webp" />
-                <img src="/jubba/Image/journey/scene-6-deliver.jpg" alt="AL-DORZY luxury Mercedes van delivery at client villa doorstep" class="journey-scene__bg" loading="eager" />
-              </picture>
-              <div class="journey-scene__overlay">
-                <div class="journey-tag journey-tag--green animate-slide">
-                  <i class="fa-solid fa-truck-fast" aria-hidden="true"></i>
-                  <span data-i18n="journey.tag6">100% Free Doorstep Delivery Across Saudi Arabia</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Floating Glassmorphic Caption Card -->
-            <div class="journey-caption-card" id="journeyCaptionCard">
-              <div class="journey-caption__top">
-                <span class="journey-caption__counter" id="journeyCounter">01 / 06</span>
-                <span class="journey-caption__step" id="journeyStepName" data-i18n="journey.c1.badge">ONLINE ORDER</span>
-              </div>
-              <h3 class="journey-caption__title" id="journeyTitle" data-i18n="journey.c1.title">Choose Your Fabric Online</h3>
-              <p class="journey-caption__desc" id="journeyDesc" data-i18n="journey.c1.desc">Explore Japanese Toyobo cottons, luxury crepe & bespoke collar styles from the comfort of your majlis.</p>
-              
-              <div class="journey-caption__perks" id="journeyPerks">
-                <span class="journey-pill" id="journeyPill1"><i class="fa-solid fa-check"></i> <span data-i18n="journey.c1.p1">0 SAR Advance</span></span>
-                <span class="journey-pill" id="journeyPill2"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="journey.c1.p2">Pay on Delivery</span></span>
-              </div>
-            </div>
-
-            <!-- Final Persistent CTA Deck (visible on last scene or accessible anytime) -->
-            <div class="journey-cta-overlay" id="journeyCtaOverlay">
-              <div class="journey-cta-card">
-                <div class="journey-cta-card__badge">
-                  <i class="fa-solid fa-crown" aria-hidden="true"></i>
-                  <span data-i18n="journey.ctaBadge">COMPLIMENTARY VIP SERVICE</span>
-                </div>
-                <h4 class="journey-cta-card__title" data-i18n="journey.ctaTitle">Your Royal Jubba, Delivered to Your Door</h4>
-                <p class="journey-cta-card__desc" data-i18n="journey.ctaDesc">Book a senior master cutter visit to your villa with 40+ luxury fabric rolls, or chat directly with our atelier concierge.</p>
-
-                <div class="journey-cta-card__actions">
-                  <button type="button" class="btn btn--gold journey-cta-btn" id="journeyBookBtn">
-                    <span class="btn__shine"></span>
-                    <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
-                    <span data-i18n="journey.bookBtn">Book Free Cutter Visit</span>
-                  </button>
-                  <a href="https://wa.me/966500000000?text=Hello%20AL-DORZY%2C%20I%20would%20like%20to%20book%20a%20master%20cutter%20visit." target="_blank" rel="noopener noreferrer" class="btn btn--ghost journey-wa-btn">
-                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-                    <span data-i18n="journey.waBtn">WhatsApp Concierge</span>
-                  </a>
-                </div>
-
-                <div class="journey-coupon-inline">
-                  <span class="journey-coupon__text" data-i18n="journey.promoHint">Use Privilege Code:</span>
-                  <div class="journey-code-chip" id="journeyCopyCode" data-code="ROYAL15" role="button" tabindex="0" title="Click to copy ROYAL15">
-                    <strong>ROYAL15</strong>
-                    <span class="journey-code-chip__tag">15% OFF</span>
-                    <i class="fa-solid fa-copy" id="journeyCopyIcon" aria-hidden="true"></i>
+                <!-- Step 2 -->
+                <button type="button" class="journey-step" data-step="2" aria-label="Step 3: Master Cutter Measurement">
+                  <div class="journey-step__progress"><div class="journey-step__fill"></div></div>
+                  <div class="journey-step__content">
+                    <span class="journey-step__icon journey-icon-anim--measure">
+                      <i class="fa-solid fa-ruler-combined" aria-hidden="true"></i>
+                    </span>
+                    <div class="journey-step__labels">
+                      <span class="journey-step__num">03 · <span data-i18n="journey.step3">Measure</span></span>
+                      <strong class="journey-step__name" data-i18n="journey.c3.title">Home Measurement</strong>
+                    </div>
                   </div>
-                  <span class="journey-coupon__saved" id="journeyCopiedToast" style="display: none;" data-i18n="journey.copied">Copied!</span>
-                </div>
-              </div>
-            </div>
+                </button>
 
+                <!-- Step 3 -->
+                <button type="button" class="journey-step" data-step="3" aria-label="Step 4: Atelier Hand Tailoring">
+                  <div class="journey-step__progress"><div class="journey-step__fill"></div></div>
+                  <div class="journey-step__content">
+                    <span class="journey-step__icon journey-icon-anim--tailor">
+                      <i class="fa-solid fa-scissors" aria-hidden="true"></i>
+                    </span>
+                    <div class="journey-step__labels">
+                      <span class="journey-step__num">04 · <span data-i18n="journey.step4">Tailor</span></span>
+                      <strong class="journey-step__name" data-i18n="journey.c4.title">Hand Tailored</strong>
+                    </div>
+                  </div>
+                </button>
+
+                <!-- Step 4 -->
+                <button type="button" class="journey-step" data-step="4" aria-label="Step 5: Pressed & Boxed">
+                  <div class="journey-step__progress"><div class="journey-step__fill"></div></div>
+                  <div class="journey-step__content">
+                    <span class="journey-step__icon journey-icon-anim--finish">
+                      <i class="fa-solid fa-crown" aria-hidden="true"></i>
+                    </span>
+                    <div class="journey-step__labels">
+                      <span class="journey-step__num">05 · <span data-i18n="journey.step5">Finish</span></span>
+                      <strong class="journey-step__name" data-i18n="journey.c5.title">Royal Sealed</strong>
+                    </div>
+                  </div>
+                </button>
+
+                <!-- Step 5 -->
+                <button type="button" class="journey-step" data-step="5" aria-label="Step 6: Free Doorstep Delivery">
+                  <div class="journey-step__progress"><div class="journey-step__fill"></div></div>
+                  <div class="journey-step__content">
+                    <span class="journey-step__icon journey-icon-anim--deliver">
+                      <i class="fa-solid fa-van-shuttle" aria-hidden="true"></i>
+                    </span>
+                    <div class="journey-step__labels">
+                      <span class="journey-step__num">06 · <span data-i18n="journey.step6">Delivered</span></span>
+                      <strong class="journey-step__name" data-i18n="journey.c6.title">Free VIP Delivery</strong>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </aside>
           </div>
-
-          <!-- Bottom Interactive Chapter Timeline (6-Stage Video Player Style) -->
-          <nav class="journey-timeline" aria-label="Story chapter navigation">
-            <div class="journey-timeline__bar" id="journeyTimeline">
-              <!-- Step 0 -->
-              <button type="button" class="journey-step is-active" data-step="0" aria-label="Step 1: Choose Fabric Online">
-                <div class="journey-step__progress"><div class="journey-step__fill"></div></div>
-                <div class="journey-step__content">
-                  <span class="journey-step__icon"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i></span>
-                  <div class="journey-step__labels">
-                    <span class="journey-step__num">01</span>
-                    <span class="journey-step__name" data-i18n="journey.step1">Order</span>
-                  </div>
-                </div>
-              </button>
-
-              <!-- Step 1 -->
-              <button type="button" class="journey-step" data-step="1" aria-label="Step 2: WhatsApp Confirmation">
-                <div class="journey-step__progress"><div class="journey-step__fill"></div></div>
-                <div class="journey-step__content">
-                  <span class="journey-step__icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
-                  <div class="journey-step__labels">
-                    <span class="journey-step__num">02</span>
-                    <span class="journey-step__name" data-i18n="journey.step2">Confirm</span>
-                  </div>
-                </div>
-              </button>
-
-              <!-- Step 2 -->
-              <button type="button" class="journey-step" data-step="2" aria-label="Step 3: Master Cutter Measurement">
-                <div class="journey-step__progress"><div class="journey-step__fill"></div></div>
-                <div class="journey-step__content">
-                  <span class="journey-step__icon"><i class="fa-solid fa-ruler-combined" aria-hidden="true"></i></span>
-                  <div class="journey-step__labels">
-                    <span class="journey-step__num">03</span>
-                    <span class="journey-step__name" data-i18n="journey.step3">Measure</span>
-                  </div>
-                </div>
-              </button>
-
-              <!-- Step 3 -->
-              <button type="button" class="journey-step" data-step="3" aria-label="Step 4: Atelier Hand Tailoring">
-                <div class="journey-step__progress"><div class="journey-step__fill"></div></div>
-                <div class="journey-step__content">
-                  <span class="journey-step__icon"><i class="fa-solid fa-scissors" aria-hidden="true"></i></span>
-                  <div class="journey-step__labels">
-                    <span class="journey-step__num">04</span>
-                    <span class="journey-step__name" data-i18n="journey.step4">Tailor</span>
-                  </div>
-                </div>
-              </button>
-
-              <!-- Step 4 -->
-              <button type="button" class="journey-step" data-step="4" aria-label="Step 5: Pressed & Boxed">
-                <div class="journey-step__progress"><div class="journey-step__fill"></div></div>
-                <div class="journey-step__content">
-                  <span class="journey-step__icon"><i class="fa-solid fa-box-open" aria-hidden="true"></i></span>
-                  <div class="journey-step__labels">
-                    <span class="journey-step__num">05</span>
-                    <span class="journey-step__name" data-i18n="journey.step5">Finish</span>
-                  </div>
-                </div>
-              </button>
-
-              <!-- Step 5 -->
-              <button type="button" class="journey-step" data-step="5" aria-label="Step 6: Free Doorstep Delivery">
-                <div class="journey-step__progress"><div class="journey-step__fill"></div></div>
-                <div class="journey-step__content">
-                  <span class="journey-step__icon"><i class="fa-solid fa-van-shuttle" aria-hidden="true"></i></span>
-                  <div class="journey-step__labels">
-                    <span class="journey-step__num">06</span>
-                    <span class="journey-step__name" data-i18n="journey.step6">Delivered</span>
-                  </div>
-                </div>
-              </button>
-            </div>
-          </nav>
 
         </div>
       </section>
@@ -669,7 +594,7 @@
 
         <div class="condition-grid" id="conditionGrid">
           <!-- Card 1: Japanese Toyobo 15% OFF (Tall Hero Showcase - Spans 2 Rows) -->
-          <article class="condition-card condition-card--hero condition-card--span5" data-service="wedding" data-cloth="jp-ivory" data-tilt>
+          <article class="condition-card condition-card--hero condition-card--span4" data-service="wedding" data-cloth="jp-ivory" data-tilt>
             <div class="condition-card__media">
               <img src="/jubba/Image/banner-discount-japanese-toyobo-3x4.jpg" alt="Japanese Toyobo & Shikibo 15% OFF Bespoke Jubba Collection" loading="eager" />
               <div class="condition-card__overlay"></div>
@@ -682,8 +607,8 @@
             </div>
           </article>
 
-          <!-- Card 2: Korean Royal Silk-Crepe 20% OFF (Upper Right Banner) -->
-          <article class="condition-card condition-card--side condition-card--span7" data-service="lounge" data-cloth="kr-opal" data-tilt>
+          <!-- Card 2: Korean Royal Silk-Crepe 20% OFF (Upper Middle Banner) -->
+          <article class="condition-card condition-card--side condition-card--span5" data-service="lounge" data-cloth="kr-opal" data-tilt>
             <div class="condition-card__media">
               <img src="/jubba/Image/banner-discount-korean-crepe-16x9.jpg" alt="Korean Royal Silk-Crepe 20% OFF Bespoke Jubba Collection" loading="eager" />
               <div class="condition-card__overlay"></div>
@@ -696,8 +621,8 @@
             </div>
           </article>
 
-          <!-- Card 3: Chinese Dynasty Spun Cotton 10% OFF (Lower Right Banner) -->
-          <article class="condition-card condition-card--side condition-card--span7" data-service="home" data-cloth="cn-white" data-tilt>
+          <!-- Card 3: Chinese Dynasty Spun Cotton 10% OFF (Lower Middle Banner) -->
+          <article class="condition-card condition-card--side condition-card--span5" data-service="home" data-cloth="cn-white" data-tilt>
             <div class="condition-card__media">
               <img src="/jubba/Image/banner-discount-dynasty-cotton-16x9.jpg" alt="Chinese Dynasty Spun Cotton 10% OFF Bespoke Jubba Collection" loading="eager" />
               <div class="condition-card__overlay"></div>
@@ -706,6 +631,64 @@
             <div class="condition-card__bottom condition-card__bottom--corner-only">
               <button type="button" class="condition-card__btn" aria-label="Book Dynasty Spun Cotton Fabric" title="Book Free Cutter Visit">
                 <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 4: Privilege Live Countdown Timer Column (Right Column - Spans 2 Rows) -->
+          <article class="condition-card condition-card--timer condition-card--span3" id="galleryTimerCard" data-tilt>
+            <div class="timer-card__glow" aria-hidden="true"></div>
+            <div class="timer-card__inner">
+              <div class="timer-card__top">
+                <span class="timer-card__crown">👑</span>
+                <span class="timer-card__tag">EXCLUSIVE PRIVILEGE</span>
+              </div>
+
+              <div class="timer-card__clock-anim">
+                <i class="fa-solid fa-hourglass-half" aria-hidden="true"></i>
+              </div>
+
+              <h3 class="timer-card__heading">Limited Privilege Window</h3>
+              <p class="timer-card__desc">Atelier discounts expire promptly across certified luxury fabric bolts.</p>
+
+              <!-- Live Digits -->
+              <div class="timer-card__counter">
+                <div class="timer-box">
+                  <span class="timer-num" id="timerDays">02</span>
+                  <span class="timer-unit">Days</span>
+                </div>
+                <span class="timer-colon">:</span>
+                <div class="timer-box">
+                  <span class="timer-num" id="timerHours">14</span>
+                  <span class="timer-unit">Hours</span>
+                </div>
+                <span class="timer-colon">:</span>
+                <div class="timer-box">
+                  <span class="timer-num" id="timerMins">38</span>
+                  <span class="timer-unit">Mins</span>
+                </div>
+                <span class="timer-colon">:</span>
+                <div class="timer-box timer-box--secs">
+                  <span class="timer-num" id="timerSecs">45</span>
+                  <span class="timer-unit">Secs</span>
+                </div>
+              </div>
+
+              <!-- Promo Code Chip -->
+              <div class="timer-card__coupon-box">
+                <span class="timer-card__coupon-label">Use Privilege Code:</span>
+                <div class="timer-card__code-chip" id="galleryCopyBtn" data-code="ROYAL15" role="button" tabindex="0" title="Click to copy ROYAL15">
+                  <strong>ROYAL15</strong>
+                  <span class="timer-card__code-badge">15% OFF</span>
+                  <i class="fa-solid fa-copy" aria-hidden="true"></i>
+                </div>
+              </div>
+
+              <!-- Action CTA Button -->
+              <button type="button" class="btn btn--gold btn--block timer-card__cta" id="galleryTimerCta">
+                <span class="btn__shine"></span>
+                <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                <span>Claim Offer with Tailor</span>
               </button>
             </div>
           </article>
@@ -760,38 +743,48 @@
       <section class="section section--book" id="book">
         <div class="book">
           <div class="book__intro">
+            <!-- 2 Headlines -->
             <p class="eyebrow">
               <span class="eyebrow__dot"></span>
-              <span data-i18n="bk.eyebrow">Appointment desk</span>
+              <span data-i18n="bk.eyebrow">COMPLIMENTARY VIP ATELIER SERVICE</span>
             </p>
-            <h2 data-i18n="bk.h2">Send the cutter to your home.</h2>
-            <p class="lede" data-i18n="bk.lede">
-              Choose a city and a window. We confirm on WhatsApp, visit for
-              measurement, then deliver the finished jubba — cash on delivery.
-            </p>
-            <ol class="book__steps">
-              <li>
-                <b>1</b>
-                <div>
-                  <strong data-i18n="bk.s1t">Confirm on WhatsApp</strong>
-                  <span data-i18n="bk.s1d">Send your order — we reply within 2 hours.</span>
+            <h2 class="book__main-title" data-i18n="bk.h2">Send the Master Cutter to Your Majlis.</h2>
+
+            <!-- Bespoke Luxury Animated Emblem Widget -->
+            <div class="book-anim-widget" aria-hidden="true">
+              <div class="book-anim-widget__ambient"></div>
+
+              <!-- Concentric Rotating Golden Measuring Rings -->
+              <div class="book-orbit book-orbit--outer"></div>
+              <div class="book-orbit book-orbit--inner"></div>
+
+              <!-- Central Gold Royal Tailor Emblem -->
+              <div class="book-emblem">
+                <div class="book-emblem__shield">
+                  <span class="book-emblem__crown">👑</span>
+                  <div class="book-emblem__scissors">
+                    <i class="fa-solid fa-scissors"></i>
+                  </div>
+                  <span class="book-emblem__brand">AL-DORZY</span>
                 </div>
-              </li>
-              <li>
-                <b>2</b>
-                <div>
-                  <strong data-i18n="bk.s2t">Free home measurement</strong>
-                  <span data-i18n="bk.s2d">Our cutter visits your address in your chosen window.</span>
-                </div>
-              </li>
-              <li>
-                <b>3</b>
-                <div>
-                  <strong data-i18n="bk.s3t">Delivered · cash on arrival</strong>
-                  <span data-i18n="bk.s3d">Try the jubba first — pay the courier only if you love it.</span>
-                </div>
-              </li>
-            </ol>
+              </div>
+
+              <!-- Floating Privilege Micro-Badges -->
+              <div class="book-float-badge book-float-badge--1">
+                <i class="fa-solid fa-crown" aria-hidden="true"></i>
+                <span data-i18n="appt.g1.short">0 SAR Free Visit</span>
+              </div>
+
+              <div class="book-float-badge book-float-badge--2">
+                <i class="fa-solid fa-scroll" aria-hidden="true"></i>
+                <span data-i18n="appt.g2.short">Touch 40+ Fabrics</span>
+              </div>
+
+              <div class="book-float-badge book-float-badge--3">
+                <i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i>
+                <span data-i18n="appt.g3.short">Pay on Arrival</span>
+              </div>
+            </div>
           </div>
 
           <form class="sheet" id="bookForm" novalidate>
