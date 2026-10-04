@@ -1084,83 +1084,39 @@ function renderCloths() {
 
     const cardsHtml = filteredCloths.map((c) => {
       const on = c.id === state.cloth;
-      const brand = FABRIC_BRANDS.find((b) => b.id === c.brand);
-      const flag = brand ? brand.flag : "";
       const unitPrice = getDiscountedPrice(c);
       const hasDiscount = Boolean(c.discount);
-      const saveAmount = hasDiscount ? c.price - unitPrice : 0;
-      const daysText = `${c.days[0]}–${c.days[1]} ${lang === "ar" ? "أيام" : "days"}`;
 
       return `
         <article class="atelier-card${on ? " is-selected" : ""}" data-cloth="${c.id}" data-brand="${c.brand}">
-          <!-- Top Badges Row -->
-          <div class="atelier-card__badge-row">
-            ${hasDiscount ? `
-              <span class="atelier-badge atelier-badge--discount">
-                <i class="fa-solid fa-bolt" aria-hidden="true"></i> ${c.discount}% OFF
-              </span>
-            ` : `
-              <span class="atelier-badge atelier-badge--brand">
-                ${flag} ${brand ? (lang === "ar" ? brand.millAr : brand.millEn) : ""}
-              </span>
-            `}
-            ${on ? `
-              <span class="atelier-badge atelier-badge--active">
-                <i class="fa-solid fa-check" aria-hidden="true"></i> ${t("at.selected")}
-              </span>
-            ` : `
-              <span class="atelier-badge atelier-badge--spec">${c.weight}</span>
-            `}
-          </div>
-
           <!-- Product Image Media -->
           <div class="atelier-card__media ${c.colorClass}">
             <img class="atelier-card__img" src="${c.img}" alt="${clothName(c.id)}" loading="lazy" />
             <div class="atelier-card__sheen" aria-hidden="true"></div>
-            <div class="atelier-card__overlay">
-              <span class="atelier-card__view-btn">
-                <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
-                <span>${lang === "ar" ? "معاينة القماش" : "Inspect Weave"}</span>
+            ${hasDiscount ? `
+              <span class="atelier-card__discount-pill">
+                ${c.discount}% OFF
               </span>
-            </div>
+            ` : ""}
+            ${on ? `
+              <span class="atelier-card__selected-pill" title="${t("at.selected")}">
+                <i class="fa-solid fa-check" aria-hidden="true"></i>
+              </span>
+            ` : ""}
           </div>
 
-          <!-- Product Body -->
-          <div class="atelier-card__body">
-            <div class="atelier-card__meta-top">
-              <span class="atelier-card__origin">${flag} ${lang === "ar" ? (brand ? brand.nameAr : "") : (brand ? brand.nameEn : "")}</span>
-              <span class="atelier-card__lead"><i class="fa-regular fa-clock" aria-hidden="true"></i> ${daysText}</span>
+          <!-- Product Minimal Footer (Name, Price & Single + Button) -->
+          <div class="atelier-card__footer">
+            <div class="atelier-card__info">
+              <h3 class="atelier-card__title">${clothName(c.id)}</h3>
+              <div class="atelier-card__price">
+                <strong class="atelier-card__price-curr">${money(unitPrice)}</strong>
+                ${hasDiscount ? `<del class="atelier-card__price-old">${money(c.price)}</del>` : ""}
+              </div>
             </div>
-
-            <h3 class="atelier-card__title">${clothName(c.id)}</h3>
-            <p class="atelier-card__weave">${lang === "ar" ? c.weaveAr : c.weaveEn} • ${c.weight}</p>
-
-            <!-- Pricing Deck -->
-            <div class="atelier-card__price-deck">
-              ${hasDiscount ? `
-                <div class="atelier-card__price-wrap">
-                  <strong class="atelier-card__price-curr">${money(unitPrice)}</strong>
-                  <span class="atelier-card__price-old">${money(c.price)}</span>
-                </div>
-                <span class="atelier-card__save-tag">${t("at.save")} ${money(saveAmount)}</span>
-              ` : `
-                <div class="atelier-card__price-wrap">
-                  <strong class="atelier-card__price-curr">${money(c.price)}</strong>
-                </div>
-                <span class="atelier-card__cut-tag">${t("at.bespokeCut")}</span>
-              `}
-            </div>
-
-            <!-- E-Commerce Action Buttons -->
-            <div class="atelier-card__actions">
-              <button type="button" class="btn btn--block ${on ? "btn--gold is-on" : "btn--outline-gold"}" data-action="select" data-cloth="${c.id}">
-                <span class="btn__shine"></span>
-                <span>${on ? (lang === "ar" ? "✓ تم الاختيار" : "✓ Selected") : t("at.select")}</span>
-              </button>
-              <button type="button" class="atelier-card__book-btn" data-action="book" data-cloth="${c.id}" title="${t("at.bookCutter")}" aria-label="${t("at.bookCutter")}">
-                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-              </button>
-            </div>
+            <button type="button" class="atelier-card__add-btn${on ? " is-active" : ""}" data-action="select" data-cloth="${c.id}" aria-label="Select ${clothName(c.id)}" title="${on ? (lang === "ar" ? "تم الاختيار" : "Selected") : (lang === "ar" ? "اختيار القماش" : "Select Cloth")}">
+              <span class="plus-icon">${on ? "✓" : "+"}</span>
+            </button>
           </div>
         </article>
       `;
