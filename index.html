@@ -326,161 +326,53 @@
             </div>
             <div class="journey-header__controls">
               <button type="button" class="journey-control-btn" id="journeyPlayPause" aria-label="Pause animation" title="Play / Pause">
-                <i class="fa-solid fa-pause" id="journeyPlayPauseIcon" aria-hidden="true"></i>
-                <span class="journey-control-btn__label" id="journeyPlayPauseText" data-i18n="journey.pause">Pause</span>
+                <i class="fa-solid fa-play" id="journeyPlayPauseIcon" aria-hidden="true"></i>
+                <span class="journey-control-btn__label" id="journeyPlayPauseText" data-i18n="journey.play">Play</span>
               </button>
             </div>
           </div>
 
-          <!-- Split Layout: Left Cinema Player + Right Interactive Step Column -->
+          <!-- Split Layout: Left video player + Right animated offer banners -->
           <div class="journey-split-body">
-            <!-- Left Column: Cinema Screen Viewport (Clean & Cinematic) -->
             <div class="journey-screen" id="journeyScreen">
+              <video
+                id="journeyVideo"
+                class="journey-video"
+                poster="/jubba/Image/journey/scene-1-order.jpg"
+                src="/jubba/Image/journey/bespoke-journey.mp4"
+                playsinline
+                muted
+                loop
+                preload="metadata"
+              ></video>
               <div class="journey-screen__vignette" aria-hidden="true"></div>
-
-              <!-- Scene 1: Order Online in Villa Majlis -->
-              <div class="journey-scene is-active" data-scene="0" id="scene-0">
-                <picture>
-                  <source srcset="/jubba/Image/journey/scene-1-order.webp" type="image/webp" />
-                  <img src="/jubba/Image/journey/scene-1-order.jpg" alt="Client ordering bespoke jubba from AL-DORZY in Riyadh majlis" class="journey-scene__bg" loading="eager" />
-                </picture>
+              <button type="button" class="journey-video__center" id="journeyVideoCenter" aria-label="Play film">
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+              </button>
+              <div class="journey-video-bar" id="journeyVideoBar">
+                <button type="button" class="journey-video-bar__btn" id="journeyVidToggle" aria-label="Play">
+                  <i class="fa-solid fa-play" id="journeyVidToggleIcon" aria-hidden="true"></i>
+                </button>
+                <span class="journey-video-bar__time" id="journeyVidTime">0:00</span>
+                <input class="journey-video-bar__seek" id="journeyVidSeek" type="range" min="0" max="1000" value="0" aria-label="Seek" />
+                <span class="journey-video-bar__time" id="journeyVidDur">0:00</span>
+                <button type="button" class="journey-video-bar__btn" id="journeyVidMute" aria-label="Unmute">
+                  <i class="fa-solid fa-volume-xmark" id="journeyVidMuteIcon" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="journey-video-bar__btn" id="journeyVidFull" aria-label="Fullscreen">
+                  <i class="fa-solid fa-expand" aria-hidden="true"></i>
+                </button>
               </div>
-
-              <!-- Scene 2: Atelier WhatsApp Confirmation -->
-              <div class="journey-scene" data-scene="1" id="scene-1">
-                <picture>
-                  <source srcset="/jubba/Image/journey/scene-2-confirm.webp" type="image/webp" />
-                  <img src="/jubba/Image/journey/scene-2-confirm.jpg" alt="AL-DORZY Atelier concierge desk and WhatsApp confirmation" class="journey-scene__bg" loading="eager" />
-                </picture>
-              </div>
-
-              <!-- Scene 3: Master Cutter VIP Home Measurement -->
-              <div class="journey-scene" data-scene="2" id="scene-2">
-                <picture>
-                  <source srcset="/jubba/Image/journey/scene-3-measure.webp" type="image/webp" />
-                  <img src="/jubba/Image/journey/scene-3-measure.jpg" alt="Senior master cutter measuring client at luxury villa" class="journey-scene__bg" loading="eager" />
-                </picture>
-              </div>
-
-              <!-- Scene 4: Hand-Cut Fabric in Atelier -->
-              <div class="journey-scene" data-scene="3" id="scene-3">
-                <picture>
-                  <source srcset="/jubba/Image/journey/scene-4-tailor.webp" type="image/webp" />
-                  <img src="/jubba/Image/journey/scene-4-tailor.jpg" alt="Artisan tailor cutting Japanese Toyobo fabric by hand" class="journey-scene__bg" loading="eager" />
-                </picture>
-              </div>
-
-              <!-- Scene 5: Pressed, Boxed & Sealed -->
-              <div class="journey-scene" data-scene="4" id="scene-4">
-                <picture>
-                  <source srcset="/jubba/Image/journey/scene-5-finish.webp" type="image/webp" />
-                  <img src="/jubba/Image/journey/scene-5-finish.jpg" alt="Finished bespoke jubba in luxury black-gold AL-DORZY presentation box" class="journey-scene__bg" loading="eager" />
-                </picture>
-              </div>
-
-              <!-- Scene 6: Doorstep Mercedes Delivery -->
-              <div class="journey-scene" data-scene="5" id="scene-5">
-                <picture>
-                  <source srcset="/jubba/Image/journey/scene-6-deliver.webp" type="image/webp" />
-                  <img src="/jubba/Image/journey/scene-6-deliver.jpg" alt="AL-DORZY luxury Mercedes van delivery at client villa doorstep" class="journey-scene__bg" loading="eager" />
-                </picture>
-              </div>
-
-              <!-- Sleek Cinema Indicator Pill (Clean & Minimal) -->
               <div class="journey-scene-pill" id="journeyCaptionCard">
-                <span class="journey-scene-pill__num" id="journeyCounter">01 / 06</span>
+                <span class="journey-scene-pill__num" data-i18n="journey.filmBadge">ATELIER FILM</span>
                 <span class="journey-scene-pill__sep">·</span>
-                <strong class="journey-scene-pill__title" id="journeyTitle" data-i18n="journey.c1.title">Choose Your Fabric Online</strong>
+                <strong class="journey-scene-pill__title" id="journeyTitle" data-i18n="journey.filmTitle">The bespoke journey</strong>
               </div>
             </div>
 
-            <!-- Right Column: Interactive 6-Stage Step Boxes with Animated Icons -->
-            <aside class="journey-sidebar" aria-label="Story chapter navigation">
-              <div class="journey-steps-list" id="journeyTimeline">
-                <!-- Step 0 -->
-                <button type="button" class="journey-step is-active" data-step="0" aria-label="Step 1: Choose Fabric Online">
-                  <div class="journey-step__progress"><div class="journey-step__fill"></div></div>
-                  <div class="journey-step__content">
-                    <span class="journey-step__icon journey-icon-anim--order">
-                      <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
-                    </span>
-                    <div class="journey-step__labels">
-                      <span class="journey-step__num">01 · <span data-i18n="journey.step1">Order</span></span>
-                      <strong class="journey-step__name" data-i18n="journey.c1.title">Choose Fabric</strong>
-                    </div>
-                  </div>
-                </button>
-
-                <!-- Step 1 -->
-                <button type="button" class="journey-step" data-step="1" aria-label="Step 2: WhatsApp Confirmation">
-                  <div class="journey-step__progress"><div class="journey-step__fill"></div></div>
-                  <div class="journey-step__content">
-                    <span class="journey-step__icon journey-icon-anim--confirm">
-                      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-                    </span>
-                    <div class="journey-step__labels">
-                      <span class="journey-step__num">02 · <span data-i18n="journey.step2">Confirm</span></span>
-                      <strong class="journey-step__name" data-i18n="journey.c2.title">WhatsApp Concierge</strong>
-                    </div>
-                  </div>
-                </button>
-
-                <!-- Step 2 -->
-                <button type="button" class="journey-step" data-step="2" aria-label="Step 3: Master Cutter Measurement">
-                  <div class="journey-step__progress"><div class="journey-step__fill"></div></div>
-                  <div class="journey-step__content">
-                    <span class="journey-step__icon journey-icon-anim--measure">
-                      <i class="fa-solid fa-ruler-combined" aria-hidden="true"></i>
-                    </span>
-                    <div class="journey-step__labels">
-                      <span class="journey-step__num">03 · <span data-i18n="journey.step3">Measure</span></span>
-                      <strong class="journey-step__name" data-i18n="journey.c3.title">Home Measurement</strong>
-                    </div>
-                  </div>
-                </button>
-
-                <!-- Step 3 -->
-                <button type="button" class="journey-step" data-step="3" aria-label="Step 4: Atelier Hand Tailoring">
-                  <div class="journey-step__progress"><div class="journey-step__fill"></div></div>
-                  <div class="journey-step__content">
-                    <span class="journey-step__icon journey-icon-anim--tailor">
-                      <i class="fa-solid fa-scissors" aria-hidden="true"></i>
-                    </span>
-                    <div class="journey-step__labels">
-                      <span class="journey-step__num">04 · <span data-i18n="journey.step4">Tailor</span></span>
-                      <strong class="journey-step__name" data-i18n="journey.c4.title">Hand Tailored</strong>
-                    </div>
-                  </div>
-                </button>
-
-                <!-- Step 4 -->
-                <button type="button" class="journey-step" data-step="4" aria-label="Step 5: Pressed & Boxed">
-                  <div class="journey-step__progress"><div class="journey-step__fill"></div></div>
-                  <div class="journey-step__content">
-                    <span class="journey-step__icon journey-icon-anim--finish">
-                      <i class="fa-solid fa-crown" aria-hidden="true"></i>
-                    </span>
-                    <div class="journey-step__labels">
-                      <span class="journey-step__num">05 · <span data-i18n="journey.step5">Finish</span></span>
-                      <strong class="journey-step__name" data-i18n="journey.c5.title">Royal Sealed</strong>
-                    </div>
-                  </div>
-                </button>
-
-                <!-- Step 5 -->
-                <button type="button" class="journey-step" data-step="5" aria-label="Step 6: Free Doorstep Delivery">
-                  <div class="journey-step__progress"><div class="journey-step__fill"></div></div>
-                  <div class="journey-step__content">
-                    <span class="journey-step__icon journey-icon-anim--deliver">
-                      <i class="fa-solid fa-van-shuttle" aria-hidden="true"></i>
-                    </span>
-                    <div class="journey-step__labels">
-                      <span class="journey-step__num">06 · <span data-i18n="journey.step6">Delivered</span></span>
-                      <strong class="journey-step__name" data-i18n="journey.c6.title">Free VIP Delivery</strong>
-                    </div>
-                  </div>
-                </button>
-              </div>
+            <aside class="journey-offers" id="journeyOffers" aria-label="Atelier offers" data-i18n-aria="journey.offersAria">
+              <div class="offer-stage" id="offerStage"></div>
+              <div class="offer-rail" id="offerRail" role="tablist"></div>
             </aside>
           </div>
 

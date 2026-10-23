@@ -395,6 +395,32 @@ const i18n = {
     "journey.badge": "THE AL-DORZY BESPOKE JOURNEY",
     "journey.pause": "Pause",
     "journey.play": "Play",
+    "journey.filmBadge": "ATELIER FILM",
+    "journey.filmTitle": "The bespoke journey",
+    "journey.offersAria": "Atelier offers",
+    "offer.book": "Book this cloth",
+    "offer.bookVisit": "Book the visit",
+    "offer.copy": "Copy ROYAL15",
+    "offer.5.price": "0 SAR",
+    "offer.6.price": "On 2+ jubbas",
+    "offer.1.badge": "15% OFF",
+    "offer.1.title": "Toyobo Imperial Ivory",
+    "offer.1.note": "Japanese Super 120s cotton",
+    "offer.2.badge": "20% OFF",
+    "offer.2.title": "Hanjin Pure Opal",
+    "offer.2.note": "Korean liquid-drape crepe",
+    "offer.3.badge": "10% OFF",
+    "offer.3.title": "Dynasty Classic White",
+    "offer.3.note": "Spun poly-cotton twill",
+    "offer.4.badge": "ATELIER PICK",
+    "offer.4.title": "Siam Summer Breeze",
+    "offer.4.note": "Tropical linen-cotton",
+    "offer.5.badge": "0 SAR VISIT",
+    "offer.5.title": "Free home measure & delivery",
+    "offer.5.note": "Cash on delivery across KSA",
+    "offer.6.badge": "ROYAL15",
+    "offer.6.title": "15% on two jubbas or more",
+    "offer.6.note": "Privilege code, copied at booking",
     "journey.tag1": "Instant Online Booking • No Advance Payment",
     "journey.waName": "AL-DORZY Atelier Concierge",
     "journey.waMsg": "وعليكم السلام، تم تأكيد موعد الخياط برقم #AD-2048",
@@ -684,6 +710,32 @@ const i18n = {
     "journey.badge": "رحلة الدرزي الملكية للتفصيل الفاخر",
     "journey.pause": "إيقاف",
     "journey.play": "تشغيل",
+    "journey.filmBadge": "فيلم الأتيليه",
+    "journey.filmTitle": "رحلة التفصيل الملكية",
+    "journey.offersAria": "عروض الأتيليه",
+    "offer.book": "احجز هذا القماش",
+    "offer.bookVisit": "احجز الزيارة",
+    "offer.copy": "انسخ ROYAL15",
+    "offer.5.price": "٠ ر.س",
+    "offer.6.price": "على جبتين فأكثر",
+    "offer.1.badge": "خصم ١٥٪",
+    "offer.1.title": "تويوبو عاجي ملكي",
+    "offer.1.note": "قطن ياباني سوبر ١٢٠",
+    "offer.2.badge": "خصم ٢٠٪",
+    "offer.2.title": "أوبال هانجين نقي",
+    "offer.2.note": "حرير كريب ملكي",
+    "offer.3.badge": "خصم ١٠٪",
+    "offer.3.title": "دايناستي أبيض ناصع",
+    "offer.3.note": "سبان بولي قطن",
+    "offer.4.badge": "اختيار الأتيليه",
+    "offer.4.title": "نسيم سيام الصيفي",
+    "offer.4.note": "كتان قطن استوائي",
+    "offer.5.badge": "زيارة ٠ ر.س",
+    "offer.5.title": "قياس منزلي وتوصيل مجاني",
+    "offer.5.note": "الدفع عند الاستلام في كل المملكة",
+    "offer.6.badge": "ROYAL15",
+    "offer.6.title": "خصم ١٥٪ على جبتين أو أكثر",
+    "offer.6.note": "كود الامتياز يُنسخ عند الحجز",
     "journey.tag1": "حجز إلكتروني فوري • بدون دفع مسبق",
     "journey.waName": "كونسيرج أتيليه الدرزي",
     "journey.waMsg": "وعليكم السلام، تم تأكيد موعد الخياط برقم #AD-2048",
@@ -2287,315 +2339,402 @@ const kpiIo = new IntersectionObserver(
 kpiIo.observe(document.getElementById("kpis"));
 
 // ==========================================================================
-// AL-DORZY Bespoke Story Journey Video-Style Animation Controller
+// AL-DORZY Bespoke Journey — video player + animated offer rail
 // ==========================================================================
 
+const JOURNEY_OFFERS = [
+  {
+    id: "jp-ivory",
+    clothId: "jp-ivory",
+    img: "/jubba/Image/banner-discount-japanese-toyobo-3x4.jpg",
+    badgeKey: "offer.1.badge",
+    titleKey: "offer.1.title",
+    noteKey: "offer.1.note",
+    ctaKey: "offer.book",
+    action: "cloth",
+  },
+  {
+    id: "kr-opal",
+    clothId: "kr-opal",
+    img: "/jubba/Image/banner-discount-korean-crepe-16x9.jpg",
+    badgeKey: "offer.2.badge",
+    titleKey: "offer.2.title",
+    noteKey: "offer.2.note",
+    ctaKey: "offer.book",
+    action: "cloth",
+  },
+  {
+    id: "cn-white",
+    clothId: "cn-white",
+    img: "/jubba/Image/banner-discount-dynasty-cotton-16x9.jpg",
+    badgeKey: "offer.3.badge",
+    titleKey: "offer.3.title",
+    noteKey: "offer.3.note",
+    ctaKey: "offer.book",
+    action: "cloth",
+  },
+  {
+    id: "th-breeze",
+    clothId: "th-breeze",
+    img: "/jubba/Image/banner-discount-thai-linen-3x4.jpg",
+    badgeKey: "offer.4.badge",
+    titleKey: "offer.4.title",
+    noteKey: "offer.4.note",
+    ctaKey: "offer.book",
+    action: "cloth",
+  },
+  {
+    id: "visit",
+    clothId: null,
+    img: "/jubba/Image/banner-delivery-van.jpg",
+    badgeKey: "offer.5.badge",
+    titleKey: "offer.5.title",
+    noteKey: "offer.5.note",
+    priceKey: "offer.5.price",
+    ctaKey: "offer.bookVisit",
+    action: "visit",
+  },
+  {
+    id: "royal15",
+    clothId: null,
+    img: "/jubba/Image/banner-privilege-card.jpg",
+    badgeKey: "offer.6.badge",
+    titleKey: "offer.6.title",
+    noteKey: "offer.6.note",
+    priceKey: "offer.6.price",
+    ctaKey: "offer.copy",
+    action: "code",
+    code: "ROYAL15",
+  },
+];
+
+function offerPriceParts(offer) {
+  if (offer.clothId) {
+    const cloth = CLOTHS.find((c) => c.id === offer.clothId);
+    if (!cloth) return { was: "", now: "", showWas: false };
+    const discounted = Boolean(cloth.discount);
+    return {
+      was: discounted ? money(cloth.price) : "",
+      now: money(getDiscountedPrice(cloth)),
+      showWas: discounted,
+    };
+  }
+  return { was: "", now: t(offer.priceKey || ""), showWas: false };
+}
 
 function initJourneyStory() {
   const container = document.getElementById("dorzyJourney");
-  if (!container) return;
+  const video = document.getElementById("journeyVideo");
+  const screen = document.getElementById("journeyScreen");
+  if (!container || !video || !screen) return;
 
-  const scenes = Array.from(container.querySelectorAll(".journey-scene"));
-  const steps = Array.from(container.querySelectorAll(".journey-step"));
   const playPauseBtn = document.getElementById("journeyPlayPause");
   const playPauseIcon = document.getElementById("journeyPlayPauseIcon");
   const playPauseText = document.getElementById("journeyPlayPauseText");
-  const captionCard = document.getElementById("journeyCaptionCard");
-  const ctaOverlay = document.getElementById("journeyCtaOverlay");
-  const copyBtn = document.getElementById("journeyCopyCode");
-  const copyToast = document.getElementById("journeyCopiedToast");
-  const bookBtn = document.getElementById("journeyBookBtn");
+  const centerBtn = document.getElementById("journeyVideoCenter");
+  const toggleBtn = document.getElementById("journeyVidToggle");
+  const toggleIcon = document.getElementById("journeyVidToggleIcon");
+  const muteBtn = document.getElementById("journeyVidMute");
+  const muteIcon = document.getElementById("journeyVidMuteIcon");
+  const fullBtn = document.getElementById("journeyVidFull");
+  const seek = document.getElementById("journeyVidSeek");
+  const timeEl = document.getElementById("journeyVidTime");
+  const durEl = document.getElementById("journeyVidDur");
+  const stage = document.getElementById("offerStage");
+  const rail = document.getElementById("offerRail");
 
-  if (!scenes.length || !steps.length) return;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const OFFER_MS = 4600;
+  let userPaused = reduceMotion;
+  let seeking = false;
+  let offerIdx = 0;
+  let offerTimer = null;
+  let offerPaused = false;
 
-  const SCENE_COUNT = scenes.length;
-  const STEP_DURATION_MS = 3800;
-  const TICK_INTERVAL_MS = 40;
+  const fmt = (seconds) => {
+    if (!Number.isFinite(seconds) || seconds < 0) return "0:00";
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60);
+    return `${m}:${String(s).padStart(2, "0")}`;
+  };
 
-  let currentIdx = 0;
-  let isPlaying = true;
-  let progressMs = 0;
-  let tickerTimer = null;
-
-  const scenesData = [
-    {
-      badgeKey: "journey.c1.badge",
-      titleKey: "journey.c1.title",
-      descKey: "journey.c1.desc",
-      p1Key: "journey.c1.p1",
-      p2Key: "journey.c1.p2",
-    },
-    {
-      badgeKey: "journey.c2.badge",
-      titleKey: "journey.c2.title",
-      descKey: "journey.c2.desc",
-      p1Key: "journey.c2.p1",
-      p2Key: "journey.c2.p2",
-    },
-    {
-      badgeKey: "journey.c3.badge",
-      titleKey: "journey.c3.title",
-      descKey: "journey.c3.desc",
-      p1Key: "journey.c3.p1",
-      p2Key: "journey.c3.p2",
-    },
-    {
-      badgeKey: "journey.c4.badge",
-      titleKey: "journey.c4.title",
-      descKey: "journey.c4.desc",
-      p1Key: "journey.c4.p1",
-      p2Key: "journey.c4.p2",
-    },
-    {
-      badgeKey: "journey.c5.badge",
-      titleKey: "journey.c5.title",
-      descKey: "journey.c5.desc",
-      p1Key: "journey.c5.p1",
-      p2Key: "journey.c5.p2",
-    },
-    {
-      badgeKey: "journey.c6.badge",
-      titleKey: "journey.c6.title",
-      descKey: "journey.c6.desc",
-      p1Key: "journey.c6.p1",
-      p2Key: "journey.c6.p2",
-    },
-  ];
-
-  function setScene(idx, resetProgress = true) {
-    currentIdx = (idx + SCENE_COUNT) % SCENE_COUNT;
-    if (resetProgress) progressMs = 0;
-
-    // Toggle scenes
-    scenes.forEach((scene, i) => {
-      const active = i === currentIdx;
-      scene.classList.toggle("is-active", active);
-    });
-
-    // Update timeline steps & fill
-    steps.forEach((step, i) => {
-      const fillEl = step.querySelector(".journey-step__fill");
-      if (i < currentIdx) {
-        step.classList.remove("is-active");
-        step.classList.add("is-passed");
-        if (fillEl) fillEl.style.width = "100%";
-      } else if (i === currentIdx) {
-        step.classList.add("is-active");
-        step.classList.remove("is-passed");
-        if (fillEl) fillEl.style.width = `${(progressMs / STEP_DURATION_MS) * 100}%`;
-      } else {
-        step.classList.remove("is-active", "is-passed");
-        if (fillEl) fillEl.style.width = "0%";
-      }
-    });
-
-    // Update Caption text
-    updateCaptionCard();
-
-    // CTA overlay shows on last scene or smoothly adapts
-    if (ctaOverlay) {
-      if (currentIdx === SCENE_COUNT - 1) {
-        ctaOverlay.classList.add("is-visible");
-      } else {
-        ctaOverlay.classList.remove("is-visible");
-      }
-    }
-  }
-
-  function updateCaptionCard() {
-    const data = scenesData[currentIdx];
-    if (!data) return;
-
-    const counterEl = document.getElementById("journeyCounter");
-    const stepEl = document.getElementById("journeyStepName");
-    const titleEl = document.getElementById("journeyTitle");
-    const descEl = document.getElementById("journeyDesc");
-    const p1El = document.getElementById("journeyPill1");
-    const p2El = document.getElementById("journeyPill2");
-
-    const padIdx = String(currentIdx + 1).padStart(2, "0");
-    const padTotal = String(SCENE_COUNT).padStart(2, "0");
-
-    if (counterEl) counterEl.textContent = `${padIdx} / ${padTotal}`;
-    if (stepEl) stepEl.textContent = i18n[lang]?.[data.badgeKey] || "";
-    if (titleEl) titleEl.textContent = i18n[lang]?.[data.titleKey] || "";
-    if (descEl) descEl.textContent = i18n[lang]?.[data.descKey] || "";
-
-    if (p1El) {
-      const span = p1El.querySelector("span");
-      if (span) span.textContent = i18n[lang]?.[data.p1Key] || "";
-    }
-    if (p2El) {
-      const span = p2El.querySelector("span");
-      if (span) span.textContent = i18n[lang]?.[data.p2Key] || "";
-    }
-  }
-
-  updateJourneyStoryUI = () => {
-    updateCaptionCard();
+  const syncTransport = () => {
+    const playing = !video.paused && !video.ended;
+    const icon = playing ? "fa-solid fa-pause" : "fa-solid fa-play";
+    if (playPauseIcon) playPauseIcon.className = icon;
+    if (toggleIcon) toggleIcon.className = icon;
     if (playPauseText) {
-      playPauseText.textContent = isPlaying 
-        ? (i18n[lang]?.["journey.pause"] || "Pause") 
-        : (i18n[lang]?.["journey.play"] || "Play");
+      playPauseText.textContent = playing ? t("journey.pause") : t("journey.play");
+    }
+    if (playPauseBtn) {
+      playPauseBtn.setAttribute("aria-label", playing ? t("journey.pause") : t("journey.play"));
+    }
+    if (toggleBtn) toggleBtn.setAttribute("aria-label", playing ? t("journey.pause") : t("journey.play"));
+    if (centerBtn) centerBtn.hidden = playing;
+    screen.classList.toggle("is-playing", playing);
+    const muted = video.muted;
+    if (muteIcon) muteIcon.className = muted ? "fa-solid fa-volume-xmark" : "fa-solid fa-volume-high";
+    if (muteBtn) muteBtn.setAttribute("aria-label", muted ? "Unmute" : "Mute");
+  };
+
+  const playVideo = () => {
+    const attempt = video.play();
+    if (attempt && typeof attempt.catch === "function") {
+      attempt.catch(() => {
+        userPaused = true;
+        syncTransport();
+      });
     }
   };
 
-  function tick() {
-    if (!isPlaying) return;
-    progressMs += TICK_INTERVAL_MS;
+  const pauseVideo = (manual) => {
+    if (manual) userPaused = true;
+    video.pause();
+  };
 
-    const activeStep = steps[currentIdx];
-    if (activeStep) {
-      const fillEl = activeStep.querySelector(".journey-step__fill");
-      if (fillEl) {
-        fillEl.style.width = `${Math.min(100, (progressMs / STEP_DURATION_MS) * 100)}%`;
-      }
-    }
-
-    if (progressMs >= STEP_DURATION_MS) {
-      setScene(currentIdx + 1, true);
-    }
-  }
-
-  let userPaused = false;
-
-  function play() {
-    isPlaying = true;
-    if (playPauseIcon) playPauseIcon.className = "fa-solid fa-pause";
-    if (playPauseText) playPauseText.textContent = i18n[lang]?.["journey.pause"] || "Pause";
-    if (tickerTimer) clearInterval(tickerTimer);
-    tickerTimer = setInterval(tick, TICK_INTERVAL_MS);
-  }
-
-  function pause(isManual = false) {
-    isPlaying = false;
-    if (isManual) userPaused = true;
-    if (playPauseIcon) playPauseIcon.className = "fa-solid fa-play";
-    if (playPauseText) playPauseText.textContent = i18n[lang]?.["journey.play"] || "Play";
-    if (tickerTimer) {
-      clearInterval(tickerTimer);
-      tickerTimer = null;
-    }
-  }
-
-  function togglePlayPause() {
-    if (isPlaying) {
-      pause(true);
+  const toggleVideo = () => {
+    if (video.paused) {
+      userPaused = false;
+      playVideo();
     } else {
-      userPaused = false;
-      play();
+      pauseVideo(true);
     }
+  };
+
+  if (stage && rail) {
+    stage.innerHTML = JOURNEY_OFFERS.map((offer, i) => `
+      <article class="offer-card${i === 0 ? " is-active" : ""}" data-offer="${offer.id}" role="tabpanel">
+        <img class="offer-card__img" src="${offer.img}" alt="" />
+        <span class="offer-card__shine" aria-hidden="true"></span>
+        <div class="offer-card__shade"></div>
+        <div class="offer-card__body">
+          <span class="offer-card__live"><span data-badge></span></span>
+          <strong class="offer-card__title" data-title></strong>
+          <p class="offer-card__note" data-note></p>
+          <p class="offer-card__price">
+            <s data-was hidden></s>
+            <b data-now></b>
+          </p>
+          <button type="button" class="offer-card__cta" data-cta>
+            <span data-cta-label></span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="offer-card__progress" aria-hidden="true"><span data-progress></span></div>
+      </article>
+    `).join("");
+
+    rail.innerHTML = JOURNEY_OFFERS.map((offer, i) => `
+      <button type="button" class="offer-thumb${i === 0 ? " is-active" : ""}" data-offer="${offer.id}" role="tab" aria-selected="${i === 0}">
+        <img src="${offer.img}" alt="" />
+        <span data-thumb></span>
+      </button>
+    `).join("");
   }
 
-  if (playPauseBtn) {
-    playPauseBtn.addEventListener("click", togglePlayPause);
-  }
+  const cards = stage ? Array.from(stage.querySelectorAll(".offer-card")) : [];
+  const thumbs = rail ? Array.from(rail.querySelectorAll(".offer-thumb")) : [];
 
-  // Steps click
-  steps.forEach((step, idx) => {
-    step.addEventListener("click", () => {
-      userPaused = false;
-      setScene(idx, true);
-      play();
-    });
-  });
-
-  // Touch Swipe for Mobile
-  let touchStartX = 0;
-  let touchEndX = 0;
-  container.addEventListener("touchstart", (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  container.addEventListener("touchend", (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    const diff = touchEndX - touchStartX;
-    const isRtl = document.documentElement.dir === "rtl";
-    const threshold = 45;
-
-    if (Math.abs(diff) > threshold) {
-      userPaused = false;
-      if ((diff < 0 && !isRtl) || (diff > 0 && isRtl)) {
-        setScene(currentIdx + 1, true);
-      } else {
-        setScene(currentIdx - 1, true);
+  const paintOffers = () => {
+    JOURNEY_OFFERS.forEach((offer, i) => {
+      const card = cards[i];
+      const thumb = thumbs[i];
+      if (!card) return;
+      const price = offerPriceParts(offer);
+      const badge = card.querySelector("[data-badge]");
+      const title = card.querySelector("[data-title]");
+      const note = card.querySelector("[data-note]");
+      const was = card.querySelector("[data-was]");
+      const now = card.querySelector("[data-now]");
+      const cta = card.querySelector("[data-cta-label]");
+      if (badge) badge.textContent = t(offer.badgeKey);
+      if (title) title.textContent = t(offer.titleKey);
+      if (note) note.textContent = t(offer.noteKey);
+      if (cta) cta.textContent = t(offer.ctaKey);
+      if (was) {
+        was.hidden = !price.showWas;
+        was.textContent = price.was;
       }
-      play();
-    }
-  }, { passive: true });
-
-  // Keyboard navigation
-  container.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowRight") {
-      const isRtl = document.documentElement.dir === "rtl";
-      userPaused = false;
-      setScene(isRtl ? currentIdx - 1 : currentIdx + 1, true);
-      play();
-    } else if (e.key === "ArrowLeft") {
-      const isRtl = document.documentElement.dir === "rtl";
-      userPaused = false;
-      setScene(isRtl ? currentIdx + 1 : currentIdx - 1, true);
-      play();
-    } else if (e.key === " " || e.key === "Spacebar") {
-      e.preventDefault();
-      togglePlayPause();
-    }
-  });
-
-  // Hook Book Button in Story to open the VIP Atelier Appointment modal
-  if (bookBtn) {
-    bookBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (typeof openApptModal === "function") {
-        openApptModal();
-      } else {
-        const modal = document.getElementById("apptModal");
-        if (modal) {
-          modal.hidden = false;
-          modal.classList.add("is-open");
-        }
+      if (now) now.textContent = price.now;
+      const img = card.querySelector("img");
+      if (img) img.alt = t(offer.titleKey);
+      if (thumb) {
+        const label = thumb.querySelector("[data-thumb]");
+        if (label) label.textContent = t(offer.badgeKey);
+        thumb.setAttribute("aria-label", t(offer.titleKey));
       }
     });
-  }
+    const offers = document.getElementById("journeyOffers");
+    if (offers) offers.setAttribute("aria-label", t("journey.offersAria"));
+  };
 
-  // Hook ROYAL15 coupon chip
-  if (copyBtn) {
-    copyBtn.addEventListener("click", async () => {
-      const code = copyBtn.dataset.code || "ROYAL15";
+  const restartProgress = () => {
+    const active = cards[offerIdx];
+    if (!active) return;
+    const bar = active.querySelector("[data-progress]");
+    if (!bar) return;
+    bar.style.animation = "none";
+    void bar.offsetWidth;
+    if (!offerPaused && !reduceMotion) {
+      bar.style.animation = `offerProgress ${OFFER_MS}ms linear`;
+    } else {
+      bar.style.transform = "scaleX(1)";
+    }
+  };
+
+  const showOffer = (idx) => {
+    if (!cards.length) return;
+    offerIdx = (idx + cards.length) % cards.length;
+    cards.forEach((card, i) => {
+      const prev = (offerIdx - 1 + cards.length) % cards.length;
+      card.classList.toggle("is-active", i === offerIdx);
+      card.classList.toggle("is-prev", i === prev && i !== offerIdx);
+    });
+    thumbs.forEach((thumb, i) => {
+      const on = i === offerIdx;
+      thumb.classList.toggle("is-active", on);
+      thumb.setAttribute("aria-selected", String(on));
+      if (on && rail) {
+        const left = thumb.offsetLeft - rail.clientWidth / 2 + thumb.clientWidth / 2;
+        rail.scrollTo({ left: Math.max(0, left), behavior: reduceMotion ? "auto" : "smooth" });
+      }
+    });
+    restartProgress();
+  };
+
+  const startOfferTimer = () => {
+    if (offerTimer) clearInterval(offerTimer);
+    if (reduceMotion || cards.length < 2) return;
+    offerTimer = setInterval(() => {
+      if (offerPaused || document.hidden) return;
+      showOffer(offerIdx + 1);
+    }, OFFER_MS);
+  };
+
+  const runOfferAction = async (offer) => {
+    if (!offer) return;
+    if (offer.action === "cloth" && offer.clothId) setCloth(offer.clothId);
+    if (offer.action === "code" && offer.code) {
       try {
-        await navigator.clipboard.writeText(code);
-      } catch (err) {
+        await navigator.clipboard.writeText(offer.code);
+      } catch (_) {
         const inp = document.createElement("input");
-        inp.value = code;
+        inp.value = offer.code;
         document.body.appendChild(inp);
         inp.select();
         document.execCommand("copy");
         document.body.removeChild(inp);
       }
-
-      if (copyToast) {
-        copyToast.style.display = "inline-block";
-        setTimeout(() => {
-          copyToast.style.display = "none";
-        }, 2500);
-      }
       showToast("banner.copied");
+    }
+    if (typeof openApptModal === "function") openApptModal();
+  };
+
+  cards.forEach((card, i) => {
+    const cta = card.querySelector("[data-cta]");
+    if (!cta) return;
+    cta.addEventListener("click", () => runOfferAction(JOURNEY_OFFERS[i]));
+  });
+  thumbs.forEach((thumb, i) => {
+    thumb.addEventListener("click", () => showOffer(i));
+  });
+
+  if (stage) {
+    stage.addEventListener("mouseenter", () => { offerPaused = true; });
+    stage.addEventListener("mouseleave", () => { offerPaused = false; restartProgress(); });
+    stage.addEventListener("focusin", () => { offerPaused = true; });
+    stage.addEventListener("focusout", () => { offerPaused = false; restartProgress(); });
+  }
+
+  paintOffers();
+  showOffer(0);
+  startOfferTimer();
+
+  updateJourneyStoryUI = () => {
+    paintOffers();
+    syncTransport();
+  };
+
+  video.addEventListener("play", syncTransport);
+  video.addEventListener("pause", syncTransport);
+  video.addEventListener("loadedmetadata", () => {
+    if (durEl) durEl.textContent = fmt(video.duration);
+  });
+  video.addEventListener("timeupdate", () => {
+    if (timeEl) timeEl.textContent = fmt(video.currentTime);
+    if (durEl && Number.isFinite(video.duration)) durEl.textContent = fmt(video.duration);
+    if (!seeking && seek && Number.isFinite(video.duration) && video.duration > 0) {
+      seek.value = String(Math.round((video.currentTime / video.duration) * 1000));
+    }
+  });
+  video.addEventListener("error", () => {
+    screen.classList.add("is-video-missing");
+  });
+
+  if (seek) {
+    seek.addEventListener("input", () => {
+      if (!Number.isFinite(video.duration)) return;
+      seeking = true;
+      video.currentTime = (Number(seek.value) / 1000) * video.duration;
+      if (timeEl) timeEl.textContent = fmt(video.currentTime);
+    });
+    seek.addEventListener("change", () => { seeking = false; });
+  }
+
+  if (playPauseBtn) playPauseBtn.addEventListener("click", toggleVideo);
+  if (centerBtn) centerBtn.addEventListener("click", toggleVideo);
+  if (toggleBtn) toggleBtn.addEventListener("click", toggleVideo);
+  if (muteBtn) {
+    muteBtn.addEventListener("click", () => {
+      video.muted = !video.muted;
+      syncTransport();
+    });
+  }
+  if (fullBtn) {
+    fullBtn.addEventListener("click", () => {
+      const node = document.fullscreenElement ? document : screen;
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else if (screen.requestFullscreen) {
+        screen.requestFullscreen();
+      }
+      void node;
     });
   }
 
-  // Page visibility API: Pause when browser tab is inactive, resume when active
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      if (isPlaying) pause(false);
-    } else {
-      if (!userPaused) play();
+  screen.addEventListener("click", (event) => {
+    if (event.target.closest("button, input, .journey-video-bar, .journey-scene-pill")) return;
+    toggleVideo();
+  });
+
+  container.addEventListener("keydown", (event) => {
+    if (event.target.closest("input, textarea, select")) return;
+    if (event.key === " " || event.key === "Spacebar") {
+      event.preventDefault();
+      toggleVideo();
     }
   });
 
-  // Initialize and start immediately
-  setScene(0, true);
-  play();
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) video.pause();
+    else if (!userPaused) playVideo();
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (!userPaused) playVideo();
+      } else if (!video.paused) {
+        video.pause();
+      }
+    });
+  }, { threshold: 0.4 });
+  io.observe(screen);
+
+  syncTransport();
+  if (!reduceMotion) playVideo();
 }
+
 
 // ==========================================================================
 // Privilege Offer Live Countdown Timer Controller
