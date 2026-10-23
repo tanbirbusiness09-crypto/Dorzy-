@@ -2504,11 +2504,12 @@ function initJourneyStory() {
   if (stage && rail) {
     stage.innerHTML = JOURNEY_OFFERS.map((offer, i) => `
       <article class="offer-card${i === 0 ? " is-active" : ""}" data-offer="${offer.id}" role="tabpanel">
-        <img class="offer-card__img" src="${offer.img}" alt="" />
-        <span class="offer-card__shine" aria-hidden="true"></span>
-        <div class="offer-card__shade"></div>
-        <div class="offer-card__body">
+        <div class="offer-card__media">
+          <img class="offer-card__img" src="${offer.img}" alt="" />
+          <span class="offer-card__shine" aria-hidden="true"></span>
           <span class="offer-card__live"><span data-badge></span></span>
+        </div>
+        <div class="offer-card__body">
           <strong class="offer-card__title" data-title></strong>
           <p class="offer-card__note" data-note></p>
           <p class="offer-card__price">
