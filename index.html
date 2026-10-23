@@ -39,8 +39,8 @@
         </span>
       </a>
       <nav class="nav__links">
-        <a href="#services" data-i18n="nav.services">Services</a>
-        <a href="#process" data-i18n="nav.process">Process</a>
+        <a href="#houseCuts" data-i18n="nav.services">Cuts</a>
+        <a href="#cutOffers" data-i18n="nav.process">Offers</a>
         <a href="#gallery" data-i18n="nav.gallery">Lookbook</a>
         <a href="#atelier" data-i18n="nav.atelier">Atelier</a>
         <a href="#book" data-i18n="nav.book">Book</a>
@@ -76,8 +76,8 @@
     </header>
 
     <div class="drawer" id="drawer">
-      <a href="#services" data-i18n="nav.services">Services</a>
-      <a href="#process" data-i18n="nav.process">Process</a>
+      <a href="#houseCuts" data-i18n="nav.services">Cuts</a>
+      <a href="#cutOffers" data-i18n="nav.process">Offers</a>
       <a href="#gallery" data-i18n="nav.gallery">Lookbook</a>
       <a href="#atelier" data-i18n="nav.atelier">Atelier</a>
       <a href="#book" data-i18n="nav.book">Book</a>
@@ -398,80 +398,42 @@
         </article>
       </section>
 
-      <section class="section" id="services">
+      <section class="section section--cuts" id="houseCuts" aria-label="House cuts on offer" data-i18n-aria="cuts.aria">
         <header class="section__head">
           <p class="eyebrow">
             <span class="eyebrow__dot"></span>
-            <span data-i18n="svc.eyebrow">The AL-DORZY Ritual</span>
+            <span data-i18n="cuts.eyebrow">House cuts on offer</span>
           </p>
-          <h2 data-i18n="svc.h2">Everything comes to you.</h2>
+          <h2 data-i18n="cuts.h2">Pair a cut with a cloth.</h2>
+          <p class="cuts-lede" data-i18n="cuts.lede">Saideria, Dagla and Code, matched to the cloth on offer.</p>
         </header>
-        <div class="cards-4">
-          <article class="svc" data-tilt>
-            <div class="svc__icon"><i class="fa-solid fa-ruler-combined" aria-hidden="true"></i></div>
-            <h3 data-i18n="svc.m.t">Home Measurement</h3>
-            <p data-i18n="svc.m.p">
-              A senior cutter visits your home or office. Fifteen points, one sitting,
-              zero shop queues.
-            </p>
-          </article>
-          <article class="svc" data-tilt>
-            <div class="svc__icon"><i class="fa-solid fa-scissors" aria-hidden="true"></i></div>
-            <h3 data-i18n="svc.c.t">Atelier Cut</h3>
-            <p data-i18n="svc.c.p">
-              Japanese and Italian cottons, hand-finished plackets, discreet gold
-              thread at the collar.
-            </p>
-          </article>
-          <article class="svc" data-tilt>
-            <div class="svc__icon"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></div>
-            <h3 data-i18n="svc.d.t">Home Delivery</h3>
-            <p data-i18n="svc.d.p">
-              Steamed, boxed, and handed to you. Free within Riyadh, Jeddah, Dammam,
-              Makkah & Madinah.
-            </p>
-          </article>
-          <article class="svc" data-tilt>
-            <div class="svc__icon"><i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i></div>
-            <h3 data-i18n="svc.p.t">Cash on Delivery</h3>
-            <p data-i18n="svc.p.p">
-              Pay in cash when the jubba arrives. Or settle on WhatsApp before we
-              dispatch.
-            </p>
-          </article>
+        <div class="cuts-layout">
+          <div class="cuts-collage" id="cutsCollage">
+            <button type="button" class="cuts-feature" id="cutsFeature" data-style="Saideria">
+              <img class="cuts-feature__img" id="cutsFeatureImg" src="/jubba/Image/saideria.png" alt="Saideria" />
+              <span class="cuts-feature__shine" aria-hidden="true"></span>
+              <span class="cuts-feature__meta">
+                <span class="cuts-chip" id="cutsFeatureChip" data-i18n="cuts.badge15">15% OFF</span>
+                <strong id="cutsFeatureName" data-i18n="cuts.saideria">Saideria</strong>
+              </span>
+            </button>
+            <button type="button" class="cuts-tile" data-style="Saudi"><img src="/jubba/Image/saudi.png" alt="" /><b data-i18n="cuts.saudi">Saudi</b></button>
+            <button type="button" class="cuts-tile" data-style="Kowaity"><img src="/jubba/Image/kowaity.png" alt="" /><b data-i18n="cuts.kowaity">Kowaity</b></button>
+            <button type="button" class="cuts-tile" data-style="Qutari"><img src="/jubba/Image/qutari.png" alt="" /><b data-i18n="cuts.qutari">Qutari</b></button>
+            <button type="button" class="cuts-tile" data-style="Emaraty"><img src="/jubba/Image/emaraty.png" alt="" /><b data-i18n="cuts.emaraty">Emaraty</b></button>
+            <button type="button" class="cuts-tile" data-style="Noom"><img src="/jubba/Image/noom.png" alt="" /><b data-i18n="cuts.noom">Noom</b></button>
+            <button type="button" class="cuts-tile is-on" data-style="Saideria"><img src="/jubba/Image/saideria.png" alt="" /><span class="cuts-chip" data-i18n="cuts.badge15">15% OFF</span><b data-i18n="cuts.saideria">Saideria</b></button>
+            <button type="button" class="cuts-tile" data-style="Dagla"><img src="/jubba/Image/dagla.png" alt="" /><span class="cuts-chip" data-i18n="cuts.badge20">20% OFF</span><b data-i18n="cuts.dagla">Dagla</b></button>
+            <button type="button" class="cuts-tile" data-style="Code"><img src="/jubba/Image/code.png" alt="" /><span class="cuts-chip" data-i18n="cuts.badge10">10% OFF</span><b data-i18n="cuts.code">Code</b></button>
+          </div>
+          <aside class="cuts-offer" id="cutOffers" aria-label="Limited cloth offers" data-i18n-aria="cuts.offerAria">
+            <div class="cuts-offer__head">
+              <span data-i18n="cuts.ends">Offer ends in</span>
+              <strong id="cutTimerClock">00:00:00</strong>
+            </div>
+            <div class="cuts-offer__stage" id="cutOfferStage"></div>
+          </aside>
         </div>
-      </section>
-
-      <section class="section section--process" id="process">
-        <header class="section__head">
-          <p class="eyebrow">
-            <span class="eyebrow__dot"></span>
-            <span data-i18n="pr.eyebrow">Four quiet steps</span>
-          </p>
-          <h2 data-i18n="pr.h2">From WhatsApp to wardrobe.</h2>
-        </header>
-        <ol class="steps">
-          <li class="step" data-tilt>
-            <span class="step__n">01</span>
-            <h3 data-i18n="pr.1.t">Book online</h3>
-            <p data-i18n="pr.1.p">Pick city, date, and a two-hour window. Confirm on WhatsApp in seconds.</p>
-          </li>
-          <li class="step" data-tilt>
-            <span class="step__n">02</span>
-            <h3 data-i18n="pr.2.t">We visit</h3>
-            <p data-i18n="pr.2.p">Tailor arrives with fabric swatches. You choose drape, collar, and cuff.</p>
-          </li>
-          <li class="step" data-tilt>
-            <span class="step__n">03</span>
-            <h3 data-i18n="pr.3.t">We cut</h3>
-            <p data-i18n="pr.3.p">Seven to ten days in the atelier. Progress photos on request.</p>
-          </li>
-          <li class="step" data-tilt>
-            <span class="step__n">04</span>
-            <h3 data-i18n="pr.4.t">We deliver</h3>
-            <p data-i18n="pr.4.p">Home delivery. Try on. Pay cash on delivery if it sits as promised.</p>
-          </li>
-        </ol>
       </section>
 
       <!-- 👑 HAUTE COUTURE GALLERY / SIGNATURE BESPOKE EDITIONS (Asymmetric 5/7 & 7/5 Grid) -->

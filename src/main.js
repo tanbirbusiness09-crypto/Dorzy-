@@ -172,8 +172,35 @@ const CITY_COORDS = {
 const i18n = {
   en: {
     "brand.sub": "Royal Jubba Atelier",
-    "nav.services": "Services",
-    "nav.process": "Process",
+    "nav.services": "Cuts",
+    "nav.process": "Offers",
+    "cuts.aria": "House cuts on offer",
+    "cuts.eyebrow": "House cuts on offer",
+    "cuts.h2": "Pair a cut with a cloth.",
+    "cuts.lede": "Saideria, Dagla and Code, matched to the cloth on offer.",
+    "cuts.offerAria": "Limited cloth offers",
+    "cuts.ends": "Offer ends in",
+    "cuts.book": "Book this combo",
+    "cuts.badge15": "15% OFF",
+    "cuts.badge20": "20% OFF",
+    "cuts.badge10": "10% OFF",
+    "cuts.pick": "ATELIER PICK",
+    "cuts.saudi": "Saudi",
+    "cuts.kowaity": "Kowaity",
+    "cuts.qutari": "Qutari",
+    "cuts.emaraty": "Emaraty",
+    "cuts.noom": "Noom",
+    "cuts.saideria": "Saideria",
+    "cuts.dagla": "Dagla",
+    "cuts.code": "Code",
+    "cuts.o1.title": "Saideria + Toyobo Ivory",
+    "cuts.o1.note": "Japanese Super 120s cotton",
+    "cuts.o2.title": "Dagla + Hanjin Pure Opal",
+    "cuts.o2.note": "Korean liquid-drape crepe",
+    "cuts.o3.title": "Code + Dynasty White",
+    "cuts.o3.note": "Spun poly-cotton twill",
+    "cuts.o4.title": "Saudi + Siam Breeze",
+    "cuts.o4.note": "Tropical linen-cotton",
     "nav.gallery": "Lookbook",
     "nav.atelier": "Atelier",
     "nav.book": "Book",
@@ -488,8 +515,35 @@ const i18n = {
   },
   ar: {
     "brand.sub": "الدرزي — أتيليه الجبة الملكية",
-    "nav.services": "الخدمات",
-    "nav.process": "الخطوات",
+    "nav.services": "القصّات",
+    "nav.process": "العروض",
+    "cuts.aria": "قصّات الدار على العرض",
+    "cuts.eyebrow": "قصّات الدار على العرض",
+    "cuts.h2": "اختَر القصّة مع القماش.",
+    "cuts.lede": "سعيدية ودقلة وكود، مع القماش المخفّض.",
+    "cuts.offerAria": "عروض الأقمشة المحدودة",
+    "cuts.ends": "ينتهي العرض خلال",
+    "cuts.book": "احجز هذا العرض",
+    "cuts.badge15": "خصم ١٥٪",
+    "cuts.badge20": "خصم ٢٠٪",
+    "cuts.badge10": "خصم ١٠٪",
+    "cuts.pick": "اختيار الأتيليه",
+    "cuts.saudi": "سعودي",
+    "cuts.kowaity": "كويتي",
+    "cuts.qutari": "قطري",
+    "cuts.emaraty": "إماراتي",
+    "cuts.noom": "نوم",
+    "cuts.saideria": "سعيدية",
+    "cuts.dagla": "دقلة",
+    "cuts.code": "كود",
+    "cuts.o1.title": "سعيدية + تويوبو عاجي",
+    "cuts.o1.note": "قطن ياباني سوبر ١٢٠",
+    "cuts.o2.title": "دقلة + أوبال هانجين",
+    "cuts.o2.note": "حرير كريب ملكي",
+    "cuts.o3.title": "كود + دايناستي أبيض",
+    "cuts.o3.note": "سبان بولي قطن",
+    "cuts.o4.title": "سعودي + نسيم سيام",
+    "cuts.o4.note": "كتان قطن استوائي",
     "nav.gallery": "المعرض الملكي",
     "nav.atelier": "الأتيليه",
     "nav.book": "الحجز",
@@ -2738,11 +2792,223 @@ function initJourneyStory() {
 
 
 // ==========================================================================
+// House cuts collage + limited cloth offer
+// ==========================================================================
+const HOUSE_CUTS = [
+  { style: "Saudi", img: "/jubba/Image/saudi.png", nameKey: "cuts.saudi" },
+  { style: "Kowaity", img: "/jubba/Image/kowaity.png", nameKey: "cuts.kowaity" },
+  { style: "Qutari", img: "/jubba/Image/qutari.png", nameKey: "cuts.qutari" },
+  { style: "Emaraty", img: "/jubba/Image/emaraty.png", nameKey: "cuts.emaraty" },
+  { style: "Noom", img: "/jubba/Image/noom.png", nameKey: "cuts.noom" },
+  { style: "Saideria", img: "/jubba/Image/saideria.png", nameKey: "cuts.saideria", badgeKey: "cuts.badge15" },
+  { style: "Dagla", img: "/jubba/Image/dagla.png", nameKey: "cuts.dagla", badgeKey: "cuts.badge20" },
+  { style: "Code", img: "/jubba/Image/code.png", nameKey: "cuts.code", badgeKey: "cuts.badge10" },
+];
+
+const CUT_OFFERS = [
+  {
+    style: "Saideria",
+    clothId: "jp-ivory",
+    img: "/jubba/Image/banner-discount-japanese-toyobo-3x4.jpg",
+    badgeKey: "cuts.badge15",
+    titleKey: "cuts.o1.title",
+    noteKey: "cuts.o1.note",
+  },
+  {
+    style: "Dagla",
+    clothId: "kr-opal",
+    img: "/jubba/Image/banner-discount-korean-crepe-16x9.jpg",
+    badgeKey: "cuts.badge20",
+    titleKey: "cuts.o2.title",
+    noteKey: "cuts.o2.note",
+  },
+  {
+    style: "Code",
+    clothId: "cn-white",
+    img: "/jubba/Image/banner-discount-dynasty-cotton-16x9.jpg",
+    badgeKey: "cuts.badge10",
+    titleKey: "cuts.o3.title",
+    noteKey: "cuts.o3.note",
+  },
+  {
+    style: "Saudi",
+    clothId: "th-breeze",
+    img: "/jubba/Image/banner-discount-thai-linen-3x4.jpg",
+    badgeKey: "cuts.pick",
+    titleKey: "cuts.o4.title",
+    noteKey: "cuts.o4.note",
+  },
+];
+
+function bookHouseCut(styleName, clothId) {
+  const chip = document.querySelector(`#styleStrip .style-chip[data-style="${styleName}"]`);
+  if (chip) chip.click();
+  if (clothId) setCloth(clothId);
+  if (typeof openApptModal === "function") openApptModal();
+}
+
+function initHouseCuts() {
+  const collage = document.getElementById("cutsCollage");
+  const stage = document.getElementById("cutOfferStage");
+  if (!collage || !stage) return;
+
+  const feature = document.getElementById("cutsFeature");
+  const featureImg = document.getElementById("cutsFeatureImg");
+  const featureName = document.getElementById("cutsFeatureName");
+  const featureChip = document.getElementById("cutsFeatureChip");
+  const tiles = Array.from(collage.querySelectorAll(".cuts-tile"));
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let cutIdx = HOUSE_CUTS.findIndex((cut) => cut.style === "Saideria");
+  if (cutIdx < 0) cutIdx = 0;
+  let offerIdx = 0;
+  let cutTimer = null;
+  let offerTimer = null;
+  let cutPaused = false;
+  let offerPaused = false;
+
+  stage.innerHTML = CUT_OFFERS.map((offer, i) => `
+    <article class="cut-banner${i === 0 ? " is-active" : ""}">
+      <div class="cut-banner__media">
+        <img src="${offer.img}" alt="" data-img />
+        <span class="cut-banner__shine" aria-hidden="true"></span>
+        <span class="cut-banner__badge" data-badge></span>
+      </div>
+      <div class="cut-banner__body">
+        <strong data-title></strong>
+        <p data-note></p>
+        <p class="cut-banner__price"><s data-was hidden></s><b data-now></b></p>
+        <button type="button" data-cta><span data-cta-label></span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+      </div>
+    </article>
+  `).join("");
+
+  const banners = Array.from(stage.querySelectorAll(".cut-banner"));
+
+  const paint = () => {
+    const cut = HOUSE_CUTS[cutIdx];
+    if (featureName) featureName.textContent = t(cut.nameKey);
+    if (featureChip) {
+      featureChip.hidden = !cut.badgeKey;
+      featureChip.textContent = cut.badgeKey ? t(cut.badgeKey) : "";
+    }
+    if (featureImg) featureImg.alt = t(cut.nameKey);
+    tiles.forEach((tile) => {
+      const name = tile.querySelector("b");
+      const key = HOUSE_CUTS.find((item) => item.style === tile.dataset.style)?.nameKey;
+      if (name && key) name.textContent = t(key);
+      const chip = tile.querySelector(".cuts-chip");
+      const badgeKey = HOUSE_CUTS.find((item) => item.style === tile.dataset.style)?.badgeKey;
+      if (chip && badgeKey) chip.textContent = t(badgeKey);
+    });
+    banners.forEach((banner, i) => {
+      const offer = CUT_OFFERS[i];
+      const cloth = CLOTHS.find((item) => item.id === offer.clothId);
+      banner.querySelector("[data-badge]").textContent = t(offer.badgeKey);
+      banner.querySelector("[data-title]").textContent = t(offer.titleKey);
+      banner.querySelector("[data-note]").textContent = t(offer.noteKey);
+      banner.querySelector("[data-cta-label]").textContent = t("cuts.book");
+      banner.querySelector("[data-img]").alt = t(offer.titleKey);
+      const was = banner.querySelector("[data-was]");
+      const now = banner.querySelector("[data-now]");
+      if (cloth && cloth.discount) {
+        was.hidden = false;
+        was.textContent = money(cloth.price);
+        now.textContent = money(getDiscountedPrice(cloth));
+      } else if (cloth) {
+        was.hidden = true;
+        now.textContent = money(cloth.price);
+      }
+    });
+    const aside = document.getElementById("cutOffers");
+    if (aside) aside.setAttribute("aria-label", t("cuts.offerAria"));
+  };
+
+  const showCut = (idx) => {
+    cutIdx = (idx + HOUSE_CUTS.length) % HOUSE_CUTS.length;
+    const cut = HOUSE_CUTS[cutIdx];
+    if (feature) feature.dataset.style = cut.style;
+    if (featureImg && featureImg.getAttribute("src") !== cut.img) {
+      featureImg.classList.add("is-swap");
+      window.setTimeout(() => {
+        featureImg.src = cut.img;
+        featureImg.alt = t(cut.nameKey);
+        featureImg.classList.remove("is-swap");
+      }, reduceMotion ? 0 : 180);
+    }
+    if (featureName) featureName.textContent = t(cut.nameKey);
+    if (featureChip) {
+      featureChip.hidden = !cut.badgeKey;
+      if (cut.badgeKey) featureChip.textContent = t(cut.badgeKey);
+    }
+    tiles.forEach((tile) => tile.classList.toggle("is-on", tile.dataset.style === cut.style));
+  };
+
+  const showOffer = (idx) => {
+    offerIdx = (idx + banners.length) % banners.length;
+    banners.forEach((banner, i) => {
+      banner.classList.toggle("is-active", i === offerIdx);
+      banner.classList.toggle("is-prev", i === (offerIdx - 1 + banners.length) % banners.length);
+    });
+  };
+
+  tiles.forEach((tile) => {
+    tile.addEventListener("click", () => {
+      const cut = HOUSE_CUTS.find((item) => item.style === tile.dataset.style);
+      const offer = CUT_OFFERS.find((item) => item.style === tile.dataset.style);
+      showCut(HOUSE_CUTS.indexOf(cut));
+      if (offer) showOffer(CUT_OFFERS.indexOf(offer));
+      bookHouseCut(tile.dataset.style, offer ? offer.clothId : null);
+    });
+  });
+  if (feature) {
+    feature.addEventListener("click", () => {
+      const styleName = feature.dataset.style;
+      const offer = CUT_OFFERS.find((item) => item.style === styleName);
+      bookHouseCut(styleName, offer ? offer.clothId : null);
+    });
+  }
+  banners.forEach((banner, i) => {
+    banner.querySelector("[data-cta]").addEventListener("click", () => {
+      const offer = CUT_OFFERS[i];
+      showCut(HOUSE_CUTS.findIndex((cut) => cut.style === offer.style));
+      bookHouseCut(offer.style, offer.clothId);
+    });
+  });
+
+  collage.addEventListener("mouseenter", () => { cutPaused = true; });
+  collage.addEventListener("mouseleave", () => { cutPaused = false; });
+  stage.addEventListener("mouseenter", () => { offerPaused = true; });
+  stage.addEventListener("mouseleave", () => { offerPaused = false; });
+
+  paint();
+  showCut(cutIdx);
+  showOffer(0);
+
+  if (!reduceMotion) {
+    cutTimer = setInterval(() => {
+      if (!cutPaused && !document.hidden) showCut(cutIdx + 1);
+    }, 3800);
+    offerTimer = setInterval(() => {
+      if (!offerPaused && !document.hidden) showOffer(offerIdx + 1);
+    }, 4600);
+  }
+
+  const previous = updateJourneyStoryUI;
+  updateJourneyStoryUI = () => {
+    if (typeof previous === "function") previous();
+    paint();
+  };
+  void cutTimer;
+  void offerTimer;
+}
+
+// ==========================================================================
 // Privilege Offer Live Countdown Timer Controller
 // ==========================================================================
 function initGalleryTimer() {
   const card = document.getElementById("galleryTimerCard");
-  if (!card) return;
+  const cutClock = document.getElementById("cutTimerClock");
+  if (!card && !cutClock) return;
 
   const daysEl = document.getElementById("timerDays");
   const hoursEl = document.getElementById("timerHours");
@@ -2776,6 +3042,11 @@ function initGalleryTimer() {
     if (hoursEl) hoursEl.textContent = String(h).padStart(2, "0");
     if (minsEl) minsEl.textContent = String(m).padStart(2, "0");
     if (secsEl) secsEl.textContent = String(s).padStart(2, "0");
+    if (cutClock) {
+      const pad = (n) => String(n).padStart(2, "0");
+      const totalH = Math.floor(totalSecs / 3600);
+      cutClock.textContent = `${pad(totalH)}:${pad(m)}:${pad(s)}`;
+    }
 
     if (diff <= 0) {
       targetTime = Date.now() + 48 * 3600 * 1000;
@@ -2847,6 +3118,7 @@ function initApp() {
   bindTilt(document.querySelectorAll("[data-tilt]"));
   reveal();
   initJourneyStory();
+  initHouseCuts();
   initGalleryTimer();
 }
 
