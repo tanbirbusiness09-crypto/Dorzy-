@@ -7374,7 +7374,7 @@ html[dir="rtl"] .offer-card__progress span {
 .cuts-lede {
   margin: 8px 0 0;
   max-width: 52ch;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--paper-dim);
 }
 
 .cuts-layout {
@@ -7397,10 +7397,10 @@ html[dir="rtl"] .offer-card__progress span {
   position: relative;
   margin: 0;
   padding: 0;
-  border: 1px solid rgba(201, 162, 74, 0.28);
+  border: 1px solid var(--line);
   border-radius: 16px;
-  background: #111111;
-  color: #fff;
+  background: linear-gradient(180deg, var(--card-1), var(--card-2));
+  color: var(--paper);
   overflow: hidden;
   cursor: pointer;
   text-align: left;
@@ -7418,7 +7418,7 @@ html[dir="rtl"] .offer-card__progress span {
   height: 100%;
   object-fit: contain;
   display: block;
-  background: radial-gradient(circle at 50% 40%, #2a2a2a 0%, #0a0a0a 70%);
+  mix-blend-mode: screen;
 }
 
 .cuts-feature__img {
@@ -7466,8 +7466,7 @@ html[dir="rtl"] .offer-card__progress span {
 .cuts-tile b {
   font-size: 13px;
   font-weight: 700;
-  color: #fff;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  color: var(--paper);
 }
 
 .cuts-feature__meta strong {
@@ -7486,8 +7485,9 @@ html[dir="rtl"] .offer-card__progress span {
   display: inline-flex;
   padding: 3px 8px;
   border-radius: 999px;
-  background: #ffffff;
-  color: #8a6420;
+  background: var(--ink-2);
+  color: var(--gold-2);
+  border: 1px solid var(--line);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -7503,8 +7503,8 @@ html[dir="rtl"] .offer-card__progress span {
 .cuts-tile.is-on,
 .cuts-feature:hover,
 .cuts-tile:hover {
-  border-color: #e6ca85;
-  box-shadow: 0 0 0 1px #e6ca85;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold);
 }
 
 .cuts-offer {
@@ -7515,8 +7515,8 @@ html[dir="rtl"] .offer-card__progress span {
   min-height: 460px;
   padding: 12px;
   border-radius: 18px;
-  background: #ffffff;
-  border: 1px solid rgba(201, 162, 74, 0.4);
+  background: linear-gradient(180deg, var(--card-1), var(--card-2));
+  border: 1px solid var(--line);
 }
 
 .cuts-offer__head {
@@ -7525,7 +7525,7 @@ html[dir="rtl"] .offer-card__progress span {
   justify-content: space-between;
   gap: 8px;
   padding: 0 4px;
-  color: #6d655c;
+  color: var(--paper-dim);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -7536,7 +7536,7 @@ html[dir="rtl"] .offer-card__progress span {
   font-variant-numeric: tabular-nums;
   font-size: 18px;
   letter-spacing: 0.04em;
-  color: #8a6420;
+  color: var(--gold-2);
 }
 
 .cuts-offer__stage {
@@ -7553,7 +7553,7 @@ html[dir="rtl"] .offer-card__progress span {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background: #ffffff;
+  background: transparent;
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -7577,7 +7577,7 @@ html[dir="rtl"] .offer-card__progress span {
   min-height: 180px;
   border-radius: 14px;
   overflow: hidden;
-  background: #f4f0e8;
+  background: var(--surface-2);
 }
 
 .cut-banner__media img {
@@ -7610,8 +7610,9 @@ html[dir="rtl"] .offer-card__progress span {
   left: 12px;
   padding: 5px 10px;
   border-radius: 999px;
-  background: #ffffff;
-  color: #8a6420;
+  background: var(--ink-2);
+  color: var(--gold-2);
+  border: 1px solid var(--line);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -7623,7 +7624,7 @@ html[dir="rtl"] .offer-card__progress span {
   align-items: flex-start;
   gap: 4px;
   padding: 0 4px 4px;
-  color: #1c1814;
+  color: var(--paper);
 }
 
 .cut-banner__body strong {
@@ -7634,7 +7635,7 @@ html[dir="rtl"] .offer-card__progress span {
 
 .cut-banner__body p {
   margin: 0;
-  color: #6d655c;
+  color: var(--paper-dim);
   font-size: 13px;
 }
 
@@ -7645,12 +7646,12 @@ html[dir="rtl"] .offer-card__progress span {
 }
 
 .cut-banner__price s {
-  color: #9a9186;
+  color: var(--paper-dim);
   font-size: 13px;
 }
 
 .cut-banner__price b {
-  color: #8a6420;
+  color: var(--gold-2);
   font-size: 20px;
 }
 
@@ -7662,15 +7663,16 @@ html[dir="rtl"] .offer-card__progress span {
   padding: 9px 14px;
   border: 0;
   border-radius: 999px;
-  background: #1c1814;
-  color: #fff;
+  background: var(--gold);
+  color: #1a1408;
   font-weight: 700;
   font-size: 13px;
   cursor: pointer;
 }
 
 .cut-banner__body button:hover {
-  background: #8a6420;
+  background: var(--gold-2);
+  color: var(--ink);
 }
 
 html[dir="rtl"] .cuts-feature,
@@ -7705,8 +7707,10 @@ html[dir="rtl"] .cut-banner__body button i {
   transform: scaleX(-1);
 }
 
-:root[data-theme="light"] .cuts-lede {
-  color: #5c564e;
+:root[data-theme="light"] .cuts-feature__img,
+:root[data-theme="light"] .cuts-tile img {
+  mix-blend-mode: multiply;
+  filter: invert(1);
 }
 
 @media (max-width: 980px) {
