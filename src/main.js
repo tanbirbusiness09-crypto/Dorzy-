@@ -1,7 +1,14 @@
+import { bookingWhatsAppUrl } from "./booking-whatsapp.js";
+let pdfTools;
+const loadPdfTools=()=>import('./booking-pdf.js').then(module=>(pdfTools=module));
+const loadBookingFont=()=>loadPdfTools().then(module=>module.loadBookingFont());
+const bookingPdfFile=booking=>loadPdfTools().then(module=>module.bookingPdfFile(booking));
+const downloadBookingPdf=file=>pdfTools?.downloadBookingPdf(file);
+import { visitQuote, OWN_FABRIC_RATE } from "./visit-pricing.js";
 import { initKineticGrid } from "./kinetic-grid.js";
 import { initStudio } from "./jubba.js";
 
-const WA_NUMBER = "966500000000";
+let WA_NUMBER = "966573798213";
 const STORAGE_KEY = "qasr-bookings-v2";
 const STATE_KEY = "qasr-config";
 
@@ -171,20 +178,21 @@ const CITY_COORDS = {
 
 const i18n = {
   en: {
-    "brand.sub": "Royal Jubba Atelier",
     "nav.services": "Cuts",
     "nav.process": "Offers",
     "cuts.aria": "House cuts on offer",
     "cuts.eyebrow": "House cuts on offer",
     "cuts.h2": "Pair a cut with a cloth.",
-    "cuts.lede": "Saideria, Dagla and Code, matched to the cloth on offer.",
-    "cuts.offerAria": "Limited cloth offers",
-    "cuts.ends": "Offer ends in",
-    "cuts.book": "Book this combo",
+    "pair.s1": "Choose your cut",
+    "pair.s2": "Choose your cloth",
+    "pair.s3": "Your jubba",
+    "pair.each": "/ jubba",
+    "pair.total": "Total",
+    "pair.wa": "Order on WhatsApp",
+    "pair.msg": "As-salamu alaykum, I would like to order: {cut} cut in {cloth} × {qty}. Total: {total}.",
     "cuts.badge15": "15% OFF",
     "cuts.badge20": "20% OFF",
     "cuts.badge10": "10% OFF",
-    "cuts.pick": "ATELIER PICK",
     "cuts.saudi": "Saudi",
     "cuts.kowaity": "Kowaity",
     "cuts.qutari": "Qutari",
@@ -193,18 +201,9 @@ const i18n = {
     "cuts.saideria": "Saideria",
     "cuts.dagla": "Dagla",
     "cuts.code": "Code",
-    "cuts.o1.title": "Saideria + Toyobo Ivory",
-    "cuts.o1.note": "Japanese Super 120s cotton",
-    "cuts.o2.title": "Dagla + Hanjin Pure Opal",
-    "cuts.o2.note": "Korean liquid-drape crepe",
-    "cuts.o3.title": "Code + Dynasty White",
-    "cuts.o3.note": "Spun poly-cotton twill",
-    "cuts.o4.title": "Saudi + Siam Breeze",
-    "cuts.o4.note": "Tropical linen-cotton",
     "nav.gallery": "Lookbook",
     "nav.atelier": "Atelier",
     "nav.book": "Book",
-    "nav.desk": "Desk",
     "nav.appoint": "Book Visit",
     "nav.wa": "WhatsApp",
     "nav.theme": "Toggle theme",
@@ -212,8 +211,38 @@ const i18n = {
     "saas.book": "Lock order",
     "saas.deliveryBadge": "Free Delivery",
     "saas.deliveryText": "Complimentary VIP Doorstep Delivery Across Saudi Arabia",
-    "saas.flashBadge": "Flash Privilege",
-    "saas.flashText": "Limited Atelier Slots Today • Offer Ends in",
+    "saas.bundleBadge": "Bundle Offer",
+    "saas.bundleText": "Order 2+ jubbas together · save up to 20%",
+    "bundle.eyebrow": "Bundle Offer",
+    "bundle.h2": "Order together, save more",
+    "bundle.off": "OFF",
+    "bundle.b2": "2 jubbas · any cut mix",
+    "bundle.b3": "3 jubbas + free home measurement",
+    "bundle.b5": "5+ jubbas · family & Eid",
+    "bundle.t2.name": "Duo Bundle (2 jubbas · 10% off)",
+    "bundle.t3.name": "Trio Bundle (3 jubbas · 15% off + free home measurement)",
+    "bundle.t5.name": "Family & Eid Bundle (5+ jubbas · 20% off, free delivery + free collar-style upgrade)",
+    "bundle.line": "Bundle discount −{p}%",
+    "bundle.hintStart": "Add 1 more jubba to unlock 10% off",
+    "bundle.hintNext": "Add {n} more to unlock {p}% off",
+    "bundle.hintMax": "Top bundle unlocked — 20% off, free delivery & collar upgrade",
+    "bundle.wa": "As-salamu alaykum, I would like to claim the {o} offer from Namaa Al Qimmah.",
+    "bundle.msg": "Bundle",
+    "ad.aria": "Namaa Al Qimmah animated offer",
+    "ad.s1a": "Order online",
+    "ad.s1b": "Your mu'allim arrives at your home within minutes",
+    "ad.s1c": "Measurement at your door",
+    "ad.s2a": "Your jubba ready in",
+    "ad.s2b": "ONE DAY",
+    "ad.s3a": "Bundle & save",
+    "ad.s3b": "Up to 20% off",
+    "ad.s4a": "Order now",
+    "ad.s4b": "Your master tailor comes to you",
+    "ad.ctaWa": "Order on WhatsApp",
+    "ad.ctaBook": "Book home visit",
+    "ad.wa": "As-salamu alaykum, I would like to order a jubba with a home measurement visit.",
+    "nav.home": "Home",
+    "nav.offers": "Offers",
     "qk.eyebrow": "Quick booking",
     "qk.origin": "1. Fabric Origin / Mill",
     "qk.cloth": "2. Choose Fabric Swatch",
@@ -237,11 +266,7 @@ const i18n = {
     "card.del.p": "Pressed & boxed home",
     "card.pay.k": "COD total",
     "card.pay.p": "Pay when it arrives",
-    "kpi.fits": "Bespoke fittings",
-    "kpi.cities": "Cities covered",
-    "kpi.sat": "Satisfaction %",
-    "kpi.wa": "WhatsApp reply hrs",
-    "banner.ribbon1": "AL-DORZY CONCIERGE • 100% FREE HOME MEASUREMENT & DOORSTEP DELIVERY ACROSS KSA",
+    "banner.ribbon1": "NAMAA AL QIMMAH CONCIERGE • 100% FREE HOME MEASUREMENT & DOORSTEP DELIVERY ACROSS KSA",
     "banner.ribbon.cta1": "BOOK NOW",
     "banner.b1.badge": "COMPLIMENTARY VIP SERVICE",
     "banner.b1.title": "Free Doorstep Delivery & Home Measurement",
@@ -266,7 +291,7 @@ const i18n = {
     "banner.b3.tag": "Try on first, pay courier only if it sits as promised",
     "banner.b3.cta": "Explore House Cuts",
     "banner.b3.feat1": "Signature Fabrics",
-    "svc.eyebrow": "The AL-DORZY Ritual",
+    "svc.eyebrow": "The Namaa Al Qimmah Ritual",
     "svc.h2": "Everything comes to you.",
     "svc.m.t": "Home Measurement",
     "svc.m.p": "A senior cutter visits your home or office. Fifteen points, one sitting, zero shop queues.",
@@ -328,9 +353,6 @@ const i18n = {
     "at.olive.s": "Seasonal wool-mix",
     "bk.eyebrow": "COMPLIMENTARY VIP ATELIER SERVICE",
     "bk.h2": "Send the Master Cutter to Your Majlis.",
-    "gallery.timer.pill": "👑 15% OFF • EXCLUSIVE PRIVILEGE",
-    "gallery.timer.h3": "Limited Privilege Window",
-    "gallery.timer.desc": "Atelier discounts expire promptly across certified luxury fabric bolts.",
     "bk.lede":
       "Choose a city and a window. We confirm on WhatsApp, visit for measurement, then deliver the finished jubba — cash on delivery.",
     "bk.card": "Appointment card",
@@ -365,7 +387,7 @@ const i18n = {
     "f.cod": "Cash on Delivery",
     "f.wapay": "Confirm on WhatsApp",
     "f.submit": "Confirm on WhatsApp",
-    "f.fine": "Saves the order on this desk and opens WhatsApp. No card required.",
+    "f.fine": "Opens WhatsApp with your order. No card required.",
     "f.next": "Continue",
     "f.back": "Back",
     "f.when": "Visit window",
@@ -374,17 +396,6 @@ const i18n = {
     "geo.ok": "Location pinned. Nearest city selected.",
     "geo.fail": "Location unavailable. Choose city manually.",
     "geo.wait": "Requesting location…",
-    "desk.eyebrow": "Operations desk",
-    "desk.h2": "Orders & visits",
-    "desk.empty": "No orders yet. Configure a jubba above.",
-    "desk.all": "All",
-    "desk.pending": "Pending",
-    "desk.confirmed": "Confirmed",
-    "desk.measuring": "Measuring",
-    "desk.delivered": "Delivered",
-    "desk.stat.orders": "Orders",
-    "desk.stat.value": "Pipeline",
-    "desk.stat.open": "Open visits",
     "status.pending": "Pending",
     "status.confirmed": "Confirmed",
     "status.measuring": "Measuring",
@@ -392,9 +403,8 @@ const i18n = {
     "toast.ok": "Order saved. Opening WhatsApp.",
     "toast.need": "Please complete the required fields.",
     "toast.phone": "Enter a valid KSA mobile.",
-    "foot.tag": "Royal Jubba Atelier · Kingdom of Saudi Arabia",
     "foot.copy": "Home measurement · Home delivery · Cash on delivery · WhatsApp",
-    "appt.tag": "AL-DORZY ROYAL ATELIER",
+    "appt.tag": "NAMAA AL QIMMAH ROYAL ATELIER",
     "appt.secTitle": "Reservation Schedule & Details",
     "appt.title": "Book Private Appointment",
     "appt.subtitle": "Senior cutter arrives at your doorstep with luxury fabric bolts & measurement set.",
@@ -418,8 +428,8 @@ const i18n = {
     "appt.orderSummary": "Order & Amount Summary",
     "appt.totalDue": "TOTAL AMOUNT (PAY ON ARRIVAL)",
     "appt.codNote": "Cash or Card on Delivery • No Advance",
-    "journey.aria": "The AL-DORZY Bespoke Tailoring Journey",
-    "journey.badge": "THE AL-DORZY BESPOKE JOURNEY",
+    "journey.aria": "The Namaa Al Qimmah Bespoke Tailoring Journey",
+    "journey.badge": "THE NAMAA AL QIMMAH BESPOKE JOURNEY",
     "journey.pause": "Pause",
     "journey.play": "Play",
     "journey.filmBadge": "ATELIER FILM",
@@ -449,10 +459,10 @@ const i18n = {
     "offer.6.title": "15% on two jubbas or more",
     "offer.6.note": "Privilege code, copied at booking",
     "journey.tag1": "Instant Online Booking • No Advance Payment",
-    "journey.waName": "AL-DORZY Atelier Concierge",
+    "journey.waName": "Namaa Al Qimmah Atelier Concierge",
     "journey.waMsg": "وعليكم السلام، تم تأكيد موعد الخياط برقم #AD-2048",
     "journey.tag4": "Handcrafted by Master Tailors • Super 120s & Italian Wool",
-    "journey.sealTitle": "AL-DORZY Royal Seal",
+    "journey.sealTitle": "Namaa Al Qimmah Royal Seal",
     "journey.sealSub": "Hand-inspected, steamed & boxed",
     "journey.tag6": "100% Free Doorstep Delivery Across Saudi Arabia",
     "journey.c1.badge": "01 · ONLINE ORDER",
@@ -514,20 +524,21 @@ const i18n = {
     },
   },
   ar: {
-    "brand.sub": "الدرزي — أتيليه الجبة الملكية",
     "nav.services": "القصّات",
     "nav.process": "العروض",
     "cuts.aria": "قصّات الدار على العرض",
     "cuts.eyebrow": "قصّات الدار على العرض",
     "cuts.h2": "اختَر القصّة مع القماش.",
-    "cuts.lede": "سعيدية ودقلة وكود، مع القماش المخفّض.",
-    "cuts.offerAria": "عروض الأقمشة المحدودة",
-    "cuts.ends": "ينتهي العرض خلال",
-    "cuts.book": "احجز هذا العرض",
+    "pair.s1": "اختر القصّة",
+    "pair.s2": "اختر القماش",
+    "pair.s3": "جبتك",
+    "pair.each": "/ للجبة",
+    "pair.total": "الإجمالي",
+    "pair.wa": "اطلب عبر واتساب",
+    "pair.msg": "السلام عليكم، أرغب في طلب: قصّة {cut} بقماش {cloth} × {qty}. الإجمالي: {total}.",
     "cuts.badge15": "خصم ١٥٪",
     "cuts.badge20": "خصم ٢٠٪",
     "cuts.badge10": "خصم ١٠٪",
-    "cuts.pick": "اختيار الأتيليه",
     "cuts.saudi": "سعودي",
     "cuts.kowaity": "كويتي",
     "cuts.qutari": "قطري",
@@ -536,18 +547,9 @@ const i18n = {
     "cuts.saideria": "سعيدية",
     "cuts.dagla": "دقلة",
     "cuts.code": "كود",
-    "cuts.o1.title": "سعيدية + تويوبو عاجي",
-    "cuts.o1.note": "قطن ياباني سوبر ١٢٠",
-    "cuts.o2.title": "دقلة + أوبال هانجين",
-    "cuts.o2.note": "حرير كريب ملكي",
-    "cuts.o3.title": "كود + دايناستي أبيض",
-    "cuts.o3.note": "سبان بولي قطن",
-    "cuts.o4.title": "سعودي + نسيم سيام",
-    "cuts.o4.note": "كتان قطن استوائي",
     "nav.gallery": "المعرض الملكي",
     "nav.atelier": "الأتيليه",
     "nav.book": "الحجز",
-    "nav.desk": "المكتب",
     "nav.appoint": "احجز زيارة",
     "nav.wa": "واتساب",
     "nav.theme": "تبديل المظهر",
@@ -555,8 +557,38 @@ const i18n = {
     "saas.book": "تثبيت الطلب",
     "saas.deliveryBadge": "توصيل مجاني",
     "saas.deliveryText": "توصيل ملكي فاخر مجاني لباب منزلك في كافة مدن المملكة",
-    "saas.flashBadge": "عرض الورشة الملكية",
-    "saas.flashText": "مواعيد خياطة محدودة اليوم • ينتهي خلال",
+    "saas.bundleBadge": "عرض الباقة",
+    "saas.bundleText": "اطلب جبتين أو أكثر معاً · وفّر حتى ٢٠٪",
+    "bundle.eyebrow": "عرض الباقة",
+    "bundle.h2": "اطلب معاً، ووفّر أكثر",
+    "bundle.off": "خصم",
+    "bundle.b2": "جبتان · أي تفصيلة",
+    "bundle.b3": "٣ جبب + مقاس منزلي مجاني",
+    "bundle.b5": "٥+ جبب · العائلة والعيد",
+    "bundle.t2.name": "باقة الثنائي (جبتان · خصم ١٠٪)",
+    "bundle.t3.name": "باقة الثلاثي (٣ جبب · خصم ١٥٪ + مقاس منزلي مجاني)",
+    "bundle.t5.name": "باقة العائلة والعيد (٥+ جبب · خصم ٢٠٪ وتوصيل مجاني وترقية ياقة مجانية)",
+    "bundle.line": "خصم الباقة −{p}٪",
+    "bundle.hintStart": "أضف جبة واحدة لتحصل على خصم ١٠٪",
+    "bundle.hintNext": "أضف {n} لتحصل على خصم {p}٪",
+    "bundle.hintMax": "حصلت على أعلى باقة — خصم ٢٠٪ وتوصيل مجاني وترقية الياقة",
+    "bundle.wa": "السلام عليكم، أرغب في الحصول على {o} من نماء القمة.",
+    "bundle.msg": "الباقة",
+    "ad.aria": "إعلان عروض نماء القمة",
+    "ad.s1a": "اطلب أونلاين",
+    "ad.s1b": "المعلّم يصلك إلى البيت خلال دقائق",
+    "ad.s1c": "أخذ المقاس عند باب بيتك",
+    "ad.s2a": "جبتك جاهزة في",
+    "ad.s2b": "يوم واحد",
+    "ad.s3a": "اطلب معاً ووفّر",
+    "ad.s3b": "خصم حتى ٢٠٪",
+    "ad.s4a": "اطلب الآن",
+    "ad.s4b": "معلّم الخياطة يأتيك",
+    "ad.ctaWa": "اطلب عبر واتساب",
+    "ad.ctaBook": "احجز زيارة منزلية",
+    "ad.wa": "السلام عليكم، أرغب في طلب جبة مع زيارة منزلية لأخذ المقاس.",
+    "nav.home": "الرئيسية",
+    "nav.offers": "العروض",
     "qk.eyebrow": "حجز سريع",
     "qk.origin": "١. بلد ومصنع القماش",
     "qk.cloth": "٢. طاقة القماش الفاخرة",
@@ -580,11 +612,7 @@ const i18n = {
     "card.del.p": "مكوية ومعلّبة للمنزل",
     "card.pay.k": "إجمالي COD",
     "card.pay.p": "ادفع حين تصل",
-    "kpi.fits": "تفصيل خاص",
-    "kpi.cities": "مدن مغطاة",
-    "kpi.sat": "رضا العملاء ٪",
-    "kpi.wa": "رد واتساب بالساعات",
-    "banner.ribbon1": "كونسيرج الدرزي • قياس منزلي وتوصيل فاخر مجاني ١٠٠٪ في الرياض وجدة وكافة مدن المملكة",
+    "banner.ribbon1": "كونسيرج نماء القمة • قياس منزلي وتوصيل فاخر مجاني ١٠٠٪ في الرياض وجدة وكافة مدن المملكة",
     "banner.ribbon.cta1": "احجز الآن",
     "banner.b1.badge": "خدمة ملكية مجانية",
     "banner.b1.title": "توصيل منزلي فاخر وقياس مجاني لباب منزلك",
@@ -609,7 +637,7 @@ const i18n = {
     "banner.b3.tag": "جرّب الجبة أولاً، وادفع فقط إذا أعجبك المقاس تماماً",
     "banner.b3.cta": "استكشف قصّات الدار",
     "banner.b3.feat1": "أقمشة الدار الحصرية",
-    "svc.eyebrow": "طقس الدرزي",
+    "svc.eyebrow": "طقس نماء القمة",
     "svc.h2": "كل شيء يأتي إليك.",
     "svc.m.t": "أخذ المقاس منزلياً",
     "svc.m.p": "يصل خياط أول إلى منزلك أو مكتبك. خمسة عشر نقطة، جلسة واحدة، بلا طوابير.",
@@ -671,9 +699,6 @@ const i18n = {
     "at.olive.s": "مزيج صوف موسمي",
     "bk.eyebrow": "خدمة الخياطة الملكية في المجلس",
     "bk.h2": "أرسل الخيّاط الملكي الماهر إلى مجلسك.",
-    "gallery.timer.pill": "👑 خصم 15% • ميزة حصرية",
-    "gallery.timer.h3": "نافذة الامتياز الملكي",
-    "gallery.timer.desc": "ينتهي الخصم الحصري قريباً على لفائف الأقمشة اليابانية والكورية المعتمدة.",
     "bk.lede": "القماش والمدينة مثبتان. أضف الاسم والجوال والموقع — نؤكد عبر واتساب.",
     "bk.card": "بطاقة الموعد",
     "bk.step": "الخطوة",
@@ -707,7 +732,7 @@ const i18n = {
     "f.cod": "الدفع عند الاستلام",
     "f.wapay": "تأكيد عبر واتساب",
     "f.submit": "أكّد عبر واتساب",
-    "f.fine": "يحفظ الطلب في هذا المكتب ويفتح واتساب. لا بطاقة مطلوبة.",
+    "f.fine": "يفتح واتساب بتفاصيل طلبك. لا بطاقة مطلوبة.",
     "f.next": "متابعة",
     "f.back": "رجوع",
     "f.when": "موعد الزيارة",
@@ -716,17 +741,6 @@ const i18n = {
     "geo.ok": "تم تثبيت الموقع. اختيرت أقرب مدينة.",
     "geo.fail": "الموقع غير متاح. اختر المدينة يدوياً.",
     "geo.wait": "جاري طلب الموقع…",
-    "desk.eyebrow": "مكتب العمليات",
-    "desk.h2": "الطلبات والزيارات",
-    "desk.empty": "لا طلبات بعد. اضبط جبة أعلاه.",
-    "desk.all": "الكل",
-    "desk.pending": "قيد الانتظار",
-    "desk.confirmed": "مؤكد",
-    "desk.measuring": "أخذ المقاس",
-    "desk.delivered": "تم التوصيل",
-    "desk.stat.orders": "الطلبات",
-    "desk.stat.value": "خط الأنابيب",
-    "desk.stat.open": "زيارات مفتوحة",
     "status.pending": "قيد الانتظار",
     "status.confirmed": "مؤكد",
     "status.measuring": "أخذ المقاس",
@@ -734,9 +748,8 @@ const i18n = {
     "toast.ok": "حُفظ الطلب. جاري فتح واتساب.",
     "toast.need": "أكمل الحقول المطلوبة.",
     "toast.phone": "أدخل جوالاً سعودياً صالحاً.",
-    "foot.tag": "الدرزي — أتيليه الجبة الملكية · المملكة العربية السعودية",
     "foot.copy": "مقاس منزلي · توصيل منزلي · الدفع عند الاستلام · واتساب",
-    "appt.tag": "أتيليه الدرزي الملكي",
+    "appt.tag": "أتيليه نماء القمة الملكي",
     "appt.secTitle": "تفاصيل وموعد الحجز",
     "appt.title": "حجز موعد خاص",
     "appt.subtitle": "يصل الخياط الأول لباب منزلك مع طاقات الأقمشة الفاخرة وأدوات القياس الدقيقة.",
@@ -760,8 +773,8 @@ const i18n = {
     "appt.orderSummary": "ملخص الطلب والمبلغ الإجمالي",
     "appt.totalDue": "المبلغ الإجمالي (الدفع عند الاستلام)",
     "appt.codNote": "نقداً أو بالبطاقة عند الاستلام • بدون دفع مسبق",
-    "journey.aria": "رحلة تفصيل الجبة الملكية في دار الدرزي",
-    "journey.badge": "رحلة الدرزي الملكية للتفصيل الفاخر",
+    "journey.aria": "رحلة تفصيل الجبة الملكية في دار نماء القمة",
+    "journey.badge": "رحلة نماء القمة الملكية للتفصيل الفاخر",
     "journey.pause": "إيقاف",
     "journey.play": "تشغيل",
     "journey.filmBadge": "فيلم الأتيليه",
@@ -791,10 +804,10 @@ const i18n = {
     "offer.6.title": "خصم ١٥٪ على جبتين أو أكثر",
     "offer.6.note": "كود الامتياز يُنسخ عند الحجز",
     "journey.tag1": "حجز إلكتروني فوري • بدون دفع مسبق",
-    "journey.waName": "كونسيرج أتيليه الدرزي",
+    "journey.waName": "كونسيرج أتيليه نماء القمة",
     "journey.waMsg": "وعليكم السلام، تم تأكيد موعد الخياط برقم #AD-2048",
     "journey.tag4": "قص يدوي بأيدي خياطين كبار • قطن ياباني وصوف إيطالي",
-    "journey.sealTitle": "ختم الدرزي الملكي",
+    "journey.sealTitle": "ختم نماء القمة الملكي",
     "journey.sealSub": "فحص يدوي، كوي بالبخار وتغليف فاخر",
     "journey.tag6": "توصيل مجاني ١٠٠٪ لباب بيتك بكافة مدن المملكة",
     "journey.c1.badge": "٠١ · الطلب أونلاين",
@@ -819,7 +832,7 @@ const i18n = {
     "journey.c4.p2": "خياطة دقيقة بغرز ذهبية",
     "journey.c5.badge": "٠٥ · التجهيز والختم",
     "journey.c5.title": "كوي بالبخار وتغليف في الصندوق الملكي",
-    "journey.c5.desc": "كوي احترافي وفحص أدق التفاصيل وتغليف في صندوق الدرزي الأسود والذهبي مع شهادة الأصالة.",
+    "journey.c5.desc": "كوي احترافي وفحص أدق التفاصيل وتغليف في صندوق نماء القمة الأسود والذهبي مع شهادة الأصالة.",
     "journey.c5.p1": "جاهزة خلال ٧-١٠ أيام",
     "journey.c5.p2": "شهادة أصالة معتمدة",
     "journey.c6.badge": "٠٦ · التوصيل الملكي",
@@ -865,8 +878,6 @@ const els = {
   burger: document.getElementById("burger"),
   drawer: document.getElementById("drawer"),
   form: document.getElementById("bookForm"),
-  deskList: document.getElementById("deskList"),
-  deskStats: document.getElementById("deskStats"),
   toast: document.getElementById("toast"),
   dateInput: document.getElementById("date"),
   city: document.getElementById("city"),
@@ -906,7 +917,6 @@ const els = {
 
 let lang = localStorage.getItem("qasr-lang") || "en";
 let theme = document.documentElement.dataset.theme === "light" ? "light" : "dark";
-let deskFilter = "all";
 let state = loadState();
 let apptQty = 1;
 let apptDistanceZone = "0-15";
@@ -1011,7 +1021,7 @@ function loadState() {
       brand: b,
       cloth: foundCloth.id,
       city: saved.city || "Riyadh",
-      qty: Math.min(6, Math.max(1, Number(saved.qty) || 1)),
+      qty: Math.min(12, Math.max(1, Number(saved.qty) || 1)),
     };
   } catch {
     return { brand: "jp", cloth: "jp-ivory", city: "Riyadh", qty: 1 };
@@ -1055,6 +1065,25 @@ function getDiscountedPrice(cloth) {
   return cloth.price;
 }
 
+// Bundle tiers: discount applied on the fabric-discounted subtotal (sequential, not additive)
+const BUNDLE_TIERS = [
+  { min: 5, pct: 20 },
+  { min: 3, pct: 15 },
+  { min: 2, pct: 10 },
+];
+
+function bundlePctFor(qty) {
+  const tier = BUNDLE_TIERS.find((b) => qty >= b.min);
+  return tier ? tier.pct : 0;
+}
+
+function bundleHint(qty) {
+  if (qty < 2) return t("bundle.hintStart");
+  const next = [...BUNDLE_TIERS].reverse().find((b) => b.min > qty);
+  if (!next) return t("bundle.hintMax");
+  return t("bundle.hintNext").replace("{n}", String(next.min - qty)).replace("{p}", String(next.pct));
+}
+
 function quoteOf(s = state) {
   const cloth = CLOTHS.find((c) => c.id === s.cloth) || CLOTHS[0];
   const city = CITIES.find((c) => c.id === s.city) || CITIES[0];
@@ -1062,6 +1091,8 @@ function quoteOf(s = state) {
   const originalTotal = cloth.price * s.qty;
   const clothTotal = unitPrice * s.qty;
   const savings = originalTotal - clothTotal;
+  const bundlePct = bundlePctFor(s.qty);
+  const bundleSavings = Math.round((clothTotal * bundlePct) / 100);
   const visit = 0; // 100% Free Doorstep Visit
   const delivery = 0; // 100% Free Doorstep Delivery Across KSA
   return {
@@ -1071,9 +1102,11 @@ function quoteOf(s = state) {
     originalTotal,
     clothTotal,
     savings,
+    bundlePct,
+    bundleSavings,
     visit: 0,
     delivery: 0,
-    total: clothTotal,
+    total: clothTotal - bundleSavings,
     days: `${cloth.days[0]}–${cloth.days[1]}`,
   };
 }
@@ -1097,6 +1130,82 @@ function applyTheme() {
   localStorage.setItem("qasr-theme", theme);
 }
 
+i18n.en["visit.banner"] = "Private tailoring. At your doorstep.";
+i18n.ar["visit.banner"] = "خياطة خاصة. على باب منزلك.";
+i18n.en["visit.offer"] = "Selected fabrics · Up to 20% off";
+i18n.ar["visit.offer"] = "أقمشة مختارة · خصم حتى ٢٠٪";
+i18n.en["visit.title"] = "Your fabric. Your fitting.";
+i18n.ar["visit.title"] = "قماشك. على مقاسك.";
+i18n.en["visit.gallery"] = "Fabric gallery";
+i18n.ar["visit.gallery"] = "مجموعة الأقمشة";
+i18n.en["visit.ownership"] = "Fabric ownership";
+i18n.ar["visit.ownership"] = "اختيار القماش";
+i18n.en["visit.atelier"] = "Atelier fabric";
+i18n.ar["visit.atelier"] = "قماش الأتيليه";
+i18n.en["visit.own"] = "I have my own fabric";
+i18n.ar["visit.own"] = "لديّ قماشي الخاص";
+i18n.en["visit.reason"] = "Visit reason";
+i18n.ar["visit.reason"] = "سبب الزيارة";
+i18n.en["visit.alterations"] = "Alterations";
+i18n.ar["visit.alterations"] = "تعديلات";
+i18n.en["visit.other"] = "Other request";
+i18n.ar["visit.other"] = "طلب آخر";
+i18n.en["visit.request"] = "Tell us what you need";
+i18n.ar["visit.request"] = "أخبرنا بما تحتاجه";
+i18n.en["visit.district"] = "District";
+i18n.ar["visit.district"] = "الحي";
+i18n.en["visit.selected"] = "Selected fabric";
+i18n.ar["visit.selected"] = "القماش المختار";
+i18n.en["visit.quote"] = "Service price confirmed after assessment.";
+i18n.ar["visit.quote"] = "يُحدد سعر الخدمة بعد المعاينة.";
+i18n.en["visit.appointment"] = "Your appointment";
+i18n.ar["visit.appointment"] = "موعدك";
+i18n.en["visit.time"] = "Time";
+i18n.ar["visit.time"] = "الوقت";
+i18n.en["visit.street"] = "Street / Building";
+i18n.ar["visit.street"] = "الشارع / المبنى";
+i18n.en["visit.newGarment"] = "New garment";
+i18n.ar["visit.newGarment"] = "تفصيل جديد";
+i18n.en["visit.locationTitle"] = "Visit address";
+i18n.ar["visit.locationTitle"] = "عنوان الزيارة";
+i18n.en["visit.locate"] = "Use my location";
+i18n.ar["visit.locate"] = "استخدم موقعي";
+i18n.en["visit.locationHint"] = "Use your location or enter the address below.";
+i18n.ar["visit.locationHint"] = "استخدم موقعك أو أدخل العنوان أدناه.";
+i18n.en["visit.travel"] = "Visit / delivery charge";
+i18n.ar["visit.travel"] = "رسوم الزيارة / التوصيل";
+i18n.en["visit.title"] = "Choose your tailoring";
+i18n.ar["visit.title"] = "اختر خدمة الخياطة";
+i18n.en["visit.appointment"] = "Plan your visit";
+i18n.ar["visit.appointment"] = "حدد موعد الزيارة";
+i18n.en["visit.reason"] = "What do you need?";
+i18n.ar["visit.reason"] = "ما الخدمة المطلوبة؟";
+i18n.en["visit.ownership"] = "Your fabric";
+i18n.ar["visit.ownership"] = "القماش";
+i18n.en["visit.own"] = "My own fabric";
+i18n.ar["visit.own"] = "قماشي الخاص";
+i18n.en["visit.selected"] = "Your selection";
+i18n.ar["visit.selected"] = "اختيارك";
+i18n.en['appt.success.badge'] = 'REQUEST SAVED';
+i18n.en['appt.success.title'] = 'Your booking PDF is ready';
+i18n.en['appt.success.desc'] = 'Attach your PDF in WhatsApp and press Send. The atelier will confirm your visit and any pending charge.';
+i18n.en['appt.success.wa'] = 'Send request on WhatsApp';
+i18n.ar['appt.success.badge'] = 'تم حفظ الطلب';
+i18n.ar['appt.success.title'] = 'طلب موعدك جاهز';
+i18n.ar['appt.success.desc'] = 'أرسل التفاصيل عبر واتساب. سيؤكد فريقنا الزيارة وأي رسوم متبقية.';
+i18n.ar['appt.success.wa'] = 'إرسال الطلب عبر واتساب';
+i18n.en["visit.detect"] = "Find my address";
+i18n.ar["visit.detect"] = "تحديد عنواني";
+i18n.en["visit.detectHint"] = "Locate me and calculate travel distance";
+i18n.ar["visit.detectHint"] = "تحديد موقعي وحساب مسافة الزيارة";
+i18n.en["visit.manual"] = "Enter manually";
+i18n.ar["visit.manual"] = "إدخال يدوي";
+i18n.en["visit.notes"] = "Additional notes";
+i18n.ar["visit.notes"] = "ملاحظات إضافية";
+i18n.en["visit.optional"] = "Optional";
+i18n.ar["visit.optional"] = "اختياري";
+i18n.en["visit.locationHint"] = "Uses your location with Photon & OSRM. Review the result.";
+i18n.ar["visit.locationHint"] = "يستخدم موقعك مع Photon وOSRM. راجع العنوان الناتج.";
 function applyLang() {
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
@@ -1114,23 +1223,23 @@ function applyLang() {
   fillCities();
   renderCloths();
   renderQuote();
-  renderDesk();
   renderApptPromoFabrics();
+  paintRoyalAd();
   updateApptSummary();
   renderApptDistrictChips();
   if (typeof updateJourneyStoryUI === "function") updateJourneyStoryUI();
 }
 
 function fillCities() {
-  const html = CITIES.map(
-    (c) => `<option value="${c.id}">${cityName(c.id)}</option>`
-  ).join("");
-  els.city.innerHTML = html;
-  els.qkCity.innerHTML = html;
-  if (els.apptCity) els.apptCity.innerHTML = html;
-  els.city.value = state.city;
-  els.qkCity.value = state.city;
-  if (els.apptCity) els.apptCity.value = state.city;
+  const html = CITIES.map(c => `<option value="${c.id}">${cityName(c.id)}</option>`).join('');
+  els.city.innerHTML = html; els.qkCity.innerHTML = html;
+  els.city.value = state.city; els.qkCity.value = state.city;
+  if (els.apptCity) {
+    const previous = els.apptCity.value;
+    els.apptCity.innerHTML = `<option value="">${lang === 'ar' ? 'اختر المدينة' : 'Select city'}</option>` + html;
+    if (previous && ![...els.apptCity.options].some(o=>o.value===previous)) els.apptCity.add(new Option(previous,previous));
+    els.apptCity.value = previous || '';
+  }
 }
 
 function renderCloths() {
@@ -1246,7 +1355,7 @@ function setCity(id) {
 }
 
 function setQty(n) {
-  state.qty = Math.min(6, Math.max(1, n));
+  state.qty = Math.min(12, Math.max(1, Math.trunc(Number(n)) || 1)); // same 1–12 range as the Book Visit modal
   persistState();
   els.qtyVal.textContent = String(state.qty);
   renderQuote();
@@ -1269,6 +1378,7 @@ function renderQuote() {
   }
   renderQuick(q);
   renderBookingSummary();
+  paintPair();
 }
 
 function renderQuick(q = quoteOf()) {
@@ -1285,6 +1395,15 @@ function renderQuick(q = quoteOf()) {
   set("qkTotalVal", money(q.total));
   set("qkBannerTotal", money(q.total));
   if (els.qkQtyVal) els.qkQtyVal.textContent = String(state.qty);
+  const line = document.getElementById("qkBundleLine");
+  if (line) {
+    line.hidden = !q.bundlePct;
+    set("qkBundleLabel", t("bundle.line").replace("{p}", String(q.bundlePct)));
+    set("qkBundleVal", `−${money(q.bundleSavings)}`);
+  }
+  set("qkBundleHint", bundleHint(state.qty));
+  set("mbarTotal", money(q.total));
+  set("mbarMeta", `${clothName(q.cloth.id)} × ${state.qty}${q.bundlePct ? ` · −${q.bundlePct}%` : ""}`);
 }
 
 function renderBookingSummary() {
@@ -1306,75 +1425,22 @@ function renderBookingSummary() {
 
 function loadBookings() {
   try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    const list = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    return Array.isArray(list) ? list : [];
   } catch {
     return [];
   }
 }
 
 function saveBookings(list) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+  // Browsers may disable storage. This must not prevent the PDF/WhatsApp handoff.
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); } catch {}
 }
 
 function refCode(id) {
   return `QSR-${String(id).slice(-6).toUpperCase()}`;
 }
 
-function renderDesk() {
-  const list = loadBookings();
-  const open = list.filter((b) => b.status !== "delivered");
-  const pipeline = list.reduce((s, b) => s + (Number(b.total) || 0), 0);
-  els.deskStats.innerHTML = `
-    <article><small>${t("desk.stat.orders")}</small><b>${list.length}</b></article>
-    <article><small>${t("desk.stat.open")}</small><b>${open.length}</b></article>
-    <article><small>${t("desk.stat.value")}</small><b>${money(pipeline)}</b></article>`;
-
-  const shown = deskFilter === "all" ? list : list.filter((b) => b.status === deskFilter);
-  if (!shown.length) {
-    els.deskList.innerHTML = `<div class="empty">${t("desk.empty")}</div>`;
-    return;
-  }
-  els.deskList.innerHTML = shown
-    .map((b) => {
-      const next = nextStatus(b.status);
-      return `<article class="ticket" data-tilt>
-        <div class="ticket__top">
-          <span class="ticket__tag">${t(`status.${b.status}`)}</span>
-          <code>${refCode(b.id)}</code>
-        </div>
-        <h3>${escapeHtml(b.name)}</h3>
-        <p>${clothName(b.cloth)} · ×${b.qty}</p>
-        <p>${cityName(b.city)} · ${escapeHtml(b.date)} · ${escapeHtml(b.slot)}</p>
-        <p>${escapeHtml(b.address)}</p>
-        <p class="ticket__pay">${b.pay} · ${money(b.total)}</p>
-        <div class="ticket__acts">
-          ${next ? `<button type="button" data-advance="${b.id}">${t(`status.${next}`)}</button>` : ""}
-          <a href="${waLink(orderMessage(b))}" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-      </article>`;
-    })
-    .join("");
-  bindTilt(els.deskList.querySelectorAll("[data-tilt]"));
-  els.deskList.querySelectorAll("[data-advance]").forEach((btn) => {
-    btn.addEventListener("click", () => advanceBooking(Number(btn.dataset.advance)));
-  });
-}
-
-function nextStatus(status) {
-  const flow = ["pending", "confirmed", "measuring", "delivered"];
-  const i = flow.indexOf(status);
-  return i >= 0 && i < flow.length - 1 ? flow[i + 1] : null;
-}
-
-function advanceBooking(id) {
-  const list = loadBookings();
-  const item = list.find((b) => b.id === id);
-  if (!item) return;
-  const n = nextStatus(item.status);
-  if (n) item.status = n;
-  saveBookings(list);
-  renderDesk();
-}
 
 function escapeHtml(str) {
   return String(str || "")
@@ -1390,11 +1456,11 @@ function validPhone(v) {
 }
 
 function orderMessage(b) {
-  const q = `${clothName(b.cloth)} × ${b.qty}`;
+  const q = `${clothName(b.cloth)} × ${b.qty}${b.bundlePct ? ` · ${t("bundle.msg")} −${b.bundlePct}%` : ""}`;
   if (lang === "ar") {
-    return `السلام عليكم، طلب جبة من الدرزي.\nالمرجع: ${refCode(b.id)}\nالاسم: ${b.name}\nالجوال: ${b.phone}\nالقماش: ${q}\nالمدينة: ${cityName(b.city)}\nالعنوان: ${b.address}\nالتاريخ: ${b.date} ${b.slot}\nالدفع: ${b.pay}\nالإجمالي عند الاستلام: ${money(b.total)}\nملاحظات: ${b.note || "-"}`;
+    return `السلام عليكم، طلب جبة من نماء القمة.\nالمرجع: ${refCode(b.id)}\nالاسم: ${b.name}\nالجوال: ${b.phone}\nالقماش: ${q}\nالمدينة: ${cityName(b.city)}\nالعنوان: ${b.address}\nالتاريخ: ${b.date} ${b.slot}\nالدفع: ${b.pay}\nالإجمالي عند الاستلام: ${escapeHtml(b.priceSummary || (b.total === null ? (lang === "ar" ? "يحدد بعد المعاينة" : "Price after assessment") : money(b.total)))}\nملاحظات: ${b.note || "-"}`;
   }
-  return `As-salamu alaykum, AL-DORZY Jubba order.\nRef: ${refCode(b.id)}\nName: ${b.name}\nMobile: ${b.phone}\nCloth: ${q}\nCity: ${cityName(b.city)}\nAddress: ${b.address}\nVisit: ${b.date} ${b.slot}\nPayment: ${b.pay}\nDue on delivery: ${money(b.total)}\nNotes: ${b.note || "-"}`;
+  return `As-salamu alaykum, Namaa Al Qimmah Jubba order.\nRef: ${refCode(b.id)}\nName: ${b.name}\nMobile: ${b.phone}\nCloth: ${q}\nCity: ${cityName(b.city)}\nAddress: ${b.address}\nVisit: ${b.date} ${b.slot}\nPayment: ${b.pay}\nDue on delivery: ${escapeHtml(b.priceSummary || (b.total === null ? (lang === "ar" ? "يحدد بعد المعاينة" : "Price after assessment") : money(b.total)))}\nNotes: ${b.note || "-"}`;
 }
 
 function bindTilt(nodes) {
@@ -1408,21 +1474,6 @@ function bindTilt(nodes) {
     el.addEventListener("pointerleave", () => {
       el.style.transform = "";
     });
-  });
-}
-
-function countUp() {
-  document.querySelectorAll("[data-count]").forEach((el) => {
-    const target = Number(el.dataset.count);
-    const start = performance.now();
-    const dur = 1400;
-    const tick = (now) => {
-      const tEase = Math.min(1, (now - start) / dur);
-      const eased = 1 - Math.pow(1 - tEase, 3);
-      el.textContent = Math.round(target * eased).toLocaleString(lang === "ar" ? "ar-SA" : "en-US");
-      if (tEase < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
   });
 }
 
@@ -1448,7 +1499,7 @@ function reveal() {
     },
     { threshold: 0.16 }
   );
-  document.querySelectorAll(".reveal, .svc, .step, .kpi, .ticket").forEach((el) => {
+  document.querySelectorAll(".reveal, .svc, .step").forEach((el) => {
     el.classList.add("reveal");
     io.observe(el);
   });
@@ -1567,14 +1618,6 @@ els.geoBtn.addEventListener("click", () => {
     },
     { enableHighAccuracy: true, timeout: 8000 }
   );
-});
-
-document.getElementById("deskFilters").addEventListener("click", (e) => {
-  const btn = e.target.closest("[data-filter]");
-  if (!btn) return;
-  deskFilter = btn.dataset.filter;
-  document.querySelectorAll("#deskFilters button").forEach((b) => b.classList.toggle("is-on", b === btn));
-  renderDesk();
 });
 
 let wizardStep = 1;
@@ -1733,6 +1776,7 @@ els.quickForm.addEventListener("submit", (e) => {
     visit: q.visit,
     delivery: q.delivery,
     clothTotal: q.clothTotal,
+    bundlePct: q.bundlePct,
     pay: "COD",
     date: new Date().toISOString().slice(0, 10),
     slot: t("qk.flex"),
@@ -1742,7 +1786,6 @@ els.quickForm.addEventListener("submit", (e) => {
   const list = loadBookings();
   list.unshift(booking);
   saveBookings(list.slice(0, 24));
-  renderDesk();
   showToast("toast.ok");
   window.open(waLink(orderMessage(booking)), "_blank", "noopener");
   els.quickForm.reset();
@@ -1780,13 +1823,13 @@ els.form.addEventListener("submit", (e) => {
     visit: q.visit,
     delivery: q.delivery,
     clothTotal: q.clothTotal,
+    bundlePct: q.bundlePct,
     status: "pending",
     id: Date.now(),
   };
   const list = loadBookings();
   list.unshift(booking);
   saveBookings(list.slice(0, 24));
-  renderDesk();
   showToast("toast.ok");
   window.open(waLink(orderMessage(booking)), "_blank", "noopener");
   resetWizard();
@@ -1816,17 +1859,13 @@ function initGalleryCards() {
 
 
 function renderApptDistrictChips() {
-  if (!els.apptDistrictChips || !els.apptCity) return;
-  const currentCity = els.apptCity.value || "Riyadh";
-  const cityData = CITY_DISTRICTS[currentCity] || CITY_DISTRICTS.Riyadh;
-  const names = lang === "ar" ? cityData.districtsAr : cityData.districts;
-  
-  const label = lang === "ar" ? "الأحياء الشائعة:" : "Popular:";
-  const chipsHtml = names.map((name, idx) => `
-    <button type="button" class="appt-district-chip" data-district="${name}" data-idx="${idx}"><i class="fa-solid fa-location-dot"></i> <span>${name}</span></button>
-  `).join("");
-  
-  els.apptDistrictChips.innerHTML = `<span class="appt-quick-label">${label}</span>${chipsHtml}`;
+  const select = document.getElementById('apptDistrict');
+  if (!select || !els.apptCity) return;
+  const previous = select.value;
+  const data = CITY_DISTRICTS[els.apptCity.value];
+  const names = data ? (lang === 'ar' ? data.districtsAr : data.districts) : [];
+  select.innerHTML = `<option value="">${lang === 'ar' ? 'اختر الحي' : 'Select district'}</option>` + names.map((name, i) => `<option value="${data.districts[i]}">${name}</option>`).join('') + `<option value="other">${lang === 'ar' ? 'حي آخر (أضفه إلى العنوان)' : 'Other (include in address)'}</option>`;
+  if ([...select.options].some(o => o.value === previous)) select.value = previous;
 }
 
 function autoGenerateAddress() {
@@ -1860,140 +1899,158 @@ function updateApptServiceCards() {
 }
 
 function renderApptPromoFabrics() {
-  const container = document.getElementById("apptPromoFabrics");
+  const container = document.getElementById('apptPromoFabrics');
   if (!container) return;
-  const promoCloths = CLOTHS.filter((c) => c.isPromo);
-  container.innerHTML = promoCloths.map((c) => {
-    const isSel = c.id === state.cloth ? " is-selected" : "";
-    const orig = money(c.price);
-    const discPrice = money(getDiscountedPrice(c));
-    const tag = lang === "ar" ? c.discountTagAr : c.discountTagEn;
-    const name = clothName(c.id);
-    const brandObj = FABRIC_BRANDS.find((b) => b.id === c.brand);
-    const flag = brandObj ? brandObj.flag : "";
-    return `
-      <div class="appt-promo-card${isSel}" data-cloth-id="${c.id}" role="button" tabindex="0">
-        <span class="appt-promo-card__thumb">
-          <img src="${c.img}" alt="${name}" loading="lazy" />
-          <span class="appt-promo-card__badge">${tag}</span>
-        </span>
-        <div class="appt-promo-card__meta">
-          <span class="appt-promo-card__name">${flag} ${name}</span>
-          <div class="appt-promo-card__pricing">
-            <del class="appt-promo-card__orig">${orig}</del>
-            <strong class="appt-promo-card__disc">${discPrice}</strong>
-          </div>
-        </div>
-      </div>
-    `;
-  }).join("");
+  const ids = ['jp-ivory', 'kr-opal', 'cn-white'];
+  const fabrics = ids.map(id => CLOTHS.find(c => c.id === id)).filter(Boolean);
+  const selected = CLOTHS.find(c => c.id === state.cloth);
+  if (selected && !ids.includes(selected.id)) fabrics.splice(2, 1, selected);
+  container.innerHTML = fabrics.map(c => `<button type="button" class="appt-promo-card" data-cloth-id="${c.id}" aria-pressed="${c.id === state.cloth}"><span class="appt-promo-card__thumb"><img src="${c.img}" alt="${clothName(c.id)}"/><span class="appt-promo-card__badge">${lang === 'ar' ? c.discountTagAr || '' : c.discountTagEn || ''}</span><span class="visit-radio"></span></span><span class="appt-promo-card__meta"><span class="appt-promo-card__name">${clothName(c.id)}</span><span class="appt-promo-card__pricing"><del>${c.discount ? money(c.price) : ''}</del><strong>${money(getDiscountedPrice(c))}</strong></span></span></button>`).join('');
+  container.querySelectorAll('button').forEach(card => card.addEventListener('click', () => {
+    state.cloth = card.dataset.clothId;
+    document.querySelector('input[name="apptOwnership"][value="atelier"]').checked = true;
+    persistState(); updateApptSummary(); renderCloths(); renderQuote();
+  }));
+}
 
-  container.querySelectorAll(".appt-promo-card").forEach((card) => {
-    card.addEventListener("click", () => {
-      const cid = card.dataset.clothId;
-      if (!cid) return;
-      state.cloth = cid;
-      persistState();
-      container.querySelectorAll(".appt-promo-card").forEach((el) => {
-        el.classList.toggle("is-selected", el.dataset.clothId === cid);
-      });
-      const clothPrefSelect = document.getElementById("apptClothPref");
-      if (clothPrefSelect) {
-        clothPrefSelect.value = "current";
-      }
-      updateApptSummary();
-      renderSwatches();
-    });
+let visitConfig = null;
+let visitLocation = { coords: null, distanceKm: null, status: 'idle' };
+let visitLocationVersion = 0;
+const visitCopy = (en, ar) => lang === 'ar' ? ar : en;
+
+function appointmentQuote() {
+  const q = visitQuote({
+    ownFabric: document.querySelector('input[name="apptOwnership"]:checked')?.value === 'own',
+    service: document.querySelector('input[name="apptService"]:checked')?.value || 'home',
+    quantity: apptQty || 1,
+    fabricPrice: getDiscountedPrice(CLOTHS.find(c => c.id === state.cloth) || CLOTHS[0]),
+    distanceKm: visitLocation.distanceKm,
+    config: visitConfig,
   });
+  // Bundle discount (2 → 10%, 3 → 15%, 5+ → 20%) applied after fabric discount,
+  // matching quoteOf() so the modal never shows a higher price than the page.
+  const qty = Math.max(1, Math.min(12, Math.trunc(Number(apptQty)) || 1));
+  const bundlePct = q.base !== null ? bundlePctFor(qty) : 0;
+  const bundleSavings = bundlePct ? Math.round((q.base * bundlePct) / 100) : 0;
+  const base = q.base !== null ? q.base - bundleSavings : null;
+  return { ...q, base, preBundle: q.base, bundlePct, bundleSavings, total: base !== null && q.travel !== null ? base + q.travel : null };
+}
+
+function locationVisual(state, message) {
+  document.getElementById('apptLocationArea').dataset.state = state;
+  document.getElementById('apptLocationStatus').textContent = message;
+  document.getElementById('apptLocateBtn').disabled = state === 'locating' || state === 'resolving';
+  document.getElementById('apptLocateTitle').textContent = state === 'locating' ? visitCopy('Finding your location…', 'جارٍ تحديد موقعك…') : state === 'resolving' ? visitCopy('Finding address & route…', 'جارٍ تحديد العنوان والطريق…') : state === 'ready' || state === 'partial' ? visitCopy('Update my location', 'تحديث موقعي') : visitCopy('Find my address', 'تحديد عنواني');
+  document.getElementById('apptLocateHint').textContent = state === 'locating' || state === 'resolving' ? visitCopy('Please keep this window open', 'يرجى إبقاء النافذة مفتوحة') : visitCopy('Locate me and calculate travel distance', 'تحديد موقعي وحساب مسافة الزيارة');
+  document.getElementById('apptLocationArea').setAttribute('aria-busy', String(state === 'locating' || state === 'resolving'));
+}
+
+function clearVisitLocation() {
+  visitLocationVersion++;
+  visitLocation = { coords:null, distanceKm:null, status:'idle' };
+  locationVisual('idle', visitCopy('Uses your location with Photon & OSRM. Review the result.', 'يستخدم موقعك مع Photon وOSRM. راجع العنوان الناتج.'));
+  updateApptSummary();
+}
+
+function setDetectedOption(select, value) {
+  if (!value) { select.value=''; return; }
+  const match=[...select.options].find(o=>o.value.toLowerCase()===value.toLowerCase() || o.textContent.toLowerCase()===value.toLowerCase());
+  if (!match) select.add(new Option(value,value));
+  select.value=match ? match.value : value;
+}
+
+async function detectVisitLocation() {
+  const version=++visitLocationVersion;
+  visitLocation={coords:null,distanceKm:null,status:'locating'};
+  els.apptCity.value=''; els.apptAddress.value=''; renderApptDistrictChips();
+  document.getElementById('apptAddressDetails').hidden=true;
+  document.getElementById('apptLocationResult').hidden=true;
+  locationVisual('locating',visitCopy('Allow location access in your browser.', 'اسمح للمتصفح باستخدام موقعك.'));
+  updateApptSummary();
+  try {
+    if (!navigator.geolocation) throw Error('unsupported');
+    const position=await new Promise((resolve,reject)=>navigator.geolocation.getCurrentPosition(resolve,reject,{enableHighAccuracy:true,timeout:15000,maximumAge:0}));
+    if(version!==visitLocationVersion)return;
+    const {latitude,longitude,accuracy}=position.coords;
+    if(!Number.isFinite(accuracy)||accuracy>500)throw Error('accuracy');
+    visitLocation.coords={latitude,longitude,accuracy}; visitLocation.status='resolving';
+    locationVisual('resolving',visitCopy('Looking up your address and driving distance from our shop.', 'نبحث عن عنوانك ومسافة الطريق من متجرنا.'));
+    const endpoint=visitConfig?.locationEndpoint;
+    if(!endpoint?.startsWith('/')||endpoint.startsWith('//'))throw Error('config');
+    const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({latitude,longitude,language:lang}),signal:AbortSignal.timeout(16000)});
+    if(!response.ok)throw Error('lookup');
+    const result=await response.json(); if(version!==visitLocationVersion)return;
+    visitLocation.distanceKm=Number.isFinite(result.distanceKm)&&result.distanceKm>=0?result.distanceKm:null;
+    setDetectedOption(els.apptCity,result.city);
+    renderApptDistrictChips(); setDetectedOption(document.getElementById('apptDistrict'),result.district);
+    els.apptAddress.value=result.address || '';
+    const hasAddress=Boolean(result.city && result.address);
+    document.getElementById('apptAddressDetails').hidden=hasAddress;
+    document.getElementById('apptLocationResult').hidden=!hasAddress;
+    document.getElementById('apptResolvedCity').textContent=[result.city,result.district].filter(Boolean).join(' · ');
+    document.getElementById('apptResolvedAddress').textContent=result.address || '';
+    document.getElementById('apptResolvedDistance').textContent=visitLocation.distanceKm!==null ? `${visitLocation.distanceKm.toFixed(1)} km` : '';
+    visitLocation.status=result.address && visitLocation.distanceKm!==null ? 'ready':'partial';
+    const distance=visitLocation.distanceKm!==null ? visitCopy(`${visitLocation.distanceKm.toFixed(1)} km from our shop by road. `,`${visitLocation.distanceKm.toFixed(1)} كم بالطريق من متجرنا. `):visitCopy('Distance unavailable; charge will be confirmed. ', 'تعذر حساب المسافة؛ تُؤكد الرسوم لاحقاً. ');
+    locationVisual(visitLocation.status,distance+(result.address?visitCopy('Review your address. Add building details in notes.', 'راجع عنوانك. أضف تفاصيل المبنى في الملاحظات.'):visitCopy('Enter the address below to complete your request.', 'أدخل عنوانك أدناه لإكمال الطلب.')));
+  }catch(error){
+    if(version!==visitLocationVersion)return;
+    visitLocation.distanceKm=null;visitLocation.status='failed';
+    locationVisual('failed',error.code===1?visitCopy('Location access denied. Try again or enter the address manually.', 'لم يُسمح بتحديد الموقع. حاول مجدداً أو أدخل العنوان يدوياً.'):error.message==='accuracy'?visitCopy('Location is too approximate. Try again outdoors or enter manually.', 'الموقع غير دقيق. حاول مجدداً أو أدخل العنوان يدوياً.'):visitCopy('Could not find your location. Try again or enter manually.', 'تعذر تحديد موقعك. حاول مجدداً أو أدخل العنوان يدوياً.'));
+  }finally{if(version===visitLocationVersion)updateApptSummary();}
+}
+
+function apptUsesFabric() {
+  return document.querySelector('input[name="apptOwnership"]:checked')?.value !== 'own' && document.querySelector('input[name="apptService"]:checked')?.value === 'home';
 }
 
 function updateApptSummary() {
-  const cloth = CLOTHS.find((c) => c.id === state.cloth) || CLOTHS[0];
-  const qty = apptQty || 1;
-  const unitDiscounted = getDiscountedPrice(cloth);
-  const fabricSubtotal = unitDiscounted * qty;
-  const distanceFee = DISTANCE_FEES[apptDistanceZone] !== undefined ? DISTANCE_FEES[apptDistanceZone] : 0;
-  const total = fabricSubtotal + distanceFee;
-  const origTotal = cloth.price * qty;
-  const name = clothName(cloth.id);
-
-  const nameEl = document.getElementById("apptSummaryFabricName");
-  if (nameEl) nameEl.textContent = `${name} × ${qty}`;
-
-  const priceEl = document.getElementById("apptSummaryFabricPrice");
-  if (priceEl) priceEl.textContent = money(fabricSubtotal);
-
-  const origEl = document.getElementById("apptSummaryOriginalPrice");
-  if (origEl) {
-    origEl.textContent = cloth.discount ? money(origTotal) : "";
-    origEl.style.display = cloth.discount ? "inline" : "none";
-  }
-
-  const serviceInput = document.querySelector('input[name="apptService"]:checked');
-  const serviceType = serviceInput ? serviceInput.value : "home";
-  const serviceTitles = {
-    home: lang === "ar" ? "زيارة قياس منزلية" : "Home Measurement Visit",
-    atelier: lang === "ar" ? "زيارة فرع الأتيليه" : "Atelier Lounge Visit",
-    consultancy: lang === "ar" ? "استشارة تصميم ومظهر" : "Style Consultation",
-    lounge: lang === "ar" ? "زيارة فرع الأتيليه" : "Atelier Lounge Visit",
-    wedding: lang === "ar" ? "استشارة تصميم ومظهر" : "Style Consultation",
-  };
-
-  const serviceNameEl = document.getElementById("apptSummaryServiceName");
-  if (serviceNameEl) {
-    serviceNameEl.textContent = serviceTitles[serviceType] || "Home Measurement Visit";
-  }
-
-  const distLabelEl = document.getElementById("apptSummaryDistanceLabel");
-  if (distLabelEl) {
-    const rangeText = apptDistanceZone === "0-15" ? "0 – 15 km" : (apptDistanceZone === "15-35" ? "15 – 35 km" : "35 – 70 km");
-    distLabelEl.textContent = lang === "ar" ? `نطاق المسافة (${rangeText})` : `Travel Radius (${rangeText})`;
-  }
-
-  const distFeeEl = document.getElementById("apptSummaryDistanceFee");
-  if (distFeeEl) {
-    if (distanceFee === 0) {
-      distFeeEl.textContent = lang === "ar" ? "0 ر.س (مشمول)" : "0 SAR (Included)";
-      distFeeEl.className = "appt-free-highlight";
-    } else {
-      distFeeEl.textContent = `+${money(distanceFee)}`;
-      distFeeEl.className = "appt-summary-price";
-    }
-  }
-
-  const distBadgeEl = document.getElementById("apptDistanceBadge");
-  if (distBadgeEl) {
-    if (distanceFee === 0) {
-      distBadgeEl.textContent = lang === "ar" ? "زيارة 0 ر.س" : "0 SAR Visit";
-      distBadgeEl.className = "appt-delivery-free-badge";
-    } else {
-      distBadgeEl.textContent = lang === "ar" ? `رسوم مسافة +${money(distanceFee)}` : `Travel +${money(distanceFee)}`;
-      distBadgeEl.className = "appt-delivery-free-badge appt-delivery-fee-badge";
-    }
-  }
-
-  const totalEl = document.getElementById("apptSummaryTotal");
-  if (totalEl) totalEl.textContent = money(total);
-
-  const submitTextEl = document.getElementById("apptSubmitBtnText");
-  if (submitTextEl) {
-    const prefix = lang === "ar" ? "تأكيد وحجز الموعد — " : "Confirm & Book Appointment — ";
-    submitTextEl.textContent = `${prefix}${money(total)}`;
-  }
-
-  const promoContainer = document.getElementById("apptPromoFabrics");
-  if (promoContainer) {
-    promoContainer.querySelectorAll(".appt-promo-card").forEach((el) => {
-      el.classList.toggle("is-selected", el.dataset.clothId === state.cloth);
-    });
-  }
+  const cloth = CLOTHS.find(c => c.id === state.cloth) || CLOTHS[0];
+  const usesFabric = apptUsesFabric();
+  const quote = appointmentQuote();
+  const own = document.querySelector('input[name="apptOwnership"]:checked')?.value === 'own';
+  const name = document.getElementById('apptSummaryFabricName');
+  if (!name) return;
+  name.textContent = usesFabric ? `${clothName(cloth.id)} × ${apptQty || 1}` : own && quote.base !== null
+    ? visitCopy(`Your fabric · Tailoring ${money(OWN_FABRIC_RATE)} / garment`, `قماشك · الخياطة ${money(OWN_FABRIC_RATE)} / قطعة`)
+    : visitCopy('Tailoring service request', 'طلب خدمة خياطة');
+  const rateNote = document.getElementById('apptRateNote');
+  rateNote.hidden = !(own && quote.base !== null);
+  rateNote.textContent = visitCopy('SAR 120 per garment', '١٢٠ ر.س لكل قطعة');
+  document.getElementById('apptSummaryThumb').src = cloth.img;
+  document.getElementById('apptSummaryThumb').hidden = !usesFabric;
+  document.getElementById('apptSummaryOriginalPrice').textContent = usesFabric && (cloth.discount || quote.bundlePct) ? money(cloth.price * (apptQty || 1)) : '';
+  document.getElementById('apptSummaryFabricPrice').textContent = quote.base === null ? '' : money(quote.base);
+  document.getElementById('apptServiceQuote').hidden = quote.base !== null;
+  const pending = visitCopy('To be confirmed', 'يُؤكد لاحقاً');
+  document.getElementById('apptBaseLabel').textContent = (usesFabric ? visitCopy('Fabric + tailoring', 'القماش + الخياطة') : visitCopy('Tailoring', 'الخياطة')) + (quote.bundlePct ? ` · ${t('bundle.line').replace('{p}', String(quote.bundlePct))}` : '');
+  document.getElementById('apptBaseAmount').textContent = quote.base === null ? pending : money(quote.base);
+  document.getElementById('apptTravelAmount').textContent = quote.travel === null ? pending : money(quote.travel);
+  document.getElementById('apptTotalLabel').textContent = quote.total === null ? visitCopy('Known subtotal', 'المجموع المعلوم') : visitCopy('Total', 'الإجمالي');
+  document.getElementById('apptTotalAmount').textContent = quote.base === null ? pending : money(quote.total ?? quote.base);
+  document.getElementById('apptPriceNote').textContent = quote.travel === null
+    ? visitCopy('First 10 km free. Extra travel charge confirmed before your visit.', 'أول ١٠ كم مجاناً. تُؤكد رسوم المسافة الإضافية قبل الزيارة.')
+    : visitCopy(`${quote.distanceKm.toFixed(1)} km by road · Pay on delivery`, `${quote.distanceKm.toFixed(1)} كم بالطريق · الدفع عند الاستلام`);
+  document.getElementById('apptSubmitBtnText').textContent = visitCopy('Continue on WhatsApp', 'المتابعة عبر واتساب');
+  document.getElementById('apptSubmitBtn').disabled = bookingHandoffBusy || ['locating','resolving'].includes(visitLocation.status);
+  const other = document.querySelector('input[name="apptService"]:checked')?.value === 'other';
+  document.getElementById('apptRequestWrap').hidden = !other;
+  document.getElementById('apptRequest').required = other;
+  document.querySelectorAll('.appt-promo-card').forEach(card => {
+    const selected = document.querySelector('input[name="apptOwnership"]:checked')?.value !== 'own' && card.dataset.clothId === state.cloth;
+    card.classList.toggle('is-selected', selected); card.setAttribute('aria-pressed', selected);
+  });
 }
 
+let apptReturnFocus;
 function openApptModal() {
+  apptReturnFocus = document.activeElement;
+  clearVisitLocation();
   if (!els.apptModal) return;
   els.apptModal.hidden = false;
   requestAnimationFrame(() => {
     els.apptModal.classList.add("is-open");
+    els.apptCloseBtn?.focus();
   });
   document.body.style.overflow = "hidden";
 
@@ -2013,8 +2070,13 @@ function openApptModal() {
     els.apptDate.value = minDate;
   }
   if (els.apptCity) {
-    els.apptCity.value = state.city || "Riyadh";
+    els.apptCity.value = "";
   }
+  renderApptDistrictChips();
+  els.apptAddress.value='';
+  document.getElementById('apptAddressDetails').hidden=true;
+  document.getElementById('apptLocationResult').hidden=true;
+  loadBookingFont().catch(()=>{});
   apptQty = state.qty || 1;
   if (els.apptQtyVal) els.apptQtyVal.textContent = String(apptQty);
 
@@ -2040,15 +2102,52 @@ function openApptModal() {
 
 function closeApptModal() {
   if (!els.apptModal) return;
+  visitLocationVersion++;
   els.apptModal.classList.remove("is-open");
   setTimeout(() => {
     els.apptModal.hidden = true;
     document.body.style.overflow = "";
+    apptReturnFocus?.focus();
   }, 280);
 }
 
-function handleApptSubmit(e) {
+let lastBookingFile=null;
+let lastPreparedBooking=null;
+let lastBookingWhatsAppUrl=null;
+let bookingHandoffBusy=false;
+function configuredBookingRecipient(){
+  const digits=String(visitConfig?.whatsappNumber || '').replace(/[^0-9]/g,'');
+  return /^\d{8,15}$/.test(digits) && digits!=='966500000000' ? digits : null;
+}
+async function prepareBookingHandoff(booking,waUrl,whatsappWindow){
+  lastBookingFile=null;lastPreparedBooking=booking;
+  if(waUrl)lastBookingWhatsAppUrl=waUrl;
+  const status=document.getElementById('apptPdfStatus');
+  const download=document.getElementById('apptDownloadPdf');
+  const share=document.getElementById('apptSharePdf');
+  download.disabled=true;share.hidden=true;
+  try{
+    lastBookingFile=await bookingPdfFile(booking);
+    download.disabled=false;
+    download.textContent=visitCopy('Download booking PDF','تنزيل ملف الحجز');
+    share.textContent=visitCopy('Share PDF','مشاركة الملف');
+    let canShareFile=false;
+    try {canShareFile=Boolean(navigator.canShare?.({files:[lastBookingFile]}));}catch{}
+    share.hidden=!canShareFile;
+    downloadBookingPdf(lastBookingFile);
+    status.textContent=waUrl ? visitCopy('Your PDF is ready. Attach the downloaded file in WhatsApp and press Send, or use Share PDF on supported devices.', 'ملفك جاهز. أرفق الملف الذي تم تنزيله في واتساب واضغط إرسال، أو استخدم مشاركة الملف.') : visitCopy('PDF ready. The shop WhatsApp number still needs to be configured.', 'الملف جاهز. يجب إعداد رقم واتساب المتجر أولاً.');
+  }catch{
+    download.disabled=false;download.textContent=visitCopy('Retry booking PDF','إعادة إنشاء ملف الحجز');
+    status.textContent=visitCopy('PDF generation failed. Your details are available as WhatsApp text; please retry the PDF.', 'تعذر إنشاء الملف. تفاصيلك متاحة كنص واتساب؛ حاول إنشاء الملف مجدداً.');
+  }
+  if(waUrl){
+    try{if(whatsappWindow && !whatsappWindow.closed)whatsappWindow.location.href=waUrl;else status.textContent+=' '+visitCopy('Tap Open WhatsApp below if the browser blocked the new window.', 'اضغط فتح واتساب أدناه إذا منع المتصفح النافذة.');}catch{}
+  }
+}
+
+async function handleApptSubmit(e) {
   e.preventDefault();
+  if(bookingHandoffBusy)return;
   let valid = true;
 
   const nameInput = document.getElementById("apptName");
@@ -2076,9 +2175,16 @@ function handleApptSubmit(e) {
   if (!checkField(nameInput)) valid = false;
   if (!checkField(phoneInput, true)) valid = false;
   if (!checkField(dateInput)) valid = false;
+  if (!checkField(citySelect)) valid = false;
   if (!checkField(addressInput)) valid = false;
+  if (!checkField(document.getElementById('apptDistrict'))) valid = false;
+  const requestInput = document.getElementById('apptRequest');
+  if (serviceInput?.value === 'other' && !checkField(requestInput)) valid = false;
+  if (dateInput.value < dateInput.min) { dateInput.closest('.appt-field').classList.add('is-error'); valid = false; }
 
   if (!valid) {
+    document.getElementById('apptAddressDetails').hidden=false;
+    els.apptForm.querySelector('.is-error input,.is-error select')?.focus();
     showToast("toast.need");
     return;
   }
@@ -2089,22 +2195,20 @@ function handleApptSubmit(e) {
     atelier: lang === "ar" ? "زيارة فرع الأتيليه" : "Atelier Lounge Visit",
     consultancy: lang === "ar" ? "استشارة تصميم ومظهر" : "Style Consultation",
     lounge: lang === "ar" ? "زيارة فرع الأتيليه" : "Atelier Lounge Visit",
+    alterations: lang === "ar" ? "تعديلات" : "Alterations",
+    other: lang === "ar" ? "طلب آخر" : "Other request",
     wedding: lang === "ar" ? "استشارة تصميم ومظهر" : "Style Consultation",
   };
 
-  const distTitles = {
-    "0-15": "0 – 15 km (0 SAR)",
-    "15-35": "15 – 35 km (+25 SAR)",
-    "35-70": "35 – 70 km (+50 SAR)",
-  };
-  const distText = distTitles[apptDistanceZone] || "0 – 15 km (0 SAR)";
-
-  const clothPrefValue = clothPrefSelect ? clothPrefSelect.value : "current";
-  const clothSummary = clothPrefValue === "current" ? clothName(state.cloth) : clothPrefSelect.options[clothPrefSelect.selectedIndex].text;
-  const clothObj = CLOTHS.find((c) => c.id === state.cloth) || CLOTHS[0];
-  const unitPrice = getDiscountedPrice(clothObj);
-  const distanceFee = DISTANCE_FEES[apptDistanceZone] !== undefined ? DISTANCE_FEES[apptDistanceZone] : 0;
-  const bookingTotal = (unitPrice * apptQty) + distanceFee;
+  const quote = appointmentQuote();
+  const distText = quote.distanceKm === null ? visitCopy('Distance and travel charge to be confirmed', 'تُؤكد المسافة ورسوم الزيارة لاحقاً') : `${quote.distanceKm.toFixed(1)} km · ${quote.travel === null ? visitCopy('Charge to be confirmed', 'تُؤكد الرسوم لاحقاً') : money(quote.travel)}`;
+  const usesFabric = apptUsesFabric();
+  const own = document.querySelector('input[name="apptOwnership"]:checked').value === 'own';
+  const clothSummary = usesFabric ? clothName(state.cloth) : own && serviceType === 'home' ? visitCopy(`Customer fabric · Tailoring ${money(OWN_FABRIC_RATE)} / garment`, `قماش العميل · الخياطة ${money(OWN_FABRIC_RATE)} / قطعة`) : visitCopy('Service price after assessment', 'سعر الخدمة بعد المعاينة');
+  const bundleNote = quote.bundlePct ? ` · ${t('bundle.line').replace('{p}', String(quote.bundlePct))} (−${money(quote.bundleSavings)})` : '';
+  const distanceFee = quote.travel;
+  const bookingTotal = quote.total;
+  const priceSummary = quote.base === null ? visitCopy('Price after assessment', 'السعر بعد المعاينة') : quote.total === null ? visitCopy(`${money(quote.base)} + travel charge to be confirmed`, `${money(quote.base)} + رسوم الزيارة تُؤكد لاحقاً`) : money(quote.total);
 
   const bookingId = Date.now();
   const ref = `ALD-APT-${String(bookingId).slice(-4)}`;
@@ -2114,31 +2218,44 @@ function handleApptSubmit(e) {
     ref: ref,
     name: nameInput.value.trim(),
     phone: phoneInput.value.trim(),
-    city: citySelect ? citySelect.value : state.city,
+    city: citySelect.value,
+    cityLabel: citySelect.selectedOptions[0].textContent,
+    district: document.getElementById('apptDistrict').value === 'other' ? '' : document.getElementById('apptDistrict').selectedOptions[0].textContent,
+    customerNote: document.getElementById('apptNote').value.trim(),
     address: addressInput.value.trim(),
+    fabricOwnership: document.querySelector('input[name="apptOwnership"]:checked').value,
+    request: serviceType === "other" ? requestInput.value.trim() : "",
     date: dateInput.value,
     slot: slotSelect ? slotSelect.value : "14:00 – 18:00",
-    service: serviceTitles[serviceType] || serviceType,
-    distanceZone: apptDistanceZone,
+    service: (serviceTitles[serviceType] || serviceType) + (serviceType === "other" && requestInput.value.trim() ? ` — ${requestInput.value.trim()}` : ""),
+    distanceZone: null,
+    distanceKm: quote.distanceKm,
+    coordinates: visitLocation.coords,
+    locationLink: visitLocation.coords ? `https://maps.google.com/?q=${visitLocation.coords.latitude},${visitLocation.coords.longitude}` : '',
+    note: `${serviceTitles[serviceType] || serviceType}${serviceType === 'other' ? `: ${requestInput.value.trim()}` : ''}` + (visitLocation.coords ? ` · https://maps.google.com/?q=${visitLocation.coords.latitude},${visitLocation.coords.longitude}` : ''),
+    baseAmount: quote.base,
+    priceSummary,
     distanceFee: distanceFee,
     cloth: state.cloth,
-    clothName: clothSummary,
+    clothName: clothSummary + bundleNote,
+    clothImage: usesFabric ? (CLOTHS.find(c=>c.id===state.cloth)?.img || "") : "",
     qty: apptQty,
     total: bookingTotal,
     pay: "COD",
     status: "pending",
   };
 
-  const list = loadBookings();
-  list.unshift(booking);
-  saveBookings(list.slice(0, 24));
-  renderDesk();
+  const waUrl=bookingWhatsAppUrl(booking,configuredBookingRecipient(),lang);
+  // Reserve a window during the customer click; asynchronous PDF work must not trigger popup blocking.
+  const whatsappWindow=waUrl ? window.open('about:blank','_blank') : null;
+  if(whatsappWindow) whatsappWindow.opener=null;
+  booking.note += booking.customerNote ? ` · ${booking.customerNote}` : '';
+  bookingHandoffBusy=true;
+  document.getElementById('apptSubmitBtn').disabled=true;
+  document.getElementById('apptSubmitBtnText').textContent=visitCopy('Preparing your PDF…','جارٍ إعداد ملفك…');
+  try {await prepareBookingHandoff(booking,waUrl,whatsappWindow);}finally{bookingHandoffBusy=false;updateApptSummary();}
+  const list=loadBookings();list.unshift(booking);saveBookings(list.slice(0,24));
 
-  const waMsg = lang === "ar"
-    ? `السلام عليكم، حجز موعد من أتيليه الدرزي.\nالمرجع: ${ref}\nالاسم: ${booking.name}\nالجوال: ${booking.phone}\nنوع الخدمة: ${booking.service}\nنطاق المسافة: ${distText}\nالمدينة: ${cityName(booking.city)}\nالعنوان: ${booking.address}\nالتاريخ: ${booking.date} (${booking.slot})\nالقماش: ${clothSummary} (الكمية: ${apptQty})\nالمبلغ الإجمالي: ${money(bookingTotal)} (الدفع عند الاستلام)`
-    : `As-salamu alaykum, AL-DORZY Atelier Appointment.\nRef: ${ref}\nName: ${booking.name}\nMobile: ${booking.phone}\nService: ${booking.service}\nDistance Radius: ${distText}\nCity: ${cityName(booking.city)}\nAddress: ${booking.address}\nDate: ${booking.date} (${booking.slot})\nFabric: ${clothSummary} (Qty: ${apptQty})\nTotal Amount: ${money(bookingTotal)} (Pay on Delivery)`;
-
-  const waUrl = waLink(waMsg);
 
   if (els.apptForm) els.apptForm.hidden = true;
   if (els.apptSuccess) {
@@ -2163,17 +2280,18 @@ function handleApptSubmit(e) {
         </div>
         <div class="appt-ticket__item">
           <small>${lang === "ar" ? "المدينة والعنوان" : "Location"}</small>
-          <strong>${cityName(booking.city)} — ${escapeHtml(booking.address)}</strong>
+          <strong>${escapeHtml(cityName(booking.city))} — ${escapeHtml(booking.address)}</strong>
         </div>
         <div class="appt-ticket__item">
           <small>${lang === "ar" ? "المبلغ والدفع" : "Total & Payment"}</small>
-          <strong style="color: var(--gold);">${money(bookingTotal)} (${lang === "ar" ? "الدفع عند الاستلام" : "Pay on Delivery"})</strong>
+          <strong style="color: var(--gold);">${priceSummary} (${lang === "ar" ? "الدفع عند الاستلام" : "Pay on Delivery"})</strong>
         </div>
       `;
     }
 
     if (els.apptSuccessWa) {
-      els.apptSuccessWa.href = waUrl;
+      els.apptSuccessWa.href = waUrl || '#';
+      els.apptSuccessWa.hidden = !waUrl;
     }
   }
 
@@ -2181,6 +2299,28 @@ function handleApptSubmit(e) {
 }
 
 function initApptModal() {
+  fetch('/visit-config.json').then(r=>r.ok?r.json():null).then(config=>{visitConfig=config;const receiver=configuredBookingRecipient();if(receiver){WA_NUMBER=receiver;['navWa','waFab'].forEach(id=>{const link=document.getElementById(id);if(link)link.href=waLink();});}updateApptSummary();}).catch(()=>{});
+  document.getElementById('apptLocateBtn')?.addEventListener('click',detectVisitLocation);
+  document.getElementById('apptManualBtn')?.addEventListener('click',()=>{
+    clearVisitLocation();visitLocation.status='manual';
+    locationVisual('manual',visitCopy('Enter your visit address. Travel charge will be confirmed.', 'أدخل عنوان الزيارة. ستُؤكد رسوم الزيارة لاحقاً.'));
+    document.getElementById('apptAddressDetails').hidden=false;document.getElementById('apptLocationResult').hidden=true;els.apptCity.focus();
+  });
+  document.getElementById('apptDownloadPdf')?.addEventListener('click',()=>{if(lastBookingFile)downloadBookingPdf(lastBookingFile);else if(lastPreparedBooking)prepareBookingHandoff(lastPreparedBooking,lastBookingWhatsAppUrl,null);});
+  document.getElementById('apptSharePdf')?.addEventListener('click',async()=>{
+    if(!lastBookingFile)return;
+    try {await navigator.share({files:[lastBookingFile],title:lastBookingFile.name,text:visitCopy('Choose WhatsApp, then the atelier contact.', 'اختر واتساب ثم جهة اتصال الأتيليه.')});}
+    catch(error){if(error.name!=='AbortError')document.getElementById('apptPdfStatus').textContent=visitCopy('File sharing unavailable. Download the PDF and attach it in WhatsApp.', 'تعذرت المشاركة. نزّل الملف وأرفقه في واتساب.');}
+  });
+  document.getElementById('apptDistrict')?.addEventListener('change', () => { if(visitLocation.distanceKm !== null) clearVisitLocation(); });
+  document.getElementById('apptAddress')?.addEventListener('input', () => { if (visitLocation.distanceKm !== null) clearVisitLocation(); });
+  els.apptModal?.addEventListener('keydown', e => {
+    if (e.key !== 'Tab') return;
+    const nodes = [...els.apptModal.querySelectorAll('button,input,select,a[href]')].filter(n => !n.disabled && n.getClientRects().length);
+    const first = nodes[0], last = nodes.at(-1);
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus(); }
+    if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
+  });
   if (els.navBookVisit) {
     els.navBookVisit.addEventListener("click", (e) => {
       e.preventDefault();
@@ -2222,6 +2362,7 @@ function initApptModal() {
 
   if (els.apptCity) {
     els.apptCity.addEventListener("change", () => {
+      clearVisitLocation();
       renderApptDistrictChips();
       if (typeof updateJourneyStoryUI === "function") updateJourneyStoryUI();
     });
@@ -2253,6 +2394,7 @@ function initApptModal() {
     });
   }
 
+  document.querySelectorAll('input[name="apptOwnership"]').forEach(radio => radio.addEventListener('change', updateApptSummary));
   document.querySelectorAll('input[name="apptService"]').forEach((radio) => {
     radio.addEventListener("change", () => {
       updateApptServiceCards();
@@ -2353,128 +2495,12 @@ function initSaasTicker() {
 
   startAutoPlay();
 
-  // Flash Sale Live Countdown Timer
-  const timerEl = document.getElementById("saasTimer");
-  if (timerEl) {
-    const STORAGE_KEY = "qasr_flash_end";
-    let endTime = parseInt(sessionStorage.getItem(STORAGE_KEY) || "0", 10);
-    const now = Date.now();
-    // 3 hours, 45 minutes, 18 seconds (13518000 ms) duration
-    if (!endTime || endTime < now) {
-      endTime = now + (3 * 3600 + 45 * 60 + 18) * 1000;
-      sessionStorage.setItem(STORAGE_KEY, String(endTime));
-    }
-
-    const updateTimer = () => {
-      const remaining = Math.max(0, endTime - Date.now());
-      const hours = Math.floor(remaining / (1000 * 60 * 60));
-      const mins = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-      const secs = Math.floor((remaining % (1000 * 60)) / 1000);
-      const pad = (n) => String(n).padStart(2, "0");
-      timerEl.textContent = `${pad(hours)}:${pad(mins)}:${pad(secs)}`;
-    };
-
-    updateTimer();
-    setInterval(updateTimer, 1000);
-  }
 }
 
-const kpiIo = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        countUp();
-        kpiIo.disconnect();
-      }
-    });
-  },
-  { threshold: 0.3 }
-);
-kpiIo.observe(document.getElementById("kpis"));
 
 // ==========================================================================
-// AL-DORZY Bespoke Journey — video player + animated offer rail
+// Namaa Al Qimmah Bespoke Journey — video player + animated offer rail
 // ==========================================================================
-
-const JOURNEY_OFFERS = [
-  {
-    id: "jp-ivory",
-    clothId: "jp-ivory",
-    img: "/jubba/Image/banner-discount-japanese-toyobo-3x4.jpg",
-    badgeKey: "offer.1.badge",
-    titleKey: "offer.1.title",
-    noteKey: "offer.1.note",
-    ctaKey: "offer.book",
-    action: "cloth",
-  },
-  {
-    id: "kr-opal",
-    clothId: "kr-opal",
-    img: "/jubba/Image/banner-discount-korean-crepe-16x9.jpg",
-    badgeKey: "offer.2.badge",
-    titleKey: "offer.2.title",
-    noteKey: "offer.2.note",
-    ctaKey: "offer.book",
-    action: "cloth",
-  },
-  {
-    id: "cn-white",
-    clothId: "cn-white",
-    img: "/jubba/Image/banner-discount-dynasty-cotton-16x9.jpg",
-    badgeKey: "offer.3.badge",
-    titleKey: "offer.3.title",
-    noteKey: "offer.3.note",
-    ctaKey: "offer.book",
-    action: "cloth",
-  },
-  {
-    id: "th-breeze",
-    clothId: "th-breeze",
-    img: "/jubba/Image/banner-discount-thai-linen-3x4.jpg",
-    badgeKey: "offer.4.badge",
-    titleKey: "offer.4.title",
-    noteKey: "offer.4.note",
-    ctaKey: "offer.book",
-    action: "cloth",
-  },
-  {
-    id: "visit",
-    clothId: null,
-    img: "/jubba/Image/banner-delivery-van.jpg",
-    badgeKey: "offer.5.badge",
-    titleKey: "offer.5.title",
-    noteKey: "offer.5.note",
-    priceKey: "offer.5.price",
-    ctaKey: "offer.bookVisit",
-    action: "visit",
-  },
-  {
-    id: "royal15",
-    clothId: null,
-    img: "/jubba/Image/banner-privilege-card.jpg",
-    badgeKey: "offer.6.badge",
-    titleKey: "offer.6.title",
-    noteKey: "offer.6.note",
-    priceKey: "offer.6.price",
-    ctaKey: "offer.copy",
-    action: "code",
-    code: "ROYAL15",
-  },
-];
-
-function offerPriceParts(offer) {
-  if (offer.clothId) {
-    const cloth = CLOTHS.find((c) => c.id === offer.clothId);
-    if (!cloth) return { was: "", now: "", showWas: false };
-    const discounted = Boolean(cloth.discount);
-    return {
-      was: discounted ? money(cloth.price) : "",
-      now: money(getDiscountedPrice(cloth)),
-      showWas: discounted,
-    };
-  }
-  return { was: "", now: t(offer.priceKey || ""), showWas: false };
-}
 
 function initJourneyStory() {
   const container = document.getElementById("dorzyJourney");
@@ -2494,16 +2520,10 @@ function initJourneyStory() {
   const seek = document.getElementById("journeyVidSeek");
   const timeEl = document.getElementById("journeyVidTime");
   const durEl = document.getElementById("journeyVidDur");
-  const stage = document.getElementById("offerStage");
-  const rail = document.getElementById("offerRail");
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const OFFER_MS = 4600;
   let userPaused = reduceMotion;
   let seeking = false;
-  let offerIdx = 0;
-  let offerTimer = null;
-  let offerPaused = false;
 
   const fmt = (seconds) => {
     if (!Number.isFinite(seconds) || seconds < 0) return "0:00";
@@ -2555,158 +2575,7 @@ function initJourneyStory() {
     }
   };
 
-  if (stage && rail) {
-    stage.innerHTML = JOURNEY_OFFERS.map((offer, i) => `
-      <article class="offer-card${i === 0 ? " is-active" : ""}" data-offer="${offer.id}" role="tabpanel">
-        <div class="offer-card__media">
-          <img class="offer-card__img" src="${offer.img}" alt="" />
-          <span class="offer-card__shine" aria-hidden="true"></span>
-          <span class="offer-card__live"><span data-badge></span></span>
-        </div>
-        <div class="offer-card__body">
-          <strong class="offer-card__title" data-title></strong>
-          <p class="offer-card__note" data-note></p>
-          <p class="offer-card__price">
-            <s data-was hidden></s>
-            <b data-now></b>
-          </p>
-          <button type="button" class="offer-card__cta" data-cta>
-            <span data-cta-label></span>
-            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-          </button>
-        </div>
-        <div class="offer-card__progress" aria-hidden="true"><span data-progress></span></div>
-      </article>
-    `).join("");
-
-    rail.innerHTML = JOURNEY_OFFERS.map((offer, i) => `
-      <button type="button" class="offer-thumb${i === 0 ? " is-active" : ""}" data-offer="${offer.id}" role="tab" aria-selected="${i === 0}">
-        <img src="${offer.img}" alt="" />
-        <span data-thumb></span>
-      </button>
-    `).join("");
-  }
-
-  const cards = stage ? Array.from(stage.querySelectorAll(".offer-card")) : [];
-  const thumbs = rail ? Array.from(rail.querySelectorAll(".offer-thumb")) : [];
-
-  const paintOffers = () => {
-    JOURNEY_OFFERS.forEach((offer, i) => {
-      const card = cards[i];
-      const thumb = thumbs[i];
-      if (!card) return;
-      const price = offerPriceParts(offer);
-      const badge = card.querySelector("[data-badge]");
-      const title = card.querySelector("[data-title]");
-      const note = card.querySelector("[data-note]");
-      const was = card.querySelector("[data-was]");
-      const now = card.querySelector("[data-now]");
-      const cta = card.querySelector("[data-cta-label]");
-      if (badge) badge.textContent = t(offer.badgeKey);
-      if (title) title.textContent = t(offer.titleKey);
-      if (note) note.textContent = t(offer.noteKey);
-      if (cta) cta.textContent = t(offer.ctaKey);
-      if (was) {
-        was.hidden = !price.showWas;
-        was.textContent = price.was;
-      }
-      if (now) now.textContent = price.now;
-      const img = card.querySelector("img");
-      if (img) img.alt = t(offer.titleKey);
-      if (thumb) {
-        const label = thumb.querySelector("[data-thumb]");
-        if (label) label.textContent = t(offer.badgeKey);
-        thumb.setAttribute("aria-label", t(offer.titleKey));
-      }
-    });
-    const offers = document.getElementById("journeyOffers");
-    if (offers) offers.setAttribute("aria-label", t("journey.offersAria"));
-  };
-
-  const restartProgress = () => {
-    const active = cards[offerIdx];
-    if (!active) return;
-    const bar = active.querySelector("[data-progress]");
-    if (!bar) return;
-    bar.style.animation = "none";
-    void bar.offsetWidth;
-    if (!offerPaused && !reduceMotion) {
-      bar.style.animation = `offerProgress ${OFFER_MS}ms linear`;
-    } else {
-      bar.style.transform = "scaleX(1)";
-    }
-  };
-
-  const showOffer = (idx) => {
-    if (!cards.length) return;
-    offerIdx = (idx + cards.length) % cards.length;
-    cards.forEach((card, i) => {
-      const prev = (offerIdx - 1 + cards.length) % cards.length;
-      card.classList.toggle("is-active", i === offerIdx);
-      card.classList.toggle("is-prev", i === prev && i !== offerIdx);
-    });
-    thumbs.forEach((thumb, i) => {
-      const on = i === offerIdx;
-      thumb.classList.toggle("is-active", on);
-      thumb.setAttribute("aria-selected", String(on));
-      if (on && rail) {
-        const left = thumb.offsetLeft - rail.clientWidth / 2 + thumb.clientWidth / 2;
-        rail.scrollTo({ left: Math.max(0, left), behavior: reduceMotion ? "auto" : "smooth" });
-      }
-    });
-    restartProgress();
-  };
-
-  const startOfferTimer = () => {
-    if (offerTimer) clearInterval(offerTimer);
-    if (reduceMotion || cards.length < 2) return;
-    offerTimer = setInterval(() => {
-      if (offerPaused || document.hidden) return;
-      showOffer(offerIdx + 1);
-    }, OFFER_MS);
-  };
-
-  const runOfferAction = async (offer) => {
-    if (!offer) return;
-    if (offer.action === "cloth" && offer.clothId) setCloth(offer.clothId);
-    if (offer.action === "code" && offer.code) {
-      try {
-        await navigator.clipboard.writeText(offer.code);
-      } catch (_) {
-        const inp = document.createElement("input");
-        inp.value = offer.code;
-        document.body.appendChild(inp);
-        inp.select();
-        document.execCommand("copy");
-        document.body.removeChild(inp);
-      }
-      showToast("banner.copied");
-    }
-    if (typeof openApptModal === "function") openApptModal();
-  };
-
-  cards.forEach((card, i) => {
-    const cta = card.querySelector("[data-cta]");
-    if (!cta) return;
-    cta.addEventListener("click", () => runOfferAction(JOURNEY_OFFERS[i]));
-  });
-  thumbs.forEach((thumb, i) => {
-    thumb.addEventListener("click", () => showOffer(i));
-  });
-
-  if (stage) {
-    stage.addEventListener("mouseenter", () => { offerPaused = true; });
-    stage.addEventListener("mouseleave", () => { offerPaused = false; restartProgress(); });
-    stage.addEventListener("focusin", () => { offerPaused = true; });
-    stage.addEventListener("focusout", () => { offerPaused = false; restartProgress(); });
-  }
-
-  paintOffers();
-  showOffer(0);
-  startOfferTimer();
-
   updateJourneyStoryUI = () => {
-    paintOffers();
     syncTransport();
   };
 
@@ -2792,319 +2661,318 @@ function initJourneyStory() {
 
 
 // ==========================================================================
-// House cuts collage + limited cloth offer
+// Pair a cut with a cloth — step picker (cut → cloth → preview + price)
 // ==========================================================================
 const HOUSE_CUTS = [
+  { style: "Saideria", img: "/jubba/Image/saideria.png", nameKey: "cuts.saideria", badgeKey: "cuts.badge15" },
+  { style: "Dagla", img: "/jubba/Image/dagla.png", nameKey: "cuts.dagla", badgeKey: "cuts.badge20" },
+  { style: "Code", img: "/jubba/Image/code.png", nameKey: "cuts.code", badgeKey: "cuts.badge10" },
   { style: "Saudi", img: "/jubba/Image/saudi.png", nameKey: "cuts.saudi" },
   { style: "Kowaity", img: "/jubba/Image/kowaity.png", nameKey: "cuts.kowaity" },
   { style: "Qutari", img: "/jubba/Image/qutari.png", nameKey: "cuts.qutari" },
   { style: "Emaraty", img: "/jubba/Image/emaraty.png", nameKey: "cuts.emaraty" },
   { style: "Noom", img: "/jubba/Image/noom.png", nameKey: "cuts.noom" },
-  { style: "Saideria", img: "/jubba/Image/saideria.png", nameKey: "cuts.saideria", badgeKey: "cuts.badge15" },
-  { style: "Dagla", img: "/jubba/Image/dagla.png", nameKey: "cuts.dagla", badgeKey: "cuts.badge20" },
-  { style: "Code", img: "/jubba/Image/code.png", nameKey: "cuts.code", badgeKey: "cuts.badge10" },
 ];
 
-const CUT_OFFERS = [
-  {
-    style: "Saideria",
-    clothId: "jp-ivory",
-    img: "/jubba/Image/banner-discount-japanese-toyobo-3x4.jpg",
-    badgeKey: "cuts.badge15",
-    titleKey: "cuts.o1.title",
-    noteKey: "cuts.o1.note",
-  },
-  {
-    style: "Dagla",
-    clothId: "kr-opal",
-    img: "/jubba/Image/banner-discount-korean-crepe-16x9.jpg",
-    badgeKey: "cuts.badge20",
-    titleKey: "cuts.o2.title",
-    noteKey: "cuts.o2.note",
-  },
-  {
-    style: "Code",
-    clothId: "cn-white",
-    img: "/jubba/Image/banner-discount-dynasty-cotton-16x9.jpg",
-    badgeKey: "cuts.badge10",
-    titleKey: "cuts.o3.title",
-    noteKey: "cuts.o3.note",
-  },
-  {
-    style: "Saudi",
-    clothId: "th-breeze",
-    img: "/jubba/Image/banner-discount-thai-linen-3x4.jpg",
-    badgeKey: "cuts.pick",
-    titleKey: "cuts.o4.title",
-    noteKey: "cuts.o4.note",
-  },
-];
+let pairCut = "Saideria";
+
+function currentStudioStyle() {
+  return document.querySelector("#styleStrip .style-chip.is-on")?.dataset.style || pairCut;
+}
 
 function bookHouseCut(styleName, clothId) {
   const chip = document.querySelector(`#styleStrip .style-chip[data-style="${styleName}"]`);
-  if (chip) chip.click();
+  if (chip && !chip.classList.contains("is-on")) chip.click();
   if (clothId) setCloth(clothId);
   if (typeof openApptModal === "function") openApptModal();
 }
 
-function initHouseCuts() {
-  const collage = document.getElementById("cutsCollage");
-  const stage = document.getElementById("cutOfferStage");
-  if (!collage || !stage) return;
-
-  const feature = document.getElementById("cutsFeature");
-  const featureImg = document.getElementById("cutsFeatureImg");
-  const featureName = document.getElementById("cutsFeatureName");
-  const featureChip = document.getElementById("cutsFeatureChip");
-  const tiles = Array.from(collage.querySelectorAll(".cuts-tile"));
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let cutIdx = HOUSE_CUTS.findIndex((cut) => cut.style === "Saideria");
-  if (cutIdx < 0) cutIdx = 0;
-  let offerIdx = 0;
-  let cutTimer = null;
-  let offerTimer = null;
-  let cutPaused = false;
-  let offerPaused = false;
-
-  stage.innerHTML = CUT_OFFERS.map((offer, i) => `
-    <article class="cut-banner${i === 0 ? " is-active" : ""}">
-      <div class="cut-banner__media">
-        <img src="${offer.img}" alt="" data-img />
-        <span class="cut-banner__shine" aria-hidden="true"></span>
-        <span class="cut-banner__badge" data-badge></span>
-      </div>
-      <div class="cut-banner__body">
-        <strong data-title></strong>
-        <p data-note></p>
-        <p class="cut-banner__price"><s data-was hidden></s><b data-now></b></p>
-        <button type="button" data-cta><span data-cta-label></span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
-      </div>
-    </article>
-  `).join("");
-
-  const banners = Array.from(stage.querySelectorAll(".cut-banner"));
-
-  const paint = () => {
-    const cut = HOUSE_CUTS[cutIdx];
-    if (featureName) featureName.textContent = t(cut.nameKey);
-    if (featureChip) {
-      featureChip.hidden = !cut.badgeKey;
-      featureChip.textContent = cut.badgeKey ? t(cut.badgeKey) : "";
-    }
-    if (featureImg) featureImg.alt = t(cut.nameKey);
-    tiles.forEach((tile) => {
-      const name = tile.querySelector("b");
-      const key = HOUSE_CUTS.find((item) => item.style === tile.dataset.style)?.nameKey;
-      if (name && key) name.textContent = t(key);
-      const chip = tile.querySelector(".cuts-chip");
-      const badgeKey = HOUSE_CUTS.find((item) => item.style === tile.dataset.style)?.badgeKey;
-      if (chip && badgeKey) chip.textContent = t(badgeKey);
-    });
-    banners.forEach((banner, i) => {
-      const offer = CUT_OFFERS[i];
-      const cloth = CLOTHS.find((item) => item.id === offer.clothId);
-      banner.querySelector("[data-badge]").textContent = t(offer.badgeKey);
-      banner.querySelector("[data-title]").textContent = t(offer.titleKey);
-      banner.querySelector("[data-note]").textContent = t(offer.noteKey);
-      banner.querySelector("[data-cta-label]").textContent = t("cuts.book");
-      banner.querySelector("[data-img]").alt = t(offer.titleKey);
-      const was = banner.querySelector("[data-was]");
-      const now = banner.querySelector("[data-now]");
-      if (cloth && cloth.discount) {
-        was.hidden = false;
-        was.textContent = money(cloth.price);
-        now.textContent = money(getDiscountedPrice(cloth));
-      } else if (cloth) {
-        was.hidden = true;
-        now.textContent = money(cloth.price);
-      }
-    });
-    const aside = document.getElementById("cutOffers");
-    if (aside) aside.setAttribute("aria-label", t("cuts.offerAria"));
-  };
-
-  const showCut = (idx) => {
-    cutIdx = (idx + HOUSE_CUTS.length) % HOUSE_CUTS.length;
-    const cut = HOUSE_CUTS[cutIdx];
-    if (feature) feature.dataset.style = cut.style;
-    if (featureImg && featureImg.getAttribute("src") !== cut.img) {
-      featureImg.classList.add("is-swap");
-      window.setTimeout(() => {
-        featureImg.src = cut.img;
-        featureImg.alt = t(cut.nameKey);
-        featureImg.classList.remove("is-swap");
-      }, reduceMotion ? 0 : 180);
-    }
-    if (featureName) featureName.textContent = t(cut.nameKey);
-    if (featureChip) {
-      featureChip.hidden = !cut.badgeKey;
-      if (cut.badgeKey) featureChip.textContent = t(cut.badgeKey);
-    }
-    tiles.forEach((tile) => tile.classList.toggle("is-on", tile.dataset.style === cut.style));
-  };
-
-  const showOffer = (idx) => {
-    offerIdx = (idx + banners.length) % banners.length;
-    banners.forEach((banner, i) => {
-      banner.classList.toggle("is-active", i === offerIdx);
-      banner.classList.toggle("is-prev", i === (offerIdx - 1 + banners.length) % banners.length);
-    });
-  };
-
-  tiles.forEach((tile) => {
-    tile.addEventListener("click", () => {
-      const cut = HOUSE_CUTS.find((item) => item.style === tile.dataset.style);
-      const offer = CUT_OFFERS.find((item) => item.style === tile.dataset.style);
-      showCut(HOUSE_CUTS.indexOf(cut));
-      if (offer) showOffer(CUT_OFFERS.indexOf(offer));
-      bookHouseCut(tile.dataset.style, offer ? offer.clothId : null);
-    });
+function paintPair() {
+  const cutsEl = document.getElementById("pairCuts");
+  const clothsEl = document.getElementById("pairCloths");
+  if (!cutsEl || !clothsEl || !cutsEl.children.length) return;
+  const cut = HOUSE_CUTS.find((c) => c.style === pairCut) || HOUSE_CUTS[0];
+  const q = quoteOf();
+  cutsEl.querySelectorAll("[data-style]").forEach((btn) => {
+    const item = HOUSE_CUTS.find((c) => c.style === btn.dataset.style);
+    const on = btn.dataset.style === cut.style;
+    btn.classList.toggle("is-on", on);
+    btn.setAttribute("aria-checked", String(on));
+    btn.querySelector("b").textContent = t(item.nameKey);
+    const chip = btn.querySelector(".pair-card__tag");
+    if (chip) chip.textContent = t(item.badgeKey);
   });
-  if (feature) {
-    feature.addEventListener("click", () => {
-      const styleName = feature.dataset.style;
-      const offer = CUT_OFFERS.find((item) => item.style === styleName);
-      bookHouseCut(styleName, offer ? offer.clothId : null);
-    });
-  }
-  banners.forEach((banner, i) => {
-    banner.querySelector("[data-cta]").addEventListener("click", () => {
-      const offer = CUT_OFFERS[i];
-      showCut(HOUSE_CUTS.findIndex((cut) => cut.style === offer.style));
-      bookHouseCut(offer.style, offer.clothId);
-    });
+  clothsEl.querySelectorAll("[data-cloth]").forEach((btn) => {
+    const cloth = CLOTHS.find((c) => c.id === btn.dataset.cloth);
+    const on = cloth.id === q.cloth.id;
+    btn.classList.toggle("is-on", on);
+    btn.setAttribute("aria-checked", String(on));
+    btn.querySelector("b").textContent = clothName(cloth.id);
+    btn.querySelector("[data-now]").textContent = money(getDiscountedPrice(cloth));
+    const tag = btn.querySelector(".pair-card__tag");
+    if (tag) tag.textContent = lang === "ar" ? cloth.discountTagAr : cloth.discountTagEn;
   });
-
-  collage.addEventListener("mouseenter", () => { cutPaused = true; });
-  collage.addEventListener("mouseleave", () => { cutPaused = false; });
-  stage.addEventListener("mouseenter", () => { offerPaused = true; });
-  stage.addEventListener("mouseleave", () => { offerPaused = false; });
-
-  paint();
-  showCut(cutIdx);
-  showOffer(0);
-
-  if (!reduceMotion) {
-    cutTimer = setInterval(() => {
-      if (!cutPaused && !document.hidden) showCut(cutIdx + 1);
-    }, 3800);
-    offerTimer = setInterval(() => {
-      if (!offerPaused && !document.hidden) showOffer(offerIdx + 1);
-    }, 4600);
+  const set = (id, v) => { const n = document.getElementById(id); if (n) n.textContent = v; };
+  const img = document.getElementById("pairCutImg");
+  if (img && img.getAttribute("src") !== cut.img) {
+    img.classList.add("is-swap");
+    window.setTimeout(() => { img.src = cut.img; img.classList.remove("is-swap"); }, 160);
   }
-
-  const previous = updateJourneyStoryUI;
-  updateJourneyStoryUI = () => {
-    if (typeof previous === "function") previous();
-    paint();
-  };
-  void cutTimer;
-  void offerTimer;
+  if (img) img.alt = t(cut.nameKey);
+  const sw = document.getElementById("pairSwatchImg");
+  if (sw) { sw.src = q.cloth.img; sw.alt = clothName(q.cloth.id); }
+  const badge = document.getElementById("pairBadge");
+  if (badge) {
+    badge.hidden = !q.cloth.discount;
+    badge.textContent = q.cloth.discount ? (lang === "ar" ? q.cloth.discountTagAr : q.cloth.discountTagEn) : "";
+  }
+  set("pairName", `${t(cut.nameKey)} · ${clothName(q.cloth.id)}`);
+  const was = document.getElementById("pairWas");
+  if (was) { was.hidden = !q.cloth.discount; was.textContent = q.cloth.discount ? money(q.cloth.price) : ""; }
+  set("pairNow", money(q.unitPrice));
+  set("pairQty", String(state.qty));
+  set("pairTotal", money(q.total));
+  set("pairBundle", q.bundlePct ? `${t("bundle.line").replace("{p}", String(q.bundlePct))} · −${money(q.bundleSavings)}` : bundleHint(state.qty));
+  const bundleEl = document.getElementById("pairBundle");
+  if (bundleEl) bundleEl.classList.toggle("is-on", Boolean(q.bundlePct));
+  const wa = document.getElementById("pairWa");
+  if (wa) {
+    const msg = t("pair.msg").replace("{cut}", t(cut.nameKey)).replace("{cloth}", clothName(q.cloth.id)).replace("{qty}", String(state.qty)).replace("{total}", money(q.total));
+    wa.href = waLink(msg);
+  }
 }
 
-// ==========================================================================
-// Privilege Offer Live Countdown Timer Controller
-// ==========================================================================
-function initGalleryTimer() {
-  const card = document.getElementById("galleryTimerCard");
-  const cutClock = document.getElementById("cutTimerClock");
-  if (!card && !cutClock) return;
+function watchPairForFab() {
+  // Desktop: the floating WhatsApp button would sit on top of the Pair preview's
+  // Total row. The preview has its own WhatsApp CTA, so tuck the FAB away while
+  // the preview is on screen.
+  const preview = document.getElementById("pairPreview");
+  if (!preview || !("IntersectionObserver" in window)) return;
+  new IntersectionObserver((entries) => {
+    entries.forEach((e) => document.body.classList.toggle("pair-in-view", e.isIntersecting));
+  }, { threshold: 0.15 }).observe(preview);
+}
 
-  const daysEl = document.getElementById("timerDays");
-  const hoursEl = document.getElementById("timerHours");
-  const minsEl = document.getElementById("timerMins");
-  const secsEl = document.getElementById("timerSecs");
-  const copyBtn = document.getElementById("galleryCopyBtn");
-  const ctaBtn = document.getElementById("galleryTimerCta");
+function initHouseCuts() {
+  watchPairForFab();
+  const cutsEl = document.getElementById("pairCuts");
+  const clothsEl = document.getElementById("pairCloths");
+  if (!cutsEl || !clothsEl) return;
+  pairCut = HOUSE_CUTS.some((c) => c.style === currentStudioStyle()) ? currentStudioStyle() : "Saideria";
+  cutsEl.innerHTML = HOUSE_CUTS.map((c) => `
+    <button type="button" class="pair-card pair-card--cut" role="radio" data-style="${c.style}" aria-checked="false">
+      <span class="pair-card__media"><img src="${c.img}" alt="" loading="lazy" /></span>
+      ${c.badgeKey ? '<span class="pair-card__tag"></span>' : ""}
+      <b></b>
+      <i class="pair-card__check fa-solid fa-check" aria-hidden="true"></i>
+    </button>`).join("");
+  clothsEl.innerHTML = CLOTHS.map((cl) => `
+    <button type="button" class="pair-card pair-card--cloth" role="radio" data-cloth="${cl.id}" aria-checked="false">
+      <span class="pair-card__media"><img src="${cl.img}" alt="" loading="lazy" /></span>
+      ${cl.discount ? '<span class="pair-card__tag"></span>' : ""}
+      <b></b>
+      <small data-now></small>
+      <i class="pair-card__check fa-solid fa-check" aria-hidden="true"></i>
+    </button>`).join("");
+  cutsEl.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-style]");
+    if (!btn) return;
+    pairCut = btn.dataset.style;
+    const chip = document.querySelector(`#styleStrip .style-chip[data-style="${pairCut}"]`);
+    if (chip && !chip.classList.contains("is-on")) chip.click();
+    paintPair();
+  });
+  clothsEl.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-cloth]");
+    if (btn) setCloth(btn.dataset.cloth);
+  });
+  document.getElementById("pairQtyMinus")?.addEventListener("click", () => setQty(state.qty - 1));
+  document.getElementById("pairQtyPlus")?.addEventListener("click", () => setQty(state.qty + 1));
+  document.getElementById("pairBook")?.addEventListener("click", () => bookHouseCut(pairCut, state.cloth));
+  document.getElementById("styleStrip")?.addEventListener("click", (e) => {
+    const chip = e.target.closest(".style-chip");
+    if (chip && HOUSE_CUTS.some((c) => c.style === chip.dataset.style)) { pairCut = chip.dataset.style; paintPair(); }
+  });
+  paintPair();
+}
 
-  // Rolling 48-hour cycle anchored in localStorage
-  const STORAGE_KEY = "aldorzy_timer_target";
-  let targetTime = parseInt(localStorage.getItem(STORAGE_KEY), 10);
-  const now = Date.now();
 
-  if (!targetTime || targetTime < now) {
-    targetTime = now + (47 * 3600 + 48 * 60 + 35) * 1000;
-    try {
-      localStorage.setItem(STORAGE_KEY, targetTime.toString());
-    } catch (_) {}
+function initBundle() {
+  document.querySelectorAll("[data-bundle-cta]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const tier = btn.dataset.bundleCta;
+      const msg = t("bundle.wa").replace("{o}", t(`bundle.t${tier}.name`));
+      window.open(waLink(msg), "_blank", "noopener");
+    });
+  });
+  const rail = document.getElementById("bundleRail");
+  const dots = document.querySelectorAll("#bundleDots i");
+  if (rail && dots.length) {
+    rail.addEventListener(
+      "scroll",
+      () => {
+        const items = Array.from(rail.children);
+        const mid = rail.getBoundingClientRect().left + rail.clientWidth / 2;
+        let idx = 0;
+        let best = Infinity;
+        items.forEach((el, i) => {
+          const r = el.getBoundingClientRect();
+          const d = Math.abs(r.left + r.width / 2 - mid);
+          if (d < best) { best = d; idx = i; }
+        });
+        dots.forEach((d, i) => d.classList.toggle("is-on", i === idx));
+      },
+      { passive: true }
+    );
   }
+}
 
-  function updateTimer() {
-    const diff = Math.max(0, targetTime - Date.now());
-    const totalSecs = Math.floor(diff / 1000);
-
-    const d = Math.floor(totalSecs / 86400);
-    const h = Math.floor((totalSecs % 86400) / 3600);
-    const m = Math.floor((totalSecs % 3600) / 60);
-    const s = totalSecs % 60;
-
-    if (daysEl) daysEl.textContent = String(d).padStart(2, "0");
-    if (hoursEl) hoursEl.textContent = String(h).padStart(2, "0");
-    if (minsEl) minsEl.textContent = String(m).padStart(2, "0");
-    if (secsEl) secsEl.textContent = String(s).padStart(2, "0");
-    if (cutClock) {
-      const pad = (n) => String(n).padStart(2, "0");
-      const totalH = Math.floor(totalSecs / 3600);
-      cutClock.textContent = `${pad(totalH)}:${pad(m)}:${pad(s)}`;
-    }
-
-    if (diff <= 0) {
-      targetTime = Date.now() + 48 * 3600 * 1000;
-      try {
-        localStorage.setItem(STORAGE_KEY, targetTime.toString());
-      } catch (_) {}
-    }
-  }
-
-  updateTimer();
-  setInterval(updateTimer, 1000);
-
-  // Copy Promo Code on Click
-  if (copyBtn) {
-    copyBtn.addEventListener("click", async () => {
-      const code = copyBtn.dataset.code || "ROYAL15";
-      try {
-        await navigator.clipboard.writeText(code);
-      } catch (_) {
-        const inp = document.createElement("input");
-        inp.value = code;
-        document.body.appendChild(inp);
-        inp.select();
-        document.execCommand("copy");
-        document.body.removeChild(inp);
-      }
-
-      const originalHtml = copyBtn.innerHTML;
-      copyBtn.innerHTML = `<strong>COPIED!</strong> <i class="fa-solid fa-check" style="color: #4ade80;"></i>`;
-      copyBtn.style.borderColor = "var(--gold-hi, #e6ca85)";
-      copyBtn.style.background = "rgba(201, 162, 74, 0.28)";
-
-      setTimeout(() => {
-        copyBtn.innerHTML = originalHtml;
-        copyBtn.style.borderColor = "";
-        copyBtn.style.background = "";
-      }, 2200);
-
-      if (typeof showToast === "function") {
-        showToast("banner.copied");
-      }
+function initMobileShell() {
+  const wa = document.getElementById("mnavWa");
+  if (wa) wa.href = waLink();
+  const book = document.getElementById("mnavBook");
+  if (book) {
+    book.addEventListener("click", () => {
+      if (typeof openApptModal === "function") openApptModal();
+      else document.getElementById("book")?.scrollIntoView({ behavior: "smooth" });
     });
   }
 
-  // CTA Click opens Appointment modal or scrolls to #book
-  if (ctaBtn) {
-    ctaBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (typeof openApptModal === "function") {
-        openApptModal();
-      } else {
-        const bookSec = document.getElementById("book");
-        if (bookSec) {
-          bookSec.scrollIntoView({ behavior: "smooth" });
-        }
+  const items = Array.from(document.querySelectorAll("[data-mnav]"));
+  const setOn = (id) => items.forEach((i) => i.classList.toggle("is-on", i.dataset.mnav === id));
+  const ids = ["top", "houseCuts", "bundle", "book"];
+  const targets = ids.map((id) => (id === "top" ? document.getElementById("hero") : document.getElementById(id))).filter(Boolean);
+  if ("IntersectionObserver" in window && targets.length) {
+    const seen = new Map();
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => seen.set(e.target, e.isIntersecting ? e.intersectionRatio : 0));
+        let best = null;
+        let bestR = 0;
+        seen.forEach((r, el) => {
+          if (r > bestR) {
+            bestR = r;
+            best = el;
+          }
+        });
+        if (best) setOn(best.id === "hero" ? "top" : best.id);
+      },
+      { threshold: [0, 0.15, 0.35, 0.6] }
+    );
+    targets.forEach((t) => io.observe(t));
+  }
+
+  // Sticky price / checkout bar while the configurator is on screen
+  const bar = document.getElementById("mbar");
+  const quick = document.getElementById("quick");
+  const deck = document.querySelector(".quick__cta-deck");
+  if (bar && quick && "IntersectionObserver" in window) {
+    let quickOn = false;
+    let deckOn = false;
+    const sync = () => {
+      const show = quickOn && !deckOn;
+      bar.classList.toggle("is-on", show);
+      document.body.classList.toggle("has-mbar", show);
+    };
+    new IntersectionObserver((e) => { quickOn = e[0].isIntersecting; sync(); }, { threshold: 0.05 }).observe(quick);
+    if (deck) new IntersectionObserver((e) => { deckOn = e[0].isIntersecting; sync(); }, { threshold: 0.6 }).observe(deck);
+  }
+  const cta = document.getElementById("mbarCta");
+  if (cta) {
+    cta.addEventListener("click", () => {
+      const form = document.getElementById("quickForm");
+      if (!form) return;
+      const empty = Array.from(form.querySelectorAll("[required]")).find((f) => !String(f.value || "").trim());
+      if (empty) {
+        empty.scrollIntoView({ behavior: "smooth", block: "center" });
+        window.setTimeout(() => empty.focus({ preventScroll: true }), 350);
+        return;
       }
+      if (typeof form.requestSubmit === "function") form.requestSubmit();
+      else form.dispatchEvent(new Event("submit", { cancelable: true }));
     });
   }
+}
+
+// Royal billboard ad: curtain reveal → 4 scenes → curtain close → loop
+function paintRoyalAd() {
+  const feat = document.getElementById("adFeatured");
+  if (feat) {
+    const best = [...CLOTHS].sort((a, b) => (b.discount || 0) - (a.discount || 0))[0];
+    if (best) feat.textContent = `${clothName(best.id)} · ${money(getDiscountedPrice(best))}`;
+  }
+  const wa = document.getElementById("adWa");
+  if (wa) wa.href = waLink(t("ad.wa"));
+}
+
+function initRoyalAd() {
+  const ad = document.getElementById("royalAd");
+  if (!ad) return;
+  const scenes = Array.from(ad.querySelectorAll(".ad-scene"));
+  const dots = Array.from(ad.querySelectorAll(".ad-dots i"));
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  paintRoyalAd();
+  document.getElementById("adBook")?.addEventListener("click", () => {
+    if (typeof openApptModal === "function") openApptModal();
+    else document.getElementById("book")?.scrollIntoView({ behavior: "smooth" });
+  });
+  document.getElementById("adWa")?.addEventListener("click", () => paintRoyalAd());
+
+  // [phase, duration ms]; scene phases are 1..4
+  const TIMELINE = reduce
+    ? [[1, 6000], [2, 5000], [3, 5000], [4, 7000]]
+    : [["closed", 1300], ["opening", 1500], [1, 5200], [2, 4200], [3, 4400], [4, 5200], ["closing", 1500]];
+  let step = 0;
+  let timer = null;
+  let visible = false;
+  let hover = false;
+
+  const apply = () => {
+    const [phase] = TIMELINE[step];
+    const scene = typeof phase === "number" ? phase : phase === "opening" ? 1 : phase === "closing" ? 4 : 0;
+    ad.classList.toggle("is-closed", phase === "closed" || phase === "closing");
+    ad.classList.toggle("is-opening", phase === "opening");
+    ad.dataset.phase = String(phase);
+    scenes.forEach((s, i) => {
+      const on = i + 1 === scene && phase !== "closing";
+      s.classList.toggle("is-on", on && phase !== "opening");
+      s.classList.toggle("is-peek", on && phase === "opening");
+      s.setAttribute("aria-hidden", String(!(on || (phase === "closing" && i === 3))));
+    });
+    dots.forEach((d, i) => d.classList.toggle("is-on", i + 1 === scene));
+  };
+  const schedule = () => {
+    clearTimeout(timer);
+    if (!visible || hover || document.hidden) return;
+    timer = setTimeout(() => {
+      step = (step + 1) % TIMELINE.length;
+      apply();
+      schedule();
+    }, TIMELINE[step][1]);
+  };
+  apply();
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver((e) => {
+      const wasVisible = visible;
+      visible = e[0].isIntersecting;
+      ad.classList.toggle("is-paused", !visible);
+      // Restart the ad from the closed curtain each time it scrolls into view
+      if (visible && !wasVisible && !reduce) {
+        step = 0;
+        apply();
+      }
+      schedule();
+    }, { threshold: 0.25 }).observe(ad);
+  } else {
+    visible = true;
+    schedule();
+  }
+  document.addEventListener("visibilitychange", schedule);
+  // Hold the CTA scene while the user is interacting with it
+  ad.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse" && ad.dataset.phase === "4") { hover = true; clearTimeout(timer); } });
+  ad.addEventListener("pointerleave", () => { if (hover) { hover = false; schedule(); } });
+  ad.addEventListener("focusin", () => { hover = true; clearTimeout(timer); if (TIMELINE[step][0] !== 4) { step = TIMELINE.findIndex((x) => x[0] === 4); apply(); } });
+  ad.addEventListener("focusout", () => { hover = false; schedule(); });
 }
 
 function initApp() {
@@ -3119,7 +2987,9 @@ function initApp() {
   reveal();
   initJourneyStory();
   initHouseCuts();
-  initGalleryTimer();
+  initBundle();
+  initMobileShell();
+  initRoyalAd();
 }
 
 if (document.readyState === "loading") {

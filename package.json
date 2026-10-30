@@ -6,9 +6,16 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 5173",
     "build": "vite build",
-    "preview": "vite preview --host 0.0.0.0 --port 5173"
+    "preview": "vite preview --host 0.0.0.0 --port 5173",
+    "test": "node --test tests/booking.test.mjs"
   },
   "devDependencies": {
     "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "jspdf": "^4.2.1"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }

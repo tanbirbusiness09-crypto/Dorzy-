@@ -1,0 +1,46 @@
+/* ==========================================================================
+   Brand: Namaa Al Qimmah round logo only (no wordmark next to it).
+   ========================================================================== */
+.nav__logo-img,
+.foot__logo-img,
+.drawer__logo,
+.visit-brand img,
+.ad-crest,
+.ad-seal img {
+  aspect-ratio: 1 / 1;
+  width: auto;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.nav__brand { gap: 0; flex: 0 0 auto; }
+.nav__logo-img {
+  height: 52px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
+}
+.nav__brand:hover .nav__logo-img { filter: drop-shadow(0 4px 14px rgba(30, 58, 138, 0.55)); }
+:root[data-theme="light"] .nav__logo-img,
+:root[data-theme="light"] .nav__brand:hover .nav__logo-img { filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.18)); }
+
+.foot__logo-img { height: 64px; filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4)); }
+.foot__brand-row:hover .foot__logo-img { filter: drop-shadow(0 4px 14px rgba(30, 58, 138, 0.5)); }
+:root[data-theme="light"] .foot__logo-img { filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.16)); }
+
+.drawer__logo { display: none; }
+
+#apptModal .visit-brand img { width: 56px; height: 56px; }
+
+.ad-crest { height: 64px; filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.55)); }
+.ad-seal { padding: 12px; gap: 0; }
+.ad-seal img { height: 64px; }
+
+@media (max-width: 1100px) { .nav__logo-img { height: 48px; } }
+
+@media (max-width: 760px) {
+  .nav__logo-img { height: 40px; }
+  .nav__brand { min-height: 44px; display: inline-flex; align-items: center; }
+  .drawer.is-on .drawer__logo { display: block; height: 48px; margin: 4px auto 10px; }
+  .foot__logo-img { height: 56px; }
+  .ad-crest { height: 48px; }
+  #apptModal .visit-brand img { width: 44px; height: 44px; }
+}

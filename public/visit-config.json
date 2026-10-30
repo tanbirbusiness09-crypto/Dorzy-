@@ -1,0 +1,19 @@
+{
+  "shop": {
+    "latitude": 24.7220887,
+    "longitude": 46.6722026
+  },
+  "locationEndpoint": "/api/visit-location",
+  "routingBaseUrl": "https://router.project-osrm.org/route/v1/driving",
+  "ratesConfirmed": true,
+  "distanceBands": [
+    {
+      "upToKm": 10,
+      "fee": 0
+    }
+  ],
+  "shopAddress": "Metro Station, 6942 Prince Sultan Bin Salman Bin Abdulaziz St, Al Wurud, RHWA2519, 2519, Riyadh 12251",
+  "shopMapsUrl": "https://maps.app.goo.gl/zotLveg3x15UFKif7",
+  "reverseGeocodingUrl": "https://photon.komoot.io/reverse",
+  "whatsappNumber": "966573798213"
+}

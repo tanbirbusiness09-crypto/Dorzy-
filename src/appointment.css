@@ -1,0 +1,250 @@
+/* Selected booking design: ivory gallery, wide banner, compact appointment form. */
+#apptModal { --paper:#1c2421; --gold:#b88a2e; --line:#e6dcc6; color:#1c2421; padding:24px; }
+#apptModal .appt-modal__dialog { width:min(96vw,1800px); max-width:1800px; min-height:0; max-height:calc(100dvh - 48px); overflow:auto; padding:20px 24px 26px; display:block; background:#faf7ef; border:1px solid #e5d9bb; outline:none; border-radius:26px; }
+#apptModal .appt-form { height:auto; }
+#apptModal [hidden] { display:none!important; }
+#apptModal .appt-modal__close { top:30px; right:34px; background:#faf7ef; color:#1c2421; width:38px; height:38px; }
+.visit-banner { height:146px; border-radius:15px; background:#08271a url('/images/appointment-banner.png') center/cover; display:flex; align-items:center; gap:38px; padding:24px 42px; color:#f7f0dc; }
+.visit-brand { display:flex; gap:20px; align-items:center; border-inline-end:1px solid #9e824a; padding-inline-end:38px; flex-shrink:0; }
+.visit-brand img { width:40px; height:76px; object-fit:contain; }
+.visit-brand span { font:500 20px 'Outfit',sans-serif; letter-spacing:5px; color:#dfbd6d; }
+.visit-brand small { display:block; font-size:10px; letter-spacing:4px; margin-top:8px; }
+.visit-banner-copy p { font:600 clamp(24px,2.7vw,43px)/1.12 'Cormorant Garamond',serif; margin:0 0 9px; }
+.visit-banner-copy>span { font-size:14px; letter-spacing:3px; color:#e4c987; }
+#apptModal .appt-grid { grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); gap:clamp(60px,10vw,180px); height:auto; padding:26px 14px 0; }
+#apptModal .appt-panel { min-width:0; padding:0; border:0; }
+#apptModal .appt-panel--service { display:block; }
+#apptModal h2,#apptModal .appt-panel--schedule h3 { font:600 36px/1.1 'Cormorant Garamond',serif; letter-spacing:-.5px; color:#18221e; margin:0 0 8px; text-transform:none; }
+#apptModal .visit-label, #apptModal legend, #apptModal .appt-field>label { font:500 12px/1.3 'Outfit','IBM Plex Sans Arabic',sans-serif; letter-spacing:.6px; text-transform:uppercase; color:#424943; }
+#apptModal .visit-label { margin:0 0 14px; }
+#apptModal .appt-promo-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin:0 0 22px; }
+#apptModal .appt-promo-card { display:block; padding:0; border:1px solid #e7dfce; background:#fff; border-radius:13px; overflow:hidden; box-shadow:none; text-align:start; transform:none; color:#1c2421; }
+#apptModal .appt-promo-card.is-selected { border-color:#b88a2e; background:#fffdf6; box-shadow:0 0 0 1px #b88a2e; }
+#apptModal .appt-promo-card__thumb { width:100%; height:clamp(145px,14vw,245px); border:0; border-radius:0; display:block; box-shadow:none; }
+#apptModal .appt-promo-card__badge { top:13px; left:13px; bottom:auto; right:auto; background:#e9c975; border-radius:20px; font:600 11px 'Outfit',sans-serif; padding:6px 10px; color:#201c11; }
+#apptModal .appt-promo-card__badge:empty { display:none; }
+.visit-radio { position:absolute; right:14px; top:14px; width:20px; height:20px; border:1px solid #c6ab6b; border-radius:50%; background:#fff; }
+.is-selected .visit-radio { background:#c49b42; box-shadow:inset 0 0 0 3px #fff; }
+#apptModal .appt-promo-card__meta { display:block; padding:12px 13px 14px; }
+#apptModal .appt-promo-card__name { display:block; font:500 14px/1.3 'Outfit',sans-serif; white-space:normal; color:#1c2421; margin-bottom:10px; }
+#apptModal .appt-promo-card__pricing { display:flex; align-items:center; justify-content:space-between; gap:5px; flex-wrap:wrap; font:400 12px 'Outfit',sans-serif; }
+#apptModal del { color:#8b8d87; font-size:12px; }
+#apptModal .appt-promo-card__pricing strong { font:600 20px 'Outfit',sans-serif; color:#ae8127; }
+.visit-options { border:0; padding:0; margin:0 0 13px; min-width:0; }
+.visit-options legend { padding:0; margin-bottom:7px; }
+.visit-choice-row { display:flex; gap:12px; }
+#apptModal .visit-choice { display:flex; flex:1; justify-content:center; align-items:center; position:relative; min-height:42px; margin:0; padding:9px 8px; border:1px solid #e3d8bf; border-radius:10px; background:#fffdfa; box-shadow:none; cursor:pointer; font:500 13px 'Outfit','IBM Plex Sans Arabic',sans-serif; color:#1c2421; text-align:center; }
+.visit-choice input { position:absolute; opacity:0; width:1px; height:1px; }
+#apptModal .visit-choice:has(input:checked) { border-color:#b88a2e; background:#f6efdf; }
+#apptModal :is(button,input,select):focus-visible, .visit-choice:has(input:focus-visible) { outline:2px solid #ad8127; outline-offset:3px; }
+#apptModal .appt-row { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:0; width:100%; }
+#apptModal .appt-field { display:flex; flex-direction:column; gap:7px; min-width:0; margin:0; }
+#apptModal .appt-field input,#apptModal .appt-field select { width:100%; min-width:0; height:46px; border:1px solid #e5d9c1; border-radius:10px; background:#fff; color:#222b26; padding:0 14px; font:400 14px 'Outfit','IBM Plex Sans Arabic',sans-serif; box-shadow:none; color-scheme:light; }
+#apptModal .appt-field.is-error :is(input,select) { border-color:#b94040; }
+#apptModal .visit-summary { margin-top:16px; border-top:1px solid #e7ddc7; padding-top:10px; }
+.visit-summary>div { display:flex; align-items:center; gap:12px; margin-top:8px; font:500 14px 'Outfit',sans-serif; }
+.visit-summary img { width:42px; height:42px; object-fit:cover; border-radius:8px; }
+#apptSummaryOriginalPrice { margin-inline-start:auto; }
+#apptSummaryFabricPrice { color:#ac7e22; font-size:20px; }
+#apptServiceQuote { display:block; font-size:13px; color:#6d7169; margin-top:8px; }
+#apptModal .appt-panel--schedule { display:flex; flex-direction:column; gap:24px; border-inline-start:1px solid #e8dec9; padding-inline-start:46px; }
+#apptModal .appt-panel--schedule h3 { padding-bottom:14px; border-bottom:1px solid #e8dec9; margin:0; }
+#apptModal .appt-qty { width:155px; height:44px; padding:0; border:1px solid #e5d9c1; background:#fff; color:#222b26; box-shadow:none; border-radius:10px; }
+#apptModal .appt-qty button { color:#222b26; background:none; }
+#apptModal .appt-qty strong { color:#ae8127; }
+#apptModal .appt-submit-btn { margin-top:auto; min-height:56px; height:auto; padding:14px; background:#c99f43; color:#191a12; border:1px solid #c99f43; border-radius:11px; font:500 17px 'Outfit','IBM Plex Sans Arabic',sans-serif; letter-spacing:0; text-transform:none; box-shadow:0 3px 8px #55441c1a; }
+#apptModal .appt-success { color:#222b26; }
+@media(min-width:1400px) and (max-height:900px) { .visit-banner { height:120px; } #apptModal .appt-promo-card__thumb { height:170px; } #apptModal .appt-panel--schedule { gap:17px; } }
+@media(max-width:1100px) { #apptModal .appt-grid { gap:40px; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); } #apptModal .appt-panel--schedule { padding-inline-start:25px; gap:18px; } .visit-banner { padding:20px 25px; gap:25px; } .visit-brand { padding-inline-end:25px; } .visit-brand span { font-size:15px; letter-spacing:3px; } .visit-banner-copy>span { font-size:12px; letter-spacing:1px; } #apptModal .appt-promo-card__meta { padding:10px; } }
+@media(max-width:760px) { #apptModal { padding:10px; } #apptModal .appt-modal__dialog { width:100%; max-height:calc(100dvh - 20px); padding:12px; border-radius:18px; } .visit-banner { height:180px; padding:18px 22px; align-items:flex-start; flex-direction:column; gap:14px; } .visit-brand { border:0; padding:0; gap:10px; } .visit-brand img { width:20px; height:37px; } .visit-brand span { font-size:13px; } .visit-brand small { font-size:8px; margin-top:3px; } .visit-banner-copy p { font-size:28px; max-width:280px; } #apptModal .appt-modal__close { top:24px; right:24px; } #apptModal .appt-grid { grid-template-columns:1fr; gap:30px; padding:22px 4px 4px; } #apptModal .appt-panel--schedule { border:0; border-top:1px solid #e8dec9; padding:24px 0 0; } #apptModal h2,#apptModal .appt-panel--schedule h3 { font-size:30px; } #apptModal .appt-promo-grid { gap:8px; } #apptModal .appt-promo-card__thumb { height:130px; } #apptModal .appt-promo-card__name { font-size:12px; min-height:32px; } #apptModal .appt-promo-card__pricing strong { font-size:16px; } #apptModal .appt-promo-card__badge { font-size:9px; left:7px; top:8px; padding:4px 7px; } .visit-radio { right:7px; top:8px; width:15px; height:15px; } #apptModal .visit-choice { font-size:12px; padding:8px 4px; } .visit-choice-row { gap:7px; } #apptModal .appt-row { gap:12px; } }
+/* Keep banner copy on the green field, including narrower desktop widths. */
+.visit-banner-copy { max-width:62%; }
+.visit-banner-copy p { font-size:clamp(23px,2.3vw,42px); }
+@media(min-width:761px) and (max-height:800px) {
+  .visit-banner { height:100px; padding:15px 28px; gap:24px; }
+  .visit-brand { padding-inline-end:24px; gap:14px; }
+  .visit-brand img { height:57px; width:30px; }
+  .visit-brand span { font-size:16px; letter-spacing:3px; }
+  #apptModal .appt-grid { padding-top:18px; }
+  #apptModal .appt-promo-card__thumb { height:120px; }
+  #apptModal .appt-promo-card__meta { padding:9px 10px; }
+  #apptModal .appt-promo-card__name { margin-bottom:5px; font-size:13px; }
+  #apptModal .appt-promo-grid { margin-bottom:14px; }
+  #apptModal .appt-panel--schedule { gap:15px; }
+  #apptModal .visit-options { margin-bottom:10px; }
+  #apptModal .visit-choice { min-height:36px; }
+  #apptModal .appt-field input,#apptModal .appt-field select { height:40px; }
+  #apptModal .visit-summary { margin-top:10px; padding-top:8px; }
+  #apptModal .visit-summary img { width:32px; height:32px; }
+  #apptModal .appt-qty { height:38px; }
+  #apptModal .appt-submit-btn { min-height:48px; font-size:15px; }
+}
+@media(min-width:761px) {
+  #apptModal .appt-promo-card__thumb { height:clamp(120px,11.8vw,200px); }
+  #apptModal .appt-promo-card__meta { padding:10px 12px; }
+  #apptModal .appt-promo-card__name { margin-bottom:6px; }
+  #apptModal .visit-summary .visit-label { margin:0; }
+  #apptModal .visit-summary img { width:34px; height:34px; }
+  #apptModal .visit-summary { padding-top:7px; margin-top:12px; }
+}
+@media(max-width:760px) {
+  .visit-banner { height:205px; background-position:left center; }
+  .visit-banner-copy { max-width:100%; }
+  .visit-banner-copy p { font-size:27px; max-width:250px; }
+  .visit-banner-copy>span { display:block; max-width:245px; font-size:11px; letter-spacing:.6px; }
+}
+
+@media(min-width:761px) { #apptModal .appt-modal__dialog { padding-bottom:10px; } }
+/* Compact two-column booking flow. Keep controls readable and accessible. */
+#apptModal { padding:18px; }
+#apptModal .appt-modal__dialog { width:min(94vw,1220px); max-width:1220px; padding:16px 20px; border-radius:22px; max-height:calc(100dvh - 36px); }
+.visit-banner { height:80px; padding:12px 24px; gap:24px; border-radius:12px; }
+.visit-brand { padding-inline-end:24px; gap:12px; }
+.visit-brand img { height:48px; width:25px; }
+.visit-brand span { font-size:14px; letter-spacing:3px; }
+.visit-brand small { font-size:8px; letter-spacing:2.5px; margin-top:5px; }
+.visit-banner-copy { max-width:65%; }
+.visit-banner-copy p { font-size:27px; margin-bottom:5px; }
+.visit-banner-copy>span { font-size:11px; letter-spacing:1.6px; }
+#apptModal .appt-modal__close { top:26px; right:30px; width:30px; height:30px; font-size:13px; }
+#apptModal .appt-grid { grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:50px; padding:20px 8px 0; align-items:start; }
+#apptModal h2,#apptModal .appt-panel--schedule h3 { font-size:29px; margin-bottom:5px; }
+#apptModal .visit-label { font-size:11px; margin-bottom:10px; }
+#apptModal .appt-promo-grid { gap:10px; margin-bottom:14px; }
+#apptModal .appt-promo-card__thumb { height:112px; }
+#apptModal .appt-promo-card__meta { padding:9px; }
+#apptModal .appt-promo-card__name { font-size:12px; margin-bottom:6px; min-height:31px; }
+#apptModal .appt-promo-card__pricing { gap:3px; }
+#apptModal .appt-promo-card__pricing strong { font-size:17px; }
+#apptModal .appt-promo-card__badge { font-size:9px; padding:4px 7px; top:8px; left:8px; }
+.visit-radio { width:15px; height:15px; right:8px; top:8px; }
+#apptModal legend,#apptModal .appt-field>label { font-size:11px; letter-spacing:.4px; }
+#apptModal .visit-options { margin-bottom:11px; }
+.visit-options legend { margin-bottom:6px; }
+#apptModal .visit-choice { min-height:36px; font-size:12px; padding:7px; border-radius:8px; }
+.visit-choice-row { gap:8px; }
+#apptModal .appt-row { gap:12px; }
+#apptModal .appt-field { gap:5px; }
+#apptModal .appt-field input,#apptModal .appt-field select { height:39px; padding:0 11px; font-size:13px; border-radius:8px; }
+#apptModal .appt-panel--service>.appt-field { margin:10px 0; }
+#apptModal .appt-qty { height:36px; width:132px; }
+#apptModal .visit-summary { margin-top:12px; padding-top:8px; }
+#apptModal .visit-summary>div { margin-top:6px; font-size:12px; }
+#apptModal .visit-summary img { width:30px; height:30px; }
+#apptModal #apptSummaryFabricPrice { font-size:17px; }
+#apptModal #apptServiceQuote { font-size:12px; margin:4px 0 0; }
+#apptModal .appt-panel--schedule { gap:12px; padding-inline-start:30px; }
+#apptModal .appt-panel--schedule h3 { padding-bottom:10px; margin:0; }
+.visit-address-group { display:grid; gap:6px; }
+.visit-location-head { display:flex; justify-content:space-between; align-items:center; gap:8px; font-size:12px; font-weight:500; }
+#apptLocateBtn { display:inline-flex; align-items:center; gap:6px; min-height:32px; padding:5px 10px; border:1px solid #d6bd86; border-radius:7px; background:#f8f0df; color:#72541e; font:500 12px 'Outfit','IBM Plex Sans Arabic',sans-serif; cursor:pointer; }
+#apptLocateBtn:disabled { opacity:.6; cursor:wait; }
+#apptLocationStatus { margin:0 0 3px; min-height:16px; font-size:11px; line-height:1.4; color:#74776f; }
+.visit-price-breakdown { border-top:1px solid #e3dac8; padding-top:9px; display:grid; gap:6px; font-size:12px; }
+.visit-price-breakdown>div { display:flex; justify-content:space-between; gap:12px; }
+.visit-price-breakdown strong { font-weight:500; text-align:end; }
+.visit-price-breakdown .visit-total { border-top:1px solid #e8dfce; margin-top:2px; padding-top:7px; font-size:16px; }
+.visit-price-breakdown .visit-total strong { color:#a47621; }
+#apptPriceNote { font-size:10px; color:#74776f; line-height:1.4; }
+#apptModal .appt-submit-btn { margin:0; min-height:44px; padding:10px; font-size:15px; border-radius:9px; }
+#apptModal .appt-submit-btn:disabled { opacity:.6; cursor:wait; }
+#apptModal .field__err { font-size:10px; margin:0; }
+#apptModal .visit-request input { height:36px; }
+@media(min-width:1000px) and (min-height:700px) { #apptModal .appt-modal__dialog { overflow:hidden; } }
+@media(max-width:999px) and (min-width:761px) { #apptModal .appt-grid { gap:24px; padding-inline:0; } #apptModal .appt-panel--schedule { padding-inline-start:20px; } .visit-banner-copy p { font-size:23px; } #apptModal .appt-promo-card__pricing strong { font-size:15px; } }
+@media(max-width:760px) {
+  #apptModal { padding:10px; }
+  #apptModal .appt-modal__dialog { width:100%; max-height:calc(100dvh - 20px); padding:12px; overflow:auto; }
+  .visit-banner { height:130px; gap:8px; padding:14px 17px; }
+  .visit-brand img { height:30px; width:17px; }
+  .visit-brand span { font-size:11px; }
+  .visit-brand small { font-size:7px; margin-top:2px; }
+  .visit-banner-copy { max-width:100%; }
+  .visit-banner-copy p { font-size:24px; max-width:260px; }
+  .visit-banner-copy>span { font-size:10px; letter-spacing:.5px; }
+  #apptModal .appt-grid { grid-template-columns:1fr; gap:20px; padding:18px 3px 0; }
+  #apptModal .appt-panel--schedule { padding:18px 0 0; border-inline-start:0; border-top:1px solid #e8dec9; }
+  #apptModal .appt-promo-card__thumb { height:104px; }
+  #apptModal .appt-promo-card__name { font-size:11px; }
+  #apptModal .appt-promo-card__pricing strong { font-size:15px; }
+  #apptModal .visit-choice { font-size:11px; }
+  #apptModal .appt-modal__close { top:22px; right:22px; }
+  #apptModal .appt-field input,#apptModal .appt-field select { height:44px; font-size:14px; }
+  #apptModal .appt-submit-btn { min-height:48px; }
+}
+
+@media(min-width:1000px) and (min-height:700px) {
+  #apptModal .appt-panel--schedule { gap:9px; }
+  #apptModal .appt-grid { padding-top:16px; }
+  #apptModal .visit-summary { margin-top:9px; }
+}
+@media(min-width:1000px) and (min-height:700px) {
+  .visit-banner { height:64px; padding-block:8px; }
+  .visit-brand img { height:40px; }
+  .visit-banner-copy p { font-size:25px; }
+  #apptModal .appt-panel--schedule { gap:13px; }
+  #apptModal .appt-field { position:relative; }
+  #apptModal .appt-field .field__err { position:absolute; top:100%; left:0; line-height:11px; font-size:9px; }
+  #apptModal .visit-summary:has(#apptSummaryThumb[hidden]) { display:none; }
+}
+#apptRateNote { color:#81704c; font-size:11px; }
+@media(min-width:1000px) and (min-height:700px) {
+  .visit-banner { height:60px; }
+  #apptModal .appt-panel--schedule { gap:11px; }
+  #apptLocationStatus { min-height:29px; }
+}
+@media(max-width:760px) {
+  .visit-banner { background-color:#35543d; background-blend-mode:multiply; }
+  .visit-banner-copy p { font-size:22px; }
+}
+#apptModal:dir(rtl) .appt-modal__close { left:30px; right:auto; }
+/* Location discovery and WhatsApp handoff */
+#apptModal .visit-address-group { gap:6px; }
+#apptManualBtn { border:0; background:none; color:#8b672b; text-decoration:underline; text-underline-offset:3px; font:400 11px 'Outfit',sans-serif; cursor:pointer; padding:4px 0; }
+#apptModal #apptLocateBtn.location-discover { width:100%; min-height:62px; padding:10px 15px; display:flex; gap:13px; border:1px solid #d8c394; background:#f5efdf; border-radius:12px; color:#58421e; transition:background .2s,border-color .2s,transform .2s; text-align:start; }
+#apptLocateBtn.location-discover:hover { background:#eee3c7; border-color:#b18a40; transform:translateY(-1px); }
+.location-target { display:grid; place-items:center; flex-shrink:0; width:34px; height:34px; border:1px solid #c3a45e; border-radius:50%; font-size:18px; animation:locationInvite 3s ease-in-out infinite; }
+.location-button-copy { flex:1; display:flex; flex-direction:column; gap:4px; }
+.location-button-copy strong { font:500 14px 'Outfit','IBM Plex Sans Arabic',sans-serif; }
+.location-button-copy small { font-size:11px; color:#8a7955; }
+.location-arrow { font-size:11px; }
+#apptLocationStatus { font-size:10px; min-height:0; line-height:1.4; margin:1px 0; }
+#apptLocationArea:is([data-state="locating"],[data-state="resolving"]) .location-target { animation:locationScan 1.5s linear infinite; }
+#apptLocationArea:is([data-state="locating"],[data-state="resolving"]) .location-arrow { animation:locationScan 1.2s linear infinite; }
+#apptLocationArea:is([data-state="ready"],[data-state="partial"],[data-state="manual"]) #apptLocateBtn { min-height:32px; padding:5px 10px; border-radius:8px; }
+#apptLocationArea:is([data-state="ready"],[data-state="partial"],[data-state="manual"]) .location-target { width:22px; height:22px; font-size:12px; animation:none; }
+#apptLocationArea:is([data-state="ready"],[data-state="partial"],[data-state="manual"]) .location-button-copy small { display:none; }
+#apptLocationArea:is([data-state="ready"],[data-state="partial"],[data-state="manual"]) .location-button-copy strong { font-size:12px; }
+#apptAddressDetails { display:grid; gap:10px; margin-top:4px; }
+.location-result { border:1px solid #d5dfd0; border-radius:9px; padding:9px 11px; background:#f2f6ed; }
+.location-result>div { display:flex; align-items:center; gap:7px; font-size:12px; color:#325d3a; }
+.location-result>div>strong { font-weight:500; }
+#apptResolvedDistance { margin-inline-start:auto; white-space:nowrap; font-size:11px; font-weight:500; }
+.location-result p { margin:5px 0 0; color:#5c685a; font-size:11px; line-height:1.4; overflow-wrap:anywhere; }
+.location-attribution { color:#8f9489; font-size:9px; text-decoration:none; }
+#apptModal .visit-note label { display:flex; justify-content:space-between; }
+.visit-note label small { font-size:10px; text-transform:none; color:#999b90; font-weight:400; }
+#apptModal .visit-note textarea { resize:vertical; width:100%; min-height:48px; max-height:90px; border:1px solid #e2d7bf; border-radius:9px; padding:9px 11px; background:#fff; color:#26352a; font:400 12px/1.4 'Outfit','IBM Plex Sans Arabic',sans-serif; }
+#apptModal .appt-submit-btn { display:flex; align-items:center; justify-content:center; gap:9px; background:#226744; border-color:#226744; color:#fff; }
+#apptModal .appt-submit-btn:hover { background:#174d31; }
+#apptModal .appt-submit-btn>i { font-size:20px; }
+.visit-pdf-status { max-width:650px; margin:16px auto; font-size:13px; line-height:1.6; color:#626b60; text-align:center; }
+#apptModal .appt-success__actions { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
+#apptModal .appt-success__actions .btn { width:auto; flex:0 1 auto; min-width:160px; }
+#apptModal .appt-success__actions .btn--ghost { border:1px solid #c8ba98; color:#526246; }
+#apptModal .appt-success__actions .btn:disabled { opacity:.45; cursor:wait; }
+#apptModal .appt-modal__dialog:has(#apptAddressDetails:not([hidden])) { overflow:auto; }
+@keyframes locationInvite { 0%,100% { box-shadow:0 0 0 0 #bd9b4d00; } 50% { box-shadow:0 0 0 7px #bd9b4d14; } }
+@keyframes locationScan { from { transform:rotate(0); } to { transform:rotate(360deg); } }
+@media(prefers-reduced-motion:reduce) { #apptModal *,#apptModal *::before,#apptModal *::after { animation:none!important; transition:none!important; } }
+@media(min-width:1000px) and (min-height:700px) {
+ #apptModal .appt-panel--schedule { gap:9px; }
+ #apptModal .location-result p { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+}
+@media(max-width:760px) { #apptModal .visit-note textarea { min-height:64px; font-size:14px; } #apptModal #apptLocateBtn.location-discover { min-height:65px; } .location-result p { font-size:12px; } #apptModal .appt-success__actions .btn { width:100%; flex-basis:100%; } }
+#apptLocationArea { position:relative; }
+#apptLocationArea:has(#apptLocationResult:not([hidden])) #apptLocateBtn { position:absolute; top:-3px; inset-inline-end:83px; width:auto; min-height:24px; padding:2px 5px; border:0; background:none; }
+#apptLocationArea:has(#apptLocationResult:not([hidden])) .location-target,#apptLocationArea:has(#apptLocationResult:not([hidden])) .location-arrow { display:none; }
+#apptLocationArea:has(#apptLocationResult:not([hidden])) .location-button-copy strong { font-size:11px; color:#8b672b; }
+#apptLocationArea[data-state="ready"] #apptLocationStatus { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+@media(min-width:1000px) and (min-height:700px) { #apptModal .visit-note textarea { min-height:42px; } }
