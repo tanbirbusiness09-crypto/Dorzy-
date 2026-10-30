@@ -2753,6 +2753,39 @@ function watchPairForFab() {
   }, { threshold: 0.15 }).observe(preview);
 }
 
+// Mobile: hero fabric cards become a snap carousel — dots + brand-tab jump.
+function initQuickCarousel() {
+  const rail = document.getElementById("quickTags");
+  if (!rail) return;
+  const mq = window.matchMedia("(max-width: 760px)");
+  const dots = document.createElement("div");
+  dots.className = "quick__dots";
+  dots.setAttribute("aria-hidden", "true");
+  rail.after(dots);
+  const cards = () => Array.from(rail.querySelectorAll(".swatch-tag"));
+  const paintDots = () => {
+    const list = cards();
+    if (dots.childElementCount !== list.length) dots.innerHTML = list.map(() => "<i></i>").join("");
+    const x = Math.abs(rail.scrollLeft);
+    const step = list[1] ? Math.abs(list[1].offsetLeft - list[0].offsetLeft) : 1;
+    const max = rail.scrollWidth - rail.clientWidth;
+    const idx = x >= max - 4 ? list.length - 1 : Math.round(x / (step || 1));
+    Array.from(dots.children).forEach((d, i) => d.classList.toggle("is-on", i === idx));
+  };
+  let raf = 0;
+  rail.addEventListener("scroll", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(paintDots); }, { passive: true });
+  new MutationObserver(() => requestAnimationFrame(paintDots)).observe(rail, { childList: true });
+  els.brandTabs?.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-brand]");
+    if (!btn) return;
+    requestAnimationFrame(() => {
+      const first = rail.querySelector(`.swatch-tag[data-brand="${btn.dataset.brand}"]`);
+      first?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+    });
+  });
+  paintDots();
+}
+
 function initHouseCuts() {
   watchPairForFab();
   const cutsEl = document.getElementById("pairCuts");
@@ -2987,6 +3020,7 @@ function initApp() {
   reveal();
   initJourneyStory();
   initHouseCuts();
+  initQuickCarousel();
   initBundle();
   initMobileShell();
   initRoyalAd();
